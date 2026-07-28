@@ -1,0 +1,581 @@
+{% doc %}
+  @prompt
+    create a search bar with a magnifying glass icoon aat the right.There should be a smll cross inside the bar to clear the typed text.
+    
+    the search option should be able to scan through products, pages, and blog for a match
+    
+    , dont stretch the bar across the page width. keep it in the center of the page , keep only one cross inside the search bar
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-search-bar-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: {{ block.settings.padding }}px;
+  }
+
+  .ai-search-container-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: {{ block.settings.max_width }}px;
+    position: relative;
+  }
+
+  .ai-search-form-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .ai-search-input-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .ai-search-input-{{ ai_gen_id }} {
+    width: 100%;
+    padding: {{ block.settings.input_padding }}px;
+    padding-right: 90px;
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    background-color: {{ block.settings.input_background }};
+    color: {{ block.settings.input_text_color }};
+    font-size: {{ block.settings.font_size }}px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .ai-search-input-{{ ai_gen_id }}::placeholder {
+    color: {{ block.settings.placeholder_color }};
+  }
+
+  .ai-search-input-{{ ai_gen_id }}:focus {
+    border-color: {{ block.settings.border_focus_color }};
+  }
+
+  .ai-search-input-{{ ai_gen_id }}::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .ai-search-clear-{{ ai_gen_id }} {
+    position: absolute;
+    right: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: {{ block.settings.icon_color }};
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-search-clear-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  .ai-search-clear-{{ ai_gen_id }}.active {
+    display: flex;
+  }
+
+  .ai-search-clear-{{ ai_gen_id }} svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ai-search-submit-{{ ai_gen_id }} {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ block.settings.icon_color }};
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-search-submit-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  .ai-search-submit-{{ ai_gen_id }} svg {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+  }
+
+  .ai-search-results-{{ ai_gen_id }} {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background-color: {{ block.settings.results_background }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+  }
+
+  .ai-search-results-{{ ai_gen_id }}.active {
+    display: block;
+  }
+
+  .ai-search-results-section-{{ ai_gen_id }} {
+    padding: 16px;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-search-results-section-{{ ai_gen_id }}:last-child {
+    border-bottom: none;
+  }
+
+  .ai-search-results-title-{{ ai_gen_id }} {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: {{ block.settings.section_title_color }};
+    margin: 0 0 12px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-search-result-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: {{ block.settings.input_text_color }};
+    transition: background-color 0.2s ease;
+  }
+
+  .ai-search-result-item-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.result_hover_background }};
+  }
+
+  .ai-search-result-image-{{ ai_gen_id }} {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .ai-search-result-info-{{ ai_gen_id }} {
+    flex-grow: 1;
+  }
+
+  .ai-search-result-title-{{ ai_gen_id }} {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+    color: {{ block.settings.input_text_color }};
+  }
+
+  .ai-search-result-price-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: {{ block.settings.placeholder_color }};
+  }
+
+  .ai-search-no-results-{{ ai_gen_id }} {
+    padding: 24px;
+    text-align: center;
+    color: {{ block.settings.placeholder_color }};
+    font-size: 14px;
+  }
+
+  .ai-search-loading-{{ ai_gen_id }} {
+    padding: 24px;
+    text-align: center;
+    color: {{ block.settings.placeholder_color }};
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-search-bar-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding | times: 0.7 }}px;
+    }
+
+    .ai-search-input-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<predictive-search-{{ ai_gen_id }} class="ai-search-bar-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-search-container-{{ ai_gen_id }}">
+    <form action="/search" method="get" class="ai-search-form-{{ ai_gen_id }}" role="search">
+      <div class="ai-search-input-wrapper-{{ ai_gen_id }}">
+        <input
+          type="search"
+          name="q"
+          class="ai-search-input-{{ ai_gen_id }}"
+          placeholder="{{ block.settings.placeholder }}"
+          autocomplete="off"
+          aria-label="Search"
+        >
+        
+        <button
+          type="button"
+          class="ai-search-clear-{{ ai_gen_id }}"
+          aria-label="Clear search"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <button
+          type="submit"
+          class="ai-search-submit-{{ ai_gen_id }}"
+          aria-label="Search"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ai-search-results-{{ ai_gen_id }}"></div>
+    </form>
+  </div>
+</predictive-search-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PredictiveSearch{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.input = this.querySelector('.ai-search-input-{{ ai_gen_id }}');
+        this.clearButton = this.querySelector('.ai-search-clear-{{ ai_gen_id }}');
+        this.resultsContainer = this.querySelector('.ai-search-results-{{ ai_gen_id }}');
+        this.form = this.querySelector('.ai-search-form-{{ ai_gen_id }}');
+        this.searchTimeout = null;
+      }
+
+      connectedCallback() {
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.input.addEventListener('input', () => {
+          this.handleInput();
+        });
+
+        this.clearButton.addEventListener('click', () => {
+          this.clearSearch();
+        });
+
+        this.input.addEventListener('focus', () => {
+          if (this.input.value.trim().length > 0) {
+            this.resultsContainer.classList.add('active');
+          }
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!this.contains(event.target)) {
+            this.resultsContainer.classList.remove('active');
+          }
+        });
+      }
+
+      handleInput() {
+        const query = this.input.value.trim();
+
+        if (query.length > 0) {
+          this.clearButton.classList.add('active');
+        } else {
+          this.clearButton.classList.remove('active');
+          this.resultsContainer.classList.remove('active');
+          return;
+        }
+
+        clearTimeout(this.searchTimeout);
+
+        if (query.length < 2) {
+          this.resultsContainer.classList.remove('active');
+          return;
+        }
+
+        this.searchTimeout = setTimeout(() => {
+          this.performSearch(query);
+        }, 300);
+      }
+
+      clearSearch() {
+        this.input.value = '';
+        this.clearButton.classList.remove('active');
+        this.resultsContainer.classList.remove('active');
+        this.input.focus();
+      }
+
+      performSearch(query) {
+        this.resultsContainer.innerHTML = '<div class="ai-search-loading-{{ ai_gen_id }}">Searching...</div>';
+        this.resultsContainer.classList.add('active');
+
+        const searchParams = new URLSearchParams({
+          q: query,
+          resources: {
+            type: 'product,page,article',
+            limit: 10,
+            options: {
+              unavailable_products: 'last',
+              fields: 'title,product_type,variants.title,vendor,tag,variants.sku,variants.barcode'
+            }
+          }
+        });
+
+        fetch(`/search/suggest.json?${searchParams}`)
+          .then(response => response.json())
+          .then(data => {
+            this.displayResults(data.resources.results);
+          })
+          .catch(error => {
+            console.error('Search error:', error);
+            this.resultsContainer.innerHTML = '<div class="ai-search-no-results-{{ ai_gen_id }}">An error occurred. Please try again.</div>';
+          });
+      }
+
+      displayResults(results) {
+        if (!results.products && !results.pages && !results.articles) {
+          this.resultsContainer.innerHTML = '<div class="ai-search-no-results-{{ ai_gen_id }}">No results found</div>';
+          return;
+        }
+
+        let html = '';
+
+        if (results.products && results.products.length > 0) {
+          html += '<div class="ai-search-results-section-{{ ai_gen_id }}">';
+          html += '<h3 class="ai-search-results-title-{{ ai_gen_id }}">Products</h3>';
+          results.products.forEach(product => {
+            const imageUrl = product.image ? product.image : '';
+            const price = product.price ? this.formatMoney(product.price) : '';
+            html += `
+              <a href="${product.url}" class="ai-search-result-item-{{ ai_gen_id }}">
+                ${imageUrl ? `<img src="${imageUrl}" alt="${product.title}" class="ai-search-result-image-{{ ai_gen_id }}" loading="lazy">` : ''}
+                <div class="ai-search-result-info-{{ ai_gen_id }}">
+                  <div class="ai-search-result-title-{{ ai_gen_id }}">${product.title}</div>
+                  ${price ? `<div class="ai-search-result-price-{{ ai_gen_id }}">${price}</div>` : ''}
+                </div>
+              </a>
+            `;
+          });
+          html += '</div>';
+        }
+
+        if (results.pages && results.pages.length > 0) {
+          html += '<div class="ai-search-results-section-{{ ai_gen_id }}">';
+          html += '<h3 class="ai-search-results-title-{{ ai_gen_id }}">Pages</h3>';
+          results.pages.forEach(page => {
+            html += `
+              <a href="${page.url}" class="ai-search-result-item-{{ ai_gen_id }}">
+                <div class="ai-search-result-info-{{ ai_gen_id }}">
+                  <div class="ai-search-result-title-{{ ai_gen_id }}">${page.title}</div>
+                </div>
+              </a>
+            `;
+          });
+          html += '</div>';
+        }
+
+        if (results.articles && results.articles.length > 0) {
+          html += '<div class="ai-search-results-section-{{ ai_gen_id }}">';
+          html += '<h3 class="ai-search-results-title-{{ ai_gen_id }}">Blog Posts</h3>';
+          results.articles.forEach(article => {
+            const imageUrl = article.image ? article.image : '';
+            html += `
+              <a href="${article.url}" class="ai-search-result-item-{{ ai_gen_id }}">
+                ${imageUrl ? `<img src="${imageUrl}" alt="${article.title}" class="ai-search-result-image-{{ ai_gen_id }}" loading="lazy">` : ''}
+                <div class="ai-search-result-info-{{ ai_gen_id }}">
+                  <div class="ai-search-result-title-{{ ai_gen_id }}">${article.title}</div>
+                </div>
+              </a>
+            `;
+          });
+          html += '</div>';
+        }
+
+        this.resultsContainer.innerHTML = html;
+      }
+
+      formatMoney(cents) {
+        const dollars = (cents / 100).toFixed(2);
+        return `$${dollars}`;
+      }
+    }
+
+    customElements.define('predictive-search-{{ ai_gen_id }}', PredictiveSearch{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Search bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Search input"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder text",
+      "default": "Search products, pages, and blog posts..."
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "input_padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Input padding",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Border"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "border_focus_color",
+      "label": "Border focus color",
+      "default": "#005c7c"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder color",
+      "default": "#717171"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Search icon size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Results dropdown"
+    },
+    {
+      "type": "color",
+      "id": "results_background",
+      "label": "Results background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "result_hover_background",
+      "label": "Result hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "section_title_color",
+      "label": "Section title color",
+      "default": "#717171"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Search bar"
+    }
+  ]
+}
+{% endschema %}

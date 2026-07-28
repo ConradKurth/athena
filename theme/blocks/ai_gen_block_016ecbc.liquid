@@ -1,0 +1,367 @@
+{% doc %}
+  @prompt
+    I want a section that advertises you can also buy the product on Amazon. I would like to include a picture of the Amazon logo and a button to be taken to the page
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-amazon-banner-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: {{ block.settings.padding }}px;
+    text-align: center;
+  }
+
+  .ai-amazon-banner__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ai-amazon-banner__heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .ai-amazon-banner__logo-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: {{ block.settings.logo_width }}px;
+  }
+
+  .ai-amazon-banner__logo-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-amazon-banner__logo-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .ai-amazon-banner__logo-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+
+  .ai-amazon-banner__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  .ai-amazon-banner__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .ai-amazon-banner__button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ai-amazon-banner__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_background_hover }};
+    color: {{ block.settings.button_text_color_hover }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-amazon-banner__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+
+    .ai-amazon-banner__text-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.text_size }}px * 0.9);
+    }
+
+    .ai-amazon-banner__button-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.button_text_size }}px * 0.9);
+      padding: 12px 24px;
+    }
+  }
+{% endstyle %}
+
+<amazon-banner-{{ ai_gen_id }}
+  class="ai-amazon-banner-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-amazon-banner__content-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-amazon-banner__heading-{{ ai_gen_id }}">
+        {{ block.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="ai-amazon-banner__logo-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.amazon_logo %}
+        <img
+          src="{{ block.settings.amazon_logo | image_url: width: 600 }}"
+          alt="Amazon logo"
+          loading="lazy"
+          width="{{ block.settings.amazon_logo.width }}"
+          height="{{ block.settings.amazon_logo.height }}"
+          class="ai-amazon-banner__logo-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-amazon-banner__logo-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-amazon-banner__empty-state-{{ ai_gen_id }}">
+            Add Amazon logo
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.description != blank %}
+      <div class="ai-amazon-banner__text-{{ ai_gen_id }}">
+        {{ block.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.amazon_link != blank %}
+      <a
+        href="{{ block.settings.amazon_link }}"
+        class="ai-amazon-banner__button-{{ ai_gen_id }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</amazon-banner-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AmazonBanner{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const button = this.querySelector('.ai-amazon-banner__button-{{ ai_gen_id }}');
+        if (button) {
+          button.addEventListener('click', function(e) {
+            if (!button.getAttribute('href')) {
+              e.preventDefault();
+            }
+          });
+        }
+      }
+    }
+
+    customElements.define('amazon-banner-{{ ai_gen_id }}', AmazonBanner{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Amazon availability",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Also Available on Amazon"
+    },
+    {
+      "type": "image_picker",
+      "id": "amazon_logo",
+      "label": "Amazon logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 100,
+      "max": 400,
+      "step": 20,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Shop this product on Amazon for fast, convenient delivery</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop on Amazon"
+    },
+    {
+      "type": "url",
+      "id": "amazon_link",
+      "label": "Amazon product link"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Background color",
+      "default": "#FF9900"
+    },
+    {
+      "type": "color",
+      "id": "button_background_hover",
+      "label": "Hover background color",
+      "default": "#E68A00"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color_hover",
+      "label": "Hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amazon availability"
+    }
+  ]
+}
+{% endschema %}

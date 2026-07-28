@@ -1,0 +1,393 @@
+{% doc %}
+  @prompt
+    create a section with currency selector on the left and to place text like copyright and powerd by on the right. give text formatting options too 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-footer-bar-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .ai-footer-bar__left-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+  }
+
+  .ai-footer-bar__currency-selector-{{ ai_gen_id }} {
+    position: relative;
+  }
+
+  .ai-footer-bar__currency-selector-{{ ai_gen_id }} select {
+    padding: 8px 32px 8px 12px;
+    background-color: {{ block.settings.selector_background }};
+    color: {{ block.settings.selector_text_color }};
+    border: 1px solid {{ block.settings.selector_border_color }};
+    border-radius: {{ block.settings.selector_border_radius }}px;
+    font-size: {{ block.settings.selector_font_size }}px;
+    cursor: pointer;
+    appearance: none;
+    min-width: 120px;
+  }
+
+  .ai-footer-bar__currency-selector-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid {{ block.settings.selector_text_color }};
+    pointer-events: none;
+  }
+
+  .ai-footer-bar__right-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.text_spacing }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-footer-bar__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_font_size }}px;
+    font-weight: {{ block.settings.text_font_weight }};
+    {% if block.settings.text_uppercase %}
+      text-transform: uppercase;
+    {% endif %}
+    {% if block.settings.text_italic %}
+      font-style: italic;
+    {% endif %}
+    letter-spacing: {{ block.settings.text_letter_spacing }}px;
+    margin: 0;
+  }
+
+  .ai-footer-bar__text-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: {% if block.settings.link_underline %}underline{% else %}none{% endif %};
+  }
+
+  .ai-footer-bar__text-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-footer-bar__divider-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-footer-bar-{{ ai_gen_id }} {
+      flex-direction: {% if block.settings.mobile_stack %}column{% else %}row{% endif %};
+      text-align: {% if block.settings.mobile_stack %}center{% else %}left{% endif %};
+      padding: {{ block.settings.padding_vertical | times: 0.7 }}px {{ block.settings.padding_horizontal | times: 0.7 }}px;
+    }
+
+    .ai-footer-bar__left-{{ ai_gen_id }},
+    .ai-footer-bar__right-{{ ai_gen_id }} {
+      {% if block.settings.mobile_stack %}
+        justify-content: center;
+      {% endif %}
+    }
+
+    .ai-footer-bar__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_font_size | times: 0.9 }}px;
+    }
+
+    .ai-footer-bar__currency-selector-{{ ai_gen_id }} select {
+      font-size: {{ block.settings.selector_font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<footer-bar-{{ ai_gen_id }} class="ai-footer-bar-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-footer-bar__left-{{ ai_gen_id }}">
+    {% if block.settings.show_currency_selector %}
+      <div class="ai-footer-bar__currency-selector-{{ ai_gen_id }}">
+        {% form 'currency' %}
+          <select
+            name="currency_code"
+            aria-label="Select currency"
+            onchange="this.form.submit()"
+          >
+            {% for currency in shop.enabled_currencies %}
+              <option
+                value="{{ currency.iso_code }}"
+                {% if currency == cart.currency %}selected{% endif %}
+              >
+                {{ currency.iso_code }} {{ currency.symbol }}
+              </option>
+            {% endfor %}
+          </select>
+        {% endform %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="ai-footer-bar__right-{{ ai_gen_id }}">
+    {% if block.settings.copyright_text != blank %}
+      <div class="ai-footer-bar__text-{{ ai_gen_id }}">
+        {{ block.settings.copyright_text }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.copyright_text != blank and block.settings.powered_by_text != blank %}
+      <span class="ai-footer-bar__divider-{{ ai_gen_id }}">|</span>
+    {% endif %}
+
+    {% if block.settings.powered_by_text != blank %}
+      <div class="ai-footer-bar__text-{{ ai_gen_id }}">
+        {{ block.settings.powered_by_text }}
+      </div>
+    {% endif %}
+  </div>
+</footer-bar-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class FooterBar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const currencyForm = this.querySelector('form[action="/cart/update"]');
+        if (currencyForm) {
+          currencyForm.addEventListener('submit', function(e) {
+            const select = this.querySelector('select');
+            if (select) {
+              localStorage.setItem('selectedCurrency', select.value);
+            }
+          });
+        }
+      }
+    }
+
+    customElements.define('footer-bar-{{ ai_gen_id }}', FooterBar{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Footer bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#151515"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_stack",
+      "label": "Stack on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Currency selector"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": "Show currency selector",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "selector_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "selector_text_color",
+      "label": "Text color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "selector_border_color",
+      "label": "Border color",
+      "default": "#151515"
+    },
+    {
+      "type": "range",
+      "id": "selector_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "selector_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "richtext",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "<p>© 2025 Your Store. All rights reserved.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "powered_by_text",
+      "label": "Powered by text",
+      "default": "<p>Powered by <a href=\"https://www.shopify.com\" target=\"_blank\">Shopify</a></p>"
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing between texts",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Text formatting"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 13
+    },
+    {
+      "type": "select",
+      "id": "text_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_uppercase",
+      "label": "Uppercase",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "text_italic",
+      "label": "Italic",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "text_letter_spacing",
+      "min": 0,
+      "max": 3,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Link formatting"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_underline",
+      "label": "Underline links",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer bar"
+    }
+  ]
+}
+{% endschema %}

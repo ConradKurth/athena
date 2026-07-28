@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "1765539295c9d34836": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e1c833c_GxRQax": {
+          "type": "ai_gen_block_e1c833c",
+          "settings": {
+            "background_color": "#11293f",
+            "text_color": "#ffffff",
+            "heading_color": "#ffffff",
+            "link_color": "#ffffff",
+            "link_hover_color": "#005c7c",
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "heading_size": 16,
+            "text_size": 14,
+            "heading_uppercase": "uppercase",
+            "column_1_heading": "UraGuard®",
+            "column_1_text": "<p>Premium protection for your peace of mind.</p>",
+            "column_2_heading": "",
+            "column_2_html": "",
+            "column_3_heading": "Quick links",
+            "menu": "footer",
+            "menu_two_columns": true,
+            "column_4_heading": "Connect",
+            "email_address": "info@athenauraguard.com",
+            "instagram_url": "https://www.instagram.com/uraguard/",
+            "facebook_url": "https://www.facebook.com/profile.php?id=61570559160581",
+            "icon_size": 24,
+            "icon_color": "#ffffff",
+            "icon_hover_color": "#005c7c"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e1c833c_GxRQax"
+      ],
+      "custom_css": [
+        "@media (min-width: 750px) {.ai-footer-at1jindhis3znk0dtcaigenblocke1c833cgxrqax {padding-left: 100px !important; /* adjust */ }}"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "blocks_HVw7r8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6b902fc_pPEFrH": {
+          "type": "ai_gen_block_6b902fc",
+          "settings": {
+            "brand_title": "UraGuard®",
+            "brand_description": "<p>Premium protection for your peace of mind.</p>",
+            "newsletter_heading": "Newsletter",
+            "newsletter_subtext": "Subscribe to get special offers and updates.",
+            "button_text": "Subscribe",
+            "success_message": "Thanks for subscribing!",
+            "quick_links_heading": "Quick Links",
+            "quick_links": "footer",
+            "social_heading": "Social",
+            "contact_email": "info@athenauraguard.com",
+            "instagram_url": "https://www.instagram.com/uraguard/",
+            "facebook_url": "https://www.facebook.com/profile.php?id=61570559160581",
+            "twitter_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "pinterest_url": "",
+            "linkedin_url": "",
+            "background_color": "#11293f",
+            "text_color": "#ffffff",
+            "heading_color": "#ffffff",
+            "link_hover_color": "#cccccc",
+            "input_background_color": "#ffffff",
+            "input_text_color": "#000000",
+            "input_border_color": "#cccccc",
+            "input_placeholder_color": "#999999",
+            "input_border_radius": 4,
+            "subscribe_button_color": "#b28a86",
+            "subscribe_button_text_color": "#ffffff",
+            "subscribe_button_hover_color": "#ece2e1",
+            "button_border_radius": 20,
+            "social_icon_background": "#ffffff",
+            "social_icon_color": "#11293f",
+            "social_icon_hover_background": "#b28a86",
+            "success_color": "#4caf50",
+            "error_color": "#f44336"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_70cba80_WaNXLw": {
+          "type": "ai_gen_block_70cba80",
+          "disabled": true,
+          "settings": {
+            "padding_vertical": 20,
+            "padding_horizontal": 40,
+            "background_color": "#fbfaf6",
+            "mobile_stack": true,
+            "show_currency_selector": true,
+            "selector_background": "#ffffff",
+            "selector_text_color": "#151515",
+            "selector_border_color": "#151515",
+            "selector_border_radius": 4,
+            "selector_font_size": 14,
+            "copyright_text": "<p>© UraGuard ® 2025</p>",
+            "powered_by_text": "<p>Powered by <a href=\"https://www.shopify.com\" target=\"_blank\">Shopify</a></p>",
+            "text_spacing": 15,
+            "text_color": "#193445",
+            "text_font_size": 14,
+            "text_font_weight": "400",
+            "text_uppercase": false,
+            "text_italic": false,
+            "text_letter_spacing": 0,
+            "link_color": "#193445",
+            "link_hover_color": "#cccccc",
+            "link_underline": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6b902fc_pPEFrH",
+        "ai_gen_block_70cba80_WaNXLw"
+      ],
+      "disabled": true,
+      "name": "Footer bar",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "custom_liquid_qPkJaQ": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {display: block;}",
+        "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {background-color: #003649;}",
+        "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {width: 100%;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div id=\"omnisend-embedded-v2-693bfc7a8e43194d754e72af\"></div>"
+      }
+    },
+    "blocks_3BkPhk": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_70cba80_RGiD46": {
+          "type": "ai_gen_block_70cba80",
+          "settings": {
+            "padding_vertical": 20,
+            "padding_horizontal": 40,
+            "background_color": "#151515",
+            "mobile_stack": true,
+            "show_currency_selector": false,
+            "selector_background": "#ffffff",
+            "selector_text_color": "#151515",
+            "selector_border_color": "#151515",
+            "selector_border_radius": 4,
+            "selector_font_size": 14,
+            "copyright_text": "<p>© 2025 UraGuard. All rights reserved.</p>",
+            "powered_by_text": "<p>Powered by <a href=\"https://www.shopify.com\" target=\"_blank\">Shopify</a></p>",
+            "text_spacing": 15,
+            "text_color": "#ffffff",
+            "text_font_size": 13,
+            "text_font_weight": "400",
+            "text_uppercase": false,
+            "text_italic": false,
+            "text_letter_spacing": 0,
+            "link_color": "#ffffff",
+            "link_hover_color": "#cccccc",
+            "link_underline": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_70cba80_RGiD46"
+      ],
+      "name": "Footer bar",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "footer": {
+      "type": "page-footer",
+      "disabled": true,
+      "settings": {
+        "show-scroll-effect": true,
+        "show-social-media-icons": true,
+        "show_country_selector": true,
+        "show_country_selector_label": false,
+        "show_country_selector_flag": true,
+        "show_language_selector": false,
+        "enable_follow_on_shop": false,
+        "show-payments-icons": true,
+        "show-copyright": false,
+        "text": "© 2025 Wonder-theme. Powered by Shopify.",
+        "big-logo-width": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "1765539295c9d34836",
+    "blocks_HVw7r8",
+    "custom_liquid_qPkJaQ",
+    "blocks_3BkPhk",
+    "footer"
+  ]
+}

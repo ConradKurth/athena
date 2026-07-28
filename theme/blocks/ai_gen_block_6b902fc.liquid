@@ -1,0 +1,687 @@
+{% doc %}
+  @prompt
+    generate a new Shopify section called custom-footer.liquid.
+    The design must match the footer layout shown here:
+    
+    Column 1 – Brand Info
+    
+    Large heading for the brand name (e.g., “UraGuard®”)
+    
+    Short text description paragraph
+    
+    Column 2 – Newsletter Signup
+    
+    A heading “Newsletter”
+    
+    Subtext “Subscribe to get special offers and updates.”
+    
+    Name field
+    
+    Email field
+    
+    A rounded button with arrow icon
+    
+    Use Shopify’s built-in form tag so emails go to the customer list
+    
+    Column 3 – Quick Links
+    
+    Heading “Quick Links”
+    
+    List of links editable in the theme editor (minimum 8–12 links)
+    
+    Column 4 – Social
+    
+    Heading “Social”
+    
+    Email or contact text
+    
+    Social icons (Instagram, Facebook) with URLs editable in theme settings
+    
+    Design Requirements:
+    
+    Layout should be a 3 or 4-column responsive grid on desktop
+    
+    On mobile: stack the columns vertically
+    
+    Background color setting (default dark blue like #11293f)
+    
+    Text color and heading color settings
+    
+    Button with smooth hover effect
+    
+    Columns should have vertical spacing similar to the screenshot
+    
+    Section width should match a standard Shopify container (max-width ~1200px)
+    
+    Font sizes:
+    
+    Headings: 26–32px
+    
+    Body text: 14–16px
+    
+    Quick link list: 14–16px
+    
+    Schema Requirements:
+    Add fields so the merchant can edit:
+    
+    Brand title
+    
+    Brand description
+    
+    Newsletter heading
+    
+    Newsletter subtext
+    
+    Link list picker for “Quick Links”
+    
+    Social links (Instagram, Facebook)
+    
+    Contact email
+    
+    Background color
+    
+    Text color
+    
+    Heading color, for the newsletter column, keep the heading then the text line
+    
+    then have two fields to enter name and email id in two rows
+    
+    foloow it iwth a button with text on it. Clicking on it should display success message with editable text, remmove all this from form signup
+    
+    UraGuard®, give option to edit color of susbscribe button , under social add icons for insstagram facebook etc
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-footer-{{ ai_gen_id }} {
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    padding: 60px 20px 40px;
+  }
+
+  .ai-custom-footer-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-custom-footer-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .ai-custom-footer-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ai-custom-footer-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-custom-footer-brand-description-{{ ai_gen_id }} {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-custom-footer-column-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-custom-footer-newsletter-subtext-{{ ai_gen_id }} {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ai-custom-footer-form-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-custom-footer-input-{{ ai_gen_id }} {
+    padding: 12px 16px;
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    background-color: {{ block.settings.input_background_color }};
+    color: {{ block.settings.input_text_color }};
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .ai-custom-footer-input-{{ ai_gen_id }}::placeholder {
+    color: {{ block.settings.input_placeholder_color }};
+  }
+
+  .ai-custom-footer-button-{{ ai_gen_id }} {
+    padding: 12px 24px;
+    background-color: {{ block.settings.subscribe_button_color }};
+    color: {{ block.settings.subscribe_button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ai-custom-footer-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.subscribe_button_hover_color }};
+    transform: translateY(-2px);
+  }
+
+  .ai-custom-footer-links-list-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ai-custom-footer-link-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .ai-custom-footer-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-custom-footer-contact-{{ ai_gen_id }} {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .ai-custom-footer-social-icons-{{ ai_gen_id }} {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .ai-custom-footer-social-link-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: {{ block.settings.social_icon_background }};
+    color: {{ block.settings.social_icon_color }};
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .ai-custom-footer-social-link-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.social_icon_hover_background }};
+    transform: translateY(-3px);
+  }
+
+  .ai-custom-footer-social-icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-custom-footer-success-{{ ai_gen_id }} {
+    color: {{ block.settings.success_color }};
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .ai-custom-footer-error-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .ai-custom-footer-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-custom-footer-{{ ai_gen_id }} {
+      padding: 40px 20px 30px;
+    }
+
+    .ai-custom-footer-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .ai-custom-footer-heading-{{ ai_gen_id }} {
+      font-size: 24px;
+    }
+
+    .ai-custom-footer-column-heading-{{ ai_gen_id }} {
+      font-size: 14px;
+    }
+  }
+{% endstyle %}
+
+<footer class="ai-custom-footer-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-custom-footer-container-{{ ai_gen_id }}">
+    <div class="ai-custom-footer-grid-{{ ai_gen_id }}">
+      <div class="ai-custom-footer-column-{{ ai_gen_id }}">
+        {%- if block.settings.brand_title != blank -%}
+          <h2 class="ai-custom-footer-heading-{{ ai_gen_id }}">{{ block.settings.brand_title }}</h2>
+        {%- endif -%}
+        {%- if block.settings.brand_description != blank -%}
+          <div class="ai-custom-footer-brand-description-{{ ai_gen_id }}">
+            {{ block.settings.brand_description }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="ai-custom-footer-column-{{ ai_gen_id }}">
+        {%- if block.settings.newsletter_heading != blank -%}
+          <h3 class="ai-custom-footer-column-heading-{{ ai_gen_id }}">{{ block.settings.newsletter_heading }}</h3>
+        {%- endif -%}
+        {%- if block.settings.newsletter_subtext != blank -%}
+          <p class="ai-custom-footer-newsletter-subtext-{{ ai_gen_id }}">{{ block.settings.newsletter_subtext }}</p>
+        {%- endif -%}
+        {%- form 'customer' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="ai-custom-footer-form-{{ ai_gen_id }}">
+            <input
+              type="text"
+              name="contact[first_name]"
+              class="ai-custom-footer-input-{{ ai_gen_id }}"
+              placeholder="Name"
+              autocomplete="given-name"
+            >
+            <input
+              type="email"
+              name="contact[email]"
+              class="ai-custom-footer-input-{{ ai_gen_id }}"
+              placeholder="Email"
+              autocomplete="email"
+              required
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="ai-custom-footer-error-{{ ai_gen_id }}"
+              {% endif %}
+              {% if form.posted_successfully? %}
+                aria-describedby="ai-custom-footer-success-{{ ai_gen_id }}"
+              {% endif %}
+            >
+            <button type="submit" class="ai-custom-footer-button-{{ ai_gen_id }}">
+              {{ block.settings.button_text }}
+            </button>
+            {%- if form.errors -%}
+              <div id="ai-custom-footer-error-{{ ai_gen_id }}" class="ai-custom-footer-error-{{ ai_gen_id }}">
+                {{ form.errors.messages.email }}
+              </div>
+            {%- endif -%}
+            {%- if form.posted_successfully? -%}
+              <div id="ai-custom-footer-success-{{ ai_gen_id }}" class="ai-custom-footer-success-{{ ai_gen_id }}">
+                {{ block.settings.success_message }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+      </div>
+
+      <div class="ai-custom-footer-column-{{ ai_gen_id }}">
+        {%- if block.settings.quick_links_heading != blank -%}
+          <h3 class="ai-custom-footer-column-heading-{{ ai_gen_id }}">{{ block.settings.quick_links_heading }}</h3>
+        {%- endif -%}
+        {%- if block.settings.quick_links != blank -%}
+          <ul class="ai-custom-footer-links-list-{{ ai_gen_id }}">
+            {%- for link in block.settings.quick_links.links -%}
+              <li>
+                <a href="{{ link.url }}" class="ai-custom-footer-link-{{ ai_gen_id }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="ai-custom-footer-column-{{ ai_gen_id }}">
+        {%- if block.settings.social_heading != blank -%}
+          <h3 class="ai-custom-footer-column-heading-{{ ai_gen_id }}">{{ block.settings.social_heading }}</h3>
+        {%- endif -%}
+        {%- if block.settings.contact_email != blank -%}
+          <div class="ai-custom-footer-contact-{{ ai_gen_id }}">
+            {{ block.settings.contact_email }}
+          </div>
+        {%- endif -%}
+        <div class="ai-custom-footer-social-icons-{{ ai_gen_id }}">
+          {%- if block.settings.instagram_url != blank -%}
+            <a href="{{ block.settings.instagram_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.facebook_url != blank -%}
+            <a href="{{ block.settings.facebook_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.twitter_url != blank -%}
+            <a href="{{ block.settings.twitter_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.youtube_url != blank -%}
+            <a href="{{ block.settings.youtube_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.tiktok_url != blank -%}
+            <a href="{{ block.settings.tiktok_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.pinterest_url != blank -%}
+            <a href="{{ block.settings.pinterest_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Pinterest">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if block.settings.linkedin_url != blank -%}
+            <a href="{{ block.settings.linkedin_url }}" class="ai-custom-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg class="ai-custom-footer-social-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand information"
+    },
+    {
+      "type": "text",
+      "id": "brand_title",
+      "label": "Brand title",
+      "default": "UraGuard®"
+    },
+    {
+      "type": "richtext",
+      "id": "brand_description",
+      "label": "Brand description",
+      "default": "<p>Premium protection for your peace of mind.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_subtext",
+      "label": "Newsletter subtext",
+      "default": "Subscribe to get special offers and updates."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "header",
+      "content": "Quick links"
+    },
+    {
+      "type": "text",
+      "id": "quick_links_heading",
+      "label": "Quick links heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links",
+      "label": "Quick links menu"
+    },
+    {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "text",
+      "id": "social_heading",
+      "label": "Social heading",
+      "default": "Social"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "hello@uraguard.com"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#11293f"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Headings",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover",
+      "default": "#cccccc"
+    },
+    {
+      "type": "header",
+      "content": "Form inputs"
+    },
+    {
+      "type": "color",
+      "id": "input_background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Border",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "input_placeholder_color",
+      "label": "Placeholder",
+      "default": "#999999"
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Subscribe button"
+    },
+    {
+      "type": "color",
+      "id": "subscribe_button_color",
+      "label": "Background",
+      "default": "#ff6b35"
+    },
+    {
+      "type": "color",
+      "id": "subscribe_button_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subscribe_button_hover_color",
+      "label": "Hover background",
+      "default": "#e55a2b"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Social icons"
+    },
+    {
+      "type": "color",
+      "id": "social_icon_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "social_icon_color",
+      "label": "Icon color",
+      "default": "#11293f"
+    },
+    {
+      "type": "color",
+      "id": "social_icon_hover_background",
+      "label": "Hover background",
+      "default": "#ff6b35"
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success",
+      "default": "#4caf50"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error",
+      "default": "#f44336"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom footer"
+    }
+  ]
+}
+{% endschema %}

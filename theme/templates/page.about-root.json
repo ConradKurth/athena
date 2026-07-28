@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "multicolumn_icT3gR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_fb8iMH": {
+          "type": "column",
+          "settings": {
+            "heading": "Protection from UTI-causing Bacteria",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Our patent-pending technology helps limit bacteria exposure where it matters most, giving you a solution that goes beyond traditional incontinence products.<br/><br/></p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/Product_in_basket.jpg"
+          }
+        },
+        "column_wYzXYQ": {
+          "type": "column",
+          "settings": {
+            "heading": "Comfort Meets Discretion",
+            "heading_disable_on_mobile": false,
+            "text": "<p>UraGuard's® ultra-light, adaptive design provides a secure, sleek fit that moves with you. Enjoy reliable protection without compromising on comfort or confidence.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/Asset_11_2x_25d8e157-4f94-4c78-a820-a30e8c150b27.png"
+          }
+        },
+        "column_YAUKaV": {
+          "type": "column",
+          "settings": {
+            "heading": "Tailored for Women’s Health",
+            "heading_disable_on_mobile": false,
+            "text": "<p>UraGuard® is the first incontinence product designed specifically for women, addressing their unique anatomy and health needs with precision and care. This ensures better protection, comfort, and confidence in every moment.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/Asset_6_a05bf76b-9189-4268-8d24-9f76b8d22193.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_fb8iMH",
+        "column_wYzXYQ",
+        "column_YAUKaV"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "heading": "",
+        "swipe_on_mobile": true,
+        "full-width-enabled": false,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "separator_8MHExC": {
+      "type": "separator",
+      "name": "t:sections.separator.presets.name",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "Try UraGuard® Today",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 240,
+        "size_heading_mobile": 100,
+        "show-separator-line": false,
+        "full-width-line": false,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
+    "blocks_FctqD9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0d1c2d5_UXQqLP": {
+          "type": "ai_gen_block_0d1c2d5",
+          "settings": {
+            "section_padding": 40,
+            "column_gap": 40,
+            "image": "shopify://shop_images/Athena_Banner.webp",
+            "image_border_radius": 14,
+            "button_text": "See All Incontinence Products",
+            "button_link": "shopify://collections/uraguard-incontinence-products",
+            "button_offset": 20,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 30,
+            "button_font_size": 12,
+            "button_border_radius": 10,
+            "button_background": "rgba(0,0,0,0)",
+            "button_text_color": "rgba(0,0,0,0)",
+            "button_background_hover": "rgba(0,0,0,0)",
+            "button_text_color_hover": "#005c7c",
+            "featured_product": "athena-uraguard-liner",
+            "show_vendor": false,
+            "show_rating": true,
+            "show_price": true,
+            "show_description": false,
+            "product_cta_text": "View Product",
+            "product_border_radius": 14,
+            "product_image_width": 45,
+            "product_image_width_mobile": 100,
+            "product_image_alignment": "left",
+            "product_image_radius": 10,
+            "product_button_radius": 10,
+            "product_background": "#ffffff",
+            "vendor_color": "#717171",
+            "title_color": "#193445",
+            "star_color": "#fcc97e",
+            "star_empty_color": "#fcc97e",
+            "rating_count_color": "#717171",
+            "price_color": "#151515",
+            "description_color": "#717171",
+            "product_button_bg": "#003649",
+            "product_button_color": "#ffffff",
+            "product_button_bg_hover": "#005c7c",
+            "product_button_color_hover": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0d1c2d5_UXQqLP"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "brands_cixdAX": {
+      "type": "brands",
+      "blocks": {
+        "image_tXjPxw": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_kM6yVT": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_tXjPxw",
+        "image_kM6yVT"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_icT3gR",
+    "separator_8MHExC",
+    "blocks_FctqD9",
+    "brands_cixdAX"
+  ]
+}

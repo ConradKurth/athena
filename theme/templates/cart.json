@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17698103269755d5d1": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_cd1e55b_79R69Y": {
+          "type": "ai_gen_block_cd1e55b",
+          "settings": {
+            "banner_text_before": "Free shipping on",
+            "banner_text_highlight": "60 and 90 Packs",
+            "banner_text_after": "— Stock Up and Save!",
+            "text_alignment": "center",
+            "desktop_width_percent": 100,
+            "padding_vertical": 15,
+            "padding_horizontal": 20,
+            "border_radius": 10,
+            "show_icon": true,
+            "icon_size": 24,
+            "icon_color": "#005c7c",
+            "text_size": 16,
+            "text_weight": "500",
+            "text_color": "#193445",
+            "highlight_weight": "700",
+            "highlight_color": "#005c7c",
+            "background_color": "#e3f2e6",
+            "show_border": false,
+            "border_width": 2,
+            "border_color": "#005c7c"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_cd1e55b_79R69Y"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "show_vendor": false,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+        "margin-top": 40,
+        "margin-bottom": 40
+      }
+    }
+  },
+  "order": [
+    "17698103269755d5d1",
+    "cart-items",
+    "cart-footer"
+  ]
+}

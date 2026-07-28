@@ -1,0 +1,513 @@
+{% doc %}
+  @prompt
+    create a section similar to lookbook but give option to add text along with each image keep only two images in one row, add some design element that shows flow of steps from 1 to 2, 2 to 3, 3 to 4 and so on, remove the arroww in the middle of two boxes, remove the line too betwwen box 1 and 2, remove the numbering on the boxes, keep the tile size same for all and give option to keep it fixed 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-step-guide-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-step-guide-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-step-guide-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .ai-step-guide-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 15px;
+  }
+
+  .ai-step-guide-subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtitle_size }}px;
+    color: {{ block.settings.subtitle_color }};
+    margin: 0;
+  }
+
+  .ai-step-guide-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-step-guide-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px 40px;
+    }
+  }
+
+  .ai-step-guide-item-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-step-guide-item-{{ ai_gen_id }}:nth-child(even) {
+    grid-column: 2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-step-guide-item-{{ ai_gen_id }}:nth-child(even) {
+      grid-column: 1;
+    }
+  }
+
+  .ai-step-guide-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    {% if block.settings.fixed_image_height %}
+      height: {{ block.settings.image_height }}px;
+    {% endif %}
+  }
+
+  .ai-step-guide-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    {% if block.settings.fixed_image_height %}
+      height: 100%;
+      object-fit: cover;
+    {% else %}
+      height: auto;
+    {% endif %}
+    display: block;
+  }
+
+  .ai-step-guide-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    {% if block.settings.fixed_image_height %}
+      height: 100%;
+    {% else %}
+      aspect-ratio: 4 / 3;
+    {% endif %}
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-step-guide-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-step-guide-content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-step-guide-step-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.step_title_size }}px;
+    color: {{ block.settings.step_title_color }};
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .ai-step-guide-step-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.step_text_size }}px;
+    color: {{ block.settings.step_text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+{% endstyle %}
+
+<div class="ai-step-guide-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-step-guide-container-{{ ai_gen_id }}">
+    {% if block.settings.section_title != blank or block.settings.section_subtitle != blank %}
+      <div class="ai-step-guide-header-{{ ai_gen_id }}">
+        {% if block.settings.section_title != blank %}
+          <h2 class="ai-step-guide-title-{{ ai_gen_id }}">{{ block.settings.section_title }}</h2>
+        {% endif %}
+        {% if block.settings.section_subtitle != blank %}
+          <p class="ai-step-guide-subtitle-{{ ai_gen_id }}">{{ block.settings.section_subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-step-guide-grid-{{ ai_gen_id }}">
+      {% for i in (1..6) %}
+        {% liquid
+          assign step_enabled_key = 'step_' | append: i | append: '_enabled'
+          assign step_image_key = 'step_' | append: i | append: '_image'
+          assign step_title_key = 'step_' | append: i | append: '_title'
+          assign step_text_key = 'step_' | append: i | append: '_text'
+
+          assign step_enabled = block.settings[step_enabled_key]
+          assign step_image = block.settings[step_image_key]
+          assign step_title = block.settings[step_title_key]
+          assign step_text = block.settings[step_text_key]
+        %}
+
+        {% if step_enabled %}
+          <div class="ai-step-guide-item-{{ ai_gen_id }}">
+            <div class="ai-step-guide-image-wrapper-{{ ai_gen_id }}">
+              {% if step_image %}
+                <img
+                  src="{{ step_image | image_url: width: 800 }}"
+                  alt="{{ step_title | escape }}"
+                  loading="lazy"
+                  width="{{ step_image.width }}"
+                  height="{{ step_image.height }}"
+                >
+              {% else %}
+                <div class="ai-step-guide-image-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="ai-step-guide-content-{{ ai_gen_id }}">
+              {% if step_title != blank %}
+                <h3 class="ai-step-guide-step-title-{{ ai_gen_id }}">{{ step_title }}</h3>
+              {% endif %}
+              {% if step_text != blank %}
+                <div class="ai-step-guide-step-text-{{ ai_gen_id }}">{{ step_text }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Step-by-step guide",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title",
+      "default": "How it works"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Subtitle",
+      "default": "Follow these simple steps"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#717171"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Step styling"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "fixed_image_height",
+      "label": "Use fixed image height",
+      "default": true,
+      "info": "When enabled, all images will have the same height"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "label": "Image height",
+      "default": 400,
+      "info": "Only applies when fixed image height is enabled"
+    },
+    {
+      "type": "range",
+      "id": "step_title_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Step title size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "step_title_color",
+      "label": "Step title color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "step_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Step text size",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "step_text_color",
+      "label": "Step text color",
+      "default": "#717171"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_1_enabled",
+      "label": "Enable step 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Title",
+      "default": "Prepare"
+    },
+    {
+      "type": "richtext",
+      "id": "step_1_text",
+      "label": "Description",
+      "default": "<p>Gather all necessary materials and tools before starting.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_2_enabled",
+      "label": "Enable step 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Title",
+      "default": "Setup"
+    },
+    {
+      "type": "richtext",
+      "id": "step_2_text",
+      "label": "Description",
+      "default": "<p>Follow the instructions to set up your workspace properly.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_3_enabled",
+      "label": "Enable step 3",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Title",
+      "default": "Execute"
+    },
+    {
+      "type": "richtext",
+      "id": "step_3_text",
+      "label": "Description",
+      "default": "<p>Complete the main task following the detailed guidelines.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_4_enabled",
+      "label": "Enable step 4",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_4_title",
+      "label": "Title",
+      "default": "Review"
+    },
+    {
+      "type": "richtext",
+      "id": "step_4_text",
+      "label": "Description",
+      "default": "<p>Check your work to ensure everything is completed correctly.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_5_enabled",
+      "label": "Enable step 5",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "step_5_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_5_title",
+      "label": "Title",
+      "default": "Finalize"
+    },
+    {
+      "type": "richtext",
+      "id": "step_5_text",
+      "label": "Description",
+      "default": "<p>Add finishing touches and prepare for the next phase.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_6_enabled",
+      "label": "Enable step 6",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "step_6_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "step_6_title",
+      "label": "Title",
+      "default": "Complete"
+    },
+    {
+      "type": "richtext",
+      "id": "step_6_text",
+      "label": "Description",
+      "default": "<p>Celebrate your success and enjoy the results!</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Step-by-step guide"
+    }
+  ]
+}
+{% endschema %}

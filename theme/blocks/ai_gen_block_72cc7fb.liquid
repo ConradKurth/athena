@@ -1,0 +1,339 @@
+{% doc %}
+  @prompt
+    generate a section with text onthe left and an image on the right, give option to keep text size extra large. Also add a button , give option to change button color
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-image-block-{{ ai_gen_id }} {
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-text-image-container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .ai-text-image-content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-text-image-heading-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+    {% if block.settings.text_size == 'small' %}
+      font-size: 24px;
+    {% elsif block.settings.text_size == 'medium' %}
+      font-size: 32px;
+    {% elsif block.settings.text_size == 'large' %}
+      font-size: 42px;
+    {% elsif block.settings.text_size == 'extra_large' %}
+      font-size: 56px;
+    {% endif %}
+    line-height: 1.2;
+  }
+
+  .ai-text-image-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    {% if block.settings.text_size == 'small' %}
+      font-size: 14px;
+    {% elsif block.settings.text_size == 'medium' %}
+      font-size: 16px;
+    {% elsif block.settings.text_size == 'large' %}
+      font-size: 18px;
+    {% elsif block.settings.text_size == 'extra_large' %}
+      font-size: 22px;
+    {% endif %}
+    line-height: 1.6;
+  }
+
+  .ai-text-image-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid {{ block.settings.button_background_color }};
+    text-align: center;
+  }
+
+  .ai-text-image-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_background_color }};
+  }
+
+  .ai-text-image-image-wrapper-{{ ai_gen_id }} {
+    flex: 1;
+    width: 100%;
+  }
+
+  .ai-text-image-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-text-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    position: relative;
+  }
+
+  .ai-text-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-text-image-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-text-image-container-{{ ai_gen_id }} {
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    .ai-text-image-heading-{{ ai_gen_id }} {
+      {% if block.settings.text_size == 'small' %}
+        font-size: 28px;
+      {% elsif block.settings.text_size == 'medium' %}
+        font-size: 40px;
+      {% elsif block.settings.text_size == 'large' %}
+        font-size: 52px;
+      {% elsif block.settings.text_size == 'extra_large' %}
+        font-size: 72px;
+      {% endif %}
+    }
+
+    .ai-text-image-text-{{ ai_gen_id }} {
+      {% if block.settings.text_size == 'small' %}
+        font-size: 15px;
+      {% elsif block.settings.text_size == 'medium' %}
+        font-size: 17px;
+      {% elsif block.settings.text_size == 'large' %}
+        font-size: 20px;
+      {% elsif block.settings.text_size == 'extra_large' %}
+        font-size: 24px;
+      {% endif %}
+    }
+  }
+{% endstyle %}
+
+<div class="ai-text-image-block-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-image-container-{{ ai_gen_id }}">
+    <div class="ai-text-image-content-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h1 class="ai-text-image-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h1>
+      {% endif %}
+
+      {% if block.settings.text != blank %}
+        <div class="ai-text-image-text-{{ ai_gen_id }}">
+          {{ block.settings.text }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.button_text != blank %}
+        <div>
+          <a href="{{ block.settings.button_link }}" class="ai-text-image-button-{{ ai_gen_id }}">
+            {{ block.settings.button_text }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-text-image-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="eager"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+          class="ai-text-image-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-text-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-text-image-empty-state-{{ ai_gen_id }}">
+            Add an image
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text with image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Discover our amazing collection of products designed to make your life better.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "extra_large",
+          "label": "Extra large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Background",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Hover background",
+      "default": "#2d2d2d"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text",
+      "default": "#ececec"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#fbfaf6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#151515"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with image"
+    }
+  ]
+}
+{% endschema %}

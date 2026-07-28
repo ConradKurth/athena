@@ -1,0 +1,409 @@
+{% doc %}
+  @prompt
+    add a heading section with customization options, no need for subheading option just keep it a rich text section with only heading thats customizable
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-richtext-block-{{ ai_gen_id }} {
+    padding: {{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+    text-align: {{ block.settings.alignment }};
+  }
+
+  .ai-richtext-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size_mobile }}px;
+    line-height: {{ block.settings.line_height }};
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} h1,
+  .ai-richtext-content-{{ ai_gen_id }} h2,
+  .ai-richtext-content-{{ ai_gen_id }} h3,
+  .ai-richtext-content-{{ ai_gen_id }} h4,
+  .ai-richtext-content-{{ ai_gen_id }} h5,
+  .ai-richtext-content-{{ ai_gen_id }} h6 {
+    color: {{ block.settings.heading_color }};
+    font-weight: {{ block.settings.heading_weight }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    line-height: {{ block.settings.heading_line_height }};
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+    {% if block.settings.text_transform == 'uppercase' %}
+      text-transform: uppercase;
+    {% elsif block.settings.text_transform == 'capitalize' %}
+      text-transform: capitalize;
+    {% endif %}
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} h1 {
+    font-size: {{ block.settings.h1_size_mobile }}px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} h2 {
+    font-size: {{ block.settings.h2_size_mobile }}px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} h3 {
+    font-size: {{ block.settings.h3_size_mobile }}px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} p {
+    margin: 0 0 {{ block.settings.paragraph_spacing }}px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} ul,
+  .ai-richtext-content-{{ ai_gen_id }} ol {
+    margin: 0 0 {{ block.settings.paragraph_spacing }}px;
+    padding-left: 20px;
+  }
+
+  .ai-richtext-content-{{ ai_gen_id }} li {
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-richtext-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_desktop }}px;
+    }
+
+    .ai-richtext-content-{{ ai_gen_id }} h1 {
+      font-size: {{ block.settings.h1_size_desktop }}px;
+    }
+
+    .ai-richtext-content-{{ ai_gen_id }} h2 {
+      font-size: {{ block.settings.h2_size_desktop }}px;
+    }
+
+    .ai-richtext-content-{{ ai_gen_id }} h3 {
+      font-size: {{ block.settings.h3_size_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-richtext-block-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-richtext-container-{{ ai_gen_id }}">
+    {% if block.settings.content != blank %}
+      <div class="ai-richtext-content-{{ ai_gen_id }}">
+        {{ block.settings.content }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<h2>Rich text heading</h2><p>Use this section to add formatted text with headings, paragraphs, lists, and more.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Heading style"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Heading line height",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": -2,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Heading letter spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Heading bottom spacing",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Heading sizes"
+    },
+    {
+      "type": "range",
+      "id": "h1_size_mobile",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "H1 size (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "h1_size_desktop",
+      "min": 24,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "H1 size (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "h2_size_mobile",
+      "min": 18,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "H2 size (mobile)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "h2_size_desktop",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "H2 size (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "h3_size_mobile",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "H3 size (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "h3_size_desktop",
+      "min": 18,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "H3 size (desktop)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (desktop)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Text line height",
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "paragraph_spacing",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Paragraph spacing",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Link style"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#005c7c"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#003649"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 400,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text"
+    }
+  ]
+}
+{% endschema %}

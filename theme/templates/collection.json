@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "main-breadcrumbs",
+      "settings": {
+        "full-width-enabled": false,
+        "text_color": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 16,
+        "margin-bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_placeholder_image": true,
+        "layout": "image_first",
+        "desktop-percentage-image-width": 50,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 260,
+        "mobile_fixed_height": 260,
+        "full-width-enabled": true,
+        "size_heading": 180,
+        "size_heading_mobile": 230,
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 12,
+        "margin-bottom": 12
+      }
+    },
+    "blocks_DA78dx": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0d1c2d5_cVjbyV": {
+          "type": "ai_gen_block_0d1c2d5",
+          "disabled": true,
+          "settings": {
+            "section_padding": 40,
+            "column_gap": 40,
+            "image_border_radius": 14,
+            "button_text": "Shop Now",
+            "button_link": "",
+            "button_offset": 20,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 30,
+            "button_font_size": 12,
+            "button_border_radius": 10,
+            "button_background": "#003649",
+            "button_text_color": "#ffffff",
+            "button_background_hover": "#005c7c",
+            "button_text_color_hover": "#ffffff",
+            "featured_product": "athena-uraguard-liner",
+            "show_vendor": true,
+            "show_rating": true,
+            "show_price": true,
+            "show_description": true,
+            "product_cta_text": "View Product",
+            "product_border_radius": 14,
+            "product_image_width": 100,
+            "product_image_width_mobile": 100,
+            "product_image_alignment": "left",
+            "product_image_radius": 10,
+            "product_button_radius": 10,
+            "product_background": "#f9f9f9",
+            "vendor_color": "#717171",
+            "title_color": "#193445",
+            "star_color": "#fcc97e",
+            "star_empty_color": "#e0e0e0",
+            "rating_count_color": "#717171",
+            "price_color": "#151515",
+            "description_color": "#717171",
+            "product_button_bg": "#003649",
+            "product_button_color": "#ffffff",
+            "product_button_bg_hover": "#005c7c",
+            "product_button_color_hover": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_761a799_fXHP98": {
+          "type": "ai_gen_block_761a799",
+          "settings": {
+            "heading_text": "UraGuard® Incontinence Products",
+            "heading_tag": "h1",
+            "alignment": "center",
+            "font_size_mobile": 16,
+            "font_size_desktop": 20,
+            "font_weight": "300",
+            "letter_spacing": 0.5,
+            "line_height": 1,
+            "text_color": "#ffffff",
+            "background_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8976d6f_fj8Gym": {
+          "type": "ai_gen_block_8976d6f",
+          "settings": {
+            "background_color": "#ffffff",
+            "border_radius": 14,
+            "left_background_color": "rgba(0,0,0,0)",
+            "button_text": "Learn more about UraGuard® technology",
+            "button_link": "https://www.athenauraguard.com/pages/behind-the-science",
+            "button_style": "text",
+            "button_font_size": 22,
+            "button_border_radius": 10,
+            "button_background_color": "#003649",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#005c7c",
+            "button_hover_text_color": "#ffffff",
+            "button_secondary_text_color": "#003649",
+            "button_secondary_border_color": "#003649",
+            "button_secondary_hover_background_color": "#003649",
+            "button_secondary_hover_text_color": "#ffffff",
+            "button_text_link_color": "#003649",
+            "button_text_link_hover_color": "#005c7c",
+            "featured_product": "athena-uraguard-liner",
+            "product_background_color": "#ffffff",
+            "show_vendor": false,
+            "show_price": true,
+            "show_description": true,
+            "product_title_size": 30,
+            "product_price_size": 20,
+            "product_title_color": "#193445",
+            "product_text_color": "#193445",
+            "product_price_color": "#151515",
+            "product_button_text": "View Product",
+            "product_button_background_color": "#003649",
+            "product_button_text_color": "#ffffff",
+            "product_button_hover_background_color": "#005c7c",
+            "product_button_hover_text_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0d1c2d5_cVjbyV",
+        "ai_gen_block_761a799_fXHP98",
+        "ai_gen_block_8976d6f_fj8Gym"
+      ],
+      "name": "Two column image product",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "title": {
+      "type": "main-collection-title",
+      "disabled": true,
+      "settings": {
+        "full-width-enabled": false,
+        "show_collection_description": true,
+        "desktop_text_horizontal_position": "center",
+        "size_heading": 500,
+        "size_heading_mobile": 140,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ff9900",
+        "margin-top": 32,
+        "margin-bottom": 16
+      }
+    },
+    "separator_frYThK": {
+      "type": "separator",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": true,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "banner_card_GabW8U": {
+          "type": "banner-card",
+          "settings": {
+            "text": "Learn more about UraGuard®Technology",
+            "text_style": "body",
+            "button_label": "Learn more about UraGuard®Technology",
+            "button_select": "primary",
+            "banner_link": "",
+            "position_before_nth_product": 1,
+            "column_number_desktop": "2",
+            "text_size_desktop": 180,
+            "desktop_text_vertical_position": "center",
+            "desktop_text_horizontal_position": "center",
+            "column_number_mobile": "2",
+            "text_size_mobile": 180,
+            "mobile_text_vertical_position": "center",
+            "mobile_text_horizontal_position": "center",
+            "color-body-text": "rgba(0,0,0,0)",
+            "color-overlay": "rgba(0,0,0,0)",
+            "color-overlay-opacity": 100
+          }
+        }
+      },
+      "block_order": [
+        "banner_card_GabW8U"
+      ],
+      "disabled": true,
+      "settings": {
+        "products_per_page": 12,
+        "columns_mobile": "1",
+        "columns_desktop": "3",
+        "spacing_desktop": "16",
+        "full-width-enabled": true,
+        "spacing_mobile": "16",
+        "image_ratio": "adapt",
+        "show_video": false,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "enable_vendor_link": false,
+        "show_product_rating": false,
+        "enable_product_url_within_collection": false,
+        "enable_quick_add_button": true,
+        "text_alignment": "center",
+        "toolbar_style": "buttons",
+        "enable_sorting": true,
+        "enable_filtering": false,
+        "filter_position": "drawer",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "banner",
+    "blocks_DA78dx",
+    "title",
+    "separator_frYThK",
+    "product-grid"
+  ]
+}

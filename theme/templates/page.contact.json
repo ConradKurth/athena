@@ -1,0 +1,135 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 50,
+        "size_heading_mobile": 100,
+        "color-body-text": "#ffffff",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "blocks_6gXrUV": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3ff841f_qcKh6U": {
+          "type": "ai_gen_block_3ff841f",
+          "settings": {
+            "heading": "Contact Us",
+            "heading_level": "h1",
+            "heading_color": "#193445",
+            "alignment": "center",
+            "heading_size_mobile": 18,
+            "heading_size_desktop": 20,
+            "padding_top": 16,
+            "padding_bottom": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3ff841f_qcKh6U"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "rich_text_QWKrRM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_A4CVRe": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_aFEhxg": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Have a question or need support? We’re here to help.</strong></p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_FtCmMt": {
+          "type": "button",
+          "settings": {
+            "button_select": "link",
+            "button_label": "email us at: info@athenauraguard.com",
+            "button_link": "mailto:info@athenauraguard.com",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_A4CVRe",
+        "text_aFEhxg",
+        "button_FtCmMt"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ddeced",
+        "margin-top": 100,
+        "margin-bottom": 100
+      }
+    },
+    "brands_QX8gwd": {
+      "type": "brands",
+      "blocks": {
+        "image_PCPidr": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_EyQznL": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_PCPidr",
+        "image_EyQznL"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "#000000",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "blocks_6gXrUV",
+    "rich_text_QWKrRM",
+    "brands_QX8gwd"
+  ]
+}

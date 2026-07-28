@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "separator_mnLKeE": {
+      "type": "separator",
+      "name": "t:sections.separator.presets.name",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "Instructions for UraGuard® Shield",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": false,
+        "full-width-line": false,
+        "color-background": "#000000",
+        "color-body-text": "transparent",
+        "color-section-background": "#FFFFFF",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "multicolumn_8iqGf3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_aDz8hN": {
+          "type": "column",
+          "settings": {
+            "heading": "Remove Adhesive",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Take your shield and remove the adhesive strip on the back.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/1..png"
+          }
+        },
+        "column_KYiBqt": {
+          "type": "column",
+          "settings": {
+            "heading": "Position The Shield",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Ensure the blue rectangle is facing up and is pointing to you. Place the shield directly where urine exits the body (under the urethra and labia).</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/2..png"
+          }
+        },
+        "column_aidAXg": {
+          "type": "column",
+          "settings": {
+            "heading": "Secure and Wear",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Press the shield down gently to ensure a snug fit.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/3._84ea6c92-7323-4a2e-b8c2-531fae823d4f.png"
+          }
+        },
+        "column_gmDGhJ": {
+          "type": "column",
+          "settings": {
+            "heading": "Replace as Needed",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Dispose of the used liner and replace it with a fresh one when needed.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/4._52adf79b-63dc-4d02-93ab-3e8d6cdafc74.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_aDz8hN",
+        "column_KYiBqt",
+        "column_aidAXg",
+        "column_gmDGhJ"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "heading": "",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 40
+      }
+    },
+    "brands_wwzLKX": {
+      "type": "brands",
+      "blocks": {
+        "image_hWDHWn": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_N6Urn3": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_hWDHWn",
+        "image_N6Urn3"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "Brands",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "separator_mnLKeE",
+    "multicolumn_8iqGf3",
+    "brands_wwzLKX"
+  ]
+}

@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1763447449ccb4aeb8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2cc765a_qNe63U": {
+          "type": "ai_gen_block_2cc765a",
+          "settings": {
+            "placeholder_text": "Search products and blog posts...",
+            "max_width": 1000,
+            "min_height": 300,
+            "padding_vertical": 60,
+            "padding_bottom": 350,
+            "padding_horizontal": 40,
+            "input_padding_vertical": 14,
+            "input_padding_horizontal": 20,
+            "font_size": 16,
+            "border_radius": 8,
+            "border_width": 1,
+            "background_color": "#ffffff",
+            "text_color": "#193445",
+            "placeholder_color": "#717171",
+            "border_color": "#000000",
+            "border_focus_color": "#005c7c",
+            "icon_size": 20,
+            "icon_color": "#193445",
+            "results_max_height": 500,
+            "results_background": "#ffffff",
+            "results_hover_background": "#f5f5f5"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2cc765a_qNe63U"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "brands_bWfKKB": {
+      "type": "brands",
+      "blocks": {
+        "image_mXe3MV": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_Wgbjgm": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_mXe3MV",
+        "image_Wgbjgm"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "#000000",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "1763447449ccb4aeb8",
+    "brands_bWfKKB",
+    "main"
+  ]
+}

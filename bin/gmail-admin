@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Athena-scoped wrapper for Cyclone's gmail-admin CLI.
+# Builds from source on demand, runs against Athena credentials.
+# NOTE: GMAIL_IMPERSONATE must be set in .env — it defaults to
+# conrad@cyclonepods.com upstream, which is Cyclone's mailbox.
+. "$(dirname "${BASH_SOURCE[0]:-$0}")/_common.sh"
+run_go gmail-admin gmail-admin "$@"

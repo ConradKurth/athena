@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Athena-scoped wrapper for Cyclone's shopify-admin CLI.
+# Builds from source on demand, runs against Athena credentials.
+. "$(dirname "${BASH_SOURCE[0]:-$0}")/_common.sh"
+run_go shopify-admin shopify-admin "$@"

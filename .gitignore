@@ -1,0 +1,20 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+gcs-service.json
+*-service.json
+
+# Per-brand isolated state (Shopify OAuth token cache lives here)
+.home/
+
+# Built binaries (rebuilt on demand from the Cyclone source)
+bin/.build/
+
+# Shopify CLI local state (the theme code itself IS committed under theme/)
+.shopify/
+theme/.shopify/
+theme/node_modules/
+
+# direnv
+.direnv/

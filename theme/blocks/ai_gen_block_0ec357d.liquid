@@ -1,0 +1,727 @@
+{% doc %}
+  @prompt
+    Create a two-column layout. Each column has three rows.
+    
+    Row 1: A heading (H3)
+    Row 2: An image (with sizing controls)
+    Row 3: A text field (must allow bullets)
+    
+    On desktop, the two columns must be side by side.
+    
+    On mobile, one column shows at a time and there are arrows to switch between column 1 and 2., Allow the headings in row 1 to be center aligned, ensure the bullets are actually visible, Ensure proper image size controls (height and width), add a sepeater line between two columns so these two look distinct, make the separater line thicker and give options to modify it 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-column-layout-{{ ai_gen_id }} {
+    width: 100%;
+    padding: {{ block.settings.section_padding }}px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-two-column-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-two-column-desktop-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  .ai-two-column-mobile-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+  }
+
+  .ai-two-column-carousel-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-two-column-slides-{{ ai_gen_id }} {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-two-column-slide-{{ ai_gen_id }} {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+
+  .ai-two-column-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.row_gap }}px;
+  }
+
+  .ai-two-column-heading-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size_mobile }}px;
+    {% if block.settings.heading_alignment == 'center' %}
+      text-align: center;
+    {% elsif block.settings.heading_alignment == 'right' %}
+      text-align: right;
+    {% else %}
+      text-align: left;
+    {% endif %}
+  }
+
+  .ai-two-column-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height_mobile }}px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-two-column-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height_mobile }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.3;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size_mobile }}px;
+    line-height: 1.6;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} li {
+    margin-bottom: 8px;
+  }
+
+  .ai-two-column-arrows-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .ai-two-column-arrow-{{ ai_gen_id }} {
+    background-color: {{ block.settings.arrow_background }};
+    color: {{ block.settings.arrow_color }};
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-two-column-arrow-{{ ai_gen_id }}:hover {
+    opacity: 0.8;
+  }
+
+  .ai-two-column-arrow-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-two-column-arrow-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-two-column-separator-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-two-column-desktop-{{ ai_gen_id }} {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: {{ block.settings.column_gap }}px;
+      align-items: start;
+    }
+
+    .ai-two-column-mobile-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-two-column-separator-{{ ai_gen_id }} {
+      display: block;
+      width: {{ block.settings.separator_width }}px;
+      background-color: {{ block.settings.separator_color }};
+      align-self: stretch;
+      border-radius: {{ block.settings.separator_border_radius }}px;
+      {% if block.settings.separator_style == 'dashed' %}
+        background-image: repeating-linear-gradient(
+          to bottom,
+          {{ block.settings.separator_color }} 0px,
+          {{ block.settings.separator_color }} {{ block.settings.separator_dash_length }}px,
+          transparent {{ block.settings.separator_dash_length }}px,
+          transparent calc({{ block.settings.separator_dash_length }}px + {{ block.settings.separator_dash_gap }}px)
+        );
+        background-color: transparent;
+      {% elsif block.settings.separator_style == 'dotted' %}
+        background-image: repeating-linear-gradient(
+          to bottom,
+          {{ block.settings.separator_color }} 0px,
+          {{ block.settings.separator_color }} {{ block.settings.separator_width }}px,
+          transparent {{ block.settings.separator_width }}px,
+          transparent calc({{ block.settings.separator_width }}px + {{ block.settings.separator_dot_gap }}px)
+        );
+        background-color: transparent;
+      {% endif %}
+      opacity: {{ block.settings.separator_opacity | divided_by: 100.0 }};
+    }
+
+    .ai-two-column-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_desktop }}px;
+    }
+
+    .ai-two-column-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_desktop }}px;
+    }
+
+    .ai-two-column-image-{{ ai_gen_id }} {
+      height: {{ block.settings.image_height_desktop }}px;
+    }
+
+    .ai-two-column-image-placeholder-{{ ai_gen_id }} {
+      height: {{ block.settings.image_height_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+<two-column-layout-{{ ai_gen_id }} class="ai-two-column-layout-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-two-column-container-{{ ai_gen_id }}">
+    <div class="ai-two-column-desktop-{{ ai_gen_id }}">
+      <div class="ai-two-column-column-{{ ai_gen_id }}">
+        <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.heading_1 }}</h3>
+        <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.image_1 %}
+            <img
+              src="{{ block.settings.image_1 | image_url: width: 800 }}"
+              alt="{{ block.settings.image_1.alt | escape }}"
+              class="ai-two-column-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.image_1.width }}"
+              height="{{ block.settings.image_1.height }}"
+            >
+          {% else %}
+            <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="ai-two-column-text-{{ ai_gen_id }}">
+          {{ block.settings.text_1 }}
+        </div>
+      </div>
+
+      <div class="ai-two-column-separator-{{ ai_gen_id }}"></div>
+
+      <div class="ai-two-column-column-{{ ai_gen_id }}">
+        <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.heading_2 }}</h3>
+        <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.image_2 %}
+            <img
+              src="{{ block.settings.image_2 | image_url: width: 800 }}"
+              alt="{{ block.settings.image_2.alt | escape }}"
+              class="ai-two-column-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.image_2.width }}"
+              height="{{ block.settings.image_2.height }}"
+            >
+          {% else %}
+            <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="ai-two-column-text-{{ ai_gen_id }}">
+          {{ block.settings.text_2 }}
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-two-column-mobile-{{ ai_gen_id }}">
+      <div class="ai-two-column-carousel-{{ ai_gen_id }}">
+        <div class="ai-two-column-slides-{{ ai_gen_id }}" data-slides>
+          <div class="ai-two-column-slide-{{ ai_gen_id }}">
+            <div class="ai-two-column-column-{{ ai_gen_id }}">
+              <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.heading_1 }}</h3>
+              <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+                {% if block.settings.image_1 %}
+                  <img
+                    src="{{ block.settings.image_1 | image_url: width: 600 }}"
+                    alt="{{ block.settings.image_1.alt | escape }}"
+                    class="ai-two-column-image-{{ ai_gen_id }}"
+                    loading="lazy"
+                    width="{{ block.settings.image_1.width }}"
+                    height="{{ block.settings.image_1.height }}"
+                  >
+                {% else %}
+                  <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+                    {{ 'image' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="ai-two-column-text-{{ ai_gen_id }}">
+                {{ block.settings.text_1 }}
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-two-column-slide-{{ ai_gen_id }}">
+            <div class="ai-two-column-column-{{ ai_gen_id }}">
+              <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.heading_2 }}</h3>
+              <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+                {% if block.settings.image_2 %}
+                  <img
+                    src="{{ block.settings.image_2 | image_url: width: 600 }}"
+                    alt="{{ block.settings.image_2.alt | escape }}"
+                    class="ai-two-column-image-{{ ai_gen_id }}"
+                    loading="lazy"
+                    width="{{ block.settings.image_2.width }}"
+                    height="{{ block.settings.image_2.height }}"
+                  >
+                {% else %}
+                  <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+                    {{ 'image' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="ai-two-column-text-{{ ai_gen_id }}">
+                {{ block.settings.text_2 }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-two-column-arrows-{{ ai_gen_id }}">
+        <button
+          class="ai-two-column-arrow-{{ ai_gen_id }} ai-two-column-prev-{{ ai_gen_id }}"
+          aria-label="Previous column"
+          data-prev
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="ai-two-column-arrow-{{ ai_gen_id }} ai-two-column-next-{{ ai_gen_id }}"
+          aria-label="Next column"
+          data-next
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</two-column-layout-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TwoColumnLayout{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.totalSlides = 2;
+      }
+
+      connectedCallback() {
+        this.slidesContainer = this.querySelector('[data-slides]');
+        this.prevButton = this.querySelector('[data-prev]');
+        this.nextButton = this.querySelector('[data-next]');
+
+        if (this.prevButton && this.nextButton && this.slidesContainer) {
+          this.prevButton.addEventListener('click', () => this.goToPrevSlide());
+          this.nextButton.addEventListener('click', () => this.goToNextSlide());
+          this.updateButtons();
+        }
+      }
+
+      goToPrevSlide() {
+        if (this.currentSlide > 0) {
+          this.currentSlide--;
+          this.updateSlidePosition();
+          this.updateButtons();
+        }
+      }
+
+      goToNextSlide() {
+        if (this.currentSlide < this.totalSlides - 1) {
+          this.currentSlide++;
+          this.updateSlidePosition();
+          this.updateButtons();
+        }
+      }
+
+      updateSlidePosition() {
+        const offset = -this.currentSlide * 100;
+        this.slidesContainer.style.transform = `translateX(${offset}%)`;
+      }
+
+      updateButtons() {
+        if (this.prevButton) {
+          this.prevButton.disabled = this.currentSlide === 0;
+        }
+        if (this.nextButton) {
+          this.nextButton.disabled = this.currentSlide === this.totalSlides - 1;
+        }
+      }
+    }
+
+    customElements.define('two-column-layout-{{ ai_gen_id }}', TwoColumnLayout{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Two column layout",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Heading",
+      "default": "Column 1 Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Text",
+      "default": "<p>Add your text here. You can use bullet points:</p><ul><li>First point</li><li>Second point</li><li>Third point</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading",
+      "default": "Column 2 Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Text",
+      "default": "<p>Add your text here. You can use bullet points:</p><ul><li>First point</li><li>Second point</li><li>Third point</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Column gap (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Row gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Separator"
+    },
+    {
+      "type": "select",
+      "id": "separator_style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "dashed",
+          "label": "Dashed"
+        },
+        {
+          "value": "dotted",
+          "label": "Dotted"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Width",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "separator_border_radius",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "separator_opacity",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "separator_dash_length",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Dash length",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "separator_dash_gap",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Dash gap",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "separator_dot_gap",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Dot gap",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "min": 150,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Image height (mobile)",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "image_height_desktop",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Image height (desktop)",
+      "default": 350
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size (mobile)",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size (desktop)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (mobile)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (desktop)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "arrow_background",
+      "label": "Arrow background",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow icon",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two column layout"
+    }
+  ]
+}
+{% endschema %}

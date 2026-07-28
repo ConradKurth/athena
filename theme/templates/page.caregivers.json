@@ -1,0 +1,424 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "#ffffff",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_banner_zmKigY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_KdRc4R": {
+          "type": "heading",
+          "settings": {
+            "heading": "For Families Dealing with Incontinence",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_RaBN7y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Learn How UraGuard® Can Help Protect Your Loved Ones</p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KdRc4R",
+        "text_RaBN7y"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/Asset_15_2x_d7f466b9-973f-443f-bd36-8fa66e2c7813.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_image": "shopify://shop_images/Asset_1_315f9054-fc3e-42c3-8d4a-a48d51ebef30.jpg",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "text-container-color": "#193445",
+        "color-overlay-opacity": 60,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_QYNCJ4": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_iMnQkC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Does someone you love rely on caregivers to change their soiled incontinence items?</p><p>Whether they live in:</p><ul><li><strong>An assisted living facility</strong></li><li><strong>A</strong> <strong>nursing home</strong></li><li><strong>A long-term care facility</strong></li><li><strong>A memory care</strong></li><li><strong>A skilled nursing facility</strong> </li></ul><p>UraGuard® can help you keep them safe and protected.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "text_iMnQkC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": false,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 480,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/Incontinence-care-for-the-elderly.webp",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "1763366699eaefb01f": {
+      "type": "_blocks",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "rich_text_x76YM6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JnmqMq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Protect Your Loved One with UraGuard®",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_EVQLyz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>UraGuard® Shield is designed to reduce contact with moisture and bacteria commonly found in incontinence products. UraGuard® helps your loved ones maintain superior hygiene while giving you peace of mind.</p><p>UraGuard® was inspired by the stories of patients and families. All too often, family members express concern that their loved one not being changed in a timely fashion. They worry about prolonged exposure to moisture and bacteria when sitting in soiled incontinence products.</p><p>UraGuard® is here to help. UraGuard® provides an added layer of protection to support your loved one’s hygiene and comfort, while easing your concerns.</p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JnmqMq",
+        "text_EVQLyz"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {[data-section-id=\"template--20117683601635__rich_text_x76YM6\"] .hero__overlay__content {padding-left: 150px !important; padding-right: 150px !important; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ece2e1",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "image_with_scrolling_text_hER3mV": {
+      "type": "image-with-scrolling-text",
+      "blocks": {
+        "image_BHNfLM": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
+            "mobile_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
+            "heading": "UraGuard® Blocks Bacteria",
+            "size_heading": 100,
+            "size_heading_mobile": 100,
+            "text": "UraGuard® is placed directly under the urethra — the part of the body that carries urine out of the bladder. When someone sits in a soiled incontinence product, bacteria can travel up the urethra and into the bladder, increasing the risk of urinary tract infections (UTIs). UraGuard® acts as a protective barrier, helping to reduce contact with moisture and bacteria commonly found in incontinence products.",
+            "button_select": "primary",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/athena-uraguard-liner",
+            "disable_on_mobile": false
+          }
+        },
+        "image_rag46W": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/continuous-protection-with-uraguard.png",
+            "mobile_image": "shopify://shop_images/continuous-protection-with-uraguard.png",
+            "heading": "UraGuard® Provides Continuous Protection",
+            "size_heading": 100,
+            "size_heading_mobile": 100,
+            "text": "UraGuard® provides continuous protection, day and night. Designed to be lightweight and comfortable, the shield offers effortless, around-the-clock protection., giving you peace of mind at all times.",
+            "button_select": "primary",
+            "button_label": "shop now",
+            "button_link": "shopify://products/athena-uraguard-liner",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_BHNfLM",
+        "image_rag46W"
+      ],
+      "name": "t:sections.image_with_scrolling_text.name",
+      "settings": {
+        "layout": "image_first",
+        "full-width-enabled": false,
+        "image_ratio": "adapt",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "shoppable_video_nwxWXi": {
+      "type": "shoppable-video",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 768px) {[data-section-id=\"template--20117683601635__shoppable_video_nwxWXi\"] .wt-video__movie {max-width: 1200px; margin-left: auto; margin-right: auto; }}"
+      ],
+      "name": "t:sections.shoppable-video.name",
+      "settings": {
+        "heading": "Learn How UraGuard® Can Protect Your Loved Ones",
+        "full-width-enabled": false,
+        "quick-add-enabled": true,
+        "rewind-enabled": false,
+        "hide-brand-name": false,
+        "video_hosted": "shopify://files/videos/NEW VO_ATHENA withUraGuard™ ANIMATION 4096 x 1900 pixels.mp4",
+        "video_custom_mute_controls": true,
+        "desktop_fixed_height": 520,
+        "mobile_fixed_height": 480,
+        "enable_full_screen_mode": false,
+        "color-body-heading": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 88
+      }
+    },
+    "background_video_pATtHt": {
+      "type": "background-video",
+      "custom_css": [
+        "@media screen and (min-width: 768px) {[data-section-id=\"template--20117683601635__background_video_pATtHt\"] .wt-video__movie {max-width: 1200px; /* ← adjust this */ margin-left: auto; margin-right: auto; }}"
+      ],
+      "name": "t:sections.background-video.presets.name",
+      "settings": {
+        "heading": "Learn How UraGuard® Can Protect Your Loved Ones",
+        "full-width-enabled": false,
+        "video_hosted": "shopify://files/videos/UraGuard Comparison Video Updated.mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_custom_play_controls": true,
+        "video_custom_mute_controls": true,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "original_ratio",
+        "desktop_fixed_height": 540,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "rgba(0,0,0,0)",
+        "color-overlay": "#fff9f9",
+        "color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "separator_Vah6jB": {
+      "type": "separator",
+      "name": "t:sections.separator.presets.name",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": false,
+        "full-width-line": false,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 96
+      }
+    },
+    "slideshow_w4eNGB": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_TDJ34W": {
+          "type": "slide",
+          "settings": {
+            "subheading": "",
+            "subheading_disable_on_mobile": false,
+            "heading": "Helping You Help The Ones You Love",
+            "heading_disable_on_mobile": false,
+            "size_heading": 140,
+            "size_heading_mobile": 100,
+            "text": "",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "shop now",
+            "button_disable_on_mobile": false,
+            "button_link": "shopify://products/athena-uraguard-liner",
+            "second_button_select": "primary",
+            "second_button_label": "",
+            "button_disable_on_mobile_second": false,
+            "second_button_link": "",
+            "color-body-text": "rgba(0,0,0,0)",
+            "color-overlay": "#005c7c",
+            "color-overlay-opacity": 37,
+            "desktop_image": "shopify://shop_images/incontinence-care-for-elderly.png",
+            "desktop_text_vertical_position": "center",
+            "desktop_text_horizontal_position": "left",
+            "mobile_text_vertical_position": "center",
+            "mobile_text_horizontal_position": "center",
+            "out-background-color": "rgba(0,0,0,0)",
+            "out-text-color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "slide_TDJ34W"
+      ],
+      "name": "t:sections.slideshow.settings.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "auto-rotate": false,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 480,
+        "mobile_fixed_height": 460,
+        "heading_color": "rgba(0,0,0,0)",
+        "text_color": "#ffffff",
+        "background_color": "rgba(0,0,0,0)",
+        "out_hero_mobile": true,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "blog_posts_yPFhk6": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
+      "settings": {
+        "heading": "Learn More On Our Blog",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "blog": "news",
+        "post_limit": 3,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": true,
+        "view_all_button_select": "secondary",
+        "show_image": true,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "button_select": "link",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "separator_wC4jdU": {
+      "type": "separator",
+      "name": "t:sections.separator.presets.name",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 50,
+        "size_heading_mobile": 80,
+        "show-separator-line": false,
+        "full-width-line": false,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "brands_fFeEqX": {
+      "type": "brands",
+      "blocks": {
+        "image_wQzPXP": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_tHpCFV": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_wQzPXP",
+        "image_tHpCFV"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_zmKigY",
+    "image_with_text_QYNCJ4",
+    "1763366699eaefb01f",
+    "rich_text_x76YM6",
+    "image_with_scrolling_text_hER3mV",
+    "shoppable_video_nwxWXi",
+    "background_video_pATtHt",
+    "separator_Vah6jB",
+    "slideshow_w4eNGB",
+    "blog_posts_yPFhk6",
+    "separator_wC4jdU",
+    "brands_fFeEqX"
+  ]
+}

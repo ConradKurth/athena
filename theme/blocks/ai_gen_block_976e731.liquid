@@ -1,0 +1,593 @@
+{% doc %}
+  @prompt
+    A featured blog post banner with an image to the left and the blog post title, snippet, and read more button to the left (autofills based on the selected blog bost), Add an option to have the image on the left or right, Add an option to select a button style 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-blog-banner-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.gap }}px;
+    align-items: center;
+    padding: {{ block.settings.padding }}px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    flex-direction: {% if block.settings.image_position == 'right' %}row-reverse{% else %}row{% endif %};
+  }
+
+  .ai-blog-banner-image-{{ ai_gen_id }} {
+    flex: 0 0 {{ block.settings.image_width }}%;
+    max-width: {{ block.settings.image_width }}%;
+  }
+
+  .ai-blog-banner-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-blog-banner-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-blog-banner-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-blog-banner-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-blog-banner-content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-blog-banner-title-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    line-height: 1.2;
+  }
+
+  .ai-blog-banner-title-{{ ai_gen_id }} a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ai-blog-banner-title-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.title_hover_color }};
+  }
+
+  .ai-blog-banner-meta-{{ ai_gen_id }} {
+    display: flex;
+    gap: 16px;
+    font-size: {{ block.settings.meta_size }}px;
+    color: {{ block.settings.meta_color }};
+  }
+
+  .ai-blog-banner-excerpt-{{ ai_gen_id }} {
+    font-size: {{ block.settings.excerpt_size }}px;
+    color: {{ block.settings.excerpt_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-blog-banner-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    border: 2px solid transparent;
+  }
+
+  {% if block.settings.button_style == 'primary' %}
+    .ai-blog-banner-button-{{ ai_gen_id }} {
+      background-color: {{ block.settings.button_background }};
+      color: {{ block.settings.button_text_color }};
+    }
+
+    .ai-blog-banner-button-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.button_background_hover }};
+      color: {{ block.settings.button_text_color_hover }};
+    }
+  {% elsif block.settings.button_style == 'secondary' %}
+    .ai-blog-banner-button-{{ ai_gen_id }} {
+      background-color: {{ block.settings.button_secondary_background }};
+      color: {{ block.settings.button_secondary_text_color }};
+      border-color: {{ block.settings.button_secondary_border }};
+    }
+
+    .ai-blog-banner-button-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.button_secondary_background_hover }};
+      color: {{ block.settings.button_secondary_text_color_hover }};
+      border-color: {{ block.settings.button_secondary_border_hover }};
+    }
+  {% elsif block.settings.button_style == 'text' %}
+    .ai-blog-banner-button-{{ ai_gen_id }} {
+      background-color: transparent;
+      color: {{ block.settings.button_text_link_color }};
+      padding: 0;
+      text-decoration: underline;
+    }
+
+    .ai-blog-banner-button-{{ ai_gen_id }}:hover {
+      color: {{ block.settings.button_text_link_hover_color }};
+    }
+  {% endif %}
+
+  .ai-blog-banner-empty-state-{{ ai_gen_id }} {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-blog-banner-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.gap | times: 0.75 }}px;
+      padding: {{ block.settings.padding | times: 0.75 }}px;
+    }
+
+    .ai-blog-banner-image-{{ ai_gen_id }} {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .ai-blog-banner-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.8 }}px;
+    }
+
+    .ai-blog-banner-excerpt-{{ ai_gen_id }} {
+      font-size: {{ block.settings.excerpt_size | times: 0.9 }}px;
+    }
+
+    .ai-blog-banner-button-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-blog-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.featured_article != blank %}
+    {% assign article = block.settings.featured_article %}
+    
+    <div class="ai-blog-banner-image-{{ ai_gen_id }}">
+      <div class="ai-blog-banner-image-wrapper-{{ ai_gen_id }}">
+        {% if article.image %}
+          <img
+            src="{{ article.image | image_url: width: 800 }}"
+            alt="{{ article.image.alt | escape }}"
+            loading="lazy"
+            width="{{ article.image.width }}"
+            height="{{ article.image.height }}"
+          >
+        {% else %}
+          <div class="ai-blog-banner-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-blog-banner-content-{{ ai_gen_id }}">
+      <h2 class="ai-blog-banner-title-{{ ai_gen_id }}">
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h2>
+
+      {% if block.settings.show_meta %}
+        <div class="ai-blog-banner-meta-{{ ai_gen_id }}">
+          {% if block.settings.show_author and article.author != blank %}
+            <span>{{ article.author }}</span>
+          {% endif %}
+          {% if block.settings.show_date %}
+            <span>{{ article.published_at | date: block.settings.date_format }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_excerpt and article.excerpt != blank %}
+        <div class="ai-blog-banner-excerpt-{{ ai_gen_id }}">
+          {{ article.excerpt | strip_html | truncate: block.settings.excerpt_length }}
+        </div>
+      {% endif %}
+
+      <a href="{{ article.url }}" class="ai-blog-banner-button-{{ ai_gen_id }}">
+        {{ block.settings.button_text }}
+      </a>
+    </div>
+  {% else %}
+    <div class="ai-blog-banner-empty-state-{{ ai_gen_id }}">
+      Next, select a blog post to feature
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Featured blog post",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Blog post"
+    },
+    {
+      "type": "article",
+      "id": "featured_article",
+      "label": "Article"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "label": "Image width",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between image and content",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between content elements",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "title_hover_color",
+      "label": "Hover color",
+      "default": "#005c7c"
+    },
+    {
+      "type": "header",
+      "content": "Meta information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_meta",
+      "label": "Show meta information",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "date_format",
+      "label": "Date format",
+      "default": "%B %d, %Y"
+    },
+    {
+      "type": "range",
+      "id": "meta_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "meta_color",
+      "label": "Color",
+      "default": "#717171"
+    },
+    {
+      "type": "header",
+      "content": "Excerpt"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "excerpt_length",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "label": "Excerpt length",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "excerpt_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "excerpt_color",
+      "label": "Color",
+      "default": "#193445"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "text",
+          "label": "Text link"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Primary button style"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Background",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background_hover",
+      "label": "Hover background",
+      "default": "#005c7c"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color_hover",
+      "label": "Hover text",
+      "default": "#ececec"
+    },
+    {
+      "type": "header",
+      "content": "Secondary button style"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_text_color",
+      "label": "Text",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_border",
+      "label": "Border",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_background_hover",
+      "label": "Hover background",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_text_color_hover",
+      "label": "Hover text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_secondary_border_hover",
+      "label": "Hover border",
+      "default": "#003649"
+    },
+    {
+      "type": "header",
+      "content": "Text link style"
+    },
+    {
+      "type": "color",
+      "id": "button_text_link_color",
+      "label": "Text",
+      "default": "#005c7c"
+    },
+    {
+      "type": "color",
+      "id": "button_text_link_hover_color",
+      "label": "Hover text",
+      "default": "#003649"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured blog post"
+    }
+  ]
+}
+{% endschema %}

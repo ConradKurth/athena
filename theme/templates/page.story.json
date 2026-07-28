@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "#ffffff",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_banner_78NHff": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Yx8Ge4": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Behind the Science",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "subheading_dVLTjk": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Behind the Science",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "text_hYNHjy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Advanced Protection for Women's Health<br/><br/></p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Yx8Ge4",
+        "subheading_dVLTjk",
+        "text_hYNHjy"
+      ],
+      "custom_css": [
+        "[data-block-id=\"subheading_dVLTjk\"] {font-size: 28px !important; /* adjust to your preferred size */ line-height: 1.3 !important;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/Asset_15_2x_d7f466b9-973f-443f-bd36-8fa66e2c7813.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_image": "shopify://shop_images/Asset_1_315f9054-fc3e-42c3-8d4a-a48d51ebef30.jpg",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "#193445",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "text-container-color": "#193445",
+        "color-overlay-opacity": 60,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_QYNCJ4": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TEkcDB": {
+          "type": "heading",
+          "settings": {
+            "heading": "UraGuard®",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_iMnQkC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our patent-pending UraGuard® technology is designed to support urinary health by helping shield you from harmful bacteria held inside your incontinence Item.</p><p>Unlike traditional incontinence products that trap moisture and create a breeding ground for bacteria, UraGuard® features advanced technology to help keep you protected, dry and comfortable.</p><p>UraGuard® Is a smarter, science-backed solution for women seeking both reliable leak protection and greater peace of mind—so you can feel confident and worry-free every day.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEkcDB",
+        "text_iMnQkC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": false,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 600,
+        "mobile_fixed_height": 320,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/Scientist_square.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "background_video_dRVVim": {
+      "type": "background-video",
+      "custom_css": [
+        "@media screen and (min-width: 768px) {[data-section-id=\"template--20099179872483__background_video_dRVVim\"] .wt-video__movie {max-width: 1200px; margin-left: auto; margin-right: auto; }}"
+      ],
+      "name": "t:sections.background-video.presets.name",
+      "settings": {
+        "heading": "How UraGuard® Works",
+        "full-width-enabled": false,
+        "video_hosted": "shopify://files/videos/UraGuard Comparison Video Updated.mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_custom_play_controls": true,
+        "video_custom_mute_controls": true,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "original_ratio",
+        "desktop_fixed_height": 540,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "rgba(0,0,0,0)",
+        "color-overlay": "#fff9f9",
+        "color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "blocks_eQYEbE": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0d1c2d5_PeLr6a": {
+          "type": "ai_gen_block_0d1c2d5",
+          "settings": {
+            "section_padding": 40,
+            "column_gap": 40,
+            "image": "shopify://shop_images/Athena_Banner.webp",
+            "image_border_radius": 14,
+            "button_text": "",
+            "button_link": "shopify://collections/uraguard-incontinence-products",
+            "button_offset": 20,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 30,
+            "button_font_size": 12,
+            "button_border_radius": 10,
+            "button_background": "rgba(0,0,0,0)",
+            "button_text_color": "#ffffff",
+            "button_background_hover": "rgba(0,0,0,0)",
+            "button_text_color_hover": "#005c7c",
+            "featured_product": "athena-uraguard-liner",
+            "show_vendor": false,
+            "show_rating": true,
+            "show_price": true,
+            "show_description": false,
+            "product_cta_text": "View Product",
+            "product_border_radius": 14,
+            "product_image_width": 45,
+            "product_image_width_mobile": 100,
+            "product_image_alignment": "left",
+            "product_image_radius": 10,
+            "product_button_radius": 10,
+            "product_background": "#ffffff",
+            "vendor_color": "#717171",
+            "title_color": "#193445",
+            "star_color": "#fcc97e",
+            "star_empty_color": "#fcc97e",
+            "rating_count_color": "#717171",
+            "price_color": "#151515",
+            "description_color": "#717171",
+            "product_button_bg": "#003649",
+            "product_button_color": "#ffffff",
+            "product_button_bg_hover": "#005c7c",
+            "product_button_color_hover": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0d1c2d5_PeLr6a"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "blog_posts_yPFhk6": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
+      "settings": {
+        "heading": "Learn More on Our Blog",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "blog": "news",
+        "post_limit": 3,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": true,
+        "view_all_button_select": "secondary",
+        "show_image": true,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "button_select": "link",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "brands_LdqaGb": {
+      "type": "brands",
+      "blocks": {
+        "image_GQiHjE": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_naVDrL": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_GQiHjE",
+        "image_naVDrL"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_78NHff",
+    "image_with_text_QYNCJ4",
+    "background_video_dRVVim",
+    "blocks_eQYEbE",
+    "blog_posts_yPFhk6",
+    "brands_LdqaGb"
+  ]
+}

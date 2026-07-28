@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17636352943f7dc240": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3ff841f_GBbeWE": {
+          "type": "ai_gen_block_3ff841f",
+          "settings": {
+            "heading": "UraGuard® Blog",
+            "heading_level": "h1",
+            "heading_color": "#193445",
+            "alignment": "center",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 26,
+            "padding_top": 40,
+            "padding_bottom": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3ff841f_GBbeWE"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "17635374442c51f9a2": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_a857356_8MzRPk": {
+          "type": "ai_gen_block_a857356",
+          "settings": {
+            "featured_article": "news/menopause-and-uti",
+            "subtitle": "Featured Post",
+            "subtitle_uppercase": "uppercase",
+            "excerpt_length": 150,
+            "full_width": true,
+            "section_max_width": 1800,
+            "section_height": 500,
+            "content_container_width": 1400,
+            "content_width": 600,
+            "image_crop": "cover",
+            "image_alignment_x": "center",
+            "image_alignment_y": "center",
+            "fallback_bg_color": "#f4f4f4",
+            "enable_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "subtitle_size": 14,
+            "subtitle_color": "#ffffff",
+            "title_size": 42,
+            "title_color": "#ffffff",
+            "excerpt_size": 16,
+            "excerpt_color": "#ffffff",
+            "show_button": true,
+            "button_text": "Read More",
+            "button_style": "primary",
+            "button_uppercase": "uppercase",
+            "button_size": 14,
+            "button_radius": 4,
+            "button_primary_bg": "#003649",
+            "button_primary_text": "#ffffff",
+            "button_primary_bg_hover": "#005c7c",
+            "button_primary_text_hover": "#ffffff",
+            "button_secondary_bg": "rgba(0,0,0,0)",
+            "button_secondary_border": "#ffffff",
+            "button_secondary_text": "#ffffff",
+            "button_secondary_bg_hover": "#ffffff",
+            "button_secondary_border_hover": "#ffffff",
+            "button_secondary_text_hover": "#000000",
+            "button_text_color": "#ffffff",
+            "button_text_line_color": "#ffffff",
+            "button_text_color_hover": "#cccccc",
+            "button_text_line_color_hover": "#cccccc"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a857356_8MzRPk"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "1763366853640a0e13": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_976e731_XLGzgp": {
+          "type": "ai_gen_block_976e731",
+          "disabled": true,
+          "settings": {
+            "featured_article": "news/menopause-and-uti",
+            "image_position": "right",
+            "image_width": 45,
+            "gap": 40,
+            "content_gap": 20,
+            "padding": 40,
+            "border_radius": 14,
+            "image_border_radius": 10,
+            "background_color": "#f9f9f9",
+            "title_size": 32,
+            "title_color": "#193445",
+            "title_hover_color": "#005c7c",
+            "show_meta": false,
+            "show_author": false,
+            "show_date": false,
+            "date_format": "%B %d, %Y",
+            "meta_size": 14,
+            "meta_color": "#717171",
+            "show_excerpt": true,
+            "excerpt_length": 150,
+            "excerpt_size": 16,
+            "excerpt_color": "#193445",
+            "button_text": "Read more",
+            "button_style": "text",
+            "button_font_size": 14,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 10,
+            "button_background": "#003649",
+            "button_text_color": "#ffffff",
+            "button_background_hover": "#005c7c",
+            "button_text_color_hover": "#ececec",
+            "button_secondary_background": "#ffffff",
+            "button_secondary_text_color": "#003649",
+            "button_secondary_border": "#003649",
+            "button_secondary_background_hover": "#003649",
+            "button_secondary_text_color_hover": "#ffffff",
+            "button_secondary_border_hover": "#003649",
+            "button_text_link_color": "#005c7c",
+            "button_text_link_hover_color": "#003649"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_976e731_XLGzgp"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "custom_css": [
+        "/* Remove hover shadow from blog cards */.article-card,.main-blog__grid__item .card {box-shadow: none !important;}"
+      ],
+      "settings": {
+        "show_blog_title": false,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "columns_desktop": "3",
+        "button_select": "link",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "margin-top": 44,
+        "margin-bottom": 40
+      }
+    },
+    "brands_J488dB": {
+      "type": "brands",
+      "blocks": {
+        "image_gbFEeV": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_j9cxp7": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_gbFEeV",
+        "image_j9cxp7"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "17636352943f7dc240",
+    "17635374442c51f9a2",
+    "1763366853640a0e13",
+    "main",
+    "brands_J488dB"
+  ]
+}

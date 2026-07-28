@@ -1,0 +1,775 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1769810516bd65a39f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_30f64be_DcCRji": {
+          "type": "ai_gen_block_30f64be",
+          "settings": {
+            "text_before": "Free Shipping on order",
+            "highlight_text": "over $55!",
+            "text_after": "--Stock Up and Save!",
+            "show_icon": true,
+            "text_alignment": "center",
+            "desktop_width_percent": 100,
+            "padding_vertical": 15,
+            "padding_horizontal": 20,
+            "border_radius": 10,
+            "background_color": "#e3f2e6",
+            "text_color": "#193445",
+            "highlight_color": "#005c7c",
+            "icon_color": "#005c7c",
+            "text_size": 16,
+            "text_weight": "400",
+            "highlight_weight": "600",
+            "icon_size": 30,
+            "icon_spacing": 8,
+            "enable_border": false,
+            "border_width": 2,
+            "border_color": "#005c7c"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_30f64be_DcCRji"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "main-breadcrumbs",
+      "settings": {
+        "full-width-enabled": true,
+        "text_color": "#193445",
+        "background_color": "#ffffff",
+        "margin-top": 12,
+        "margin-bottom": 12
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "brand": "",
+            "enable_vendor_link": false,
+            "size_text": 300,
+            "size_text_mobile": 160
+          }
+        },
+        "text_CDKQpM": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "content": "<p>Add to Your Brief For Protection From Bacteria.</p>",
+            "page": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_Vm7YzR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+            "show_tax_included": true,
+            "show_shipping_policy": true,
+            "size_text": 140,
+            "size_text_mobile": 140
+          }
+        },
+        "image_69jm6j": {
+          "type": "image",
+          "settings": {
+            "select_icon": "star",
+            "heading": "",
+            "size_heading": 20,
+            "size_heading_mobile": 50,
+            "text": "<h5>Money-Back Guarantee</h5>",
+            "link": "",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "image_h3yBAq": {
+          "type": "image",
+          "settings": {
+            "select_icon": "bag",
+            "heading": "",
+            "size_heading": 20,
+            "size_heading_mobile": 50,
+            "text": "<h5>HSA/FSA Eligible</h5>",
+            "link": "https://www.athenauraguard.com/pages/how-to-use-your-fsa-hsa-card",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "image_3Fyjeq": {
+          "type": "image",
+          "settings": {
+            "select_icon": "heart",
+            "heading": "",
+            "size_heading": 20,
+            "size_heading_mobile": 50,
+            "text": "<h5>Free Shipping on 60 & 90 Packs</h5>",
+            "link": "",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "image_DrLabTest": {
+          "type": "image",
+          "settings": {
+            "select_icon": "check_mark",
+            "heading": "",
+            "size_heading": 20,
+            "size_heading_mobile": 50,
+            "text": "<h5>Doctor-Founded · Lab Tested · Made in USA</h5>",
+            "link": "",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "separator_reBrRK": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#193445",
+            "margin-top": 8,
+            "margin-bottom": 8
+          }
+        },
+        "feature_tags_ktxUht": {
+          "type": "feature_tags",
+          "disabled": true,
+          "settings": {
+            "metafield": "shopify.detailed-ingredients",
+            "limit": 4,
+            "text_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#ffffff",
+            "margin-top": 8,
+            "margin-bottom": 0
+          }
+        },
+        "variant_picker_WQEbez": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_swatch_names": "",
+            "variant_picture_swatch_names": "",
+            "thumb_size": 69,
+            "radius": "default",
+            "border_radius": 0,
+            "dropdown_swatch_names": "",
+            "margin-top": 8,
+            "margin-bottom": 8,
+            "size_icon": "check_mark",
+            "size_link": "",
+            "variant_name": "",
+            "size_content": "",
+            "metafield": "",
+            "enable-striped-rows": false
+          }
+        },
+        "separator_xgqTJM": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#193445",
+            "margin-top": 8,
+            "margin-bottom": 4
+          }
+        },
+        "seal_subscriptions_subscription_widget_bjDiHx": {
+          "type": "shopify://apps/seal-subscriptions/blocks/subscription-widget/13b25004-a140-4ab7-b5fe-29918f759699",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false,
+            "show_qty_selector": true,
+            "text_color": "#ffffff",
+            "background_color": "#003649"
+          }
+        },
+        "text_kYzwWP": {
+          "type": "text",
+          "settings": {
+            "heading": "UraGuard® Shield – Targeted Protection Where It Matters Most",
+            "content": "<p>UraGuard® is a first-of-its-kind, lab-tested bacteria shield designed for women who use disposable briefs or incontinence underwear. It adds a targeted layer of defense to help reduce exposure to moisture and harmful bacteria held in incontinence products.</p><p>Because caring for your health should feel simple, gentle, and worry-free.</p>",
+            "page": ""
+          }
+        },
+        "text_CrwGyb": {
+          "type": "text",
+          "settings": {
+            "heading": "Our Guarantee ",
+            "content": "<ul><li>Proudly made in the USA</li><li>Free 30-day returns</li><li>Backed by lab tests</li></ul>",
+            "page": ""
+          }
+        },
+        "promo_wBVFy3": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "content": "<p>+10000 Happy Customers  - Free shipping on US</p>",
+            "text_alignment": "center",
+            "color-body-text": "#ffffff",
+            "background_color": "#eb9a00"
+          }
+        },
+        "image_UnpiVp": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "select_icon": "star",
+            "heading": "",
+            "size_heading": 100,
+            "size_heading_mobile": 100,
+            "text": "<p>Proudly Made in the USA</p>",
+            "link": "",
+            "margin-top": 20,
+            "margin-bottom": 20
+          }
+        },
+        "image_tt8FC3": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "select_icon": "heart",
+            "heading": "",
+            "size_heading": 100,
+            "size_heading_mobile": 100,
+            "text": "<p>Free 30 Days Returns</p>",
+            "link": "",
+            "margin-top": 20,
+            "margin-bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "text_CDKQpM",
+        "judge_me_reviews_preview_badge_Vm7YzR",
+        "price",
+        "image_69jm6j",
+        "image_h3yBAq",
+        "image_3Fyjeq",
+        "image_DrLabTest",
+        "separator_reBrRK",
+        "feature_tags_ktxUht",
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
+        "variant_picker_WQEbez",
+        "separator_xgqTJM",
+        "seal_subscriptions_subscription_widget_bjDiHx",
+        "buy_buttons",
+        "text_kYzwWP",
+        "text_CrwGyb",
+        "promo_wBVFy3",
+        "image_UnpiVp",
+        "image_tt8FC3"
+      ],
+      "custom_css": [
+        ".rte :is(p,ul,li,ol):first-child{margin-block-start:0}",
+        "fieldset label{display:block;border:2px solid #c9d3da!important;border-radius:12px!important;background:#fff!important;padding:12px 16px!important;margin:0 0 8px}",
+        "fieldset input:checked+label,fieldset input:checked~label{border-color:#193445!important;background:#ddeced!important;font-weight:700}"
+      ],
+      "settings": {
+        "enable_sticky_buy_button": true,
+        "full-width-enabled": false,
+        "desktop-media-size": "normal",
+        "desktop-layout": "carousel-vertical",
+        "desktop-image-ratio": "original",
+        "enable_video_looping": true,
+        "video_controls": false,
+        "video_custom_play_controls": false,
+        "video_custom_mute_controls": false,
+        "enable-preselected-variant": true,
+        "enable-image-zoom": true,
+        "mobile-image": "normal",
+        "show-thumbnails-mobile": true,
+        "text_color": "#193445",
+        "background_color": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 8
+      }
+    },
+    "177127772471f25f5e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_016ecbc_XLLHDR": {
+          "type": "ai_gen_block_016ecbc",
+          "disabled": true,
+          "settings": {
+            "heading": "Also Available on Amazon!",
+            "amazon_logo": "shopify://shop_images/amazon-seeklogo.png",
+            "logo_width": 320,
+            "description": "",
+            "button_text": "Shop Now",
+            "amazon_link": "https://www.amazon.com/UraGuard-Ultra-Thin-Disposable-Underwear-Packaging/dp/B0GDW1D3XT/ref=sr_1_2_sspa?dib=eyJ2IjoiMSJ9.-a5lm_WeLVC7Scdh6aiK3MzFmD16lS1TJuAjR30ofmINTUSy86ugRBSlV0PPuiuj4UFO3EcmwsgbTV9FE0_ONR6fLsyURNT-xAVAaCnneNo.JAbyFRbwjnbN2Ci_D2Ee4WfbejYaSXsA0MY22KufA84&dib_tag=se&keywords=UraGuard&qid=1771278930&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+            "desktop_width_percent": 100,
+            "background_color": "#f7f7f7",
+            "padding": 20,
+            "border_radius": 14,
+            "heading_color": "#193445",
+            "heading_size": 24,
+            "text_color": "#193445",
+            "text_size": 16,
+            "button_background": "#ff9900",
+            "button_background_hover": "#e68a00",
+            "button_text_color": "#ffffff",
+            "button_text_color_hover": "#ffffff",
+            "button_text_size": 14,
+            "button_border_radius": 10
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_016ecbc_XLLHDR"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "separator_a938wj": {
+      "type": "separator",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": true,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "1763104546b1e38527": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_iCwNcK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_iCwNcK"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1764586754e105e23e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0f3b494_UcmGyn": {
+          "type": "ai_gen_block_0f3b494",
+          "settings": {
+            "heading": "Reasons to Choose UraGuard®",
+            "heading_color": "#193445",
+            "heading_size": 20,
+            "heading_size_desktop": 32,
+            "background_color": "#ddeced",
+            "icon_color": "#ffffff",
+            "icon_size": 65,
+            "icon_size_desktop": 80,
+            "text_color": "#005c7c",
+            "text_size": 15,
+            "text_size_desktop": 14,
+            "subtext_color": "#717171",
+            "subtext_size": 10,
+            "subtext_size_desktop": 13,
+            "autoplay_delay": 3,
+            "dot_color": "#193445",
+            "feature_1_enabled": true,
+            "feature_1_icon_type": "custom",
+            "feature_1_shopify_icon": "shield",
+            "feature_1_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_4_2025_10_19_21_AM.png",
+            "feature_1_text": "<p><strong>Targeted Protection</strong></p>",
+            "feature_1_subtext": "<p>Shields the urethral area, where bacteria are most likely to enter your bladder and cause UTIs.</p>",
+            "feature_2_enabled": true,
+            "feature_2_icon_type": "custom",
+            "feature_2_shopify_icon": "shield",
+            "feature_2_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_05_07_PM.png",
+            "feature_2_text": "<p><strong>Backed by Lab Tests</strong></p>",
+            "feature_2_subtext": "<p>Shown to maintain a barrier to bacteria — even after 8 hours of use.</p>",
+            "feature_3_enabled": true,
+            "feature_3_icon_type": "custom",
+            "feature_3_shopify_icon": "star",
+            "feature_3_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_39_51_AM.png",
+            "feature_3_text": "<p><strong>The Only Bacterial Shield Available</strong></p>",
+            "feature_3_subtext": "<p>UraGuard® is the only bacteria-blocking liner on the market.</p>",
+            "feature_4_enabled": true,
+            "feature_4_icon_type": "custom",
+            "feature_4_shopify_icon": "award",
+            "feature_4_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_09_35_PM.png",
+            "feature_4_text": "<p><strong>Fits All Disposable Briefs & Diapers</strong></p>",
+            "feature_4_subtext": "<p>Designed for use with all incontinence products.</p>",
+            "feature_5_enabled": true,
+            "feature_5_icon_type": "custom",
+            "feature_5_shopify_icon": "heart",
+            "feature_5_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_14_35_PM.png",
+            "feature_5_text": "<p><strong>Flexible & Skin-Friendly</strong></p>",
+            "feature_5_subtext": "<p>Moves with your body for discreet, all-day comfort without adding bulk.</p>",
+            "feature_6_enabled": true,
+            "feature_6_icon_type": "custom",
+            "feature_6_shopify_icon": "clock",
+            "feature_6_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_48_51_AM.png",
+            "feature_6_text": "<p><strong>Ideal for Daily Use</strong></p>",
+            "feature_6_subtext": "<p>Wherever you go, UraGuard<strong>®</strong> helps you stay fresh, confident, and protected.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0f3b494_UcmGyn"
+      ],
+      "custom_css": [],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "rich_text_7fgMCc": {
+      "type": "rich-text",
+      "blocks": {
+        "button_UjFYfQ": {
+          "type": "button",
+          "settings": {
+            "button_select": "secondary",
+            "button_label": "Learn How to Use UraGuard® Shield",
+            "button_link": "https://www.athenauraguard.com/pages/instructions-for-use",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "button_UjFYfQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "testimonial_video_reels_qnieGX": {
+      "type": "testimonial-video-reels",
+      "blocks": {
+        "video_xweXNL": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5341481_20251024180650_447fafdd-0235-4a14-bab9-979de018cab4.mp4",
+            "rating": "5",
+            "testimonial": "<p>“It has a great design — Very soft, easy to put on, and it stays on. I would definitely recommend this product.”</p>",
+            "author": "Rebekah"
+          }
+        },
+        "video_CgLccj": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1663824_20250916155151_8d5976fb-387a-4d26-94f7-1bc8c2d98965.mov",
+            "rating": "5",
+            "testimonial": "<p>“The UraGuard® works so good… You don’t feel it, which is the best.”</p>",
+            "author": "Krystal"
+          }
+        },
+        "video_XqGWqn": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5949942_20250919172214_85e6a70c-984a-46ff-83b9-e6e8c1ecfc99.mov",
+            "rating": "5",
+            "testimonial": "<p>“I believe this is going to be a good fit with [my mom] to decrease the chance of her getting another [UTI].”</p>",
+            "author": "Leslie"
+          }
+        },
+        "video_dtJqXE": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5683936_20250921010944_4477c72e-18fb-4ab5-9674-3a003eb907a2.mp4",
+            "rating": "4",
+            "testimonial": "<p>“[My mom] found them comfortable and secure, discreet,... very easy to use, and I would recommend them.”</p>",
+            "author": "Karen"
+          }
+        },
+        "video_gAfQHf": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1362984_20250916213834_155d8ac5-a73e-44a2-938c-28d219b58b57.mov",
+            "rating": "5",
+            "testimonial": "<p>“I tried it both with pull-ups and also with briefs… This was a Godsend because it’s so thin and it does an excellent job.”</p>",
+            "author": "Ami Jo"
+          }
+        },
+        "video_ecJzPa": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1371049_20250916121216_5a3ee9e2-6d1d-43fb-b19e-1a77dbb63788.mov",
+            "rating": "5",
+            "testimonial": "<p>“If I know that I’m going to be away from a restroom… I have that extra layer of protection that will help prevent me from getting the UTIs.”</p>",
+            "author": "Jen"
+          }
+        }
+      },
+      "block_order": [
+        "video_xweXNL",
+        "video_CgLccj",
+        "video_XqGWqn",
+        "video_dtJqXE",
+        "video_gAfQHf",
+        "video_ecJzPa"
+      ],
+      "settings": {
+        "heading": "Women Who Feel the Difference with UraGuard®",
+        "video_button": true,
+        "text_alignment": "center",
+        "text_style": "body",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 40
+      }
+    },
+    "separator_4cdWwM": {
+      "type": "separator",
+      "disabled": true,
+      "name": "t:sections.separator.presets.name",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": false,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "1764573998c95b5002": {
+      "type": "_blocks",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "1764739654c7744b3a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6731205_qUnx6M": {
+          "type": "ai_gen_block_6731205",
+          "settings": {
+            "heading": "FAQs",
+            "text_alignment": "center",
+            "font_size_mobile": 24,
+            "font_size_desktop": 40,
+            "text_color": "#193445",
+            "background_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6731205_qUnx6M"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "collapsible_menu_V8LbeE": {
+      "type": "collapsible_menu",
+      "blocks": {
+        "collapsible_tab_hEww4i": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "1. How does UraGuard® Shield work?",
+            "content": "<p>Here’s what happens when you use the shield:</p><ul><li>The shield liner is placed inside your incontinence brief or diaper, positioned directly under the urethra.</li><li>During the day, urine and stool are absorbed into the incontinence product, creating a warm, moist environment that allows bacteria to multiply and thrive. </li><li>When bacteria build up in this damp space, they may enter the urethra, increasing the risk of urinary discomfort and UTIs.</li><li>UraGuard<strong>®</strong> creates a targeted physical barrier over the urethral area, separating it from the moist parts of the incontinence product where bacteria are present.</li><li>As the urethra is covered, bacteria held in the pad or brief don’t reach the urethral opening, reducing the chances of infection.</li></ul>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_VHbXcc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "2. How is UraGuard® Shield Different From a Pad?",
+            "content": "<p>Unlike full-length pads, UraGuard<strong>® </strong>is a small, targeted shield designed specifically to cover the urethral area — not absorb fluid. It works alongside your existing incontinence brief or disposable underwear.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_3tn3G9": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "3. Is UraGuard® gentle on sensitive skin?",
+            "content": "<p>Yes! UraGuard® shields are made with soft, skin-friendly materials chosen with sensitive skin in mind. If you experience any irritation, discontinue use and speak with your healthcare provider.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_SizeFit": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "4. What size is UraGuard® Shield? Will it fit my brief?",
+            "content": "<p>UraGuard® is a small, targeted shield — noticeably more compact than a full-length pad. That’s by design: it only needs to cover the urethral area, where protection matters most.</p><p>It’s thin and flexible, and designed to fit inside any standard incontinence brief, diaper, or disposable underwear without adding bulk. Many first-time customers are surprised by how small it is — the compact size is what keeps it discreet and comfortable all day.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_j7GmEL": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "5. How discreet is UraGuard® Shield under clothing? Will it show or feel bulky?",
+            "content": "<p>UraGuard® is designed to be completely discreet. </p><p>It’s thin, flexible, and sits inside your existing brief or disposable underwear, so it won’t change how your clothing fits or feel bulky.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_Uqt9RJ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "6. Does UraGuard® work for men?",
+            "content": "<p>UraGuard® is specifically engineered for women, as its design and placement are optimized for the female anatomy. </p><p>While men can use it for incontinence management, the UraGuard® technology may not provide the same benefits. We are actively developing a version tailored for men — stay tuned!</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_NNDXVp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "7. Is UraGuard® available as a pull-up or tabbed diaper?",
+            "content": "<p>Not yet. UraGuard® is currently available as a shield insert, so you can add barrier protection to any incontinence product you already use. </p><p>However, we understand the need for an all-in-one solution, and we’re actively exploring pull-up and tabbed-style options. Stay tuned for updates!</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_4DUM3d": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "8. Does UraGuard® offer a satisfaction guarantee?",
+            "content": "<p>Yes! We stand behind the quality of our products. If you’re not completely satisfied, <a href=\"https://www.athenauraguard.com/pages/contact\"><span style=\"text-decoration:underline\">contact our customer support team</span></a> within 30 days for a hassle-free refund or exchange.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_WLjtEA": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "9. Where is UraGuard® made?",
+            "content": "<p>UraGuard® is proudly manufactured in the USA. We’re committed to high-quality manufacturing standards to ensure our products meet the needs of women seeking comfort, protection, and urinary health support.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_hEww4i",
+        "collapsible_tab_VHbXcc",
+        "collapsible_tab_3tn3G9",
+        "collapsible_tab_SizeFit",
+        "collapsible_tab_j7GmEL",
+        "collapsible_tab_Uqt9RJ",
+        "collapsible_tab_NNDXVp",
+        "collapsible_tab_4DUM3d",
+        "collapsible_tab_WLjtEA"
+      ],
+      "name": "t:sections.collapsible_menu.presets.name",
+      "settings": {
+        "color-body-text": "#003649",
+        "background_color": "#ffffff",
+        "compact-size-enabled": true,
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "brands_htWiGw": {
+      "type": "brands",
+      "blocks": {
+        "image_GtXnc3": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_AwKAN3": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_GtXnc3",
+        "image_AwKAN3"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® in the News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#fbfaf6",
+        "margin-top": 44,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "1769810516bd65a39f",
+    "breadcrumbs",
+    "main",
+    "177127772471f25f5e",
+    "separator_a938wj",
+    "1763104546b1e38527",
+    "1764586754e105e23e",
+    "rich_text_7fgMCc",
+    "testimonial_video_reels_qnieGX",
+    "separator_4cdWwM",
+    "1764573998c95b5002",
+    "1764739654c7744b3a",
+    "collapsible_menu_V8LbeE",
+    "brands_htWiGw"
+  ]
+}

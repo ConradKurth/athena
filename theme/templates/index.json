@@ -1,0 +1,677 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "separator_aVXGVH": {
+      "type": "separator",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": true,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "blocks_6DGhfr": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_72cc7fb_Rwdm4F": {
+          "type": "ai_gen_block_72cc7fb",
+          "settings": {
+            "heading": "<strong>A thin shield worn inside your brief — between bacteria and where UTIs start.</strong>",
+            "text": "<p>UraGuard® is the first hygiene shield for incontinence products. It’s not a pad — it doesn’t absorb. It covers the urethral area to help reduce your exposure to the bacteria held in briefs and diapers.<br/></p>",
+            "text_size": "large",
+            "button_text": "Shop UraGuard® — From $29",
+            "button_link": "https://www.athenauraguard.com/products/athena-uraguard-liner",
+            "button_background_color": "#193445",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#717171",
+            "button_hover_text_color": "#ececec",
+            "button_border_radius": 10,
+            "image": "shopify://shop_images/Ura_img_square.png",
+            "image_border_radius": 14,
+            "background_color": "#ddeced",
+            "heading_color": "#151515",
+            "text_color": "#151515"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_72cc7fb_Rwdm4F"
+      ],
+      "custom_css": [
+        ".ai-text-image-text-atxjxrnjkafzpc0leyaigenblock72cc7fbrwdm4f p:not(:last-child) {margin-bottom: 1.5rem; /* Adjust spacing as needed */}"
+      ],
+      "name": "Text with image",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "176416070577ba402d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_4ff6e87_bxzpET": {
+          "type": "ai_gen_block_4ff6e87",
+          "settings": {
+            "background_color": "rgba(0,0,0,0)",
+            "icon_color": "#193445",
+            "text_color": "#193445",
+            "icon_size": 50,
+            "text_size": 14,
+            "autoplay_delay": 3,
+            "feature_1_enabled": true,
+            "feature_1_icon": "shield",
+            "feature_1_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_05_07_PM.png",
+            "feature_1_text": "FIRST LAB TESTED SHIELD",
+            "feature_1_text_type": "p",
+            "feature_2_enabled": true,
+            "feature_2_icon": "lock",
+            "feature_2_custom_icon": "shopify://shop_images/science-backed-gpt.png",
+            "feature_2_text": "SCIENCE-BACKED DESIGN",
+            "feature_2_text_type": "p",
+            "feature_3_enabled": true,
+            "feature_3_icon": "checkmark",
+            "feature_3_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_09_35_PM.png",
+            "feature_3_text": "FITS ALL INCONTINENCE PRODUCTS",
+            "feature_3_text_type": "p",
+            "feature_4_enabled": true,
+            "feature_4_icon": "heart",
+            "feature_4_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_14_35_PM.png",
+            "feature_4_text": "FLEXIBLE + SKIN SAFE",
+            "feature_4_text_type": "p",
+            "feature_5_enabled": true,
+            "feature_5_icon": "star",
+            "feature_5_custom_icon": "shopify://shop_images/ChatGPT_Image_Nov_28_2025_01_33_39_PM.png",
+            "feature_5_text": "DISCREET & LIGHTWEIGHT",
+            "feature_5_text_type": "p"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_4ff6e87_bxzpET"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "background_video_RzBdY3": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_mD6fJf": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Tell your story",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_ywbtJm": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Video scene",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_P7mtYE": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Explore in motion</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_DMBDgJ": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Button label",
+            "disable_on_mobile": false,
+            "button_link": "",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_mD6fJf",
+        "heading_ywbtJm",
+        "text_P7mtYE",
+        "button_DMBDgJ"
+      ],
+      "name": "t:sections.background-video.presets.name",
+      "settings": {
+        "heading": "How UraGuard® Works",
+        "full-width-enabled": false,
+        "video_hosted": "shopify://files/videos/NEW VO_ATHENA withUraGuard™ ANIMATION 4096 x 1900 pixels.mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_custom_play_controls": true,
+        "video_custom_mute_controls": true,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "original_ratio": "original_ratio",
+        "desktop_fixed_height": 540,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "1764840634d1f8c106": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cfea3a_J9d43B": {
+          "type": "ai_gen_block_7cfea3a",
+          "settings": {
+            "main_heading": "The Difference UraGuard® Makes",
+            "main_heading_color": "#193445",
+            "column_1_heading": "With UraGuard®",
+            "column_1_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
+            "column_1_text": "<ul><li>UraGuard® sits inside your incontinence brief or diaper, forming a <strong>thin physical barrier over the urethral area.</strong> </li><li>Its science-backed design <strong>helps keep bacteria away from the urethral opening</strong> — reducing your exposure where it matters most.</li></ul>",
+            "column_1_text_align": "left",
+            "column_1_bg_color": "#fff9f9",
+            "column_2_heading": "Without UraGuard®",
+            "column_2_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.33_AM_3f10a01d-478e-4229-8c18-006c23715e67.png",
+            "column_2_text": "<ul><li>Standard incontinence products <strong>collect urine and stool.</strong> The moist environment allows bacteria to grow and multiply near the urethra.</li><li><strong>Bacteria can reach the urethra</strong>, increasing the <strong>risk of UTIs</strong> and discomfort.</li></ul>",
+            "column_2_text_align": "left",
+            "column_2_bg_color": "#fbf0ef",
+            "column_heading_color": "#193445",
+            "paragraph_text_color": "#193445",
+            "separator_color": "#005c7c",
+            "image_width": 100,
+            "image_height": 380,
+            "mobile_layout": "carousel",
+            "carousel_autoplay": true,
+            "carousel_autoplay_speed": 7,
+            "carousel_arrow_color": "#193445",
+            "carousel_dot_color": "#193445"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cfea3a_J9d43B"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "testimonial_video_reels_gLPUg6": {
+      "type": "testimonial-video-reels",
+      "blocks": {
+        "video_wcjVdt": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1371049_20250916121216_5a3ee9e2-6d1d-43fb-b19e-1a77dbb63788.mov",
+            "rating": "5",
+            "testimonial": "<p>“If I know that I’m going to be away from a restroom… I have that extra layer of protection that will help prevent me from getting the UTIs.”</p>",
+            "author": "Jen"
+          }
+        },
+        "video_aamQPd": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5341481_20251024180650_447fafdd-0235-4a14-bab9-979de018cab4.mp4",
+            "rating": "5",
+            "testimonial": "<p>“It has a great design — Very soft, easy to put on, and it stays on. I would definitely recommend this product.”</p>",
+            "author": "Rebekah"
+          }
+        },
+        "video_Bc9M8k": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1663824_20250916155151_8d5976fb-387a-4d26-94f7-1bc8c2d98965.mov",
+            "rating": "5",
+            "testimonial": "<p>“The UraGuard® works so good… You don’t feel it, which is the best.”</p>",
+            "author": "Krystal"
+          }
+        },
+        "video_jdJxta": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5949942_20250919172214_85e6a70c-984a-46ff-83b9-e6e8c1ecfc99.mov",
+            "rating": "5",
+            "testimonial": "<p>“I believe this is going to be a good fit with [my mom] to decrease the chance of her getting another [UTI].”</p>",
+            "author": "Leslie"
+          }
+        },
+        "video_xH6CXe": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_5683936_20250921010944_4477c72e-18fb-4ab5-9674-3a003eb907a2.mp4",
+            "rating": "4",
+            "testimonial": "<p>“[My mom] found them comfortable and secure, discreet,... very easy to use, and I would recommend them.”</p>",
+            "author": "Karen"
+          }
+        },
+        "video_VhcDjY": {
+          "type": "video",
+          "settings": {
+            "video_hosted": "shopify://files/videos/H1_512480_1362984_20250916213834_155d8ac5-a73e-44a2-938c-28d219b58b57.mov",
+            "rating": "5",
+            "testimonial": "<p>“I tried it both with pull-ups and also with briefs… This was a Godsend because it’s so thin and it does an excellent job.”</p>",
+            "author": "Ami Jo"
+          }
+        }
+      },
+      "block_order": [
+        "video_wcjVdt",
+        "video_aamQPd",
+        "video_Bc9M8k",
+        "video_jdJxta",
+        "video_xH6CXe",
+        "video_VhcDjY"
+      ],
+      "settings": {
+        "heading": "Why Women and Caregivers Trust UraGuard®",
+        "video_button": true,
+        "text_alignment": "center",
+        "text_style": "body",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 40
+      }
+    },
+    "separator_b68976": {
+      "type": "separator",
+      "disabled": true,
+      "settings": {
+        "advanced_heading": true,
+        "heading": "",
+        "heading_richtext": "<h2><strong>How UraGuard® Works</strong></h2>",
+        "size_heading": 220,
+        "size_heading_mobile": 100,
+        "show-separator-line": false,
+        "full-width-line": false,
+        "color-background": "#fbfaf6",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "1764164321dc3112a8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_652722b_LwXxPT": {
+          "type": "ai_gen_block_652722b",
+          "settings": {
+            "left_heading": "<p><strong>Without UraGuard®</strong></p>",
+            "left_text": "<ul><li>Standard incontinence products collect urine and stool. The moist environment allows bacteria to grow and multiply near the urethra.<br/></li><li>Bacteria enter the urethra, increasing the risk of UTIs and discomfort. </li></ul>",
+            "left_alignment": "left",
+            "right_heading": "<p><strong>With UraGuard®</strong></p>",
+            "right_text": "<ul><li>UraGuard® sits inside your incontinence brief or diaper, forming a physical barrier over the urethra. </li><li>It’s science-backed design blocks bacteria from entering the urethra and infecting the urinary tract, helping you stay protected. </li></ul>",
+            "right_alignment": "left",
+            "column_gap": 20,
+            "row_gap": 15,
+            "stack_on_mobile": true,
+            "heading_size": 22,
+            "heading_color": "#193445",
+            "text_size": 16,
+            "text_color": "#193445"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_652722b_LwXxPT"
+      ],
+      "disabled": true,
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "17641621583498c4e3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ee8cdda_C8WVmw": {
+          "type": "ai_gen_block_ee8cdda",
+          "settings": {
+            "heading_1": "With UraGuard®",
+            "image_1": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
+            "text_1": "<ul><li>UraGuard® sits inside your incontinence brief or diaper, forming a physical barrier over the urethra. </li><li>It’s science-backed design blocks bacteria from entering the urethra and infecting the urinary tract, helping you stay protected. </li></ul>",
+            "heading_2": "Without UraGuard®",
+            "image_2": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.33_AM_3f10a01d-478e-4229-8c18-006c23715e67.png",
+            "text_2": "<ul><li>Standard incontinence products collect urine and stool. The moist environment allows bacteria to grow and multiply near the urethra.</li><li>Bacteria enter the urethra, increasing the risk of UTIs and discomfort.</li></ul>",
+            "column_gap": 40,
+            "row_gap": 20,
+            "image_width": 500,
+            "image_height": 400,
+            "image_fit": "cover",
+            "image_border_radius": 14,
+            "heading_alignment": "center",
+            "heading_size": 24,
+            "text_size": 16,
+            "background_color": "#ffffff",
+            "heading_color": "#193445",
+            "text_color": "#193445",
+            "arrow_background_color": "#ececec",
+            "arrow_hover_background_color": "#005c7c",
+            "arrow_color": "#151515"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ee8cdda_C8WVmw"
+      ],
+      "disabled": true,
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "1764838644853314a0": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c9a4795_GwKRzR": {
+          "type": "ai_gen_block_c9a4795",
+          "settings": {
+            "main_heading": "How UraGuard® Works",
+            "heading_size": 32,
+            "heading_color": "#193445",
+            "column_1_heading": "With UraGuard®",
+            "column_1_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
+            "column_1_text": "<ul><li>UraGuard® sits inside your incontinence brief or diaper, forming a physical barrier over the urethra. </li><li>It’s science-backed design blocks bacteria from entering the urethra and infecting the urinary tract, helping you stay protected.</li></ul>",
+            "column_1_text_alignment": "left",
+            "column_1_bg_color": "#fff9f9",
+            "column_2_heading": "Without UraGuard®",
+            "column_2_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.33_AM_3f10a01d-478e-4229-8c18-006c23715e67.png",
+            "column_2_text": "<ul><li>Standard incontinence products collect urine and stool. The moist environment allows bacteria to grow and multiply near the urethra.</li><li>Bacteria enter the urethra, increasing the risk of UTIs and discomfort.</li></ul>",
+            "column_2_text_alignment": "left",
+            "column_2_bg_color": "#fbf0ef",
+            "column_heading_size": 24,
+            "column_heading_color": "#193445",
+            "text_size": 16,
+            "text_color": "#193445",
+            "image_width": 100,
+            "image_height": 370,
+            "image_border_radius": 8,
+            "separator_color": "#e0e0e0",
+            "mobile_layout": "stack",
+            "carousel_column_width": 90,
+            "carousel_autoplay_duration": 5,
+            "carousel_arrow_color": "#333333",
+            "carousel_dot_color": "#193445"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c9a4795_GwKRzR"
+      ],
+      "disabled": true,
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "image_banner_LxPrA8": {
+      "type": "image-banner",
+      "blocks": {
+        "subheading_aeEbjR": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The first hygiene shield for incontinence products",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_fJKdQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet UraGuard®",
+            "disable_on_mobile": false,
+            "size_heading": 200,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_4CK4dG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>UraGuard® is a hygiene shield that works alongside your incontinence brief or diaper to help reduce bacterial exposure — without bulk or discomfort. </p><p>More than just added protection, UraGuard® is designed to offer dignity and comfort for women living with incontinence — and the caregivers who support them.</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_X8BCxq": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "See How UraGuard® Works",
+            "disable_on_mobile": false,
+            "button_link": "https://www.athenauraguard.com/pages/behind-the-science",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_aeEbjR",
+        "heading_fJKdQR",
+        "text_4CK4dG",
+        "button_X8BCxq"
+      ],
+      "name": "Meet Uraguard Banner",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 500,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/Asset_1_315f9054-fc3e-42c3-8d4a-a48d51ebef30.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_image": "shopify://shop_images/Athena_Banner.webp",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "#ffffff",
+        "section-color-overlay": "#fbfaf6",
+        "section-color-overlay-opacity": 0,
+        "color-body-text": "#fbfaf6",
+        "text-container-color": "#262424",
+        "color-overlay-opacity": 49,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "blocks_t9x79x": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0d1c2d5_tD3R4J": {
+          "type": "ai_gen_block_0d1c2d5",
+          "settings": {
+            "section_padding": 40,
+            "column_gap": 40,
+            "image": "shopify://shop_images/Athena_Banner.webp",
+            "image_border_radius": 14,
+            "button_text": "",
+            "button_link": "shopify://collections/uraguard-incontinence-products",
+            "button_offset": 20,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 30,
+            "button_font_size": 12,
+            "button_border_radius": 10,
+            "button_background": "rgba(0,0,0,0)",
+            "button_text_color": "#ffffff",
+            "button_background_hover": "rgba(0,0,0,0)",
+            "button_text_color_hover": "#005c7c",
+            "featured_product": "athena-uraguard-liner",
+            "show_vendor": false,
+            "show_rating": true,
+            "show_price": true,
+            "show_description": false,
+            "product_cta_text": "View Product",
+            "product_border_radius": 14,
+            "product_image_width": 45,
+            "product_image_width_mobile": 100,
+            "product_image_alignment": "left",
+            "product_image_radius": 10,
+            "product_button_radius": 10,
+            "product_background": "#ffffff",
+            "vendor_color": "#717171",
+            "title_color": "#193445",
+            "star_color": "#fcc97e",
+            "star_empty_color": "#fcc97e",
+            "rating_count_color": "#717171",
+            "price_color": "#151515",
+            "description_color": "#717171",
+            "product_button_bg": "#003649",
+            "product_button_color": "#ffffff",
+            "product_button_bg_hover": "#005c7c",
+            "product_button_color_hover": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0d1c2d5_tD3R4J"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "17630987279dbe4890": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_17e700d_6qpEKj": {
+          "type": "ai_gen_block_17e700d",
+          "settings": {
+            "text_1": "<p>DISCOVER COMFORT TODAY</p>",
+            "text_2": "<p>SUPPORTING URINARY HEALTH</p>",
+            "text_3": "<p>ADVANCED TECHNOLOGY</p>",
+            "text_4": "<p>GUARD AGAINST BACTERIA</p>",
+            "text_5": "<p>DISCOVER COMFORT TODAY</p>",
+            "text_6": "<p>SUPPORTING URINARY HEALTH</p>",
+            "text_7": "<p>ADVANCED TECHNOLOGY</p>",
+            "text_8": "<p>GUARD AGAINST BACTERIA</p>",
+            "text_9": "<p>DISCOVER COMFORT TODAY</p>",
+            "text_10": "<p>SUPPORTING URINARY HEALTH</p>",
+            "background_color": "#ececec",
+            "text_color": "#193445",
+            "font_size": 18,
+            "font_weight": "400",
+            "text_transform": "uppercase",
+            "letter_spacing": 0.5,
+            "padding_vertical": 20,
+            "show_separator": false,
+            "separator_color": "#ffffff",
+            "separator_size": 6,
+            "scroll_speed": 45,
+            "text_spacing": 40,
+            "pause_on_hover": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_17e700d_6qpEKj"
+      ],
+      "custom_css": [],
+      "name": "scrolling text banner",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "1763019260907e5e04": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_36NFzh": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_36NFzh"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1764834013d7aa1469": {
+      "type": "_blocks",
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "brands_EbRKxC": {
+      "type": "brands",
+      "blocks": {
+        "image_xk7Hnb": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_VqDGCi": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_xk7Hnb",
+        "image_VqDGCi"
+      ],
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "#151515",
+        "background_color": "#fbfaf6",
+        "margin-top": 24,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "separator_aVXGVH",
+    "blocks_6DGhfr",
+    "176416070577ba402d",
+    "1764840634d1f8c106",
+    "background_video_RzBdY3",
+    "testimonial_video_reels_gLPUg6",
+    "separator_b68976",
+    "1764164321dc3112a8",
+    "17641621583498c4e3",
+    "1764838644853314a0",
+    "image_banner_LxPrA8",
+    "blocks_t9x79x",
+    "17630987279dbe4890",
+    "1763019260907e5e04",
+    "1764834013d7aa1469",
+    "brands_EbRKxC"
+  ]
+}

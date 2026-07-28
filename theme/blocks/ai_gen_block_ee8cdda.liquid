@@ -1,0 +1,535 @@
+{% doc %}
+  @prompt
+    Create a two-column layout. Each column has three rows.
+    
+    Row 1: A heading (H3)
+    Row 2: An image (with sizing controls)
+    Row 3: A text field (must allow bullets)
+    
+    On desktop, the two columns must be side by side.
+    
+    On mobile, one column shows at a time and there are arrows to switch between column 1 and 2., Allow the headings in row 1 to be center aligned, ensure the bullets are actually visible, Ensure proper image size controls (height and width)
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-column-layout-{{ ai_gen_id }} {
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-two-column-layout__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-two-column-layout__columns-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.column_gap }}px;
+  }
+
+  .ai-two-column-layout__column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.row_gap }}px;
+  }
+
+  .ai-two-column-layout__heading-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    text-align: {{ block.settings.heading_alignment }};
+  }
+
+  .ai-two-column-layout__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column-layout__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height }}px;
+    display: block;
+    object-fit: {{ block.settings.image_fit }};
+  }
+
+  .ai-two-column-layout__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column-layout__image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.3;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.6;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} ul,
+  .ai-two-column-layout__text-{{ ai_gen_id }} ol {
+    padding-left: 25px;
+    margin: 10px 0;
+    list-style-position: outside;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} ul {
+    list-style-type: disc;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} ol {
+    list-style-type: decimal;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} li {
+    margin-bottom: 8px;
+    display: list-item;
+  }
+
+  .ai-two-column-layout__text-{{ ai_gen_id }} li::marker {
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-two-column-layout__mobile-controls-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-two-column-layout__columns-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-two-column-layout__column-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-two-column-layout__column-{{ ai_gen_id }}.active {
+      display: flex;
+    }
+
+    .ai-two-column-layout__mobile-controls-{{ ai_gen_id }} {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .ai-two-column-layout__arrow-{{ ai_gen_id }} {
+      background-color: {{ block.settings.arrow_background_color }};
+      color: {{ block.settings.arrow_color }};
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .ai-two-column-layout__arrow-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.arrow_hover_background_color }};
+    }
+
+    .ai-two-column-layout__arrow-{{ ai_gen_id }}:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .ai-two-column-layout__arrow-{{ ai_gen_id }} svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .ai-two-column-layout__indicator-{{ ai_gen_id }} {
+      font-size: 14px;
+      color: {{ block.settings.text_color }};
+      font-weight: 500;
+    }
+  }
+{% endstyle %}
+
+<two-column-layout-{{ ai_gen_id }} class="ai-two-column-layout-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-two-column-layout__container-{{ ai_gen_id }}">
+    <div class="ai-two-column-layout__columns-{{ ai_gen_id }}">
+      <div class="ai-two-column-layout__column-{{ ai_gen_id }} active" data-column="1">
+        {% if block.settings.heading_1 != blank %}
+          <h3 class="ai-two-column-layout__heading-{{ ai_gen_id }}">{{ block.settings.heading_1 }}</h3>
+        {% endif %}
+
+        <div class="ai-two-column-layout__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.image_1 %}
+            <img
+              src="{{ block.settings.image_1 | image_url: width: block.settings.image_width }}"
+              alt="{{ block.settings.image_1.alt | escape }}"
+              width="{{ block.settings.image_width }}"
+              height="{{ block.settings.image_height }}"
+              loading="lazy"
+              class="ai-two-column-layout__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-two-column-layout__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.text_1 != blank %}
+          <div class="ai-two-column-layout__text-{{ ai_gen_id }}">
+            {{ block.settings.text_1 }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-two-column-layout__column-{{ ai_gen_id }}" data-column="2">
+        {% if block.settings.heading_2 != blank %}
+          <h3 class="ai-two-column-layout__heading-{{ ai_gen_id }}">{{ block.settings.heading_2 }}</h3>
+        {% endif %}
+
+        <div class="ai-two-column-layout__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.image_2 %}
+            <img
+              src="{{ block.settings.image_2 | image_url: width: block.settings.image_width }}"
+              alt="{{ block.settings.image_2.alt | escape }}"
+              width="{{ block.settings.image_width }}"
+              height="{{ block.settings.image_height }}"
+              loading="lazy"
+              class="ai-two-column-layout__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-two-column-layout__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.text_2 != blank %}
+          <div class="ai-two-column-layout__text-{{ ai_gen_id }}">
+            {{ block.settings.text_2 }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-two-column-layout__mobile-controls-{{ ai_gen_id }}">
+      <button
+        class="ai-two-column-layout__arrow-{{ ai_gen_id }} ai-two-column-layout__arrow-prev-{{ ai_gen_id }}"
+        aria-label="Previous column"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <span class="ai-two-column-layout__indicator-{{ ai_gen_id }}">
+        <span class="ai-two-column-layout__current-{{ ai_gen_id }}">1</span> / 2
+      </span>
+
+      <button
+        class="ai-two-column-layout__arrow-{{ ai_gen_id }} ai-two-column-layout__arrow-next-{{ ai_gen_id }}"
+        aria-label="Next column"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</two-column-layout-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TwoColumnLayout{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentColumn = 1;
+        this.totalColumns = 2;
+      }
+
+      connectedCallback() {
+        this.columns = this.querySelectorAll('.ai-two-column-layout__column-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-two-column-layout__arrow-prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.ai-two-column-layout__arrow-next-{{ ai_gen_id }}');
+        this.currentIndicator = this.querySelector('.ai-two-column-layout__current-{{ ai_gen_id }}');
+
+        this.setupEventListeners();
+        this.updateButtons();
+      }
+
+      setupEventListeners() {
+        this.prevButton.addEventListener('click', () => this.showPrevious());
+        this.nextButton.addEventListener('click', () => this.showNext());
+      }
+
+      showPrevious() {
+        if (this.currentColumn > 1) {
+          this.currentColumn--;
+          this.updateView();
+        }
+      }
+
+      showNext() {
+        if (this.currentColumn < this.totalColumns) {
+          this.currentColumn++;
+          this.updateView();
+        }
+      }
+
+      updateView() {
+        this.columns.forEach((column, index) => {
+          if (index + 1 === this.currentColumn) {
+            column.classList.add('active');
+          } else {
+            column.classList.remove('active');
+          }
+        });
+
+        this.currentIndicator.textContent = this.currentColumn;
+        this.updateButtons();
+      }
+
+      updateButtons() {
+        this.prevButton.disabled = this.currentColumn === 1;
+        this.nextButton.disabled = this.currentColumn === this.totalColumns;
+      }
+    }
+
+    customElements.define('two-column-layout-{{ ai_gen_id }}', TwoColumnLayout{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Two column layout",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Heading",
+      "default": "Column 1 Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Text",
+      "default": "<p>Add your text content here. You can use bullet points:</p><ul><li>First point</li><li>Second point</li><li>Third point</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading",
+      "default": "Column 2 Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Text",
+      "default": "<p>Add your text content here. You can use bullet points:</p><ul><li>First point</li><li>Second point</li><li>Third point</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Row gap",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 300,
+      "max": 1200,
+      "step": 100,
+      "unit": "px",
+      "label": "Image width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Image height",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "arrow_background_color",
+      "label": "Arrow background",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "arrow_hover_background_color",
+      "label": "Arrow hover background",
+      "default": "#005c7c"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow icon",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two column layout"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Pull the latest Cyclone source so the CLI wrappers rebuild against it.
+# Throttled to once per 24h via a stamp file. `refresh --force` overrides.
+# This is the "get all updates from that repo" mechanism.
+set -euo pipefail
+
+ATHENA_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")/.." && pwd)"
+[ -f "$ATHENA_DIR/.env" ] && { set -a; . "$ATHENA_DIR/.env"; set +a; }
+CYCLONE_DIR="${CYCLONE_DIR:-/Users/conrad/workspace/cyclone/cyclone}"
+STAMP="$ATHENA_DIR/bin/.build/.last-pull"
+
+FORCE=0
+[ "${1:-}" = "--force" ] && FORCE=1
+
+[ -d "$CYCLONE_DIR/.git" ] || { echo "refresh: $CYCLONE_DIR is not a git clone; nothing to pull" >&2; exit 0; }
+mkdir -p "$(dirname "$STAMP")"
+
+if [ "$FORCE" -eq 0 ] && [ -f "$STAMP" ]; then
+  now=$(date +%s); last=$(cat "$STAMP" 2>/dev/null || echo 0)
+  if [ $(( now - last )) -lt 86400 ]; then
+    echo "refresh: skipped (pulled <24h ago; use --force to override)"
+    exit 0
+  fi
+fi
+
+git -C "$CYCLONE_DIR" pull --ff-only
+date +%s > "$STAMP"
+echo "refresh: Cyclone source updated; next CLI run rebuilds if changed"

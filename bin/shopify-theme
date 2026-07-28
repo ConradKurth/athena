@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Athena-scoped wrapper for the OFFICIAL Shopify CLI theme commands.
+# Fully independent of Cyclone. Pins the Athena store + theme/ path, and runs
+# under an Athena-only HOME so its login is a SEPARATE account session from the
+# Cyclone Pods login. Shopify CLI has no native multi-account switching — the
+# session token lives in ~/Library/Preferences/shopify-cli-kit-nodejs/config.json,
+# so a per-HOME session is the reliable way to keep two accounts logged in.
+#
+# First-time auth (interactive, run once):  shopify-theme dev   → browser login
+#   → authenticates as the Athena account into $HOME_DIR; Cyclone's session
+#     (under the real HOME) is untouched. Or set SHOPIFY_CLI_THEME_TOKEN in .env
+#     (Theme Access app password) to skip login entirely.
+#
+# Usage:
+#   shopify-theme pull        # download the live theme into ./theme
+#   shopify-theme dev         # local preview at http://127.0.0.1:9292
+#   shopify-theme list        # list themes on the store
+. "$(dirname "${BASH_SOURCE[0]:-$0}")/_common.sh"
+
+load_env
+command -v shopify >/dev/null 2>&1 || die "official Shopify CLI not found on PATH (npm i -g @shopify/cli)"
+[ -n "${MYSHOPIFY_DOMAIN:-}" ] || die "MYSHOPIFY_DOMAIN not set in .env"
+
+# Env equivalents of --store / --path; apply to every theme subcommand.
+export SHOPIFY_FLAG_STORE="$MYSHOPIFY_DOMAIN"
+export SHOPIFY_FLAG_PATH="$ATHENA_DIR/theme"
+mkdir -p "$ATHENA_DIR/theme" "$HOME_DIR"
+
+# Isolated HOME → isolated CLI session (separate logged-in account from Cyclone).
+exec env HOME="$HOME_DIR" shopify theme "$@"

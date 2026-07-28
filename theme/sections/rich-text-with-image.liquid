@@ -1,0 +1,290 @@
+{% assign has_content = false %}
+{%- for block in section.blocks -%}
+  {% if block.type == 'text' and block.settings.text != '' %}
+    {% assign has_content = true %}
+    {% break %}
+  {% endif %}
+  {% if block.type == 'heading' and block.settings.heading != '' %}
+    {% assign has_content = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
+
+{% if request.design_mode or has_content %}
+  <style>
+        [data-section-id="{{ section.id }}"]
+        {
+            {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+              --color-custom-background: {{ section.settings.background_color }};
+            {% endif %}
+
+            {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+              --color-custom-text: {{ section.settings.color-body-text }};
+            {% endif %}
+
+            {% if section.settings.margin-top %}
+                --section-gap-top: {{ section.settings.margin-top }}px;
+            {% endif %}
+
+            {% if section.settings.margin-bottom %}
+                --section-gap-bottom: {{ section.settings.margin-bottom }}px;
+            {% endif %}
+
+        }
+
+    {%- for block in section.blocks -%}
+        [data-block-id="{{ block.id }}"]
+        {
+
+              --font-headline-scale-desk: {{ block.settings.size_heading | divided_by: 100.0 }};
+
+              --font-headline-scale: {{ block.settings.size_heading_mobile | divided_by: 100.0 }};
+
+              --font-base-line-height: {{ block.settings.line_height }};
+
+              --font-base-transform: {{ block.settings.font_uppercase }};
+
+
+        }
+    {%- endfor -%}
+  </style>
+
+  <div
+    data-section-id="{{ section.id }}"
+    class="{% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %} rich-text"
+  >
+    <div class="hero__wrapper">
+      {% render 'hero',
+        type: 'blocks',
+        desktop_text_horizontal_position: section.settings.desktop_text_horizontal_position,
+        desktop_text_vertical_position: 'center',
+        blocks: section.blocks,
+        rich_text_with_image: true
+      %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.rich-text-with-image.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "desktop_text_horizontal_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text-with-image.settings.desktop_text_horizontal_position.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text-with-image.settings.desktop_text_horizontal_position.center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text-with-image.settings.desktop_text_horizontal_position.right.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.rich-text-with-image.settings.desktop_text_horizontal_position.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.colors",
+      "info": "t:sections.global.colors-info"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.text-color.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.background-color.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.section_spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 20,
+      "label": "t:sections.settings.settings.distance-top.label"
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "default": 20,
+      "label": "t:sections.settings.settings.distance-bottom.label",
+      "info": "t:sections.settings.settings.distance-bottom.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text-with-image.blocks.subheading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "subheading",
+          "default": "<p>Customize Your Visual Layout</p>",
+          "label": "t:sections.settings.settings.subheading.label"
+        },
+        {
+          "type": "select",
+          "id": "font_uppercase",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "none"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "label": "t:settings_schema.typography.settings.type_body_font_uppercase.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text-with-image.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Type PICTURE1 to insert the first icon – place it where you want a visual cue. Insert PICTURE2 by typing it where a second visual element is needed. Use PICTURE3 for adding a third icon – ensure it has its own space.",
+          "label": "t:sections.settings.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "font_uppercase",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "none"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "label": "t:settings_schema.typography.settings.type_body_font_uppercase.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_on_mobile",
+          "label": "t:sections.global.disable_on_mobile",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "size_heading",
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "default": 100,
+          "label": "t:sections.settings.settings.size-heading.label",
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "size_heading_mobile",
+          "min": 80,
+          "max": 300,
+          "step": 10,
+          "default": 100,
+          "label": "t:sections.settings.settings.size-heading-mobile.label",
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 1,
+          "max": 2,
+          "step": 0.1,
+          "default": 1.5,
+          "label": "t:settings_schema.typography.settings.typo_line_height.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "picture1",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.picture1.label",
+          "info": "t:sections.rich-text-with-image.blocks.heading.settings.picture1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link1",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.link1.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "picture2",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.picture2.label",
+          "info": "t:sections.rich-text-with-image.blocks.heading.settings.picture2.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link2",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.link2.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "picture3",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.picture3.label",
+          "info": "t:sections.rich-text-with-image.blocks.heading.settings.picture3.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link3",
+          "label": "t:sections.rich-text-with-image.blocks.heading.settings.link3.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.rich-text-with-image.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

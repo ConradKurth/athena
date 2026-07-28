@@ -1,0 +1,8 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# Copy gitignored credential files into every new Athena workspace (they are not
+# in git, so Conductor must propagate them). Mirrors Cyclone's pattern.
+file_include_globs = ".env*\ngcs-service.json\n"
+
+[scripts]
+run_mode = "concurrent"

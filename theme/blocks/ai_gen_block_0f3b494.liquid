@@ -1,0 +1,1106 @@
+{% doc %}
+  @prompt
+    Please create a horizontal  icon/ features banner.
+    It should allow up to 5 feature columns on desktop.
+    It should allow horitonzal auto-scrolling on mobile.
+    The section should have an h2 heading first. 
+    Then, Each feature should have:
+    - An icon field (pick from Shopify icon sets or upload)
+    - A text field with options to set paragraph/heading level and font size.
+    - a sub-text field with options to set paragraph/heading level and font size.
+    All text and icons should be center aligned., The mobile version should show one feature at a time, and automatically show the next one after a few seconds (add a setting to control how long they show for), rmove the liquid error, let me add upto 6 feature columns, keep each feature column - text and subtext centeralligned. also show the scroll dots so user know there are more benefits but the features should keep scrolling automatically, make the dots really small and circular, give options to select feature icon from shopify's exisiting icon set or to upload custom icon for each, show icon instead of the text of icon, keep text and subtext under each logo small and let the width ofthis banner stretch across the width of the page, give option to select size of text and subtext also keep logos size customizable, keep the subtext as wrap text in the mobile version so it is visible in the center of the mobile screen and does not get cut off, wrap the subtext in three lines if it is getting longer for the mobile screen size , removee subtext option from the mobile version
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-features-banner-{{ ai_gen_id }} {
+    padding: 40px 0;
+    background-color: {{ block.settings.background_color }};
+    width: 100%;
+  }
+
+  .ai-features-banner__heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0 0 30px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    padding: 0 20px;
+  }
+
+  .ai-features-banner__container-{{ ai_gen_id }} {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .ai-features-banner__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    align-items: start;
+  }
+
+  .ai-features-banner__feature-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .ai-features-banner__icon-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ai-features-banner__icon-wrapper-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ block.settings.icon_color }};
+  }
+
+  .ai-features-banner__icon-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-features-banner__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .ai-features-banner__text-{{ ai_gen_id }} h1,
+  .ai-features-banner__text-{{ ai_gen_id }} h2,
+  .ai-features-banner__text-{{ ai_gen_id }} h3,
+  .ai-features-banner__text-{{ ai_gen_id }} h4,
+  .ai-features-banner__text-{{ ai_gen_id }} h5,
+  .ai-features-banner__text-{{ ai_gen_id }} h6,
+  .ai-features-banner__text-{{ ai_gen_id }} p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .ai-features-banner__subtext-{{ ai_gen_id }} {
+    color: {{ block.settings.subtext_color }};
+    margin: 0;
+    font-size: {{ block.settings.subtext_size }}px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .ai-features-banner__subtext-{{ ai_gen_id }} h1,
+  .ai-features-banner__subtext-{{ ai_gen_id }} h2,
+  .ai-features-banner__subtext-{{ ai_gen_id }} h3,
+  .ai-features-banner__subtext-{{ ai_gen_id }} h4,
+  .ai-features-banner__subtext-{{ ai_gen_id }} h5,
+  .ai-features-banner__subtext-{{ ai_gen_id }} h6,
+  .ai-features-banner__subtext-{{ ai_gen_id }} p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-features-banner__grid-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-features-banner__mobile-carousel-{{ ai_gen_id }} {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+
+    .ai-features-banner__mobile-track-{{ ai_gen_id }} {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .ai-features-banner__mobile-slide-{{ ai_gen_id }} {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 0 20px;
+    }
+
+    .ai-features-banner__text-{{ ai_gen_id }} {
+      max-width: 100%;
+      white-space: normal;
+    }
+
+    .ai-features-banner__subtext-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-features-banner__dots-{{ ai_gen_id }} {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .ai-features-banner__dot-{{ ai_gen_id }} {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: {{ block.settings.dot_color }};
+      opacity: 0.3;
+      transition: opacity 0.3s ease;
+    }
+
+    .ai-features-banner__dot-{{ ai_gen_id }}.active {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-features-banner__mobile-carousel-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-features-banner__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_desktop }}px;
+    }
+
+    .ai-features-banner__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_desktop }}px;
+    }
+
+    .ai-features-banner__subtext-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtext_size_desktop }}px;
+    }
+
+    .ai-features-banner__icon-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size_desktop }}px;
+      height: {{ block.settings.icon_size_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+<features-banner-{{ ai_gen_id }} class="ai-features-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}
+    <h2 class="ai-features-banner__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="ai-features-banner__container-{{ ai_gen_id }}">
+    <div class="ai-features-banner__grid-{{ ai_gen_id }}">
+      {% for i in (1..6) %}
+        {% liquid
+          assign feature_enabled_key = 'feature_' | append: i | append: '_enabled'
+          assign icon_type_key = 'feature_' | append: i | append: '_icon_type'
+          assign shopify_icon_key = 'feature_' | append: i | append: '_shopify_icon'
+          assign custom_icon_key = 'feature_' | append: i | append: '_custom_icon'
+          assign text_key = 'feature_' | append: i | append: '_text'
+          assign subtext_key = 'feature_' | append: i | append: '_subtext'
+
+          assign feature_enabled = block.settings[feature_enabled_key]
+          assign icon_type = block.settings[icon_type_key]
+          assign shopify_icon = block.settings[shopify_icon_key]
+          assign custom_icon = block.settings[custom_icon_key]
+          assign text = block.settings[text_key]
+          assign subtext = block.settings[subtext_key]
+        %}
+
+        {% if feature_enabled %}
+          <div class="ai-features-banner__feature-{{ ai_gen_id }}">
+            <div class="ai-features-banner__icon-wrapper-{{ ai_gen_id }}">
+              {% if icon_type == 'shopify' %}
+                {% case shopify_icon %}
+                  {% when 'checkmark' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  {% when 'truck' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                  {% when 'shield' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  {% when 'heart' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  {% when 'star' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  {% when 'gift' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                  {% when 'clock' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  {% when 'package' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  {% when 'refresh' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  {% when 'award' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                {% endcase %}
+              {% elsif icon_type == 'custom' and custom_icon %}
+                <img src="{{ custom_icon | image_url: width: 200 }}" alt="" loading="lazy">
+              {% endif %}
+            </div>
+
+            {% if text != blank %}
+              <div class="ai-features-banner__text-{{ ai_gen_id }}">{{ text }}</div>
+            {% endif %}
+
+            {% if subtext != blank %}
+              <div class="ai-features-banner__subtext-{{ ai_gen_id }}">{{ subtext }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="ai-features-banner__mobile-carousel-{{ ai_gen_id }}">
+      <div class="ai-features-banner__mobile-track-{{ ai_gen_id }}">
+        {% for i in (1..6) %}
+          {% liquid
+            assign feature_enabled_key = 'feature_' | append: i | append: '_enabled'
+            assign icon_type_key = 'feature_' | append: i | append: '_icon_type'
+            assign shopify_icon_key = 'feature_' | append: i | append: '_shopify_icon'
+            assign custom_icon_key = 'feature_' | append: i | append: '_custom_icon'
+            assign text_key = 'feature_' | append: i | append: '_text'
+
+            assign feature_enabled = block.settings[feature_enabled_key]
+            assign icon_type = block.settings[icon_type_key]
+            assign shopify_icon = block.settings[shopify_icon_key]
+            assign custom_icon = block.settings[custom_icon_key]
+            assign text = block.settings[text_key]
+          %}
+
+          {% if feature_enabled %}
+            <div class="ai-features-banner__mobile-slide-{{ ai_gen_id }}">
+              <div class="ai-features-banner__feature-{{ ai_gen_id }}">
+                <div class="ai-features-banner__icon-wrapper-{{ ai_gen_id }}">
+                  {% if icon_type == 'shopify' %}
+                    {% case shopify_icon %}
+                      {% when 'checkmark' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      {% when 'truck' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                      {% when 'shield' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                      {% when 'heart' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                      {% when 'star' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      {% when 'gift' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                      {% when 'clock' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      {% when 'package' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                      {% when 'refresh' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                      {% when 'award' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                    {% endcase %}
+                  {% elsif icon_type == 'custom' and custom_icon %}
+                    <img src="{{ custom_icon | image_url: width: 200 }}" alt="" loading="lazy">
+                  {% endif %}
+                </div>
+
+                {% if text != blank %}
+                  <div class="ai-features-banner__text-{{ ai_gen_id }}">{{ text }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="ai-features-banner__dots-{{ ai_gen_id }}"></div>
+    </div>
+  </div>
+</features-banner-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class FeaturesBanner{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.carousel = this.querySelector('.ai-features-banner__mobile-carousel-{{ ai_gen_id }}');
+        this.track = this.querySelector('.ai-features-banner__mobile-track-{{ ai_gen_id }}');
+        this.dotsContainer = this.querySelector('.ai-features-banner__dots-{{ ai_gen_id }}');
+        this.slides = this.querySelectorAll('.ai-features-banner__mobile-slide-{{ ai_gen_id }}');
+        this.autoplayDelay = {{ block.settings.autoplay_delay | times: 1000 }};
+
+        if (this.slides.length > 0) {
+          this.createDots();
+          this.startAutoplay();
+        }
+      }
+
+      createDots() {
+        this.dotsContainer.innerHTML = '';
+        this.slides.forEach((slide, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('ai-features-banner__dot-{{ ai_gen_id }}');
+          if (index === 0) {
+            dot.classList.add('active');
+          }
+          this.dotsContainer.appendChild(dot);
+        });
+        this.dots = this.querySelectorAll('.ai-features-banner__dot-{{ ai_gen_id }}');
+      }
+
+      goToSlide(index) {
+        this.currentSlide = index;
+        const offset = -100 * index;
+        this.track.style.transform = `translateX(${offset}%)`;
+
+        this.dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(this.currentSlide);
+      }
+
+      startAutoplay() {
+        this.autoplayInterval = setInterval(() => {
+          this.nextSlide();
+        }, this.autoplayDelay);
+      }
+
+      disconnectedCallback() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+    }
+
+    customElements.define('features-banner-{{ ai_gen_id }}', FeaturesBanner{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Features banner",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size (desktop)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "General style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#003649"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon size (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "icon_size_desktop",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon size (desktop)",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (mobile)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size (desktop)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Subtext style"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext color",
+      "default": "#717171"
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtext size (mobile)",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "subtext_size_desktop",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtext size (desktop)",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Mobile carousel"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay delay",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#193445"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_1_enabled",
+      "label": "Enable feature 1",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "feature_1_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_1_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "truck"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_1_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_1_text",
+      "label": "Text",
+      "default": "<p>Free Shipping</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_1_subtext",
+      "label": "Subtext",
+      "default": "<p>On orders over $50</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_2_enabled",
+      "label": "Enable feature 2",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "feature_2_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_2_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "shield"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_2_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_2_text",
+      "label": "Text",
+      "default": "<p>Secure Payment</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_2_subtext",
+      "label": "Subtext",
+      "default": "<p>100% secure transactions</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_3_enabled",
+      "label": "Enable feature 3",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "feature_3_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_3_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "refresh"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_3_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_3_text",
+      "label": "Text",
+      "default": "<p>Easy Returns</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_3_subtext",
+      "label": "Subtext",
+      "default": "<p>30-day return policy</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_4_enabled",
+      "label": "Enable feature 4",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "feature_4_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_4_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "award"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_4_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_4_text",
+      "label": "Text",
+      "default": "<p>Quality Guaranteed</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_4_subtext",
+      "label": "Subtext",
+      "default": "<p>Premium products only</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_5_enabled",
+      "label": "Enable feature 5",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "feature_5_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_5_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "heart"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_5_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_5_text",
+      "label": "Text",
+      "default": "<p>Customer Support</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_5_subtext",
+      "label": "Subtext",
+      "default": "<p>24/7 assistance</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "feature_6_enabled",
+      "label": "Enable feature 6",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "feature_6_icon_type",
+      "label": "Icon type",
+      "options": [
+        {
+          "value": "shopify",
+          "label": "Shopify icon"
+        },
+        {
+          "value": "custom",
+          "label": "Custom icon"
+        }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "select",
+      "id": "feature_6_shopify_icon",
+      "label": "Shopify icon",
+      "options": [
+        {
+          "value": "checkmark",
+          "label": "Checkmark"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "gift",
+          "label": "Gift"
+        },
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "package",
+          "label": "Package"
+        },
+        {
+          "value": "refresh",
+          "label": "Refresh"
+        },
+        {
+          "value": "award",
+          "label": "Award"
+        }
+      ],
+      "default": "gift"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_6_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_6_text",
+      "label": "Text",
+      "default": "<p>Special Offers</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_6_subtext",
+      "label": "Subtext",
+      "default": "<p>Exclusive deals</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features banner"
+    }
+  ]
+}
+{% endschema %}

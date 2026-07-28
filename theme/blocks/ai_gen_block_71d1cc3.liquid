@@ -1,0 +1,583 @@
+{% doc %}
+  @prompt
+    create a section similar to lookbook but make it like a flowchart showing flow of steps. give option to add text along with each image and number the tiles as 1,2,3,4 and so on, add some design element that shows flow of steps from 1 to 2, 2 to 3, 3 to 4 and so on
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-flowchart-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-flowchart-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-flowchart-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 40px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+  }
+
+  .ai-flowchart-steps-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: {{ block.settings.step_gap }}px;
+    position: relative;
+  }
+
+  .ai-flowchart-step-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ai-flowchart-step-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+  }
+
+  .ai-flowchart-step-number-{{ ai_gen_id }} {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: {{ block.settings.number_size }}px;
+    height: {{ block.settings.number_size }}px;
+    background-color: {{ block.settings.number_bg_color }};
+    color: {{ block.settings.number_text_color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: {{ block.settings.number_font_size }}px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-flowchart-image-container-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    position: relative;
+  }
+
+  .ai-flowchart-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-flowchart-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .ai-flowchart-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-flowchart-step-content-{{ ai_gen_id }} {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .ai-flowchart-step-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.step_title_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.step_title_color }};
+    margin-bottom: 8px;
+  }
+
+  .ai-flowchart-step-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.step_text_size }}px;
+    color: {{ block.settings.step_text_color }};
+    line-height: 1.5;
+  }
+
+  .ai-flowchart-arrow-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    right: calc(-{{ block.settings.step_gap }}px / 2);
+    transform: translateY(-50%);
+    width: {{ block.settings.step_gap }}px;
+    height: 2px;
+    background-color: {{ block.settings.arrow_color }};
+    z-index: 1;
+  }
+
+  .ai-flowchart-arrow-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid {{ block.settings.arrow_color }};
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-flowchart-steps-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-flowchart-arrow-{{ ai_gen_id }} {
+      top: auto;
+      bottom: calc(-{{ block.settings.step_gap }}px / 2);
+      right: 50%;
+      transform: translateX(50%) rotate(90deg);
+    }
+
+    .ai-flowchart-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+
+    .ai-flowchart-step-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.step_title_size }}px * 0.9);
+    }
+
+    .ai-flowchart-step-text-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.step_text_size }}px * 0.9);
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-flowchart-step-{{ ai_gen_id }}:last-child .ai-flowchart-arrow-{{ ai_gen_id }} {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-flowchart-step-{{ ai_gen_id }}:last-child .ai-flowchart-arrow-{{ ai_gen_id }} {
+      display: none;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-flowchart-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-flowchart-container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-flowchart-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-flowchart-steps-{{ ai_gen_id }}">
+      {% for i in (1..6) %}
+        {% liquid
+          assign step_enabled_key = 'step_' | append: i | append: '_enabled'
+          assign step_image_key = 'step_' | append: i | append: '_image'
+          assign step_title_key = 'step_' | append: i | append: '_title'
+          assign step_text_key = 'step_' | append: i | append: '_text'
+
+          assign step_enabled = block.settings[step_enabled_key]
+          assign step_image = block.settings[step_image_key]
+          assign step_title = block.settings[step_title_key]
+          assign step_text = block.settings[step_text_key]
+        %}
+
+        {% if step_enabled %}
+          <div class="ai-flowchart-step-{{ ai_gen_id }}">
+            <div class="ai-flowchart-step-wrapper-{{ ai_gen_id }}">
+              <div class="ai-flowchart-step-number-{{ ai_gen_id }}">{{ i }}</div>
+              
+              <div class="ai-flowchart-image-container-{{ ai_gen_id }}">
+                {% if step_image %}
+                  <img
+                    src="{{ step_image | image_url: width: 600 }}"
+                    alt="{{ step_title | escape }}"
+                    class="ai-flowchart-image-{{ ai_gen_id }}"
+                    loading="lazy"
+                    width="600"
+                    height="600"
+                  >
+                {% else %}
+                  <div class="ai-flowchart-image-placeholder-{{ ai_gen_id }}">
+                    {{ 'image' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.show_arrows %}
+                <div class="ai-flowchart-arrow-{{ ai_gen_id }}"></div>
+              {% endif %}
+            </div>
+
+            <div class="ai-flowchart-step-content-{{ ai_gen_id }}">
+              {% if step_title != blank %}
+                <h3 class="ai-flowchart-step-title-{{ ai_gen_id }}">{{ step_title }}</h3>
+              {% endif %}
+              
+              {% if step_text != blank %}
+                <div class="ai-flowchart-step-text-{{ ai_gen_id }}">{{ step_text }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Process flowchart",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How it works"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Step style"
+    },
+    {
+      "type": "range",
+      "id": "step_gap",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between steps",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "step_title_color",
+      "label": "Title color",
+      "default": "#193445"
+    },
+    {
+      "type": "range",
+      "id": "step_title_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "step_text_color",
+      "label": "Text color",
+      "default": "#717171"
+    },
+    {
+      "type": "range",
+      "id": "step_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Number badge"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "label": "Badge size",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "number_font_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Number size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "number_bg_color",
+      "label": "Background color",
+      "default": "#003649"
+    },
+    {
+      "type": "color",
+      "id": "number_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Flow arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#003649"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_1_enabled",
+      "label": "Enable step 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_1_title",
+      "label": "Title",
+      "default": "Step one"
+    },
+    {
+      "type": "richtext",
+      "id": "step_1_text",
+      "label": "Description",
+      "default": "<p>Describe the first step in your process</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_2_enabled",
+      "label": "Enable step 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_2_title",
+      "label": "Title",
+      "default": "Step two"
+    },
+    {
+      "type": "richtext",
+      "id": "step_2_text",
+      "label": "Description",
+      "default": "<p>Describe the second step in your process</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_3_enabled",
+      "label": "Enable step 3",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_3_title",
+      "label": "Title",
+      "default": "Step three"
+    },
+    {
+      "type": "richtext",
+      "id": "step_3_text",
+      "label": "Description",
+      "default": "<p>Describe the third step in your process</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_4_enabled",
+      "label": "Enable step 4",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "step_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_4_title",
+      "label": "Title",
+      "default": "Step four"
+    },
+    {
+      "type": "richtext",
+      "id": "step_4_text",
+      "label": "Description",
+      "default": "<p>Describe the fourth step in your process</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_5_enabled",
+      "label": "Enable step 5",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "step_5_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_5_title",
+      "label": "Title",
+      "default": "Step five"
+    },
+    {
+      "type": "richtext",
+      "id": "step_5_text",
+      "label": "Description",
+      "default": "<p>Describe the fifth step in your process</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "step_6_enabled",
+      "label": "Enable step 6",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "step_6_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step_6_title",
+      "label": "Title",
+      "default": "Step six"
+    },
+    {
+      "type": "richtext",
+      "id": "step_6_text",
+      "label": "Description",
+      "default": "<p>Describe the sixth step in your process</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Process flowchart"
+    }
+  ]
+}
+{% endschema %}

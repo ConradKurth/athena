@@ -1,0 +1,642 @@
+{% doc %}
+  @prompt
+     generate a completely new Shopify section
+    
+    This section will visually explain “How UraGuard™ Works”, improved with a scroll-activated timeline effect.
+    
+    Layout Requirements:
+    
+    Split layout with two columns
+    
+    Left Column: Static text + bullet list + vertical progress line
+    
+    Right Column: 3 images that change as the user scrolls
+    
+    Left Column (static):
+    
+    A heading field: “How UraGuard™ Works”
+    
+    3 bullet points describing the three stages
+    
+    A vertical progress line that animates from step 1 → step 2 → step 3 based on scroll position
+    
+    Bullet points should highlight (active state) when their corresponding image is in view
+    
+    Right Column (scroll timeline):
+    
+    3 images (uploaded through the theme editor)
+    
+    Images should fade or slide over each other as the user scrolls down this section
+    
+    Only one image visible at a time
+    
+    Use simple CSS + JS, no dependencies from Dawn or any other theme
+    
+    Behavior Specs:
+    
+    When Image 1 is visible → Bullet 1 becomes active; progress line fills to point 1
+    
+    When Image 2 is visible → Bullet 2 becomes active; progress line fills to point 2
+    
+    When Image 3 is visible → Bullet 3 becomes active; progress line fills fully
+    
+    Left text column should be sticky on desktop, but stack naturally on mobile
+    
+    Customization (Schema) Requirements:
+    
+    Heading field
+    
+    Text field for bullet point 1
+    
+    Text field for bullet point 2
+    
+    Text field for bullet point 3
+    
+    Image picker for image 1
+    
+    Image picker for image 2
+    
+    Image picker for image 3
+    
+    Optional accent color setting (controls active bullet + progress line)
+    
+    Optional background color setting for entire section
+    
+    Coding Requirements:
+    
+    Build the full section in Liquid, HTML, CSS, and vanilla JavaScript
+    
+    Code must NOT use Dawn-specific classes or utilities
+    
+    Must be fully responsive (left sticky / right scroll interaction on desktop; stacked layout on mobile)
+    
+    Ensure JS uses Intersection Observer to detect which image is active
+    , I want you to keep text for the  three steps in two lines with 2 font sizes. so there will be main ste and a sub-text for each step 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .uraguard-timeline-{{ ai_gen_id }} {
+    background-color: {{ block.settings.background_color }};
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  .uraguard-timeline-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .uraguard-timeline-left-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .uraguard-timeline-heading-{{ ai_gen_id }} {
+    font-size: 32px;
+    font-weight: 600;
+    color: {{ block.settings.heading_color }};
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .uraguard-timeline-steps-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .uraguard-timeline-progress-line-{{ ai_gen_id }} {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 3px;
+    height: calc(100% - 24px);
+    background-color: {{ block.settings.inactive_color }};
+    border-radius: 2px;
+  }
+
+  .uraguard-timeline-progress-fill-{{ ai_gen_id }} {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    background-color: {{ block.settings.accent_color }};
+    border-radius: 2px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .uraguard-timeline-step-{{ ai_gen_id }} {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .uraguard-timeline-step-marker-{{ ai_gen_id }} {
+    position: absolute;
+    left: -40px;
+    top: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: {{ block.settings.inactive_color }};
+    border: 3px solid {{ block.settings.background_color }};
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: {{ block.settings.background_color }};
+  }
+
+  .uraguard-timeline-step-{{ ai_gen_id }}.active .uraguard-timeline-step-marker-{{ ai_gen_id }} {
+    background-color: {{ block.settings.accent_color }};
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px {{ block.settings.accent_color }}33;
+  }
+
+  .uraguard-timeline-step-content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .uraguard-timeline-step-title-{{ ai_gen_id }} {
+    font-size: 18px;
+    line-height: 1.3;
+    color: {{ block.settings.text_color }};
+    opacity: 0.6;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .uraguard-timeline-step-description-{{ ai_gen_id }} {
+    font-size: 14px;
+    line-height: 1.5;
+    color: {{ block.settings.text_color }};
+    opacity: 0.5;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .uraguard-timeline-step-{{ ai_gen_id }}.active .uraguard-timeline-step-title-{{ ai_gen_id }} {
+    opacity: 1;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .uraguard-timeline-step-{{ ai_gen_id }}.active .uraguard-timeline-step-description-{{ ai_gen_id }} {
+    opacity: 0.8;
+    color: {{ block.settings.text_color }};
+  }
+
+  .uraguard-timeline-right-{{ ai_gen_id }} {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+  }
+
+  .uraguard-timeline-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .uraguard-timeline-image-item-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  .uraguard-timeline-image-item-{{ ai_gen_id }}.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .uraguard-timeline-image-item-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .uraguard-timeline-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .uraguard-timeline-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.3;
+  }
+
+  .uraguard-timeline-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .uraguard-timeline-{{ ai_gen_id }} {
+      padding: 80px 40px;
+    }
+
+    .uraguard-timeline-container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .uraguard-timeline-left-{{ ai_gen_id }} {
+      position: sticky;
+      top: 100px;
+    }
+
+    .uraguard-timeline-heading-{{ ai_gen_id }} {
+      font-size: 42px;
+    }
+
+    .uraguard-timeline-right-{{ ai_gen_id }} {
+      min-height: 600px;
+    }
+
+    .uraguard-timeline-image-wrapper-{{ ai_gen_id }} {
+      min-height: 600px;
+    }
+
+    .uraguard-timeline-step-title-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+
+    .uraguard-timeline-step-description-{{ ai_gen_id }} {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .uraguard-timeline-heading-{{ ai_gen_id }} {
+      font-size: 48px;
+    }
+
+    .uraguard-timeline-step-title-{{ ai_gen_id }} {
+      font-size: 22px;
+    }
+  }
+{% endstyle %}
+
+<uraguard-timeline-{{ ai_gen_id }}
+  class="uraguard-timeline-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="uraguard-timeline-container-{{ ai_gen_id }}">
+    <div class="uraguard-timeline-left-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h2 class="uraguard-timeline-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      <div class="uraguard-timeline-steps-{{ ai_gen_id }}">
+        <div class="uraguard-timeline-progress-line-{{ ai_gen_id }}">
+          <div class="uraguard-timeline-progress-fill-{{ ai_gen_id }}" data-progress-fill></div>
+        </div>
+
+        {% if block.settings.step_1_title != blank %}
+          <div class="uraguard-timeline-step-{{ ai_gen_id }}" data-step="1">
+            <div class="uraguard-timeline-step-marker-{{ ai_gen_id }}">1</div>
+            <div class="uraguard-timeline-step-content-{{ ai_gen_id }}">
+              <p class="uraguard-timeline-step-title-{{ ai_gen_id }}">{{ block.settings.step_1_title }}</p>
+              {% if block.settings.step_1_description != blank %}
+                <p class="uraguard-timeline-step-description-{{ ai_gen_id }}">{{ block.settings.step_1_description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.step_2_title != blank %}
+          <div class="uraguard-timeline-step-{{ ai_gen_id }}" data-step="2">
+            <div class="uraguard-timeline-step-marker-{{ ai_gen_id }}">2</div>
+            <div class="uraguard-timeline-step-content-{{ ai_gen_id }}">
+              <p class="uraguard-timeline-step-title-{{ ai_gen_id }}">{{ block.settings.step_2_title }}</p>
+              {% if block.settings.step_2_description != blank %}
+                <p class="uraguard-timeline-step-description-{{ ai_gen_id }}">{{ block.settings.step_2_description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.step_3_title != blank %}
+          <div class="uraguard-timeline-step-{{ ai_gen_id }}" data-step="3">
+            <div class="uraguard-timeline-step-marker-{{ ai_gen_id }}">3</div>
+            <div class="uraguard-timeline-step-content-{{ ai_gen_id }}">
+              <p class="uraguard-timeline-step-title-{{ ai_gen_id }}">{{ block.settings.step_3_title }}</p>
+              {% if block.settings.step_3_description != blank %}
+                <p class="uraguard-timeline-step-description-{{ ai_gen_id }}">{{ block.settings.step_3_description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="uraguard-timeline-right-{{ ai_gen_id }}">
+      <div class="uraguard-timeline-image-wrapper-{{ ai_gen_id }}">
+        <div class="uraguard-timeline-image-item-{{ ai_gen_id }} active" data-image="1">
+          {% if block.settings.image_1 %}
+            <img
+              src="{{ block.settings.image_1 | image_url: width: 800 }}"
+              alt="{{ block.settings.image_1.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image_1.width }}"
+              height="{{ block.settings.image_1.height }}"
+            >
+          {% else %}
+            <div class="uraguard-timeline-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+              <div class="uraguard-timeline-empty-state-{{ ai_gen_id }}">
+                Add image for step 1
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="uraguard-timeline-image-item-{{ ai_gen_id }}" data-image="2">
+          {% if block.settings.image_2 %}
+            <img
+              src="{{ block.settings.image_2 | image_url: width: 800 }}"
+              alt="{{ block.settings.image_2.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image_2.width }}"
+              height="{{ block.settings.image_2.height }}"
+            >
+          {% else %}
+            <div class="uraguard-timeline-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-2' | placeholder_svg_tag }}
+              <div class="uraguard-timeline-empty-state-{{ ai_gen_id }}">
+                Add image for step 2
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="uraguard-timeline-image-item-{{ ai_gen_id }}" data-image="3">
+          {% if block.settings.image_3 %}
+            <img
+              src="{{ block.settings.image_3 | image_url: width: 800 }}"
+              alt="{{ block.settings.image_3.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image_3.width }}"
+              height="{{ block.settings.image_3.height }}"
+            >
+          {% else %}
+            <div class="uraguard-timeline-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-3' | placeholder_svg_tag }}
+              <div class="uraguard-timeline-empty-state-{{ ai_gen_id }}">
+                Add image for step 3
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</uraguard-timeline-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class UraguardTimeline{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.imageItems = [];
+        this.stepItems = [];
+        this.progressFill = null;
+        this.currentStep = 1;
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.imageItems = Array.from(this.querySelectorAll('[data-image]'));
+        this.stepItems = Array.from(this.querySelectorAll('[data-step]'));
+        this.progressFill = this.querySelector('[data-progress-fill]');
+
+        this.setupIntersectionObserver();
+        this.activateStep(1);
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '-40% 0px -40% 0px',
+          threshold: 0
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const imageIndex = parseInt(entry.target.dataset.image);
+              this.activateStep(imageIndex);
+            }
+          });
+        }, options);
+
+        this.imageItems.forEach((item) => {
+          this.observer.observe(item);
+        });
+      }
+
+      activateStep(stepNumber) {
+        if (this.currentStep === stepNumber) return;
+        this.currentStep = stepNumber;
+
+        this.imageItems.forEach((item) => {
+          const imageIndex = parseInt(item.dataset.image);
+          if (imageIndex === stepNumber) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+
+        this.stepItems.forEach((item) => {
+          const stepIndex = parseInt(item.dataset.step);
+          if (stepIndex === stepNumber) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+
+        if (this.progressFill) {
+          const totalSteps = this.stepItems.length;
+          const progressPercent = ((stepNumber - 1) / (totalSteps - 1)) * 100;
+          this.progressFill.style.height = progressPercent + '%';
+        }
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('uraguard-timeline-{{ ai_gen_id }}', UraguardTimeline{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "UraGuard timeline",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How UraGuard™ Works"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Title",
+      "default": "Place the liner"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_description",
+      "label": "Description",
+      "default": "Position the biodegradable liner in your toilet bowl before use to create a protective barrier"
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Title",
+      "default": "Protective barrier"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_description",
+      "label": "Description",
+      "default": "The liner catches waste while preventing splashback and eliminating odors effectively"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Title",
+      "default": "Flush and dissolve"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_description",
+      "label": "Description",
+      "default": "Simply flush when finished and the liner dissolves completely in seconds"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Step 1 image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Step 2 image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Step 3 image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#fbfaf6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#717171"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "inactive_color",
+      "label": "Inactive color",
+      "default": "#e0e0e0"
+    }
+  ],
+  "presets": [
+    {
+      "name": "UraGuard timeline"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,796 @@
+{% doc %}
+  @prompt
+    A two-column layout.
+    
+    Acceptance criteria:
+    The whole section has a centered H2.
+    Each column has 3 rows.
+    Each Column has a centered H3 in row 1.
+    Each column has an image with an adjustable height and width in row 2.
+    Each column has a paragraph text field in row 3.
+    The columns appear side-by-side on desktop.
+    The columns have a separator line between them on desktop.
+    The background color of each column can be adjusted separately.
+    
+    For mobile, provide two options:
+    - Stack on Mobile (Columns appear one under the other)
+    - Carousel style (with dots and arrows for navigation) with automatic timed cycle (timing adjustable)
+    
+    Provide formatting options for the paragraph text (e.g. bold, italic, and bullets)
+    Add settings to choose left or center alignment for the paragraph text fields
+    Ensure bullets are visible if selected in the paragraph formatting options
+    Ensure responsiveness in the mobile layout (automatic image resize and column width resize)., Ensure the carousel columns fit fully on screen for mobile. (Autoadjust image with and text container width to 800px), For the mobile carousel layout, set the entire column container width to 800px and autoadjust the content width., remove the arrow navigation background and make the arrows a dark color (for mobile carousel)., Ensure the bullets are visible if they are selected in the paragraph text field settings
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-column-{{ ai_gen_id }} {
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .ai-two-column-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-two-column-main-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0 0 40px;
+    font-size: 32px;
+    color: {{ block.settings.main_heading_color }};
+  }
+
+  .ai-two-column-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  .ai-two-column-wrapper-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: {{ block.settings.separator_color }};
+    display: block;
+  }
+
+  .ai-two-column-item-{{ ai_gen_id }} {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-two-column-item-{{ ai_gen_id }}:first-child {
+    background-color: {{ block.settings.column_1_bg_color }};
+  }
+
+  .ai-two-column-item-{{ ai_gen_id }}:last-child {
+    background-color: {{ block.settings.column_2_bg_color }};
+  }
+
+  .ai-two-column-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    color: {{ block.settings.column_heading_color }};
+  }
+
+  .ai-two-column-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-two-column-image-{{ ai_gen_id }} {
+    width: {{ block.settings.image_width }}%;
+    height: {{ block.settings.image_height }}px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .ai-two-column-image-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.image_width }}%;
+    height: {{ block.settings.image_height }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .ai-two-column-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} {
+    color: {{ block.settings.paragraph_text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }}.align-left {
+    text-align: left;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }}.align-center {
+    text-align: center;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} ul {
+    list-style-type: disc;
+    padding-left: 30px;
+    margin: 10px 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} ol {
+    list-style-type: decimal;
+    padding-left: 30px;
+    margin: 10px 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }}.align-center ul,
+  .ai-two-column-text-{{ ai_gen_id }}.align-center ol {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} li {
+    margin-bottom: 8px;
+    display: list-item;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} strong {
+    font-weight: 700;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} em {
+    font-style: italic;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} p {
+    margin: 0 0 10px;
+  }
+
+  .ai-two-column-text-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-two-column-carousel-{{ ai_gen_id }} {
+    display: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-two-column-carousel-track-{{ ai_gen_id }} {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .ai-two-column-carousel-slide-{{ ai_gen_id }} {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+
+  .ai-two-column-carousel-nav-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .ai-two-column-carousel-arrow-{{ ai_gen_id }} {
+    background-color: transparent;
+    color: {{ block.settings.carousel_arrow_color }};
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    padding: 0;
+  }
+
+  .ai-two-column-carousel-arrow-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  .ai-two-column-carousel-dots-{{ ai_gen_id }} {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ai-two-column-carousel-dot-{{ ai_gen_id }} {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: {{ block.settings.carousel_dot_color }};
+    opacity: 0.4;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-two-column-carousel-dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-two-column-{{ ai_gen_id }} {
+      padding: 30px 0;
+    }
+
+    .ai-two-column-container-{{ ai_gen_id }} {
+      max-width: 100%;
+    }
+
+    .ai-two-column-main-heading-{{ ai_gen_id }} {
+      font-size: 24px;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .ai-two-column-heading-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+
+    {% if block.settings.mobile_layout == 'stack' %}
+      .ai-two-column-wrapper-{{ ai_gen_id }} {
+        flex-direction: column;
+      }
+
+      .ai-two-column-wrapper-{{ ai_gen_id }}::before {
+        display: none;
+      }
+
+      .ai-two-column-item-{{ ai_gen_id }} {
+        padding: 20px;
+      }
+
+      .ai-two-column-image-{{ ai_gen_id }},
+      .ai-two-column-image-placeholder-{{ ai_gen_id }} {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+      }
+    {% elsif block.settings.mobile_layout == 'carousel' %}
+      .ai-two-column-wrapper-{{ ai_gen_id }} {
+        display: none;
+      }
+
+      .ai-two-column-carousel-{{ ai_gen_id }} {
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} {
+        width: 100%;
+        max-width: 800px;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-item-{{ ai_gen_id }} {
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-image-wrapper-{{ ai_gen_id }} {
+        width: 100%;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-image-{{ ai_gen_id }},
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-image-placeholder-{{ ai_gen_id }} {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 250px;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-text-{{ ai_gen_id }} {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .ai-two-column-carousel-slide-{{ ai_gen_id }} .ai-two-column-heading-{{ ai_gen_id }} {
+        width: 100%;
+      }
+    {% endif %}
+  }
+{% endstyle %}
+
+<two-column-layout-{{ ai_gen_id }}
+  class="ai-two-column-{{ ai_gen_id }}"
+  data-autoplay="{{ block.settings.carousel_autoplay }}"
+  data-autoplay-speed="{{ block.settings.carousel_autoplay_speed }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-two-column-container-{{ ai_gen_id }}">
+    {% if block.settings.main_heading != blank %}
+      <h2 class="ai-two-column-main-heading-{{ ai_gen_id }}">{{ block.settings.main_heading }}</h2>
+    {% endif %}
+
+    <div class="ai-two-column-wrapper-{{ ai_gen_id }}">
+      <div class="ai-two-column-item-{{ ai_gen_id }}">
+        {% if block.settings.column_1_heading != blank %}
+          <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.column_1_heading }}</h3>
+        {% endif %}
+
+        <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.column_1_image %}
+            <img
+              src="{{ block.settings.column_1_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.column_1_image.alt | escape }}"
+              class="ai-two-column-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.column_1_image.width }}"
+              height="{{ block.settings.column_1_image.height }}"
+            >
+          {% else %}
+            <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.column_1_text != blank %}
+          <div class="ai-two-column-text-{{ ai_gen_id }} align-{{ block.settings.column_1_text_align }}">
+            {{ block.settings.column_1_text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-two-column-item-{{ ai_gen_id }}">
+        {% if block.settings.column_2_heading != blank %}
+          <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.column_2_heading }}</h3>
+        {% endif %}
+
+        <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.column_2_image %}
+            <img
+              src="{{ block.settings.column_2_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.column_2_image.alt | escape }}"
+              class="ai-two-column-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.column_2_image.width }}"
+              height="{{ block.settings.column_2_image.height }}"
+            >
+          {% else %}
+            <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.column_2_text != blank %}
+          <div class="ai-two-column-text-{{ ai_gen_id }} align-{{ block.settings.column_2_text_align }}">
+            {{ block.settings.column_2_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-two-column-carousel-{{ ai_gen_id }}">
+      <div class="ai-two-column-carousel-track-{{ ai_gen_id }}">
+        <div class="ai-two-column-carousel-slide-{{ ai_gen_id }}">
+          <div class="ai-two-column-item-{{ ai_gen_id }}" style="background-color: {{ block.settings.column_1_bg_color }};">
+            {% if block.settings.column_1_heading != blank %}
+              <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.column_1_heading }}</h3>
+            {% endif %}
+
+            <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.column_1_image %}
+                <img
+                  src="{{ block.settings.column_1_image | image_url: width: 800 }}"
+                  alt="{{ block.settings.column_1_image.alt | escape }}"
+                  class="ai-two-column-image-{{ ai_gen_id }}"
+                  loading="lazy"
+                  width="{{ block.settings.column_1_image.width }}"
+                  height="{{ block.settings.column_1_image.height }}"
+                >
+              {% else %}
+                <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.column_1_text != blank %}
+              <div class="ai-two-column-text-{{ ai_gen_id }} align-{{ block.settings.column_1_text_align }}">
+                {{ block.settings.column_1_text }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="ai-two-column-carousel-slide-{{ ai_gen_id }}">
+          <div class="ai-two-column-item-{{ ai_gen_id }}" style="background-color: {{ block.settings.column_2_bg_color }};">
+            {% if block.settings.column_2_heading != blank %}
+              <h3 class="ai-two-column-heading-{{ ai_gen_id }}">{{ block.settings.column_2_heading }}</h3>
+            {% endif %}
+
+            <div class="ai-two-column-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.column_2_image %}
+                <img
+                  src="{{ block.settings.column_2_image | image_url: width: 800 }}"
+                  alt="{{ block.settings.column_2_image.alt | escape }}"
+                  class="ai-two-column-image-{{ ai_gen_id }}"
+                  loading="lazy"
+                  width="{{ block.settings.column_2_image.width }}"
+                  height="{{ block.settings.column_2_image.height }}"
+                >
+              {% else %}
+                <div class="ai-two-column-image-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.column_2_text != blank %}
+              <div class="ai-two-column-text-{{ ai_gen_id }} align-{{ block.settings.column_2_text_align }}">
+                {{ block.settings.column_2_text }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-two-column-carousel-nav-{{ ai_gen_id }}">
+        <button
+          class="ai-two-column-carousel-arrow-{{ ai_gen_id }} ai-two-column-carousel-prev-{{ ai_gen_id }}"
+          aria-label="Previous slide"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="ai-two-column-carousel-dots-{{ ai_gen_id }}">
+          <button class="ai-two-column-carousel-dot-{{ ai_gen_id }} active" data-slide="0" aria-label="Go to slide 1"></button>
+          <button class="ai-two-column-carousel-dot-{{ ai_gen_id }}" data-slide="1" aria-label="Go to slide 2"></button>
+        </div>
+
+        <button
+          class="ai-two-column-carousel-arrow-{{ ai_gen_id }} ai-two-column-carousel-next-{{ ai_gen_id }}"
+          aria-label="Next slide"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</two-column-layout-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TwoColumnLayout{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-two-column-carousel-track-{{ ai_gen_id }}');
+        this.slides = this.querySelectorAll('.ai-two-column-carousel-slide-{{ ai_gen_id }}');
+        this.dots = this.querySelectorAll('.ai-two-column-carousel-dot-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-two-column-carousel-prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.ai-two-column-carousel-next-{{ ai_gen_id }}');
+
+        if (!this.track) return;
+
+        this.setupEventListeners();
+        this.setupAutoplay();
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => this.goToPrevSlide());
+        }
+
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => this.goToNextSlide());
+        }
+
+        this.dots.forEach((dot) => {
+          dot.addEventListener('click', (e) => {
+            const slideIndex = parseInt(e.target.dataset.slide);
+            this.goToSlide(slideIndex);
+          });
+        });
+
+        this.addEventListener('mouseenter', () => this.pauseAutoplay());
+        this.addEventListener('mouseleave', () => this.resumeAutoplay());
+      }
+
+      setupAutoplay() {
+        const autoplay = this.dataset.autoplay === 'true';
+        const speed = parseInt(this.dataset.autoplaySpeed) * 1000;
+
+        if (autoplay && speed > 0) {
+          this.autoplayInterval = setInterval(() => {
+            this.goToNextSlide();
+          }, speed);
+        }
+      }
+
+      pauseAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+
+      resumeAutoplay() {
+        const autoplay = this.dataset.autoplay === 'true';
+        const speed = parseInt(this.dataset.autoplaySpeed) * 1000;
+
+        if (autoplay && speed > 0) {
+          this.autoplayInterval = setInterval(() => {
+            this.goToNextSlide();
+          }, speed);
+        }
+      }
+
+      goToSlide(index) {
+        this.currentSlide = index;
+        this.updateCarousel();
+      }
+
+      goToNextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.updateCarousel();
+      }
+
+      goToPrevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.updateCarousel();
+      }
+
+      updateCarousel() {
+        const offset = -this.currentSlide * 100;
+        this.track.style.transform = `translateX(${offset}%)`;
+
+        this.dots.forEach((dot, index) => {
+          if (index === this.currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      disconnectedCallback() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+    }
+
+    customElements.define('two-column-layout-{{ ai_gen_id }}', TwoColumnLayout{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Two column layout",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Main heading"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main heading",
+      "default": "Our Two Column Layout"
+    },
+    {
+      "type": "color",
+      "id": "main_heading_color",
+      "label": "Main heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "text",
+      "id": "column_1_heading",
+      "label": "Heading",
+      "default": "Column One"
+    },
+    {
+      "type": "image_picker",
+      "id": "column_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "column_1_text",
+      "label": "Text",
+      "default": "<p>Add your paragraph text here. You can use <strong>bold</strong>, <em>italic</em>, and create bullet lists.</p>"
+    },
+    {
+      "type": "select",
+      "id": "column_1_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "column_1_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "column_2_heading",
+      "label": "Heading",
+      "default": "Column Two"
+    },
+    {
+      "type": "image_picker",
+      "id": "column_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "column_2_text",
+      "label": "Text",
+      "default": "<p>Add your paragraph text here. You can use <strong>bold</strong>, <em>italic</em>, and create bullet lists.</p>"
+    },
+    {
+      "type": "select",
+      "id": "column_2_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "column_2_bg_color",
+      "label": "Background color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "column_heading_color",
+      "label": "Column heading color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "paragraph_text_color",
+      "label": "Paragraph text color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator line color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image width",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "label": "Image height",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        {
+          "value": "stack",
+          "label": "Stack"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "stack"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "carousel_autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "carousel_arrow_color",
+      "label": "Arrow color",
+      "default": "#193445"
+    },
+    {
+      "type": "color",
+      "id": "carousel_dot_color",
+      "label": "Dot color",
+      "default": "#193445"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two column layout"
+    }
+  ]
+}
+{% endschema %}

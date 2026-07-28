@@ -1,0 +1,234 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "blocks_EJDfxP": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3ff841f_jPR7HY": {
+          "type": "ai_gen_block_3ff841f",
+          "settings": {
+            "heading": "Instructions for UraGuard® Shield",
+            "heading_level": "h1",
+            "heading_color": "#193445",
+            "alignment": "center",
+            "heading_size_mobile": 20,
+            "heading_size_desktop": 22,
+            "padding_top": 40,
+            "padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3ff841f_jPR7HY"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "multicolumn_rgU7Le": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8eRXHq": {
+          "type": "column",
+          "settings": {
+            "heading": "Remove Adhesive",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Take your shield and remove the adhesive strip on the back.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/1..png"
+          }
+        },
+        "column_ce4dBr": {
+          "type": "column",
+          "settings": {
+            "heading": "Position The Shield",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Ensure the blue rectangle is facing up and is pointing to you. Place the shield directly where urine exits the body (under the urethra and labia).</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/2..png"
+          }
+        },
+        "column_dJ7xPR": {
+          "type": "column",
+          "settings": {
+            "heading": "Secure and Wear",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Press the shield down gently to ensure a snug fit.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/3._84ea6c92-7323-4a2e-b8c2-531fae823d4f.png"
+          }
+        },
+        "column_fMXn9W": {
+          "type": "column",
+          "settings": {
+            "heading": "Replace as Needed",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Dispose of the used liner and replace it with a fresh one when needed.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/4._52adf79b-63dc-4d02-93ab-3e8d6cdafc74.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_8eRXHq",
+        "column_ce4dBr",
+        "column_dJ7xPR",
+        "column_fMXn9W"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "heading": "",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 40
+      }
+    },
+    "brands_zipFP4": {
+      "type": "brands",
+      "blocks": {
+        "image_MWjfLE": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_NHTqLx": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_MWjfLE",
+        "image_NHTqLx"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "#000000",
+        "background_color": "#fbfaf6",
+        "margin-top": 20,
+        "margin-bottom": 0
+      }
+    },
+    "1763449189bbc81226": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_61014db_wHcAX9": {
+          "type": "ai_gen_block_61014db",
+          "disabled": true,
+          "settings": {
+            "section_title": "Instructions for UraGuard™ Shield",
+            "section_subtitle": "",
+            "title_size": 32,
+            "subtitle_size": 16,
+            "title_color": "#193445",
+            "subtitle_color": "#717171",
+            "container_width": 1200,
+            "section_padding_top": 60,
+            "section_padding_bottom": 55,
+            "background_color": "#ffffff",
+            "image_border_radius": 14,
+            "fixed_image_height": true,
+            "image_height": 420,
+            "step_title_size": 26,
+            "step_title_color": "#193445",
+            "step_text_size": 16,
+            "step_text_color": "#717171",
+            "step_1_enabled": true,
+            "step_1_image": "shopify://shop_images/1..png",
+            "step_1_title": "Remove Adhesive",
+            "step_1_text": "<p>Take your shield and remove the adhesive strip on the back.</p>",
+            "step_2_enabled": true,
+            "step_2_image": "shopify://shop_images/2._4921e81d-a6eb-4f8c-9d5e-62138015cd9c.png",
+            "step_2_title": "Position the Shield",
+            "step_2_text": "<p>Ensure the blue rectangle is <strong>facing up </strong>and is <strong>pointing to you.</strong></p><p>Place the shield directly where urine exits the body <strong>(under the urethra and labia)</strong>.</p>",
+            "step_3_enabled": true,
+            "step_3_image": "shopify://shop_images/3._84ea6c92-7323-4a2e-b8c2-531fae823d4f.png",
+            "step_3_title": "Secure and Wear",
+            "step_3_text": "<p>Press the shield down gently to ensure a snug fit.</p>",
+            "step_4_enabled": true,
+            "step_4_image": "shopify://shop_images/4._52adf79b-63dc-4d02-93ab-3e8d6cdafc74.png",
+            "step_4_title": "Replace as Needed",
+            "step_4_text": "<p>Dispose of the used liner and replace it with a fresh one when needed.</p>",
+            "step_5_enabled": false,
+            "step_5_title": "Finalize",
+            "step_5_text": "<p>Add finishing touches and prepare for the next phase.</p>",
+            "step_6_enabled": false,
+            "step_6_title": "Complete",
+            "step_6_text": "<p>Celebrate your success and enjoy the results!</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_61014db_wHcAX9"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    }
+  },
+  "order": [
+    "blocks_EJDfxP",
+    "multicolumn_rgU7Le",
+    "brands_zipFP4",
+    "1763449189bbc81226",
+    "main"
+  ]
+}

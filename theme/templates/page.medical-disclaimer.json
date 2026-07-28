@@ -1,0 +1,125 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "blocks_mHKBf7": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3ff841f_T4aqn6": {
+          "type": "ai_gen_block_3ff841f",
+          "settings": {
+            "heading": "Medical Disclaimer",
+            "heading_level": "h1",
+            "heading_color": "#193445",
+            "alignment": "center",
+            "heading_size_mobile": 20,
+            "heading_size_desktop": 20,
+            "padding_top": 40,
+            "padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3ff841f_T4aqn6"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "rich_text_LhRjh3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7pQEDN": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_PHRXYF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The information provided on this website, including but not limited to product descriptions, articles, and customer testimonials, is for informational purposes only and is not intended to substitute professional medical advice, diagnosis, or treatment.</p><p>UraGuard® is designed to support urinary health, but it is not a medical device and does not replace consultation with a healthcare provider. If you have any medical concerns or conditions, you should consult a qualified healthcare professional before using our products.</p><p>Individual results may vary. UraGuard® makes no claims that its products can cure, prevent, or diagnose any disease or medical condition, including urinary tract infections. Use of our products is at your own discretion, and we are not liable for any adverse reactions or consequences resulting from their use.</p><p>If you experience any discomfort, irritation, or other adverse effects, discontinue use immediately and seek medical attention.</p><p>By using this website and purchasing our products, you acknowledge that you have read and understood this disclaimer.</p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7pQEDN",
+        "text_PHRXYF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "brands_E8wiWP": {
+      "type": "brands",
+      "blocks": {
+        "image_trRtU6": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
+          }
+        },
+        "image_w3DRzb": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
+            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        }
+      },
+      "block_order": [
+        "image_trRtU6",
+        "image_w3DRzb"
+      ],
+      "name": "t:sections.brands.settings.presets.name",
+      "settings": {
+        "heading": "UraGuard® In The News",
+        "animation": "swipe",
+        "animation_speed": "100",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "blocks_mHKBf7",
+    "rich_text_LhRjh3",
+    "brands_E8wiWP"
+  ]
+}

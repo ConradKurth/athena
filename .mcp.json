@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "dataforseo": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -a; . \"${CONDUCTOR_WORKSPACE_PATH}/.env\"; set +a; exec npx -y dataforseo-mcp-server"
+      ],
+      "env": {
+        "ENABLED_MODULES": "SERP,KEYWORDS_DATA,ONPAGE,DATAFORSEO_LABS,BACKLINKS,DOMAIN_ANALYTICS,BUSINESS_DATA,CONTENT_ANALYSIS,AI_OPTIMIZATION",
+        "FIELD_CONFIG_PATH": "/Users/conrad/.claude/skills/seo/dataforseo-field-config.json"
+      }
+    },
+    "lighthouse": {
+      "command": "npx",
+      "args": ["@danielsogl/lighthouse-mcp@latest"]
+    },
+    "gsc": {
+      "type": "stdio",
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -a; . \"${CONDUCTOR_WORKSPACE_PATH}/.env\"; set +a; export GSC_KEY_FILE=\"${CONDUCTOR_WORKSPACE_PATH}/gcs-service.json\" GSC_SITE_URL=\"sc-domain:${ATHENA_DOMAIN}\"; exec npx -y gsc-mcp-server"
+      ]
+    },
+    "ga4": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -a; . \"${CONDUCTOR_WORKSPACE_PATH}/.env\"; set +a; export GOOGLE_APPLICATION_CREDENTIALS=\"${CONDUCTOR_WORKSPACE_PATH}/gcs-service.json\"; exec pipx run analytics-mcp"
+      ]
+    }
+  }
+}
