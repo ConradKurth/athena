@@ -45,7 +45,40 @@
 </style>
 
 <div data-section-id="{{ section.id }}">
-  <article class="main-article" itemscope>
+  {%- if article -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": {{ request.origin | append: article.url | json }} },
+        "headline": {{ article.title | strip_html | truncate: 110 | json }},
+        "description": {{ article.excerpt | strip_html | default: article.content | strip_html | truncate: 300 | json }},
+        {%- if article.image %}
+        "image": [{{ article.image | image_url: width: 1200 | prepend: "https:" | json }}],
+        {%- endif %}
+        "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+        "dateModified": {{ article.updated_at | default: article.published_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+        "author": {
+          "@type": "Person",
+          "name": {{ article.author | json }}
+          {%- if article.metafields.custom.author_credentials != blank %},
+          "jobTitle": {{ article.metafields.custom.author_credentials | json }}
+          {%- endif %}
+          {%- if article.metafields.custom.author_url != blank %},
+          "url": {{ article.metafields.custom.author_url | json }}
+          {%- endif %}
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": {{ shop.name | json }}
+          {%- if shop.brand.logo %},
+          "logo": { "@type": "ImageObject", "url": {{ shop.brand.logo | image_url: width: 600 | prepend: "https:" | json }} }
+          {%- endif %}
+        }
+      }
+    </script>
+  {%- endif -%}
+  <article class="main-article">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}

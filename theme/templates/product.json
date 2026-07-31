@@ -722,6 +722,46 @@
         "margin-bottom": 20
       }
     },
+    "blog_link_seo": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_blogseo": {
+          "type": "heading",
+          "settings": {
+            "heading": "Learn more about UTIs & bladder leaks"
+          }
+        },
+        "text_blogseo": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Straightforward, doctor-reviewed guides on preventing UTIs and managing light bladder leaks — including whether pads and briefs can raise your risk, and how to stay comfortable day and night.</p>"
+          }
+        },
+        "button_blogseo": {
+          "type": "button",
+          "settings": {
+            "button_select": "secondary",
+            "button_label": "Read our UTI & bladder-leak guides",
+            "button_link": "https://www.athenauraguard.com/blogs/news",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_blogseo",
+        "text_blogseo",
+        "button_blogseo"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
     "brands_htWiGw": {
       "type": "brands",
       "blocks": {
@@ -770,6 +810,7 @@
     "1764573998c95b5002",
     "1764739654c7744b3a",
     "collapsible_menu_V8LbeE",
+    "blog_link_seo",
     "brands_htWiGw"
   ]
 }

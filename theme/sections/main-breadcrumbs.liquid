@@ -28,26 +28,53 @@
       <li class="breadcrumbs__item">
         <a href="{{ shop.url }}" class="breadcrumbs__link">{{ 'homepage' | t }}</a>
       </li>
-      <li class="breadcrumbs__item">
-        {% if collection.url %}
-          {{ collection.title | link_to: collection.url }}
-        {% else %}
-          {{ product.collections[0].title | link_to: product.collections[0].url, class: 'breadcrumbs__link' }}
-        {% endif %}
-      </li>
-      {% if product %}
+      {%- if blog and article -%}
         <li class="breadcrumbs__item">
-          {{ product.title }}
+          {{ blog.title | link_to: blog.url, class: 'breadcrumbs__link' }}
         </li>
-      {% endif %}
-      {% if page %}
-        <li class="breadcrumbs__item">
-          {{ page.title | link_to: page.url }}
-        </li>
-      {% endif %}
+        <li class="breadcrumbs__item">{{ article.title }}</li>
+      {%- elsif product -%}
+        {%- assign first_collection = product.collections[0] -%}
+        {%- if first_collection.url -%}
+          <li class="breadcrumbs__item">
+            {{ first_collection.title | link_to: first_collection.url, class: 'breadcrumbs__link' }}
+          </li>
+        {%- endif -%}
+        <li class="breadcrumbs__item">{{ product.title }}</li>
+      {%- elsif collection -%}
+        <li class="breadcrumbs__item">{{ collection.title }}</li>
+      {%- elsif page -%}
+        <li class="breadcrumbs__item">{{ page.title }}</li>
+      {%- endif -%}
     </ul>
   </div>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": {{ 'homepage' | t | json }}, "item": {{ shop.url | json }} }
+    {%- if blog and article %},
+    { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ request.origin | append: blog.url | json }} },
+    { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ request.origin | append: article.url | json }} }
+    {%- elsif product %}
+      {%- assign first_collection = product.collections[0] -%}
+      {%- if first_collection.url %},
+    { "@type": "ListItem", "position": 2, "name": {{ first_collection.title | json }}, "item": {{ request.origin | append: first_collection.url | json }} },
+    { "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": {{ request.origin | append: product.url | json }} }
+      {%- else %},
+    { "@type": "ListItem", "position": 2, "name": {{ product.title | json }}, "item": {{ request.origin | append: product.url | json }} }
+      {%- endif %}
+    {%- elsif collection %},
+    { "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": {{ request.origin | append: collection.url | json }} }
+    {%- elsif page %},
+    { "@type": "ListItem", "position": 2, "name": {{ page.title | json }}, "item": {{ request.origin | append: page.url | json }} }
+    {%- endif %}
+  ]
+}
+</script>
 
 {% schema %}
 {

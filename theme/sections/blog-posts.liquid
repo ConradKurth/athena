@@ -84,23 +84,37 @@
       >
         <ul data-swiper-container class="wt-multicol__list wt-multicol__list--{{ section.blocks.size }}">
           {% if section.settings.blog.articles %}
-            {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+            {%- comment -%}
+              Related-posts logic: exclude the current article, prefer posts that
+              share at least one tag with it, then fill remaining slots with recent
+              posts. On non-article templates `current_article` is nil and this
+              degrades to "recent posts", matching the original behaviour.
+            {%- endcomment -%}
+            {%- assign current_article = article -%}
+            {%- assign related_shown = 0 -%}
+            {%- assign related_limit = section.settings.post_limit -%}
+            {%- for post in section.settings.blog.articles -%}
+              {%- if related_shown >= related_limit -%}{%- break -%}{%- endif -%}
+              {%- if current_article and post.id == current_article.id -%}{%- continue -%}{%- endif -%}
+              {%- assign is_related = false -%}
+              {%- for tag in post.tags -%}
+                {%- if current_article.tags contains tag -%}{%- assign is_related = true -%}{%- break -%}{%- endif -%}
+              {%- endfor -%}
+              {%- unless is_related -%}{%- continue -%}{%- endunless -%}
               <li
                 data-swiper-slide
-                data-block-id="{{ block.id }}"
                 class="wt-multicol__item wt-blog__item wt-blog__item--{{ section.settings.column_alignment }}"
-                {{ block.shopify_attributes }}
               >
                 <div
                   class=" {% if settings.animations %} scroll-trigger animate--slide-in {% endif %}{% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
                   {% if settings.animations %}
                     data-cascade
-                    style="--animation-order: {{ forloop.index }};"
+                    style="--animation-order: {{ related_shown | plus: 1 }};"
                   {% endif %}
                 >
                   {% render 'article-card',
                     blog: section.settings.blog,
-                    article: article,
+                    article: post,
                     show_image: section.settings.show_image,
                     classname: customclass,
                     make_full_width: section.settings['full-width-enabled'],
@@ -112,7 +126,45 @@
                   %}
                 </div>
               </li>
+              {%- assign related_shown = related_shown | plus: 1 -%}
             {%- endfor -%}
+            {%- if related_shown < related_limit -%}
+              {%- for post in section.settings.blog.articles -%}
+                {%- if related_shown >= related_limit -%}{%- break -%}{%- endif -%}
+                {%- if current_article and post.id == current_article.id -%}{%- continue -%}{%- endif -%}
+                {%- assign is_related = false -%}
+                {%- for tag in post.tags -%}
+                  {%- if current_article.tags contains tag -%}{%- assign is_related = true -%}{%- break -%}{%- endif -%}
+                {%- endfor -%}
+                {%- if is_related -%}{%- continue -%}{%- endif -%}
+                <li
+                  data-swiper-slide
+                  class="wt-multicol__item wt-blog__item wt-blog__item--{{ section.settings.column_alignment }}"
+                >
+                  <div
+                    class=" {% if settings.animations %} scroll-trigger animate--slide-in {% endif %}{% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
+                    {% if settings.animations %}
+                      data-cascade
+                      style="--animation-order: {{ related_shown | plus: 1 }};"
+                    {% endif %}
+                  >
+                    {% render 'article-card',
+                      blog: section.settings.blog,
+                      article: post,
+                      show_image: section.settings.show_image,
+                      classname: customclass,
+                      make_full_width: section.settings['full-width-enabled'],
+                      show_author: section.settings.show_author,
+                      show_date: section.settings.show_date,
+                      button_type: section.settings.button_select,
+                      hide_badge: true,
+                      media_aspect_ratio: section.settings.image_ratio
+                    %}
+                  </div>
+                </li>
+                {%- assign related_shown = related_shown | plus: 1 -%}
+              {%- endfor -%}
+            {%- endif -%}
           {% else %}
             {% for i in (1..section.settings.post_limit) %}
               <li
