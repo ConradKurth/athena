@@ -20,7 +20,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "set -a; . \"${CONDUCTOR_WORKSPACE_PATH}/.env\"; set +a; export GSC_KEY_FILE=\"${CONDUCTOR_WORKSPACE_PATH}/gcs-service.json\" GSC_SITE_URL=\"sc-domain:${ATHENA_DOMAIN}\"; exec npx -y gsc-mcp-server"
+        "export GOOGLE_APPLICATION_CREDENTIALS=\"${CONDUCTOR_WORKSPACE_PATH}/gcs-service.json\"; exec npx -y mcp-server-gsc"
       ]
     },
     "ga4": {
