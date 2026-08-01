@@ -452,6 +452,10 @@
       {%- endif -%}
 
       {%- if request.page_type == 'index' -%}
+        {%- assign has_social = false -%}
+        {%- if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_tiktok_link != blank or settings.social_youtube_link != blank or settings.social_pinterest_link != blank or settings.social_twitter_link != blank -%}
+          {%- assign has_social = true -%}
+        {%- endif -%}
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -466,6 +470,33 @@
           {%- if shop.brand.short_description != blank %},
           "description": {{ shop.brand.short_description | json }}
           {%- endif %}
+          {%- if has_social %},
+          "sameAs": [
+            {%- assign sep = '' -%}
+            {%- if settings.social_facebook_link != blank %}{{ sep }}{{ settings.social_facebook_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+            {%- if settings.social_instagram_link != blank %}{{ sep }}{{ settings.social_instagram_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+            {%- if settings.social_tiktok_link != blank %}{{ sep }}{{ settings.social_tiktok_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+            {%- if settings.social_youtube_link != blank %}{{ sep }}{{ settings.social_youtube_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+            {%- if settings.social_pinterest_link != blank %}{{ sep }}{{ settings.social_pinterest_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+            {%- if settings.social_twitter_link != blank %}{{ sep }}{{ settings.social_twitter_link | json }}{%- assign sep = ',' -%}{%- endif -%}
+          ]
+          {%- endif %}
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": {{ shop.name | json }},
+          "url": {{ shop.url | append: '/' | json }},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": {{ shop.url | append: '/search?q={search_term_string}' | json }}
+            },
+            "query-input": "required name=search_term_string"
+          }
         }
         </script>
         <h1 class="wt-header__logo">
