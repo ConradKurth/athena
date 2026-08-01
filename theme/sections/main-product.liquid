@@ -2663,6 +2663,17 @@
       "@type": "Brand",
       "name": {{ product.vendor | json }}
     },
+    {%- assign product_rating = product.metafields.reviews.rating.value -%}
+    {%- if product_rating != blank and product.metafields.reviews.rating_count != blank and product.metafields.reviews.rating_count > 0 -%}
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": {{ product_rating.rating | json }},
+      "bestRating": {{ product_rating.scale_max | json }},
+      "worstRating": {{ product_rating.scale_min | json }},
+      "ratingCount": {{ product.metafields.reviews.rating_count | json }},
+      "reviewCount": {{ product.metafields.reviews.rating_count | json }}
+    },
+    {%- endif -%}
     "offers": [
     {%- for variant in product.variants -%}
         {
