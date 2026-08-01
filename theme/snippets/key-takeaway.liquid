@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders a "Key takeaway" callout near the top of an article for AI-citation
+  extraction (GEO). Reads custom.key_takeaway, set by
+  `shopify-admin articles set-takeaway`. Renders nothing when unset.
+  Usage: {% render 'key-takeaway', article: article %}
+{%- endcomment -%}
+{%- if article.metafields.custom.key_takeaway != blank -%}
+  <div class="key-takeaway" role="note">
+    <p class="key-takeaway__label">Key takeaway</p>
+    <div class="key-takeaway__body">{{ article.metafields.custom.key_takeaway }}</div>
+  </div>
+  <style>
+    .key-takeaway{border-left:4px solid #193445;background:#f5f7f8;padding:1rem 1.25rem;margin:0 0 1.75rem;border-radius:6px}
+    .key-takeaway__label{margin:0 0 .35rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.78rem;color:#193445}
+    .key-takeaway__body{margin:0;font-size:1.05rem;line-height:1.55;color:#193445}
+    .key-takeaway__body p{margin:0}
+  </style>
+{%- endif -%}

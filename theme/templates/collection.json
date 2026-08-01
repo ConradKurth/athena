@@ -93,6 +93,7 @@
         },
         "ai_gen_block_761a799_fXHP98": {
           "type": "ai_gen_block_761a799",
+          "disabled": true,
           "settings": {
             "heading_text": "UraGuard® Incontinence Products",
             "heading_tag": "h1",
@@ -163,15 +164,14 @@
     },
     "title": {
       "type": "main-collection-title",
-      "disabled": true,
       "settings": {
         "full-width-enabled": false,
         "show_collection_description": true,
         "desktop_text_horizontal_position": "center",
-        "size_heading": 500,
+        "size_heading": 200,
         "size_heading_mobile": 140,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#ff9900",
+        "color-body-text": "#193445",
+        "background_color": "rgba(0,0,0,0)",
         "margin-top": 32,
         "margin-bottom": 16
       }
@@ -222,7 +222,6 @@
       "block_order": [
         "banner_card_GabW8U"
       ],
-      "disabled": true,
       "settings": {
         "products_per_page": 12,
         "columns_mobile": "1",
@@ -250,9 +249,9 @@
   },
   "order": [
     "breadcrumbs",
+    "title",
     "banner",
     "blocks_DA78dx",
-    "title",
     "separator_frYThK",
     "product-grid"
   ]

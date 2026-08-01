@@ -1,0 +1,43 @@
+{%- comment -%}
+  Visible author credential box for E-E-A-T. Param-driven — the caller
+  (sections/main-article.liquid) resolves each value as
+  per-article metafield (custom.author_*) OR the shared section default,
+  so a single edit updates every article.
+  Renders nothing unless a title or bio is present.
+  Params: name, title, bio, image (image object), linkedin, expertise, url
+{%- endcomment -%}
+{%- if title != blank or bio != blank -%}
+  <aside class="author-bio" aria-label="About the author">
+    {%- if image != blank -%}
+      <img
+        class="author-bio__img"
+        src="{{ image | image_url: width: 160 }}"
+        alt="{{ name | escape }}"
+        width="80"
+        height="80"
+        loading="lazy"
+      >
+    {%- endif -%}
+    <div class="author-bio__meta">
+      <p class="author-bio__name">
+        {%- if url != blank -%}<a href="{{ url }}">{{ name }}</a>{%- else -%}{{ name }}{%- endif -%}
+      </p>
+      {%- if title != blank -%}<p class="author-bio__title">{{ title }}</p>{%- endif -%}
+      {%- if bio != blank -%}<p class="author-bio__text">{{ bio }}</p>{%- endif -%}
+      {%- if expertise != blank -%}<p class="author-bio__expertise"><span>Areas of expertise:</span> {{ expertise }}</p>{%- endif -%}
+      {%- if linkedin != blank -%}<a class="author-bio__link" href="{{ linkedin }}" rel="noopener nofollow" target="_blank">LinkedIn profile</a>{%- endif -%}
+    </div>
+  </aside>
+  <style>
+    .author-bio{display:flex;gap:1rem;align-items:flex-start;border:1px solid #e0e0e0;border-radius:10px;padding:1.25rem;margin:2rem 0;background:#f8f9fa}
+    .author-bio__img{flex-shrink:0;width:80px;height:80px;border-radius:50%;object-fit:cover}
+    .author-bio__meta{flex:1;min-width:0}
+    .author-bio__name{margin:0;font-weight:700;font-size:1.1rem;color:#193445}
+    .author-bio__name a{color:inherit;text-decoration:underline}
+    .author-bio__title{margin:.15rem 0 .5rem;font-size:.95rem;color:#193445;opacity:.85}
+    .author-bio__text{margin:0 0 .5rem;line-height:1.55;color:#193445}
+    .author-bio__expertise{margin:0 0 .5rem;font-size:.85rem;color:#717171}
+    .author-bio__expertise span{font-weight:600}
+    .author-bio__link{font-size:.9rem;font-weight:600;color:#193445;text-decoration:underline}
+  </style>
+{%- endif -%}

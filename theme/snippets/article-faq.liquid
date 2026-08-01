@@ -1,0 +1,53 @@
+{%- comment -%}
+  Renders a visible FAQ accordion + FAQPage JSON-LD from the article's
+  custom.faq metafield (list.metaobject_reference of "FAQ Item" metaobjects
+  with `title` + `answer` fields), populated by `shopify-admin articles set-faq`.
+  Renders nothing unless at least one FAQ item exists.
+  Native <details>/<summary> accordion — no JS dependency.
+  Usage: {% render 'article-faq', article: article %}
+{%- endcomment -%}
+{%- assign faqs = article.metafields.custom.faq.value -%}
+{%- if faqs != blank and faqs.size > 0 -%}
+  <section class="article-faq" aria-label="Frequently asked questions">
+    <h2 class="article-faq__title">Frequently asked questions</h2>
+    <ul class="article-faq__list">
+      {%- for item in faqs -%}
+        <li class="article-faq__item">
+          <details{% if forloop.first %} open{% endif %}>
+            <summary class="article-faq__q">{{ item.title }}</summary>
+            <div class="article-faq__a rte">{{ item.answer }}</div>
+          </details>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for item in faqs -%}
+        {
+          "@type": "Question",
+          "name": {{ item.title | strip_html | json }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | strip_html | json }} }
+        }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+  <style>
+    .article-faq{margin:2.5rem 0}
+    .article-faq__title{font-size:1.5rem;color:#193445;margin:0 0 1rem}
+    .article-faq__list{list-style:none;padding:0;margin:0}
+    .article-faq__item{border:1px solid #e0e0e0;border-radius:8px;margin-bottom:.75rem;overflow:hidden}
+    .article-faq__item details{background:#fff}
+    .article-faq__q{cursor:pointer;padding:1rem 1.25rem;font-weight:600;font-size:1.05rem;color:#193445;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .article-faq__q::-webkit-details-marker{display:none}
+    .article-faq__q::after{content:"+";font-size:1.4rem;line-height:1;flex-shrink:0;color:#193445}
+    .article-faq__item details[open] .article-faq__q::after{content:"\2212"}
+    .article-faq__a{padding:0 1.25rem 1.25rem;line-height:1.6;color:#193445}
+    .article-faq__a p:first-child{margin-top:0}
+    .article-faq__a p:last-child{margin-bottom:0}
+  </style>
+{%- endif -%}

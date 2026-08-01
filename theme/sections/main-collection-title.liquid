@@ -45,6 +45,8 @@
   %}
 </div>
 
+{% render 'collection-itemlist', collection: collection %}
+
 <script>
   document.querySelector('[data-section-id="{{ section.id }}"]').parentElement.dataset.textHorizontal =
     '{{ section.settings.desktop_text_horizontal_position }}';

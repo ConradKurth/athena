@@ -46,6 +46,15 @@
 
 <div data-section-id="{{ section.id }}">
   {%- if article -%}
+    {%- liquid
+      # Resolve author profile: per-article metafield wins, else shared section default.
+      assign au_title = article.metafields.custom.author_title | default: section.settings.author_default_title
+      assign au_bio = article.metafields.custom.author_bio | default: section.settings.author_default_bio
+      assign au_linkedin = article.metafields.custom.author_linkedin | default: section.settings.author_default_linkedin
+      assign au_expertise = article.metafields.custom.author_expertise | default: section.settings.author_default_expertise
+      assign au_url = article.metafields.custom.author_url | default: section.settings.author_default_url
+      assign au_image = article.metafields.custom.author_image.value | default: section.settings.author_default_image
+    -%}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,11 +70,23 @@
         "author": {
           "@type": "Person",
           "name": {{ article.author | json }}
-          {%- if article.metafields.custom.author_credentials != blank %},
-          "jobTitle": {{ article.metafields.custom.author_credentials | json }}
+          {%- if au_title != blank %},
+          "jobTitle": {{ au_title | json }}
           {%- endif %}
-          {%- if article.metafields.custom.author_url != blank %},
-          "url": {{ article.metafields.custom.author_url | json }}
+          {%- if au_bio != blank %},
+          "description": {{ au_bio | json }}
+          {%- endif %}
+          {%- if au_image != blank %},
+          "image": {{ au_image | image_url: width: 400 | prepend: "https:" | json }}
+          {%- endif %}
+          {%- if au_linkedin != blank %},
+          "sameAs": [{{ au_linkedin | json }}]
+          {%- endif %}
+          {%- if au_expertise != blank %},
+          "knowsAbout": [{%- assign _ex = au_expertise | split: ',' -%}{%- for e in _ex -%}{{ e | strip | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+          {%- endif %}
+          {%- if au_url != blank %},
+          "url": {{ au_url | json }}
           {%- endif %}
         },
         "publisher": {
@@ -139,6 +160,7 @@
 
           {%- when 'content' -%}
             <div class="main-article__body" itemprop="articleBody" {{ block.shopify_attributes }}>
+              {% render 'key-takeaway', article: article %}
               {{ article.content }}
             </div>
 
@@ -174,6 +196,8 @@
         {%- endcase -%}
       </div>
     {%- endfor -%}
+    {% render 'article-faq', article: article %}
+    {% render 'author-bio', name: article.author, title: au_title, bio: au_bio, image: au_image, linkedin: au_linkedin, expertise: au_expertise, url: au_url %}
     {%- if blog.comments_enabled? -%}
       <div class="article-template__comment-wrapper background-secondary">
         <div
@@ -399,6 +423,43 @@
       "unit": "px",
       "label": "t:sections.global.margin-bottom",
       "info": "t:sections.separator.settings.separator-bottom.info"
+    },
+    {
+      "type": "header",
+      "content": "Author profile (shared default)",
+      "info": "Single source of truth for the author credential box + schema. Edit once here and it updates on every article. A per-article custom.author_* metafield (set via the CLI) overrides these for that one post."
+    },
+    {
+      "type": "text",
+      "id": "author_default_title",
+      "label": "Default author title / credential",
+      "info": "e.g. Emergency Medicine Physician"
+    },
+    {
+      "type": "textarea",
+      "id": "author_default_bio",
+      "label": "Default author bio",
+      "info": "2-3 sentences."
+    },
+    {
+      "type": "image_picker",
+      "id": "author_default_image",
+      "label": "Default author headshot"
+    },
+    {
+      "type": "url",
+      "id": "author_default_linkedin",
+      "label": "Default author LinkedIn URL"
+    },
+    {
+      "type": "text",
+      "id": "author_default_expertise",
+      "label": "Default author expertise (comma-separated)"
+    },
+    {
+      "type": "url",
+      "id": "author_default_url",
+      "label": "Default author bio/reviewer page URL"
     }
   ],
   "blocks": [
