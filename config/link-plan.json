@@ -1,0 +1,25 @@
+{
+  "internalDomain": "athenauraguard.com",
+  "targets": [
+    {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner", "title": "UraGuard incontinence liner"},
+    {"keyword": "bladder leak", "url": "/collections/uraguard-incontinence-products", "title": "bladder-leak products"},
+    {"keyword": "incontinence products", "url": "/collections/uraguard-incontinence-products", "title": "incontinence products"},
+    {"keyword": "incontinence pad", "url": "/collections/uraguard-incontinence-products", "title": "incontinence pads"},
+    {"keyword": "incontinence underwear", "url": "/collections/uraguard-incontinence-products", "title": "incontinence underwear"},
+    {"keyword": "adult diaper", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
+    {"keyword": "lab tested", "url": "/pages/behind-the-science", "title": "lab testing"},
+    {"keyword": "lab testing", "url": "/pages/behind-the-science", "title": "lab testing"},
+    {"keyword": "caring for a parent", "url": "/pages/caregivers-family", "title": "caregiver resources"},
+    {"keyword": "caregiver", "url": "/pages/caregivers-family", "title": "caregiver resources"},
+    {"keyword": "FSA", "url": "/pages/how-to-use-your-fsa-hsa-card", "title": "FSA/HSA eligibility"},
+    {"keyword": "HSA", "url": "/pages/how-to-use-your-fsa-hsa-card", "title": "FSA/HSA eligibility"}
+  ],
+  "sourcePlan": [
+    {"source": "can-pads-cause-uti", "targets": [
+      {"keyword": "older adults", "url": "/blogs/news/uti-older-women"}
+    ]},
+    {"source": "sleep-with-uti-discomfort", "targets": [
+      {"keyword": "recurrent", "url": "/blogs/news/recurrent-uti-solutions-breaking-the-cycle"}
+    ]}
+  ]
+}

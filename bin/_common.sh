@@ -38,6 +38,10 @@ load_env() {
   if [ -n "${GMAIL_SA_KEY:-}" ] && [ "${GMAIL_SA_KEY#/}" = "$GMAIL_SA_KEY" ]; then
     export GMAIL_SA_KEY="$ATHENA_DIR/${GMAIL_SA_KEY#./}"
   fi
+  # Same anchoring for the shopify-admin inject-links brand link-plan config.
+  if [ -n "${SHOPIFY_ADMIN_LINK_CONFIG:-}" ] && [ "${SHOPIFY_ADMIN_LINK_CONFIG#/}" = "$SHOPIFY_ADMIN_LINK_CONFIG" ]; then
+    export SHOPIFY_ADMIN_LINK_CONFIG="$ATHENA_DIR/${SHOPIFY_ADMIN_LINK_CONFIG#./}"
+  fi
 }
 
 # build_go <tool-subdir> <binary-name>  -> prints the built binary path.
