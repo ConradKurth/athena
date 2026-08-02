@@ -26,6 +26,23 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
+    {%- comment -%}
+      GA4 main-context install (gtag.js). Loads in the storefront's own document,
+      so page_referrer is preserved and organic sessions attribute correctly.
+      REPLACES the Google & YouTube app's GA4 Web-Pixel tag, which runs in a
+      sandboxed Customer-Events worker that strips the referrer (root cause of the
+      ~20% Unassigned / 0 organic-conversion attribution). Remove GA4 from the
+      Google & YouTube app before this goes live to avoid double-counting.
+    {%- endcomment -%}
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBVK4HP6KM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LBVK4HP6KM');
+    </script>
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
       <link rel="icon" type="image/png" sizes="192x192" href="{{ settings.favicon | image_url: width: 192, height: 192 }}">
