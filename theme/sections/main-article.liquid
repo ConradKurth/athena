@@ -170,8 +170,34 @@
           {%- when 'content' -%}
             <div class="main-article__body" itemprop="articleBody" {{ block.shopify_attributes }}>
               {% render 'key-takeaway', article: article %}
+              <nav id="article-toc" class="article-toc" aria-label="Table of contents" hidden></nav>
               {{ article.content }}
             </div>
+            <style>
+              .article-toc{border:1px solid #e2e6ea;border-radius:10px;padding:16px 20px;margin:0 0 24px;background:#f7f9fb}
+              .article-toc__title{margin:0 0 8px;font-weight:700;font-size:15px;color:#11293f}
+              .article-toc ul{margin:0;padding-left:18px}
+              .article-toc li{margin:6px 0;line-height:1.4}
+              .article-toc a{color:#11293f;text-decoration:none}
+              .article-toc a:hover{text-decoration:underline}
+            </style>
+            <script>
+              (function(){try{
+                var body=document.querySelector('.main-article__body');
+                var toc=document.getElementById('article-toc');
+                if(!body||!toc)return;
+                var hs=body.querySelectorAll('h2');
+                if(hs.length<3)return;
+                var ul=document.createElement('ul');
+                for(var i=0;i<hs.length;i++){var h=hs[i];
+                  if(!h.id){h.id='toc-'+(((h.textContent||'section').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''))||'section').slice(0,50)+'-'+i;}
+                  var li=document.createElement('li');var a=document.createElement('a');
+                  a.href='#'+h.id;a.textContent=(h.textContent||'').trim();
+                  li.appendChild(a);ul.appendChild(li);}
+                var t=document.createElement('p');t.className='article-toc__title';t.textContent='On this page';
+                toc.appendChild(t);toc.appendChild(ul);toc.hidden=false;
+              }catch(e){}})();
+            </script>
 
           {%- when 'social_sharing' %}
             <div
