@@ -2551,6 +2551,36 @@
             "gtin14": {{ variant.barcode }},
           {%- endif -%}
           "availability" : "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "itemCondition": "https://schema.org/NewCondition",
+          "validFrom": {{ product.published_at | date: "%Y-%m-%d" | json }},
+          "priceValidUntil": "2027-08-01",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "US",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 30,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": {{ cart.currency.iso_code | json }},
+              "eligibleTransactionVolume": {
+                "@type": "PriceSpecification",
+                "priceCurrency": {{ cart.currency.iso_code | json }},
+                "minPrice": 55
+              }
+            },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "DAY" }
+            }
+          },
           "price" : {{ variant.price | divided_by: 100.00 | json }},
           "priceCurrency" : {{ cart.currency.iso_code | json }},
           "url" : {{ request.origin | append: variant.url | json }}
