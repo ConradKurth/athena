@@ -16,10 +16,25 @@
   ],
   "sourcePlan": [
     {"source": "can-pads-cause-uti", "targets": [
-      {"keyword": "older adults", "url": "/blogs/news/uti-older-women"}
+      {"keyword": "older adults", "url": "/blogs/news/uti-older-women"},
+      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"}
     ]},
     {"source": "sleep-with-uti-discomfort", "targets": [
       {"keyword": "recurrent", "url": "/blogs/news/recurrent-uti-solutions-breaking-the-cycle"}
+    ]},
+    {"source": "can-incontinence-cause-uti", "targets": [
+      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
+      {"keyword": "liner", "url": "/blogs/news/incontinence-liner-vs-pad"}
+    ]},
+    {"source": "incontinence-care-for-elderly", "targets": [
+      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"}
+    ]},
+    {"source": "can-diapers-cause-uti-adults", "targets": [
+      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
+      {"keyword": "liner", "url": "/blogs/news/incontinence-liner-vs-pad"}
+    ]},
+    {"source": "uti-prevention-protecting-your-health-with-proactive-solutions", "targets": [
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-liner-vs-pad"}
     ]}
   ]
 }
