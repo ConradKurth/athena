@@ -1,0 +1,13 @@
+# Raw scraped intermediates (superseded by prospects.csv)
+data/
+
+# Runtime logs
+logs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets / keys — never commit (defensive)
+.env*
+*service*.json
