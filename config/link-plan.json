@@ -1,17 +1,19 @@
 {
   "internalDomain": "athenauraguard.com",
   "targets": [
-    {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner", "title": "UraGuard incontinence liner"},
     {"keyword": "incontinence liners for women", "url": "/blogs/news/incontinence-liners-for-women", "title": "incontinence liners for women"},
     {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women", "title": "incontinence underwear for women"},
-    {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women", "title": "bladder leak pads for women"},
     {"keyword": "bladder leak underwear", "url": "/blogs/news/bladder-leak-underwear-for-women", "title": "bladder leak underwear for women"},
+    {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women", "title": "bladder leak pads for women"},
     {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection", "title": "overnight incontinence protection"},
-    {"keyword": "bladder leak", "url": "/collections/uraguard-incontinence-products", "title": "bladder-leak products"},
+    {"keyword": "incontinence liner vs pad", "url": "/blogs/news/incontinence-liner-vs-pad", "title": "incontinence liner vs pad"},
+    {"keyword": "incontinence pads for women", "url": "/blogs/news/incontinence-pads-for-women", "title": "incontinence pads for women"},
+    {"keyword": "incontinence care for the elderly", "url": "/blogs/news/incontinence-care-for-elderly", "title": "incontinence care for the elderly"},
+    {"keyword": "functional incontinence", "url": "/blogs/news/functional-incontinence", "title": "functional incontinence"},
+    {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner", "title": "UraGuard incontinence liner"},
+    {"keyword": "UraGuard", "url": "/products/athena-uraguard-liner", "title": "UraGuard liner"},
     {"keyword": "incontinence products", "url": "/collections/uraguard-incontinence-products", "title": "incontinence products"},
-    {"keyword": "incontinence pad", "url": "/collections/uraguard-incontinence-products", "title": "incontinence pads"},
-    {"keyword": "incontinence underwear", "url": "/collections/uraguard-incontinence-products", "title": "incontinence underwear"},
-    {"keyword": "adult diaper", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
+    {"keyword": "adult diapers", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
     {"keyword": "caring for a parent", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "caregiver", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "FSA", "url": "/pages/how-to-use-your-fsa-hsa-card", "title": "FSA/HSA eligibility"},
@@ -19,39 +21,105 @@
   ],
   "sourcePlan": [
     {"source": "can-pads-cause-uti", "targets": [
-      {"keyword": "older adults", "url": "/blogs/news/uti-older-women"},
-      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
-      {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"}
-    ]},
-    {"source": "sleep-with-uti-discomfort", "targets": [
-      {"keyword": "recurrent", "url": "/blogs/news/recurrent-uti-solutions-breaking-the-cycle"},
-      {"keyword": "overnight", "url": "/blogs/news/overnight-incontinence-protection"}
-    ]},
-    {"source": "can-incontinence-cause-uti", "targets": [
-      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
-      {"keyword": "liner", "url": "/blogs/news/incontinence-liner-vs-pad"},
-      {"keyword": "incontinence underwear", "url": "/blogs/news/incontinence-underwear-for-women"}
-    ]},
-    {"source": "incontinence-care-for-elderly", "targets": [
-      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
-      {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"}
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"},
+      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"}
     ]},
     {"source": "can-diapers-cause-uti-adults", "targets": [
-      {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"},
-      {"keyword": "liner", "url": "/blogs/news/incontinence-liner-vs-pad"},
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"},
       {"keyword": "incontinence underwear", "url": "/blogs/news/incontinence-underwear-for-women"}
     ]},
+    {"source": "sleep-with-uti-discomfort", "targets": [
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"},
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"}
+    ]},
+    {"source": "how-to-sleep-with-uti-discomfort", "targets": [
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"},
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"}
+    ]},
+    {"source": "can-incontinence-cause-uti", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence underwear", "url": "/blogs/news/incontinence-underwear-for-women"},
+      {"keyword": "liner", "url": "/blogs/news/incontinence-liner-vs-pad"}
+    ]},
+    {"source": "can-incontinence-products-cause-utis-in-adults", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"}
+    ]},
+    {"source": "can-a-uti-cause-incontinence", "targets": [
+      {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"},
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"}
+    ]},
+    {"source": "uti-older-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-care-for-elderly"}
+    ]},
+    {"source": "why-do-elderly-get-utis", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-care-for-elderly"}
+    ]},
+    {"source": "recognizing-signs-of-uti-in-the-elderly-an-er-doctor-s-perspective", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-care-for-elderly"}
+    ]},
+    {"source": "menopause-and-uti", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "bladder leak", "url": "/blogs/news/bladder-leak-underwear-for-women"}
+    ]},
+    {"source": "frequent-utis-after-menopause-here-s-what-you-need-to-know", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "bladder leak", "url": "/blogs/news/bladder-leak-pads-for-women"}
+    ]},
+    {"source": "why-people-with-diabetes-are-more-likely-to-get-utis-and-what-you-can-do-about-it", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-care-for-elderly"}
+    ]},
     {"source": "uti-prevention-protecting-your-health-with-proactive-solutions", "targets": [
-      {"keyword": "incontinence", "url": "/blogs/news/incontinence-liner-vs-pad"}
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence", "url": "/blogs/news/incontinence-liners-for-women"}
+    ]},
+    {"source": "recurrent-uti-solutions-breaking-the-cycle", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "overnight", "url": "/blogs/news/overnight-incontinence-protection"}
+    ]},
+    {"source": "incontinence-liners-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"},
+      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"}
+    ]},
+    {"source": "incontinence-underwear-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "bladder leak underwear", "url": "/blogs/news/bladder-leak-underwear-for-women"}
+    ]},
+    {"source": "bladder-leak-pads-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence pads for women", "url": "/blogs/news/incontinence-pads-for-women"}
+    ]},
+    {"source": "bladder-leak-underwear-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"}
+    ]},
+    {"source": "overnight-incontinence-protection", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"}
+    ]},
+    {"source": "incontinence-care-for-elderly", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"},
+      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"}
     ]},
     {"source": "incontinence-pads-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"},
       {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"}
     ]},
     {"source": "incontinence-liner-vs-pad", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "incontinence liners for women", "url": "/blogs/news/incontinence-liners-for-women"}
     ]},
     {"source": "functional-incontinence", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "incontinence underwear", "url": "/blogs/news/incontinence-underwear-for-women"},
       {"keyword": "incontinence liners", "url": "/blogs/news/incontinence-liners-for-women"}
     ]}
