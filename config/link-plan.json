@@ -16,6 +16,7 @@
     {"keyword": "UraGuard", "url": "/products/athena-uraguard-liner", "title": "UraGuard liner"},
     {"keyword": "incontinence products", "url": "/collections/uraguard-incontinence-products", "title": "incontinence products"},
     {"keyword": "adult diapers", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
+    {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared", "title": "adult diaper brands compared"},
     {"keyword": "caring for a parent", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "caregiver", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "FSA", "url": "/pages/how-to-use-your-fsa-hsa-card", "title": "FSA/HSA eligibility"},
@@ -119,7 +120,13 @@
     {"source": "incontinence-care-for-elderly", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"},
-      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"}
+      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"},
+      {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared"}
+    ]},
+    {"source": "adult-diaper-brands-compared", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence care for the elderly", "url": "/blogs/news/incontinence-care-for-elderly"},
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"}
     ]},
     {"source": "incontinence-pads-for-women", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
