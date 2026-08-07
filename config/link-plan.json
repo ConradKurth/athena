@@ -21,11 +21,13 @@
   ],
   "sourcePlan": [
     {"source": "can-pads-cause-uti", "targets": [
+      {"keyword": "older adults", "url": "/blogs/news/incontinence-care-for-elderly"},
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"},
       {"keyword": "incontinence pads", "url": "/blogs/news/incontinence-pads-for-women"}
     ]},
     {"source": "can-diapers-cause-uti-adults", "targets": [
+      {"keyword": "elderly", "url": "/blogs/news/incontinence-care-for-elderly"},
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"},
       {"keyword": "incontinence underwear", "url": "/blogs/news/incontinence-underwear-for-women"}
