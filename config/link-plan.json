@@ -18,6 +18,7 @@
     {"keyword": "adult diapers", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
     {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared", "title": "adult diaper brands compared"},
     {"keyword": "adult diapers for women", "url": "/blogs/news/adult-diapers-for-women", "title": "adult diapers for women"},
+    {"keyword": "adult diaper rash", "url": "/blogs/news/adult-diaper-rash-and-skin-protection", "title": "adult diaper rash and skin protection"},
     {"keyword": "caring for a parent", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "caregiver", "url": "/pages/caregivers-family", "title": "caregiver resources"},
     {"keyword": "FSA", "url": "/pages/how-to-use-your-fsa-hsa-card", "title": "FSA/HSA eligibility"},
@@ -123,7 +124,14 @@
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
       {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"},
       {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"},
-      {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared"}
+      {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared"},
+      {"keyword": "adult diaper rash", "url": "/blogs/news/adult-diaper-rash-and-skin-protection"}
+    ]},
+    {"source": "adult-diaper-rash-and-skin-protection", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "incontinence care for the elderly", "url": "/blogs/news/incontinence-care-for-elderly"},
+      {"keyword": "adult diapers for women", "url": "/blogs/news/adult-diapers-for-women"},
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"}
     ]},
     {"source": "adult-diaper-brands-compared", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
