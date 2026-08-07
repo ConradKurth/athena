@@ -15,7 +15,8 @@
     {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner", "title": "UraGuard incontinence liner"},
     {"keyword": "UraGuard", "url": "/products/athena-uraguard-liner", "title": "UraGuard liner"},
     {"keyword": "incontinence products", "url": "/collections/uraguard-incontinence-products", "title": "incontinence products"},
-    {"keyword": "adult diapers", "url": "/collections/uraguard-incontinence-products", "title": "adult diapers and briefs"},
+    {"keyword": "adult diapers", "url": "/blogs/news/adult-diapers", "title": "adult diapers guide"},
+    {"keyword": "adult pull ups", "url": "/blogs/news/adult-diapers", "title": "adult diapers guide"},
     {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared", "title": "adult diaper brands compared"},
     {"keyword": "adult diapers for women", "url": "/blogs/news/adult-diapers-for-women", "title": "adult diapers for women"},
     {"keyword": "adult diaper rash", "url": "/blogs/news/adult-diaper-rash-and-skin-protection", "title": "adult diaper rash and skin protection"},
@@ -132,6 +133,12 @@
       {"keyword": "incontinence care for the elderly", "url": "/blogs/news/incontinence-care-for-elderly"},
       {"keyword": "adult diapers for women", "url": "/blogs/news/adult-diapers-for-women"},
       {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"}
+    ]},
+    {"source": "adult-diapers", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "adult diapers for women", "url": "/blogs/news/adult-diapers-for-women"},
+      {"keyword": "adult diaper brands", "url": "/blogs/news/adult-diaper-brands-compared"},
+      {"keyword": "adult diaper rash", "url": "/blogs/news/adult-diaper-rash-and-skin-protection"}
     ]},
     {"source": "adult-diaper-brands-compared", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
