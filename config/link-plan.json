@@ -5,6 +5,8 @@
     {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women", "title": "incontinence underwear for women"},
     {"keyword": "bladder leak underwear", "url": "/blogs/news/bladder-leak-underwear-for-women", "title": "bladder leak underwear for women"},
     {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women", "title": "bladder leak pads for women"},
+    {"keyword": "best bladder leak underwear", "url": "/blogs/news/best-bladder-leak-protection-for-women", "title": "best bladder leak protection for women"},
+    {"keyword": "best bladder leak pads", "url": "/blogs/news/best-bladder-leak-protection-for-women", "title": "best bladder leak protection for women"},
     {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection", "title": "overnight incontinence protection"},
     {"keyword": "incontinence liner vs pad", "url": "/blogs/news/incontinence-liner-vs-pad", "title": "incontinence liner vs pad"},
     {"keyword": "incontinence pads for women", "url": "/blogs/news/incontinence-pads-for-women", "title": "incontinence pads for women"},
@@ -96,11 +98,19 @@
     ]},
     {"source": "bladder-leak-pads-for-women", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
-      {"keyword": "incontinence pads for women", "url": "/blogs/news/incontinence-pads-for-women"}
+      {"keyword": "incontinence pads for women", "url": "/blogs/news/incontinence-pads-for-women"},
+      {"keyword": "best bladder leak pads", "url": "/blogs/news/best-bladder-leak-protection-for-women"}
     ]},
     {"source": "bladder-leak-underwear-for-women", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
-      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"}
+      {"keyword": "incontinence underwear for women", "url": "/blogs/news/incontinence-underwear-for-women"},
+      {"keyword": "best bladder leak underwear", "url": "/blogs/news/best-bladder-leak-protection-for-women"}
+    ]},
+    {"source": "best-bladder-leak-protection-for-women", "targets": [
+      {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
+      {"keyword": "bladder leak pads", "url": "/blogs/news/bladder-leak-pads-for-women"},
+      {"keyword": "bladder leak underwear", "url": "/blogs/news/bladder-leak-underwear-for-women"},
+      {"keyword": "overnight incontinence", "url": "/blogs/news/overnight-incontinence-protection"}
     ]},
     {"source": "overnight-incontinence-protection", "targets": [
       {"keyword": "incontinence liner", "url": "/products/athena-uraguard-liner"},
