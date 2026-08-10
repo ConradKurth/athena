@@ -1,0 +1,34 @@
+id,name,form_url,priority,verified,audience_fit,note
+dr-kelly-casperson-md-instagram,"Dr. Kelly Casperson, MD",https://kellycaspersonmd.com/contact/,P1,yes,good,"Contact form only, team inbox; urology/sexual-health MD, good fit"
+dr-heather-hirsch-md-ms-ncmp-instagram,"Dr. Heather Hirsch, MD, MS, NCMP",https://heatherhirschmd.com/contact/,P1,yes,good,Contact form to comms team; menopause MD; no public email
+dr-alicia-jeffrey-thomas-the-pelvic-dance-floor-instagram,Dr. Alicia Jeffrey-Thomas (The Pelvic Dance Floor),https://thepelvicdancefloor.com/contact,P0,yes,good,"Contact form confirmed; Boston pelvic-floor PT clinic, good fit"
+jessica-valant-mspt-instagram,"Jessica Valant, MSPT",https://jessicavalant.com/,P1,yes,good,"Contact form on homepage; prolapse-specific PT programs, good fit"
+isa-herrera-mspt-pelvic-wellness-pelvic-pain-relief-instagram,"Isa Herrera, MSPT (Pelvic Wellness / Pelvic Pain Relief)",https://pelvicpainrelief.com/contact,P1,yes,good,"Contact form w/ CAPTCHA; NYC pelvic-pain PT clinic, good fit"
+dr-sarah-ellis-duvall-core-exercise-solutions-instagram,Dr. Sarah Ellis Duvall (Core Exercise Solutions),https://www.coreexercisesolutions.com/contact-1/,P1,yes,good,"Email Cloudflare-obfuscated; use form; pelvic PT, good fit"
+rena-malik-md-youtube,"Rena Malik, MD",https://renamalikmd.com/contact-us/,P0,unsure,good,"Form has brand-collaboration routing (via search); urologist, good fit"
+betsy-greenleaf-do-instagram,"Betsy Greenleaf, DO",https://drbetsygreenleaf.com/contact?type=media,P0,yes,good,"Contact form (media type); runs pelvicfloorstore.com, best stocking-pitch fit"
+angelish-kumar-md-youtube,"Angelish Kumar, MD",https://liveutifree.com/contact/,P0,unsure,good,"Contact form, 24h auto-reply; UTI-focused urologist, good fit"
+sarah-boyles-md-mph-the-women-s-bladder-doctor-instagram,"Sarah Boyles, MD, MPH (The Women's Bladder Doctor)",https://thewomensbladderdoctor.com/contact/,P0,yes,good,Contact form; newsletter features products per prior notes
+caroline-craven-blog,Caroline Craven,http://www.girlwithms.com/p/contact-me.html,P1,yes,weak,"Wufoo contact form; MS lifestyle blog, incontinence not core beat"
+dailycaring-health,DailyCaring,https://dailycaring.com/contact-us-dailycaring/,P0,unsure,good,Contact form found via search; already covers incontinence care
+going-like-sixty-blog,Going Like Sixty,https://goinglikesixty.com/contact/,P0,yes,good,Emails Cloudflare-obfuscated; use form; senior-underwear affiliate review site
+caring-senior-service-blog-health,Caring Senior Service Blog,https://www.caringseniorservice.com/contact-us,P1,yes,good,Contact form via 'Get In Touch' link; senior in-home-care blog
+boomershub-blog-health,BoomersHub Blog,https://www.boomershub.com/contact-us,P1,unsure,good,Contact form found via search; no press email; senior-living blog
+girl-problems-northeast-ohio-urogynecology-podcast,Girl Problems (Northeast Ohio Urogynecology),https://www.akronurogynecology.com/contact-us,P1,unsure,good,"Practice contact form (site blocked fetch); urogyn podcast, good fit"
+inspire-caregivers-support-community-forum,Inspire — Caregivers Support Community,https://www.inspire.com/contact/,P1,unsure,good,Contact form (site WAF-blocked fetch); largest patient/caregiver network
+mayo-clinic-connect-bladder-conditions-support-group-forum,Mayo Clinic Connect — Bladder Conditions Support Group,https://connect.mayoclinic.org/contact-a-community-moderator/,P0,yes,good,Moderator-contact form confirmed; bladder/IC/UTI group; go formal/slow
+mayo-clinic-connect-menopause-support-group-forum,Mayo Clinic Connect — Menopause Support Group,https://connect.mayoclinic.org/contact-a-community-moderator/,P1,yes,good,Same moderator-contact form; menopause group; go formal/slow
+minding-our-elders-blog,Minding Our Elders,https://mindingourelders.com/home-2/about/contact/,P1,yes,good,"No public email; longtime eldercare blog, contact form only"
+ageright-blog-blog,AgeRight Blog,https://ageright.org/guest-blogger-guidelines/,P1,yes,good,"Guest blogger guidelines page has submission form, no email"
+menopause-goddess-blog-blog,Menopause Goddess Blog,https://www.menopausegoddessblog.com/contact/,P0,yes,good,"Run by Lynette Sheppard, not Ellen Dolgen; form only"
+motherfigure-blog,Motherfigure,https://motherfigure.com/contact/,P0,yes,good,"Postpartum product-review magazine; contact form only, no email"
+let-s-talk-uti-blog,Let's Talk UTI,https://www.letstalkuti.org/speaking-engagements-media-inquiries,P0,yes,good,"Media-inquiry form; listed email domain mismatched, unverified"
+cutic-chronic-urinary-tract-infection-campaign-blog,CUTIC (Chronic Urinary Tract Infection Campaign),https://cutic.co.uk/media-contact/,P0,yes,good,"UK UTI nonprofit; media-contact form only, no email listed"
+bladdersecret-blog,BladderSecret,https://bladdersecret.com/contact/,P0,unsure,good,"Site blocks scraping; contact page exists, no verified email"
+crystal-l-bass-tiktok,Crystal L. Bass,https://www.crystallbass.com/contact,P1,yes,good,"Personal site live; no email, booking/contact form only"
+you-are-not-broken-with-kelly-casperson-md-podcast,"You Are Not Broken with Kelly Casperson, MD",https://kellycaspersonmd.com/contact/,P0,yes,good,Urologist host; contact form covers sponsorship/media/speaking requests
+heal-your-bladder-podcast-podcast,Heal Your Bladder Podcast,https://www.marycotternutrition.com/contact,P0,unsure,good,"No public email found; contact-page link only, unconfirmed"
+unpaused-with-dr-mary-claire-haver-podcast,unPAUSED with Dr. Mary Claire Haver,https://podvertise.fm/1846701533,P1,yes,good,Sponsorship gated behind ad-marketplace form; no public email
+katie-couric-media-health,Katie Couric Media,https://katiecouric.com/contact-us/,P0,yes,good,"Press email domain mismatch, unverified per brief; use contact form"
+marc-spagnuolo-the-diaper-dynamo-instagram,Marc Spagnuolo (The Diaper Dynamo),https://www.thediaperdynamo.com/contact-the-diaper-dynamo/,P0,yes,good,"Real website found; contact form only, no verified email"
+mary-daniel-instagram,Mary Daniel,https://marysdaniel.com/contact/,P1,yes,good,Caregivers for Compromise founder; official site Connect form

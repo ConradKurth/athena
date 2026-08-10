@@ -1,0 +1,19 @@
+id,best_email,verified,audience_fit,reason,note
+brianne-grogan-dpt-femfusion-fitness-vibrant-pelvic-health-instagram,brianne@femfusionfitness.com,unsure,good,unverified-email,"Email via search only, site fetch failed; pelvic PT, good fit"
+lauren-ohayon-restore-your-core-youtube,support@restoreyourcore.com,unsure,good,unverified-email,Support inbox; also has partner-application page; good fit
+pamela-d-wilson-caregiving-expert-blog,Inquiry_for_Pamela@pameladwilson.com,unsure,good,unverified-email,Email via search only; form also confirmed on site
+alzheimer-s-speaks-lori-la-bey-youtube,Lori@AlzheimersSpeaks.com,unsure,good,unverified-email,Email via search; live fetch returned odd preview-domain artifact
+teepa-snow-positive-approach-to-care-youtube,info@teepasnow.com,unsure,good,unverified-email,"Email via search; dementia-care training org, adjacent audience fit"
+all-home-care-matters-lance-a-slatton-youtube,contact@allhomecarematters.com,unsure,good,unverified-email,"Email via search; senior-care podcast/influencer, good fit"
+interstitial-cystitis-network-jill-osborne-forum,icnetwork@mac.com,unsure,good,unverified-email; UTI/bladder-org claim-adjacent,"Founder email via search; IC/bladder-health audience, good fit"
+interstitial-cystitis-association-ica-forum,icamail@ichelp.org,yes,good,UTI/bladder-org claim-adjacent,Main contact email confirmed on page; IC/bladder audience
+kimberly-goad-health,media@aarp.org,unsure,good,unverified-email,"No direct author contact; AARP general media inbox, slow"
+bladder-bowel-community-support-group-facebook,help@bladderandbowel.org,unsure,good,unverified-email; UTI/bladder-org claim-adjacent,UK charity general email via search; 20K-member bladder/bowel group
+working-daughter-facebook,liz@workingdaughter.com,unsure,good,unverified-email,"Founder email via search/media-kit; caregiving-daughters audience, good fit"
+lifestyle-fifty-blog,jocstr1@gmail.com,unsure,good,unverified-email,"Personal gmail de-obfuscated from search snippet, unconfirmed on-site"
+that-s-not-my-age-blog,info@thatsnotmyage.com,unsure,good,unverified-email,Site blocks automated fetch (403); email from third-party listing
+interstitial-cystitis-network-icn-blog,Jill@ic-network.com,yes,good,UTI/bladder-org claim-adjacent,Founder/CEO Jill Osborne direct email; has press media kit
+bladder-health-uk-instagram,info@bladderhealthuk.org,yes,good,UTI/bladder-org claim-adjacent,UK bladder/continence charity; general email confirmed via charity register
+somer-agnor-instagram,studiosomer@gmail.com,yes,weak,weak-fit,Personal gmail for content inquiries general postpartum content
+interstitial-cystitis-network-instagram-instagram,info@ic-network.com,yes,good,UTI/bladder-org claim-adjacent,Official org contact page; also icnetwork@mac.com
+live-uti-free-instagram-instagram,team@liveutifree.com,yes,good,UTI/bladder-org claim-adjacent,Per prior CRM notes; live contact page now form only
