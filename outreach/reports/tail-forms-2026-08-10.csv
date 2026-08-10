@@ -1,0 +1,70 @@
+id,name,form_url,priority,verified,audience_fit,note
+adrian-surley-blog,Adrian Surley,https://www.adriansurley.com/contact/,P3,yes,weak,"ABDL-community blog, not primary medical-incontinence audience; form only, no email"
+aging-forward-mayo-clinic-press-podcast,Aging Forward (Mayo Clinic Press),https://mcpress.mayoclinic.org/contact-us/,P3,yes,good,Own institutional domain confirmed; expect slow editorial review
+aging-today-podcast-podcast,Aging Today Podcast,https://www.agingtoday.us/contact/,P2,yes,good,Confirmed real site; no email; guest/speaker contact form only
+agingcare-com-health,AgingCare.com,https://www.agingcare.com/aboutus,P2,yes,good,Own about-us page has contact form; no editorial email confirmed
+aginginplace-com-blog,AginginPlace.com,https://aginginplace.com/contact/,P3,yes,good,"RN/PhD gerontologist founder confirmed; no email, use contact form"
+all-home-care-matters-lance-a-slatton-youtube,All Home Care Matters (Lance A. Slatton),https://allhomecarematters.com/contact-all-home-care-matters/,P1,no,good,"from-holds: Contact page loads, explicitly form-only, no email text shown"
+alzheimer-s-speaks-lori-la-bey-youtube,Alzheimer's Speaks (Lori La Bey),https://alzheimersspeaks.com/contact/,P1,no,good,"from-holds: Site shows broken preview-domain mailto artifact, not real address"
+brianne-grogan-dpt-femfusion-fitness-vibrant-pelvic-health-instagram,"Brianne Grogan, DPT (FemFusion Fitness / Vibrant Pelvic Health)",https://www.vibrantpelvichealth.com/contact,P1,no,good,"from-holds: Domain merged into Vibrant Pelvic Health; no email on-site, form only"
+careliving-org-blog,CareLiving.org,https://www.careliving.org/contact/,P2,yes,good,"Kim Campbell confirmed founder; Alzheimer's caregiver site; form only, no email listed"
+carol-campbell-instagram,Carol Campbell,https://campbellcaregivercoach.carrd.co/,P3,yes,good,"Own site has email-message contact link, no listed address"
+caroline-hill-instagram,Caroline Hill,https://carolinehillnutrition.co.uk/contact/,P2,yes,good,"UK menopause dietitian; own site found, no email, form only"
+core-pelvic-floor-therapy-youtube,Core Pelvic Floor Therapy,https://corepelvicfloortherapy.com/contact-us,P2,yes,good,Own site confirms contact form; no email visible on page itself
+debra-atkinson-flipping-50-instagram,Debra Atkinson (Flipping 50),https://www.flipping50.com/contact-us/,P2,unsure,good,Site blocked repeated fetch (525 error); form URL known from prior research
+dementia-care-warriors-blog,Dementia Care Warriors,https://www.iamacarewarrior.org/contact-us,P2,yes,good,501c3 dementia-caregiver nonprofit; Veronica Shanklin founder confirmed
+dementia-carers-count-instagram,Dementia Carers Count,https://dementiacarers.org.uk/contact/,P2,yes,good,"UK charity confirmed on own site; email cloudflare-obscured, use contact page"
+discovery-village-senior-living-blog-health,Discovery Village Senior Living Blog,https://discoveryvillages.com/contact-discovery-village/,P3,yes,good,"Corporate operator; no public email, chat/contact form only"
+dr-ashley-alexis-nd-tiktok,"Dr. Ashley Alexis, ND",https://goldenleafhc.com/,P2,yes,good,"ND clinic confirmed; only phone + 'Email Me'/booking form, no email string"
+dr-jen-gunter-md-instagram,"Dr. Jen Gunter, MD",https://drjengunter.com/contact/,P3,unsure,good,Contact/media pages confirmed via search only; direct fetch blocked (cert error)
+dr-katie-milano-tiktok,Dr. Katie Milano,https://www.katiemilano.com/contact,P2,yes,good,"Own site confirmed; CA-based (US) pelvic floor PT, no email listed"
+dr-katrina-pelvic-floor-physical-therapist-youtube,Dr. Katrina | Pelvic Floor Physical Therapist,https://www.wholebodywellnessptca.com/contact-katrina,P2,yes,good,"Practice site confirmed; booking form only, no public email"
+dr-lizzie-kieffer-doc-lizzie-tiktok,Dr. Lizzie Kieffer (Doc Lizzie),https://www.doclizzie.com/contact,P2,yes,good,Own site doclizzie.com invites collab inquiries via contact form
+dr-punam-krishan-instagram,Dr. Punam Krishan,https://drpunamkrishan.squarespace.com/contact,P2,yes,weak,"Own site confirmed; broad NHS/media reach, not menopause-niche"
+dr-talisa-taylored4you-healwell-instagram,Dr. TaLisa (Taylored4You Healwell),https://www.tayloredhealwell.com/contact,P2,yes,good,"Own site confirmed; phone+form only, no listed email"
+elizabeth-ward-hillary-wright-menopause-diet-plan-instagram,Elizabeth Ward & Hillary Wright (Menopause Diet Plan),https://hillarywright.com/contact/,P2,yes,good,Own site confirms menopause dietitian/author; no email listed
+ellen-dolgen-menopause-mondays-blog,Ellen Dolgen / Menopause Mondays,https://ellendolgen.com/contact/,P2,yes,good,No public email; form has explicit sponsorship/ad inquiry option
+familyrapport-blog,FamilyRapport,https://familyrapport.com/,P2,yes,good,"Eldercare companionship blog; signup form only, no founder/email found"
+g-willy-davila-md-youtube,G Willy Davila MD,https://www.urogyne.net/,P2,yes,good,"Practice site confirmed; appointment form only, no listed email"
+girls-talk-healthy-aging-podcast,Girls Talk Healthy Aging,https://kaminskifitness.fitproconnect.com/letstalk2.0,P2,yes,good,"Co-host Shawna Kaminski's own site has consult form, no email"
+homewatch-caregivers-caregiver-blogs-we-love-resource-hub-blog,Homewatch CareGivers - Caregiver Blogs We Love (resource hub),https://www.homewatchcaregivers.com/contact-us/,P3,yes,good,"large franchise; no email, long-cycle partnership via form/phone"
+hudson-valley-pelvic-physical-therapy-instagram,Hudson Valley Pelvic Physical Therapy,https://hudsonvalleypt.com/contact-us/,P2,yes,good,"Own site matches @hudsonvalleypelvicpt handle; email cloudflare-obscured, use form"
+jenn-labonte-instagram,Jenn Labonte,https://www.jennlabfit.com/contact,P2,yes,good,"Own site confirmed, strength coach for women 40+; no email listed"
+julie-mcfadden-rn-bsn-hospice-nurse-julie-instagram,"Julie McFadden, RN, BSN (Hospice Nurse Julie)",https://www.hospicenursejulie.com/contact-me,P3,yes,weak,"Hospice RN not bladder-focused; own site form only, emails read infrequently"
+julie-wiebe-pt-dpt-instagram,"Julie Wiebe, PT, DPT",https://www.juliewiebept.com/contact,P2,yes,good,"Own site confirmed; pelvic-health clinician/educator; form only, no public email"
+lance-a-slatton-instagram,Lance A. Slatton,https://lanceaslatton.com/#contact,P2,yes,good,Own site 'I'd Love To Hear From You' form; no email listed
+lance-frank-dpt-mph-tiktok,"Lance Frank, DPT, MPH",https://www.flexptatl.com/contact/,P2,yes,weak,male pelvic-floor PT practice; site contact form confirmed
+laura-clark-rd-instagram,"Laura Clark, RD",https://www.themenopausedietitian.co.uk/contact/,P2,unsure,good,"UK menopause dietitian; own site confirmed, email Cloudflare-obfuscated"
+laura-meihofer-youtube,Laura Meihofer,https://laurameihofer.com/contact,P2,yes,good,"Own site confirmed, Mayo-trained pelvic floor PT; email cloudflare-obscured"
+lesley-waldron-instagram,Lesley Waldron,https://www.lesleywaldron.co.uk/contact,P2,yes,good,Own site confirmed; perimenopause/midlife health coach
+libby-stevenson-instagram,Libby Stevenson,https://libbystevenson.com/contact-1,P2,yes,good,"Own site confirmed; footer contact page, no email listed"
+lindsey-mathews-instagram,Lindsey Mathews,https://www.moxiebylindsey.com/contact,P2,yes,good,"perimenopause coach; own site contact form confirmed, no email"
+live-long-podcast-formerly-live-long-and-master-aging-llama-podcast,Live Long Podcast (formerly Live Long and Master Aging / LLAMA),https://healthspan-media.com/contact,P2,yes,weak,"Own site confirmed; general longevity audience, not incontinence-specific per prior note"
+melani-sanders-tiktok,Melani Sanders,https://wedonotcareclub.com/contact,P2,yes,good,6M+ follower menopause community; own site contact form confirmed
+menohello-menopause-community-forum-forum,MenoHello Menopause Community & Forum,https://www.menohello.com/contact,P2,yes,good,"Own site confirmed; menopause peer forum, no public email"
+mobility-with-love-blog,Mobility With Love,https://www.mobilitywithlove.com/contact/,P2,yes,good,"Affiliate review site confirmed; form only, no owner name found"
+morada-senior-living-blog-health,Morada Senior Living Blog,https://moradaseniorliving.com/contact-morada-senior-living/,P2,yes,good,"Corporate HQ form only; no marketing email, per-community leads emails exist"
+next-avenue-health,Next Avenue,https://www.nextavenue.org/submission-guidelines/,P2,yes,good,"PBS outlet; guidelines explicitly bar direct editor email, form/pitch only"
+niki-powell-cottman-instagram,Niki Powell Cottman,https://www.wefightfoundation.org/contact-us,P2,unsure,weak,Assoc. with We Fight Foundation unconfirmed on-site; org not eldercare-focused
+older-women-friends-stories-of-aging-well-podcast,Older Women & Friends: Stories of Aging Well,https://janeleder.net/contact-info/,P2,yes,good,author/host; own site contact form confirmed
+olivia-robbin-blog,Olivia Robbin,https://oab.newlifeoutlook.com/contact-us/,P2,yes,good,"OAB/nocturnal enuresis advocate; no personal site link found, use platform contact"
+ourseniors-net-health,OurSeniors.net,https://ourseniors.net/about/share-your-article-or-story-with-us/,P2,yes,good,"Own site confirmed submission form; no email, phone number also listed"
+pacific-angels-home-care-blog-health,Pacific Angels Home Care Blog,https://www.pacificangelshomecare.com/contact/,P3,yes,good,"Own site confirmed; regional home-care blog, no public email"
+rethink-menopause-blog,Rethink Menopause,https://rethinkmenopause.com/contact/,P2,yes,good,"UK menopause clinic/blog; own site confirmed, email obfuscated, use form"
+reviewed-usa-today-network-health,Reviewed (USA Today Network),https://www.reviewed.com/send_feedback,P2,yes,good,"Byline Carley Thornell confirmed; feedback link exists, email cloudflare-obscured"
+seniors-guide-health,Seniors Guide,https://www.seniorsguide.com/contact/,P2,yes,good,"Own site confirms sponsored-content form, no editorial email surfaced"
+serving-seniors-podcast-podcast,Serving Seniors Podcast,https://www.servingseniorspodcast.com/contact/,P3,yes,weak,"retirement/mortgage audience not health-first; form confirmed, coldest fit"
+sonja-soulspace-body-instagram,Sonja (Soulspace Body),https://soulspacebody.com/contact/,P2,yes,good,Own site confirmed; perimenopause coach for women 40+
+steve-weiss-instagram,Steve Weiss,https://homecareevolution.com/contact/,P3,yes,weak,"Own biz coaches home-care agency owners (B2B), not consumer/caregiver-facing"
+the-caregiver-space-blog,The Caregiver Space,https://thecaregiverspace.org/contact/,P2,yes,good,"Own site confirmed; caregiver peer-support resource, submission form"
+the-caring-generation-podcast,The Caring Generation,https://pameladwilson.com/contact/,P2,yes,good,No email; contact form plus phone 303-810-1816 confirmed on-site
+the-in-between-years-aging-parents-and-the-conversations-we--podcast,The In-Between Years: Aging Parents and the Conversations We Try to Avoid,https://www.krauseagency.com/contact-us/,P2,yes,good,"Krause Agency confirmed producer; email Cloudflare-obscured, use form"
+the-midlife-feast-podcast-podcast,The Midlife Feast Podcast,https://www.menopausenutritionist.ca/contact,P2,yes,good,"Own site confirmed; email Cloudflare-obfuscated, use contact form"
+the-wiser-woman-blog,The Wiser Woman,https://www.thewiserwoman.com/contact,P2,yes,good,active 2026 menopause blog; own site contact form confirmed
+thepause-menopause-and-perimenopause-expert-support-solution-facebook,thePause - Menopause and Perimenopause Expert Support & Solutions,https://thepause.ai/,P2,yes,good,"Susan Sly's Harmoni/thePause startup; own site confirmed, no direct email"
+twila-yednock-blog,Twila Yednock,https://simonfoundation.org/,P3,unsure,good,No owned site; guest essayist for Healthline; org site blocked fetch (403)
+uronurse-uropatient-youtube,UroNurse / UroPatient,https://uronurse.com/contact.html,P2,yes,good,"Own site confirmed; urology nurse patient educator, no email found"
+wild-and-well-podcast,Wild and Well,https://www.drhilaryclaire.com/contact,P2,yes,good,"postpartum wellness podcast, named buyer segment; form has Media/Collaboration options"
+women-s-hormone-network-podcast-podcast,Women's Hormone Network Podcast,https://womenshormonenetwork.org/contact/,P2,yes,good,"Nonprofit hormone-health podcast; own site confirmed, no direct email"
+working-daughter-facebook,Working Daughter,https://workingdaughter.com/workwithliz/,P1,no,good,from-holds: No email on any fetched page; site funnels to Calendly/social only
+your-dementia-therapist-youtube,Your Dementia Therapist,https://www.yourdementiatherapist.com/contact-me/,P2,yes,good,"Own site confirmed; dementia care coach; email cloudflare-obscured, use form"
