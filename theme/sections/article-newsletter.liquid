@@ -1,0 +1,94 @@
+{% comment %}
+  Athena UraGuard — in-content email capture for blog articles (Lever 2b).
+  Self-contained: Shopify {% form 'customer' %} tagging subscribers `newsletter` (Omnisend sync) + `blog-capture` (attribution).
+  Placed after the article body via article.json. Compliant copy: no medical claim; lead magnet delivered by the
+  Omnisend welcome flow. Deploy: theme push to live 159272468707 after `make login` (--allow-live --only).
+{% endcomment %}
+
+{%- liquid
+  assign bg = section.settings.background_color | default: '#f2f7f8'
+  assign accent = section.settings.button_background | default: '#003649'
+  assign accent_text = section.settings.button_text_color | default: '#ffffff'
+-%}
+
+{% style %}
+  .article-newsletter-{{ section.id }} {
+    margin: {{ section.settings.margin_top }}px auto {{ section.settings.margin_bottom }}px;
+    max-width: {{ section.settings.max_width }}px;
+    background: {{ bg }};
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .article-newsletter-{{ section.id }} .an__title { font-size: 1.5rem; line-height: 1.25; margin: 0 0 8px; }
+  .article-newsletter-{{ section.id }} .an__text { margin: 0 auto 20px; max-width: 46ch; color: #3d5560; }
+  .article-newsletter-{{ section.id }} .an__form { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .article-newsletter-{{ section.id }} .an__email {
+    flex: 1 1 260px; max-width: 340px; padding: 12px 14px; border: 1px solid #c7d5da;
+    border-radius: 10px; font-size: 1rem;
+  }
+  .article-newsletter-{{ section.id }} .an__btn {
+    padding: 12px 22px; border: 0; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 1rem;
+    background: {{ accent }}; color: {{ accent_text }};
+  }
+  .article-newsletter-{{ section.id }} .an__success { color: #1a6b3a; font-weight: 600; margin: 8px 0 0; }
+  .article-newsletter-{{ section.id }} .an__error { color: #b00020; margin: 8px 0 0; }
+  .article-newsletter-{{ section.id }} .an__fine { font-size: 0.8rem; color: #6b7f88; margin: 14px 0 0; }
+{% endstyle %}
+
+<div class="article-newsletter-{{ section.id }} page-width">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="an__title">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  {%- if section.settings.subtext != blank -%}
+    <p class="an__text">{{ section.settings.subtext }}</p>
+  {%- endif -%}
+
+  {%- form 'customer', class: 'an__form' -%}
+    <input type="hidden" name="contact[tags]" value="newsletter, blog-capture">
+    <label class="visually-hidden" for="an-email-{{ section.id }}">{{ 'newsletter.label' | t | default: 'Email' }}</label>
+    <input
+      id="an-email-{{ section.id }}"
+      class="an__email"
+      type="email"
+      name="contact[email]"
+      autocomplete="email"
+      placeholder="{{ section.settings.placeholder | default: 'you@email.com' }}"
+      required
+    >
+    <button type="submit" class="an__btn">{{ section.settings.button_label | default: 'Get the guide' }}</button>
+
+    {%- if form.posted_successfully? -%}
+      <p class="an__success" role="status">{{ section.settings.success_text | default: "You're in — check your inbox for the guide." }}</p>
+    {%- elsif form.errors -%}
+      <p class="an__error">{{ form.errors | default_errors }}</p>
+    {%- endif -%}
+  {%- endform -%}
+
+  <p class="an__fine">{{ section.settings.fineprint | default: 'Free tips for managing bladder leaks with dignity. Unsubscribe anytime.' }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Article email capture",
+  "tag": "section",
+  "class": "section article-newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get the free Caregiver's Guide to Incontinence" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Practical, judgment-free tips for managing bladder leaks — plus product guidance for you or the person you care for. Delivered to your inbox." },
+    { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "you@email.com" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get the guide" },
+    { "type": "text", "id": "success_text", "label": "Success message", "default": "You're in — check your inbox for the guide." },
+    { "type": "text", "id": "fineprint", "label": "Fine print", "default": "Free tips for managing bladder leaks with dignity. Unsubscribe anytime." },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#f2f7f8" },
+    { "type": "color", "id": "button_background", "label": "Button background", "default": "#003649" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#ffffff" },
+    { "type": "range", "id": "max_width", "min": 480, "max": 1100, "step": 20, "unit": "px", "label": "Max width", "default": 760 },
+    { "type": "range", "id": "margin_top", "min": 0, "max": 80, "step": 4, "unit": "px", "label": "Top margin", "default": 24 },
+    { "type": "range", "id": "margin_bottom", "min": 0, "max": 80, "step": 4, "unit": "px", "label": "Bottom margin", "default": 24 }
+  ],
+  "presets": [
+    { "name": "Article email capture" }
+  ]
+}
+{% endschema %}

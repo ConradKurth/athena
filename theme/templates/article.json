@@ -150,6 +150,10 @@
         "margin-bottom": 0
       }
     },
+    "article_newsletter_capture": {
+      "type": "article-newsletter",
+      "settings": {}
+    },
     "blocks_bxj3pm": {
       "type": "_blocks",
       "blocks": {
@@ -274,6 +278,7 @@
     "1763553645e6cf4e32",
     "1765276822721bfc30",
     "main",
+    "article_newsletter_capture",
     "blocks_bxj3pm",
     "blog_posts_GVegLV",
     "brands_mtizjV"
