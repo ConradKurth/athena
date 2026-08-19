@@ -1,0 +1,25 @@
+category,target,url,type,value_tier,attainability,contact_path,pitch_angle,confidence,status
+FSA-HSA,Truemed,https://www.truemed.com,brand-partner-listing,high,easy,"partner signup form on site",Physician-founded incontinence liner = eligible for FSA/HSA via Letter of Medical Necessity; get listed as a qualifying brand + dofollow brand page,high,todo
+FSA-HSA,FSA Store,https://fsastore.com,retailer-directory,high,med,"vendor/brand inquiry via FSAstore partnerships",List UraGuard liner as FSA-eligible product; category = incontinence/bladder protection,high,todo
+FSA-HSA,HSA Store,https://hsastore.com,retailer-directory,high,med,"same parent as FSAstore (Health-E Commerce) partnerships",Same as FSAstore for HSA eligibility,high,todo
+FSA-HSA,Flex (withflex.com),https://withflex.com,checkout-partner,med,easy,"partner/merchant signup",HSA/FSA-at-checkout integration + brand listing,medium,todo
+Continence-org,National Association For Continence (NAFC),https://nafc.org,resource-page/directory,high,med,"NAFC contact / product-directory submission (verify path)",Add UraGuard to product resources for discreet bladder-leak protection; physician-founded angle for credibility,high,todo
+Continence-org,Simon Foundation for Continence,https://simonfoundation.org,resource-page,high,hard,"contact form (verify)",Resource-page inclusion; dignity/education framing fits their mission,medium,todo
+Caregiver-blog,DailyCaring,https://dailycaring.com,editorial-roundup,med,med,"contact/advertise page",Pitch inclusion in incontinence-product roundups; offer physician-founder quote + product for review,high,todo
+Caregiver-blog,AgingCare,https://www.agingcare.com,editorial-mention,med,med,"editorial/contributor contact",Caregiver audience match; product mention in bladder-leak caregiving articles,high,todo
+Caregiver-directory,Caring.com,https://www.caring.com,directory/review,med,med,"vendor/editorial contact",Senior-care audience; product listing or review inclusion,medium,todo
+Caregiver-org,Family Caregiver Alliance,https://www.caregiver.org,resource-page,high,hard,"contact form",Nonprofit resource page; education-first, no hard sell,medium,todo
+Caregiver-org,AARP (caregiving),https://www.aarp.org,editorial,high,hard,"pitch via PR / contributor network",High authority, low hit rate; physician-founder expert commentary on bladder-leak dignity,low,todo
+Digital-PR,Connectively (formerly HARO),https://connectively.us,journalist-request,high,easy,"free source account; respond to queries",Physician-founder answers women's-health / caregiving / menopause queries; earns editorial links,high,todo
+Digital-PR,Featured.com,https://featured.com,expert-QA,med,easy,"expert signup; answer prompts",Founder expert answers published with brand link,high,todo
+Digital-PR,Qwoted,https://www.qwoted.com,journalist-request,med,easy,"free source account",Same as Connectively; PR/media niche,medium,todo
+Digital-PR,SourceBottle,https://www.sourcebottle.com,journalist-request,low,easy,"free source account",Extra query volume; lower authority,medium,todo
+Podcast,Menopause / women's-health podcasts,,guest-appearance,med,med,"source via Podmatch / Matchmaker.fm; pitch founder",Physician-founder guest on menopause/pelvic-health/caregiver shows; show-notes backlink,medium,todo
+Podcast,Caregiver / eldercare podcasts,,guest-appearance,med,med,"Podmatch / direct outreach",Founder guest on caregiving shows; discreet-dryness + dignity narrative,medium,todo
+Editorial-roundup,NYT Wirecutter,https://www.nytimes.com/wirecutter,best-of-inclusion,high,hard,"pitch via product-review desk",Ask for consideration in incontinence-product reviews; send sample,low,todo
+Editorial-roundup,Healthline,https://www.healthline.com,best-of-inclusion,high,hard,"editorial/commerce contact",Inclusion in bladder-leak product roundups; needs review sample,low,todo
+Editorial-roundup,Verywell Health,https://www.verywellhealth.com,best-of-inclusion,high,hard,"editorial contact",Same; health-authority domain,low,todo
+Editorial-roundup,Good Housekeeping,https://www.goodhousekeeping.com,best-of-inclusion,high,hard,"GH Institute product submissions",Product testing/roundup inclusion,low,todo
+Review-platform,Trustpilot,https://www.trustpilot.com,profile+reviews,low,easy,"claim business profile",Referral + trust signal; drive customer reviews,high,todo
+Community,r/CaregiverSupport & continence subreddits,https://www.reddit.com,referral-participation,low,easy,"organic participation, no spam",Nofollow but real referral + brand mentions; founder answers questions,medium,todo
+Directory,Physician-founded / women-owned brand directories,,directory-listing,low,easy,"submission forms (verify each)",Niche directories for founder-story angle; easy dofollow,medium,todo
