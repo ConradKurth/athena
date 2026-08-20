@@ -1,0 +1,217 @@
+{%- comment -%}
+  Athena UraGuard — site-wide email capture: modal popup + slim sticky bar (Lever 3a/3d).
+
+  Self-contained. Reuses Shopify {% form 'customer' %} tagging subscribers `newsletter` (Omnisend
+  sync) + a per-surface attribution tag (`popup-capture` / `sticky-capture`). Same lead magnet as
+  the in-content article capture: the free "Caregiver's Guide to Incontinence".
+
+  Triggers (popup): scroll depth OR exit-intent OR time fallback, whichever fires first.
+  Frequency: shown at most once per `frequency_days`; suppressed permanently once subscribed.
+  Deploy: theme push to live 159272468707 after `make login` (--allow-live --only). Included
+  globally from layout/theme.liquid before </body>.
+{%- endcomment -%}
+
+{%- liquid
+  assign heading = section.settings.heading | default: 'Get the free Caregiver’s Guide to Incontinence'
+  assign subtext = section.settings.subtext | default: 'Practical, judgment-free tips for managing bladder leaks — plus product guidance for you or the person you care for. Delivered to your inbox.'
+  assign button_label = section.settings.button_label | default: 'Get the guide'
+  assign placeholder = section.settings.placeholder | default: 'you@email.com'
+  assign fineprint = section.settings.fineprint | default: 'Free tips for managing bladder leaks with dignity. Unsubscribe anytime.'
+  assign success_text = section.settings.success_text | default: 'You’re in — check your inbox for the guide.'
+  assign sticky_text = section.settings.sticky_text | default: 'Free Caregiver’s Guide to Incontinence — sent to your inbox.'
+-%}
+
+{% style %}
+  .ecap-{{ section.id }} { --ecap-bg: {{ section.settings.bg_color }}; --ecap-text: {{ section.settings.text_color }}; --ecap-btn: {{ section.settings.button_bg }}; --ecap-btn-hover: {{ section.settings.button_bg_hover }}; --ecap-btn-text: {{ section.settings.button_text_color }}; }
+
+  /* Modal */
+  .ecap-overlay { position: fixed; inset: 0; z-index: 9998; display: none; align-items: center; justify-content: center; background: rgba(15,32,45,.55); padding: 16px; }
+  .ecap-overlay.is-open { display: flex; }
+  .ecap-modal { position: relative; width: 100%; max-width: 440px; background: var(--ecap-bg); color: var(--ecap-text); border-radius: 16px; padding: 32px 28px 24px; box-shadow: 0 24px 60px rgba(0,0,0,.28); text-align: center; }
+  .ecap-modal__close { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border: 0; background: transparent; font-size: 24px; line-height: 1; color: var(--ecap-text); opacity: .55; cursor: pointer; border-radius: 8px; }
+  .ecap-modal__close:hover { opacity: 1; }
+  .ecap-modal h2 { font-size: 22px; line-height: 1.25; margin: 0 0 10px; }
+  .ecap-modal p.ecap-sub { font-size: 15px; line-height: 1.5; margin: 0 0 18px; opacity: .9; }
+  .ecap-fineprint { font-size: 11px; opacity: .65; margin: 10px 0 0; }
+
+  /* Shared form */
+  .ecap-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ecap-form .ecap-email { flex: 1 1 180px; min-width: 0; padding: 12px 14px; border: 1px solid rgba(25,52,69,.28); border-radius: 10px; font-size: 15px; }
+  .ecap-form .ecap-btn { flex: 0 0 auto; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--ecap-btn); color: var(--ecap-btn-text); font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .ecap-form .ecap-btn:hover { background: var(--ecap-btn-hover); }
+  .ecap-success { font-size: 15px; font-weight: 600; margin: 6px 0; }
+  .ecap-error { color: #b00020; font-size: 13px; margin: 8px 0 0; }
+
+  /* Sticky bar */
+  .ecap-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9997; display: none; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; background: var(--ecap-bg); color: var(--ecap-text); padding: 12px 46px 12px 16px; box-shadow: 0 -6px 24px rgba(0,0,0,.14); border-top: 1px solid rgba(25,52,69,.12); }
+  .ecap-sticky.is-open { display: flex; }
+  .ecap-sticky__text { font-size: 14px; font-weight: 600; margin: 0; }
+  .ecap-sticky .ecap-form { max-width: 380px; }
+  .ecap-sticky__close { position: absolute; top: 50%; right: 12px; transform: translateY(-50%); width: 30px; height: 30px; border: 0; background: transparent; font-size: 20px; line-height: 1; color: var(--ecap-text); opacity: .55; cursor: pointer; }
+  .ecap-sticky__close:hover { opacity: 1; }
+
+  @media (max-width: 600px) {
+    .ecap-sticky { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 40px 12px 14px; }
+    .ecap-sticky__text { text-align: center; }
+    .ecap-modal { padding: 28px 20px 20px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ecap-modal { animation: ecap-pop .22s ease-out; }
+    @keyframes ecap-pop { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+  }
+{% endstyle %}
+
+<div class="ecap-{{ section.id }}"
+     data-ecap
+     data-enable-popup="{{ section.settings.enable_popup }}"
+     data-enable-sticky="{{ section.settings.enable_sticky }}"
+     data-frequency-days="{{ section.settings.frequency_days }}"
+     data-scroll-percent="{{ section.settings.trigger_scroll_percent }}"
+     data-time-fallback="{{ section.settings.trigger_time_seconds }}">
+
+  {%- if section.settings.enable_popup -%}
+    <div class="ecap-overlay" data-ecap-overlay role="dialog" aria-modal="true" aria-labelledby="ecap-h-{{ section.id }}" hidden>
+      <div class="ecap-modal">
+        <button type="button" class="ecap-modal__close" data-ecap-close aria-label="Close">&times;</button>
+        <h2 id="ecap-h-{{ section.id }}">{{ heading }}</h2>
+        <p class="ecap-sub">{{ subtext }}</p>
+        {%- form 'customer', class: 'ecap-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter, popup-capture">
+          <label class="visually-hidden" for="ecap-email-{{ section.id }}">Email</label>
+          <input id="ecap-email-{{ section.id }}" class="ecap-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
+          <button type="submit" class="ecap-btn">{{ button_label }}</button>
+          {%- if form.posted_successfully? -%}
+            <p class="ecap-success" data-ecap-success>{{ success_text }}</p>
+          {%- elsif form.errors -%}
+            <p class="ecap-error">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+        {%- endform -%}
+        <p class="ecap-fineprint">{{ fineprint }}</p>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.enable_sticky -%}
+    <div class="ecap-sticky" data-ecap-sticky hidden>
+      <p class="ecap-sticky__text">{{ sticky_text }}</p>
+      {%- form 'customer', class: 'ecap-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter, sticky-capture">
+        <label class="visually-hidden" for="ecap-sticky-email-{{ section.id }}">Email</label>
+        <input id="ecap-sticky-email-{{ section.id }}" class="ecap-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
+        <button type="submit" class="ecap-btn">{{ button_label }}</button>
+        {%- if form.posted_successfully? -%}
+          <span class="ecap-success" data-ecap-success>{{ success_text }}</span>
+        {%- elsif form.errors -%}
+          <span class="ecap-error">{{ form.errors | default_errors }}</span>
+        {%- endif -%}
+      {%- endform -%}
+      <button type="button" class="ecap-sticky__close" data-ecap-close-sticky aria-label="Dismiss">&times;</button>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-ecap]');
+  if (!root) return;
+
+  var SUB_KEY = 'athena_subscribed';           // set on success, suppresses everything
+  var POP_KEY = 'athena_ecap_popup_seen';       // timestamp of last popup shown
+  var STICKY_KEY = 'athena_ecap_sticky_hidden'; // timestamp of last sticky dismissal
+  var freqDays = parseInt(root.getAttribute('data-frequency-days'), 10) || 7;
+  var freqMs = freqDays * 24 * 60 * 60 * 1000;
+
+  function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function subscribed() { return ls(SUB_KEY) === '1'; }
+  function recent(k) { var t = parseInt(ls(k), 10); return t && (Date.now() - t) < freqMs; }
+
+  // If any customer form on this page just posted successfully, treat as subscribed.
+  if (root.querySelector('[data-ecap-success]')) { set(SUB_KEY, '1'); }
+
+  var overlay = root.querySelector('[data-ecap-overlay]');
+  var sticky = root.querySelector('[data-ecap-sticky]');
+
+  /* ---- Popup ---- */
+  if (overlay && root.getAttribute('data-enable-popup') === 'true' && !subscribed() && !recent(POP_KEY)) {
+    var opened = false, lastFocus = null;
+    var openPopup = function () {
+      if (opened || subscribed()) return;
+      opened = true;
+      overlay.hidden = false;
+      overlay.classList.add('is-open');
+      set(POP_KEY, Date.now());
+      lastFocus = document.activeElement;
+      var email = overlay.querySelector('input[type="email"]');
+      if (email) email.focus();
+      cleanup();
+    };
+    var closePopup = function () {
+      overlay.classList.remove('is-open');
+      overlay.hidden = true;
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+
+    var scrollPct = parseInt(root.getAttribute('data-scroll-percent'), 10) || 50;
+    var onScroll = function () {
+      var h = document.documentElement;
+      var pct = (h.scrollTop || document.body.scrollTop) / ((h.scrollHeight - h.clientHeight) || 1) * 100;
+      if (pct >= scrollPct) openPopup();
+    };
+    var onExit = function (e) { if (e.clientY <= 0) openPopup(); };
+    var timeFallback = (parseInt(root.getAttribute('data-time-fallback'), 10) || 0) * 1000;
+    var timer = timeFallback ? setTimeout(openPopup, timeFallback) : null;
+    function cleanup() {
+      window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('mouseout', onExit);
+      if (timer) clearTimeout(timer);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('mouseout', onExit);
+
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
+    root.querySelectorAll('[data-ecap-close]').forEach(function (b) { b.addEventListener('click', closePopup); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) closePopup(); });
+  }
+
+  /* ---- Sticky bar ---- */
+  if (sticky && root.getAttribute('data-enable-sticky') === 'true' && !subscribed() && !recent(STICKY_KEY)) {
+    setTimeout(function () { sticky.hidden = false; sticky.classList.add('is-open'); }, 1500);
+    var closeS = root.querySelector('[data-ecap-close-sticky]');
+    if (closeS) closeS.addEventListener('click', function () {
+      sticky.classList.remove('is-open'); sticky.hidden = true; set(STICKY_KEY, Date.now());
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Email capture popup",
+  "tag": "section",
+  "class": "section email-capture-popup",
+  "settings": [
+    { "type": "header", "content": "Surfaces" },
+    { "type": "checkbox", "id": "enable_popup", "label": "Enable modal popup", "default": true },
+    { "type": "checkbox", "id": "enable_sticky", "label": "Enable sticky bar", "default": true },
+    { "type": "header", "content": "Triggers & frequency" },
+    { "type": "range", "id": "trigger_scroll_percent", "min": 10, "max": 90, "step": 5, "unit": "%", "label": "Show popup after scroll depth", "default": 50 },
+    { "type": "range", "id": "trigger_time_seconds", "min": 0, "max": 60, "step": 5, "unit": "s", "label": "Time fallback (0 = off)", "default": 25 },
+    { "type": "range", "id": "frequency_days", "min": 1, "max": 30, "step": 1, "unit": "d", "label": "Don't reshow for (days)", "default": 7 },
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get the free Caregiver’s Guide to Incontinence" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Practical, judgment-free tips for managing bladder leaks — plus product guidance for you or the person you care for. Delivered to your inbox." },
+    { "type": "text", "id": "sticky_text", "label": "Sticky bar text", "default": "Free Caregiver’s Guide to Incontinence — sent to your inbox." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get the guide" },
+    { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "you@email.com" },
+    { "type": "text", "id": "success_text", "label": "Success message", "default": "You’re in — check your inbox for the guide." },
+    { "type": "text", "id": "fineprint", "label": "Fine print", "default": "Free tips for managing bladder leaks with dignity. Unsubscribe anytime." },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#193445" },
+    { "type": "color", "id": "button_bg", "label": "Button", "default": "#003649" },
+    { "type": "color", "id": "button_bg_hover", "label": "Button hover", "default": "#005c7c" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#ffffff" }
+  ]
+}
+{% endschema %}

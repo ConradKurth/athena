@@ -1,0 +1,76 @@
+{%- comment -%}
+  Athena UraGuard — homepage email capture band (Lever 3c).
+
+  The homepage is the site's best converter yet captured no emails. Same Shopify {% form 'customer' %}
+  + tags (`newsletter` for Omnisend sync, `home-capture` for attribution) and the same free
+  "Caregiver's Guide to Incontinence" lead magnet used elsewhere. Added to templates/index.json.
+{%- endcomment -%}
+
+{%- liquid
+  assign heading = section.settings.heading | default: 'Get the free Caregiver’s Guide to Incontinence'
+  assign subtext = section.settings.subtext | default: 'Judgment-free tips for managing bladder leaks with dignity — plus guidance on choosing the right protection for you or the person you care for.'
+  assign button_label = section.settings.button_label | default: 'Send me the guide'
+  assign placeholder = section.settings.placeholder | default: 'you@email.com'
+  assign fineprint = section.settings.fineprint | default: 'Free. Unsubscribe anytime.'
+  assign success_text = section.settings.success_text | default: 'You’re in — check your inbox for the guide.'
+-%}
+
+{% style %}
+  .home-ecap-{{ section.id }} { background: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}; padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px; text-align: center; }
+  .home-ecap-{{ section.id }} .home-ecap__inner { max-width: 620px; margin: 0 auto; }
+  .home-ecap-{{ section.id }} h2 { font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
+  .home-ecap-{{ section.id }} p.home-ecap__sub { font-size: 16px; line-height: 1.55; margin: 0 0 22px; opacity: .9; }
+  .home-ecap-{{ section.id }} .home-ecap__form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .home-ecap-{{ section.id }} .home-ecap__email { flex: 1 1 260px; max-width: 340px; padding: 14px 16px; border: 1px solid rgba(25,52,69,.28); border-radius: 10px; font-size: 16px; }
+  .home-ecap-{{ section.id }} .home-ecap__btn { flex: 0 0 auto; padding: 14px 26px; border: 0; border-radius: 10px; background: {{ section.settings.button_bg }}; color: {{ section.settings.button_text_color }}; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .home-ecap-{{ section.id }} .home-ecap__btn:hover { background: {{ section.settings.button_bg_hover }}; }
+  .home-ecap-{{ section.id }} .home-ecap__success { font-size: 17px; font-weight: 600; margin: 8px 0; }
+  .home-ecap-{{ section.id }} .home-ecap__error { color: #b00020; font-size: 14px; margin: 8px 0 0; }
+  .home-ecap-{{ section.id }} .home-ecap__fine { font-size: 12px; opacity: .65; margin: 12px 0 0; }
+{% endstyle %}
+
+<div class="home-ecap-{{ section.id }}">
+  <div class="home-ecap__inner">
+    <h2>{{ heading }}</h2>
+    <p class="home-ecap__sub">{{ subtext }}</p>
+    {%- form 'customer', class: 'home-ecap__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter, home-capture">
+      <label class="visually-hidden" for="home-ecap-email-{{ section.id }}">Email</label>
+      <input id="home-ecap-email-{{ section.id }}" class="home-ecap__email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
+      <button type="submit" class="home-ecap__btn">{{ button_label }}</button>
+      {%- if form.posted_successfully? -%}
+        <p class="home-ecap__success" data-ecap-success>{{ success_text }}</p>
+      {%- elsif form.errors -%}
+        <p class="home-ecap__error">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+    {%- endform -%}
+    <p class="home-ecap__fine">{{ fineprint }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Home email capture",
+  "tag": "section",
+  "class": "section home-email-capture",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get the free Caregiver’s Guide to Incontinence" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Judgment-free tips for managing bladder leaks with dignity — plus guidance on choosing the right protection for you or the person you care for." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send me the guide" },
+    { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "you@email.com" },
+    { "type": "text", "id": "success_text", "label": "Success message", "default": "You’re in — check your inbox for the guide." },
+    { "type": "text", "id": "fineprint", "label": "Fine print", "default": "Free. Unsubscribe anytime." },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#eef4f6" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#193445" },
+    { "type": "color", "id": "button_bg", "label": "Button", "default": "#003649" },
+    { "type": "color", "id": "button_bg_hover", "label": "Button hover", "default": "#005c7c" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "min": 20, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 20, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 56 }
+  ],
+  "presets": [
+    { "name": "Home email capture" }
+  ]
+}
+{% endschema %}

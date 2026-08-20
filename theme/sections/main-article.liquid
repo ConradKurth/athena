@@ -171,7 +171,15 @@
             <div class="main-article__body" itemprop="articleBody" {{ block.shopify_attributes }}>
               {% render 'key-takeaway', article: article %}
               <nav id="article-toc" class="article-toc" aria-label="Table of contents" hidden></nav>
-              {{ article.content }}
+              {%- assign _parts = article.content | split: '</p>' -%}
+              {%- if _parts.size > 4 -%}
+                {%- for _p in _parts -%}
+                  {{ _p }}{%- unless forloop.last -%}</p>{%- endunless -%}
+                  {%- if forloop.index == 3 -%}{% render 'article-inline-capture', article: article %}{%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {{ article.content }}
+              {%- endif -%}
             </div>
             <style>
               .article-toc{border:1px solid #e2e6ea;border-radius:10px;padding:16px 20px;margin:0 0 24px;background:#f7f9fb}
