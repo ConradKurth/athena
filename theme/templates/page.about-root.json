@@ -9,6 +9,45 @@
  */
 {
   "sections": {
+    "image_with_text_qAmd7D": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_eGVqnf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>I'm Dr. Jacqueline Krieger, an emergency physician. Over the years, I watched the same story walk through my ER doors again and again: a woman — often someone's mother or grandmother — septic and frightened from a UTI that began quietly, inside the incontinence brief she depended on every day.</p><p>The products meant to give these women freedom were holding bacteria directly against the most vulnerable spot on their bodies. And no one had built anything to address it.</p><p>So I did. UraGuard® is a thin, lab-tested shield worn inside the brief you already use — a simple barrier between held bacteria and the urethra, where UTIs begin. It isn't a replacement for good care. It's the missing layer.</p><p>I made it for the women I treated, for the daughters caring for them, and for everyone who believes that dignity and protection should come in the same package.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "text_eGVqnf"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "Why I Created UraGuard®",
+        "layout": "image_first",
+        "desktop-percentage-image-width": 30,
+        "full-width-enabled": false,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/jacqueline-krieger-md.jpg",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_image": "shopify://shop_images/jacqueline-krieger-md_9e73e94e-57c0-4447-9465-42b915b10567.jpg",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -25,21 +64,6 @@
     "multicolumn_icT3gR": {
       "type": "multicolumn",
       "blocks": {
-        "column_fb8iMH": {
-          "type": "column",
-          "settings": {
-            "heading": "Protection from UTI-causing Bacteria",
-            "heading_disable_on_mobile": false,
-            "text": "<p>Our patent-pending technology helps limit bacteria exposure where it matters most, giving you a solution that goes beyond traditional incontinence products.<br/><br/></p>",
-            "text_disable_on_mobile": false,
-            "button_select": "primary",
-            "button_label": "",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "desktop_image": "shopify://shop_images/Product_in_basket.jpg"
-          }
-        },
         "column_wYzXYQ": {
           "type": "column",
           "settings": {
@@ -72,7 +96,6 @@
         }
       },
       "block_order": [
-        "column_fb8iMH",
         "column_wYzXYQ",
         "column_YAUKaV"
       ],
@@ -200,6 +223,7 @@
     }
   },
   "order": [
+    "image_with_text_qAmd7D",
     "main",
     "multicolumn_icT3gR",
     "separator_8MHExC",
