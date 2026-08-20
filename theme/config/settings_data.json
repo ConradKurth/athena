@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "favicon": "shopify://shop_images/athena_logo_9.png",
     "layout-width": 1600,
     "radius": 14,
     "button-radius": 10,
@@ -64,12 +65,12 @@
     "type_button_font_letter_spacing": 2,
     "type_price_font": "raleway_n4",
     "type_body_font_size_breadcrumbs": 12,
-    "type_body_font_size": 15,
+    "type_body_font_size": 17,
     "type_headings_font_size": 18,
     "type_navigation_font_size": 13,
     "type_button_font_size": 12,
     "type_body_font_size_desk_breadcrumbs": 13,
-    "type_body_font_size_desk": 16,
+    "type_body_font_size_desk": 18,
     "type_headings_font_size_desk": 22,
     "type_navigation_font_size_desk": 14,
     "type_button_font_size_desk": 12,
