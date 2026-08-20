@@ -623,6 +623,10 @@
         "section-margin": 0
       }
     },
+    "home_email_capture": {
+      "type": "home-email-capture",
+      "settings": {}
+    },
     "brands_EbRKxC": {
       "type": "brands",
       "blocks": {
@@ -672,6 +676,7 @@
     "17630987279dbe4890",
     "1763019260907e5e04",
     "1764834013d7aa1469",
+    "home_email_capture",
     "brands_EbRKxC"
   ]
 }
