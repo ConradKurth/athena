@@ -5,17 +5,38 @@
   Liquid {% form 'customer' %} — raw HTML forms placed in the article BODY are stripped by the
   storefront sanitizer, so capture must live in the theme, not the article body. Tags `newsletter`
   (Omnisend sync) + `inline-capture` (attribution). Same lead magnet as the other surfaces.
+
+  UTI cluster (article.handle contains 'uti') gets a problem-specific offer: those are the
+  highest-traffic, lowest-converting landing pages (informational intent), and email is the only
+  channel that converts them. `instance` param lets main-article render a second unit before the
+  FAQ with unique input ids. Success <p> carries data-ecap-success for GA4 sign_up tracking.
 {%- endcomment -%}
+{%- liquid
+  assign inst = instance | default: ''
+  assign is_uti = false
+  if article.handle contains 'uti'
+    assign is_uti = true
+  endif
+  if is_uti
+    assign aic_h = 'Worried your pads or diapers are causing UTIs?'
+    assign aic_sub = 'Get the free guide &mdash; what actually lowers UTI risk when you manage incontinence, plus which protection helps. Delivered to your inbox.'
+    assign aic_tags = 'newsletter, inline-capture, uti-capture'
+  else
+    assign aic_h = 'Get the free Caregiver&rsquo;s Guide to Incontinence'
+    assign aic_sub = 'Judgment-free tips for managing bladder leaks with dignity &mdash; plus guidance on choosing the right protection for you or the person you care for. Delivered to your inbox.'
+    assign aic_tags = 'newsletter, inline-capture'
+  endif
+-%}
 <div class="article-inline-capture">
-  <p class="aic__h">Get the free Caregiver&rsquo;s Guide to Incontinence</p>
-  <p class="aic__sub">Judgment-free tips for managing bladder leaks with dignity &mdash; plus guidance on choosing the right protection for you or the person you care for. Delivered to your inbox.</p>
+  <p class="aic__h">{{ aic_h }}</p>
+  <p class="aic__sub">{{ aic_sub }}</p>
   {%- form 'customer', class: 'aic__form' -%}
-    <input type="hidden" name="contact[tags]" value="newsletter, inline-capture">
-    <label class="visually-hidden" for="aic-email-{{ article.id }}">Email</label>
-    <input id="aic-email-{{ article.id }}" class="aic__email" type="email" name="contact[email]" required autocomplete="email" placeholder="you@email.com">
+    <input type="hidden" name="contact[tags]" value="{{ aic_tags }}">
+    <label class="visually-hidden" for="aic-email-{{ article.id }}{{ inst }}">Email</label>
+    <input id="aic-email-{{ article.id }}{{ inst }}" class="aic__email" type="email" name="contact[email]" required autocomplete="email" placeholder="you@email.com">
     <button type="submit" class="aic__btn">Get the guide</button>
     {%- if form.posted_successfully? -%}
-      <p class="aic__ok">You&rsquo;re in &mdash; check your inbox for the guide.</p>
+      <p class="aic__ok" data-ecap-success data-ecap-source="inline">You&rsquo;re in &mdash; check your inbox for the guide.</p>
     {%- elsif form.errors -%}
       <p class="aic__err">{{ form.errors | default_errors }}</p>
     {%- endif -%}

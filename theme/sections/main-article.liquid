@@ -239,6 +239,7 @@
         {%- endcase -%}
       </div>
     {%- endfor -%}
+    {%- if article.handle contains 'uti' -%}{% render 'article-inline-capture', article: article, instance: 'end' %}{%- endif -%}
     {% render 'article-faq', article: article %}
     {% render 'author-bio', name: article.author, title: au_title, bio: au_bio, image: au_image, linkedin: au_linkedin, expertise: au_expertise, url: au_url %}
     {%- if blog.comments_enabled? -%}
