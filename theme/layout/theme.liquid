@@ -42,6 +42,16 @@
       gtag('js', new Date());
       gtag('config', 'G-LBVK4HP6KM');
     </script>
+    <script>
+      /* Athena — GA4 lead capture. Fire ONE sign_up per successful newsletter post.
+         Shopify marks form.posted_successfully? on ALL customer forms after a post, so
+         guard to a single event; per-surface attribution lives in Omnisend contact tags. */
+      document.addEventListener('DOMContentLoaded', function () {
+        var ok = document.querySelector('[data-ecap-success]');
+        if (!ok) return;
+        gtag('event', 'sign_up', { method: 'email', capture_source: ok.getAttribute('data-ecap-source') || 'unknown' });
+      });
+    </script>
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">

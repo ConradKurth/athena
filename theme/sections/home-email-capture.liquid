@@ -39,7 +39,7 @@
       <input id="home-ecap-email-{{ section.id }}" class="home-ecap__email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
       <button type="submit" class="home-ecap__btn">{{ button_label }}</button>
       {%- if form.posted_successfully? -%}
-        <p class="home-ecap__success" data-ecap-success>{{ success_text }}</p>
+        <p class="home-ecap__success" data-ecap-success data-ecap-source="home">{{ success_text }}</p>
       {%- elsif form.errors -%}
         <p class="home-ecap__error">{{ form.errors | default_errors }}</p>
       {%- endif -%}

@@ -19,6 +19,11 @@
   assign fineprint = section.settings.fineprint | default: 'Free tips for managing bladder leaks with dignity. Unsubscribe anytime.'
   assign success_text = section.settings.success_text | default: 'You’re in — check your inbox for the guide.'
   assign sticky_text = section.settings.sticky_text | default: 'Free Caregiver’s Guide to Incontinence — sent to your inbox.'
+  if article.handle contains 'uti'
+    assign heading = 'Worried your pads or diapers are causing UTIs?'
+    assign subtext = 'Get the free guide — what actually lowers UTI risk when you manage incontinence, plus which protection helps.'
+    assign sticky_text = 'Free guide: lower your UTI risk with incontinence — sent to your inbox.'
+  endif
 -%}
 
 {% style %}
@@ -81,7 +86,7 @@
           <input id="ecap-email-{{ section.id }}" class="ecap-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
           <button type="submit" class="ecap-btn">{{ button_label }}</button>
           {%- if form.posted_successfully? -%}
-            <p class="ecap-success" data-ecap-success>{{ success_text }}</p>
+            <p class="ecap-success" data-ecap-success data-ecap-source="popup">{{ success_text }}</p>
           {%- elsif form.errors -%}
             <p class="ecap-error">{{ form.errors | default_errors }}</p>
           {%- endif -%}
@@ -100,7 +105,7 @@
         <input id="ecap-sticky-email-{{ section.id }}" class="ecap-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ placeholder }}">
         <button type="submit" class="ecap-btn">{{ button_label }}</button>
         {%- if form.posted_successfully? -%}
-          <span class="ecap-success" data-ecap-success>{{ success_text }}</span>
+          <span class="ecap-success" data-ecap-success data-ecap-source="sticky">{{ success_text }}</span>
         {%- elsif form.errors -%}
           <span class="ecap-error">{{ form.errors | default_errors }}</span>
         {%- endif -%}
