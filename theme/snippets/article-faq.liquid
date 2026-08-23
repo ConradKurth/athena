@@ -15,7 +15,7 @@
         <li class="article-faq__item">
           <details{% if forloop.first %} open{% endif %}>
             <summary class="article-faq__q">{{ item.title }}</summary>
-            <div class="article-faq__a rte">{{ item.answer }}</div>
+            <div class="article-faq__a rte">{{ item.answer | metafield_tag }}</div>
           </details>
         </li>
       {%- endfor -%}
@@ -30,7 +30,7 @@
         {
           "@type": "Question",
           "name": {{ item.title | strip_html | json }},
-          "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | strip_html | json }} }
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | metafield_text | json }} }
         }{%- unless forloop.last -%},{%- endunless -%}
         {%- endfor -%}
       ]
