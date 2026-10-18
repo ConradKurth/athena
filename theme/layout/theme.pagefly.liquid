@@ -7,16 +7,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 <html
   class="no-js"
   lang="{{ request.locale.iso_code }}"
-  dir="{%- if lang_code == 'ar'      # Arabic (ar-SA, ar-EG, ar-AE, ...)
-          or lang_code == 'he'       # Hebrew (he-IL)
-          or lang_code == 'fa'       # Persian / Farsi (fa-IR)
-          or lang_code == 'ur'       # Urdu (ur-PK, ur-IN)
-          or lang_code == 'ps'       # Pashto (ps-AF)
-          or lang_code == 'sd'       # Sindhi (sd-PK, sd-IN)
-          or lang_code == 'dv'       # Dhivehi / Maldivian (dv-MV)
-          or lang_code == 'ug'       # Uyghur (ug-CN)
-          or lang_code == 'yi'       # Yiddish (yi-001)
-  -%}
+  dir="{%- if lang_code == 'ar' or lang_code == 'he' or lang_code == 'fa' or lang_code == 'ur' or lang_code == 'ps' or lang_code == 'sd' or lang_code == 'dv' or lang_code == 'ug' or lang_code == 'yi' -%}
     rtl
   {%- else -%}
     ltr
@@ -211,3 +202,25 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
               {{ content_for_layout }}
             </div></body>
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- if lang_code == 'ar'      # Arabic (ar-SA, ar-EG, ar-AE, ...)
+              or lang_code == 'he'       # Hebrew (he-IL)
+              or lang_code == 'fa'       # Persian / Farsi (fa-IR)
+              or lang_code == 'ur'       # Urdu (ur-PK, ur-IN)
+              or lang_code == 'ps'       # Pashto (ps-AF)
+              or lang_code == 'sd'       # Sindhi (sd-PK, sd-IN)
+              or lang_code == 'dv'       # Dhivehi / Maldivian (dv-MV)
+              or lang_code == 'ug'       # Uyghur (ug-CN)
+              or lang_code == 'yi'       # Yiddish (yi-001)
+      -%}
+  to: "{%- if lang_code == 'ar' or lang_code == 'he' or lang_code == 'fa' or lang_code
+    == 'ur' or lang_code == 'ps' or lang_code == 'sd' or lang_code == 'dv' or lang_code
+    == 'ug' or lang_code == 'yi' -%}"
+  position: 424..620
+{% endcomment %}

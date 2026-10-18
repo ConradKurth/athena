@@ -87,9 +87,9 @@
     "collection_cross_sells": "uraguard-incontinence-products",
     "product_list_cross_sells": [],
     "enable_free_shipping_bar": true,
-    "free_shipping_bar_amount": "55",
-    "free_shipping_bar_text": "You're ||amount|| away from FREE shipping — the 60-pack gets you there!",
-    "free_shipping_bar_text_success": "You've unlocked FREE shipping!",
+    "free_shipping_bar_amount": "1",
+    "free_shipping_bar_text": "Free shipping is included on every order.",
+    "free_shipping_bar_text_success": "Free shipping is included on every order.",
     "currency_code_enabled": false,
     "iconset": "option_1",
     "enable-bag-icon": false,
@@ -112,6 +112,31 @@
     "color-hedings-text": "#ff9900",
     "always_mobile_navigation": false,
     "colors_solid_button_labels": "#d43c3c",
+    "sections": {
+      "email-capture-popup": {
+        "type": "email-capture-popup",
+        "settings": {
+          "enable_popup": false,
+          "enable_sticky": false,
+          "suppress_handles": "for-all-caregivers, caregivers-lp, incontinence-bacteria-skin-protection",
+          "trigger_scroll_percent": 50,
+          "trigger_time_seconds": 25,
+          "frequency_days": 7,
+          "heading": "Get the free Caregiver’s Guide to Incontinence",
+          "subtext": "Practical, judgment-free tips for managing bladder leaks — plus product guidance for you or the person you care for. Delivered to your inbox.",
+          "sticky_text": "Free Caregiver’s Guide to Incontinence — sent to your inbox.",
+          "button_label": "Get the guide",
+          "placeholder": "you@email.com",
+          "success_text": "You’re in — check your inbox for the guide.",
+          "fineprint": "Free tips for managing bladder leaks with dignity. Unsubscribe anytime.",
+          "bg_color": "#ffffff",
+          "text_color": "#193445",
+          "button_bg": "#003649",
+          "button_bg_hover": "#005c7c",
+          "button_text_color": "#ffffff"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "14060646107696862457": {

@@ -28,7 +28,7 @@
         "heading_KdRc4R": {
           "type": "heading",
           "settings": {
-            "heading": "For Families Dealing with Incontinence",
+            "heading": "Incontinence Care for Aging Parents: A Guide for Families",
             "disable_on_mobile": false,
             "size_heading": 100,
             "size_heading_mobile": 100
@@ -75,7 +75,7 @@
         "text_iMnQkC": {
           "type": "text",
           "settings": {
-            "text": "<p>Does someone you love rely on caregivers to change their soiled incontinence items?</p><p>Whether they live in:</p><ul><li><strong>An assisted living facility</strong></li><li><strong>A</strong> <strong>nursing home</strong></li><li><strong>A long-term care facility</strong></li><li><strong>A memory care</strong></li><li><strong>A skilled nursing facility</strong> </li></ul><p>UraGuard® can help you keep them safe and protected.</p>",
+            "text": "<p>Does someone you love rely on caregivers to change their soiled incontinence items?</p><p>Whether they live in:</p><ul><li><strong>An assisted living facility</strong></li><li><strong>A</strong> <strong>nursing home</strong></li><li><strong>A long-term care facility</strong></li><li><strong>A memory care</strong></li><li><strong>A skilled nursing facility</strong> </li></ul><p>UraGuard® can add a simple layer of hygiene protection between changes.</p>",
             "text_style": "body",
             "disable_on_mobile": false
           }
@@ -128,7 +128,7 @@
         "text_EVQLyz": {
           "type": "text",
           "settings": {
-            "text": "<p>UraGuard® Shield is designed to reduce contact with moisture and bacteria commonly found in incontinence products. UraGuard® helps your loved ones maintain superior hygiene while giving you peace of mind.</p><p>UraGuard® was inspired by the stories of patients and families. All too often, family members express concern that their loved one not being changed in a timely fashion. They worry about prolonged exposure to moisture and bacteria when sitting in soiled incontinence products.</p><p>UraGuard® is here to help. UraGuard® provides an added layer of protection to support your loved one’s hygiene and comfort, while easing your concerns.</p>",
+            "text": "<p>UraGuard® Shield is designed to reduce contact with moisture and bacteria commonly found in incontinence products. UraGuard® helps your loved ones maintain superior hygiene while giving you peace of mind.</p><p>UraGuard® was inspired by the stories of patients and families. All too often, family members express concern that their loved one not being changed in a timely fashion. They worry about prolonged exposure to moisture and bacteria when sitting in soiled incontinence products.</p><p>UraGuard® is here to help. UraGuard® provides an added layer of protection to support your loved one’s hygiene and comfort, while easing your concerns.</p>",
             "disable_on_mobile": false
           }
         }
@@ -158,10 +158,10 @@
           "settings": {
             "desktop_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
             "mobile_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.45_AM.jpg",
-            "heading": "UraGuard® Blocks Bacteria",
+            "heading": "A Barrier Where It Matters Most",
             "size_heading": 100,
             "size_heading_mobile": 100,
-            "text": "UraGuard® is placed directly under the urethra — the part of the body that carries urine out of the bladder. When someone sits in a soiled incontinence product, bacteria can travel up the urethra and into the bladder, increasing the risk of urinary tract infections (UTIs). UraGuard® acts as a protective barrier, helping to reduce contact with moisture and bacteria commonly found in incontinence products.",
+            "text": "UraGuard® sits directly under the urethra, the opening that carries urine out of the body. When someone waits in a soiled brief, their skin rests against the moisture and bacteria held in it. UraGuard® places a physical barrier there, helping reduce their exposure until the next change.",
             "button_select": "primary",
             "button_label": "Shop Now",
             "button_link": "shopify://products/athena-uraguard-liner",
@@ -176,7 +176,7 @@
             "heading": "UraGuard® Provides Continuous Protection",
             "size_heading": 100,
             "size_heading_mobile": 100,
-            "text": "UraGuard® provides continuous protection, day and night. Designed to be lightweight and comfortable, the shield offers effortless, around-the-clock protection., giving you peace of mind at all times.",
+            "text": "UraGuard® provides continuous protection, day and night. Designed to be lightweight and comfortable, the shield offers effortless, around-the-clock protection, giving you peace of mind at all times.",
             "button_select": "primary",
             "button_label": "shop now",
             "button_link": "shopify://products/athena-uraguard-liner",

@@ -42,9 +42,9 @@
             "button_hover_background_color": "#717171",
             "button_hover_text_color": "#ececec",
             "button_border_radius": 10,
-            "image": "shopify://shop_images/uraguard-shield-inside-incontinence-underwear.jpg",
+            "image": "shopify://shop_images/Briefs_hold_bacteria_against_your_skin._2.jpg",
             "image_border_radius": 14,
-            "background_color": "#FBF0EF",
+            "background_color": "#f1f5f8",
             "heading_color": "#193445",
             "text_color": "#193445"
           },
@@ -60,6 +60,15 @@
       "name": "Text with image",
       "settings": {
         "section-margin": 0
+      }
+    },
+    "lab_results_96": {
+      "type": "lab-results-96",
+      "settings": {
+        "bg_color": "#eef4f6",
+        "show_button": true,
+        "button_label": "Shop UraGuard® Shield",
+        "button_link": "shopify://products/athena-uraguard-liner"
       }
     },
     "blocks_TgYXaD": {
@@ -93,7 +102,7 @@
             "text_8": "<p>McKesson® </p>",
             "text_9": "<p>NorthShore®</p>",
             "text_10": "<p>Amazon Basics®</p>",
-            "background_color": "#ececec",
+            "background_color": "#f7e0e0",
             "text_color": "#193445",
             "font_size": 18,
             "font_weight": "400",
@@ -183,7 +192,7 @@
             "column_1_bg_color": "#fff9f9",
             "column_2_heading": "Without UraGuard®",
             "column_2_image": "shopify://shop_images/Screenshot_2025-04-02_at_9.30.33_AM_3f10a01d-478e-4229-8c18-006c23715e67.png",
-            "column_2_text": "<ul><li>Standard incontinence products <strong>collect urine and stool.</strong> The moist environment allows bacteria to grow and multiply near the urethra.</li><li><strong>Bacteria can reach the urethra</strong>, increasing the <strong>risk of UTIs</strong> and discomfort.</li></ul>",
+            "column_2_text": "<ul><li>Standard incontinence products <strong>collect urine and stool.</strong> The moist environment allows bacteria to grow and multiply near the urethra.</li><li>Your skin <strong>stays in contact with that moisture</strong> until your next change.</li></ul>",
             "column_2_text_align": "left",
             "column_2_bg_color": "#fbf0ef",
             "column_heading_color": "#193445",
@@ -612,6 +621,9 @@
       "block_order": [
         "ai_gen_block_0d1c2d5_tD3R4J"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {div:has(> img[src*=\"Athena_Banner\"]), div:has(> picture img[src*=\"Athena_Banner\"]), div:has(> a img[src*=\"Athena_Banner\"]) {display: none !important; } }"
+      ],
       "settings": {
         "section-margin": 0
       }
@@ -623,15 +635,15 @@
           "type": "ai_gen_block_17e700d",
           "settings": {
             "text_1": "<p>DISCOVER COMFORT TODAY</p>",
-            "text_2": "<p>SUPPORTING URINARY HEALTH</p>",
+            "text_2": "<p>KEEPS BACTERIA & MOISTURE OFF YOUR SKIN</p>",
             "text_3": "<p>ADVANCED TECHNOLOGY</p>",
             "text_4": "<p>GUARD AGAINST BACTERIA</p>",
             "text_5": "<p>DISCOVER COMFORT TODAY</p>",
-            "text_6": "<p>SUPPORTING URINARY HEALTH</p>",
+            "text_6": "<p>KEEPS BACTERIA & MOISTURE OFF YOUR SKIN</p>",
             "text_7": "<p>ADVANCED TECHNOLOGY</p>",
             "text_8": "<p>GUARD AGAINST BACTERIA</p>",
             "text_9": "<p>DISCOVER COMFORT TODAY</p>",
-            "text_10": "<p>SUPPORTING URINARY HEALTH</p>",
+            "text_10": "<p>KEEPS BACTERIA & MOISTURE OFF YOUR SKIN</p>",
             "background_color": "#ececec",
             "text_color": "#193445",
             "font_size": 18,
@@ -703,6 +715,7 @@
   "order": [
     "separator_aVXGVH",
     "blocks_6DGhfr",
+    "lab_results_96",
     "blocks_TgYXaD",
     "176416070577ba402d",
     "1764840634d1f8c106",

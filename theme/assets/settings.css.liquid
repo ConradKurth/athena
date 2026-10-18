@@ -102,7 +102,7 @@
     /* General */
     --color-background: {{ settings['color-background'] }};
     --color-background-rgb: {{ settings['color-background'] | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-    --color-foreground: rgba({{ settings['color-body-text' | color_extract: 'red' }}, {{ settings['color-body-text'] | color_extract: 'green' }}, {{ settings['color-body-text'] | color_extract: 'blue' }}, 0.03);
+    --color-foreground: rgba({{ settings.color-body-text | color_extract: 'red' }}, {{ settings['color-body-text'] | color_extract: 'green' }}, {{ settings['color-body-text'] | color_extract: 'blue' }}, 0.03);
     --color-teaser-background: #F4EEDA;
     --color-headings-text: {{ settings['color-headings-text'] }};
     --color-text: {{ settings['color-body-text'] }};
@@ -241,3 +241,13 @@ html[dir="rtl"] {
         --height-chip: 3.2rem;
     }
 }
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ settings['color-body-text' | color_extract: 'red' }}"
+  to: "{{ settings.color-body-text | color_extract: 'red' }}"
+  position: 4834..4887
+{% endcomment %}

@@ -15,7 +15,7 @@
         "text_eGVqnf": {
           "type": "text",
           "settings": {
-            "text": "<p>I'm Dr. Jacqueline Krieger, an emergency physician. Over the years, I watched the same story walk through my ER doors again and again: a woman — often someone's mother or grandmother — septic and frightened from a UTI that began quietly, inside the incontinence brief she depended on every day.</p><p>The products meant to give these women freedom were holding bacteria directly against the most vulnerable spot on their bodies. And no one had built anything to address it.</p><p>So I did. UraGuard® is a thin, lab-tested shield worn inside the brief you already use — a simple barrier between held bacteria and the urethra, where UTIs begin. It isn't a replacement for good care. It's the missing layer.</p><p>I made it for the women I treated, for the daughters caring for them, and for everyone who believes that dignity and protection should come in the same package.</p>",
+            "text": "<p>I'm Dr. Jacqueline Krieger, an emergency physician. Over the years, I watched the same story walk through my ER doors again and again: a woman — often someone's mother or grandmother — frightened and uncomfortable after hours spent in a soiled incontinence brief.</p><p>The products meant to give these women freedom were holding bacteria directly against the most vulnerable spot on their bodies. And no one had built anything to address it.</p><p>So I did. UraGuard® is a thin, lab-tested shield worn inside the brief you already use — a simple physical barrier between your skin and the bacteria and moisture the brief holds. It isn't a replacement for good care. It's the missing layer.</p><p>I made it for the women I treated, for the daughters caring for them, and for everyone who believes that dignity and protection should come in the same package.</p>",
             "text_style": "body",
             "disable_on_mobile": false
           }
@@ -69,7 +69,7 @@
           "settings": {
             "heading": "Comfort Meets Discretion",
             "heading_disable_on_mobile": false,
-            "text": "<p>UraGuard's® ultra-light, adaptive design provides a secure, sleek fit that moves with you. Enjoy reliable protection without compromising on comfort or confidence.</p>",
+            "text": "<p>UraGuard's® ultra-light, adaptive design provides a secure, sleek fit that moves with you. Enjoy discreet protection without compromising on comfort or confidence.</p>",
             "text_disable_on_mobile": false,
             "button_select": "primary",
             "button_label": "",
@@ -84,7 +84,7 @@
           "settings": {
             "heading": "Tailored for Women’s Health",
             "heading_disable_on_mobile": false,
-            "text": "<p>UraGuard® is the first incontinence product designed specifically for women, addressing their unique anatomy and health needs with precision and care. This ensures better protection, comfort, and confidence in every moment.</p>",
+            "text": "<p>UraGuard® is designed specifically for women's anatomy, addressing their unique needs with precision and care. This ensures better protection, comfort, and confidence in every moment.</p>",
             "text_disable_on_mobile": false,
             "button_select": "primary",
             "button_label": "",
@@ -223,8 +223,8 @@
     }
   },
   "order": [
-    "image_with_text_qAmd7D",
     "main",
+    "image_with_text_qAmd7D",
     "multicolumn_icT3gR",
     "separator_8MHExC",
     "blocks_FctqD9",

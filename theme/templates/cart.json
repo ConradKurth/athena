@@ -16,8 +16,8 @@
           "type": "ai_gen_block_cd1e55b",
           "settings": {
             "banner_text_before": "Free shipping on",
-            "banner_text_highlight": "60 and 90 Packs",
-            "banner_text_after": "— Stock Up and Save!",
+            "banner_text_highlight": "every order",
+            "banner_text_after": "— no minimum, ever.",
             "text_alignment": "center",
             "desktop_width_percent": 100,
             "padding_vertical": 15,
