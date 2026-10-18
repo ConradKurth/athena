@@ -67,7 +67,7 @@
             "brand": "",
             "enable_vendor_link": false,
             "size_text": 300,
-            "size_text_mobile": 160
+            "size_text_mobile": 110
           }
         },
         "text_CDKQpM": {
@@ -85,10 +85,9 @@
         },
         "price": {
           "type": "price",
-          "disabled": true,
           "settings": {
             "show_tax_included": true,
-            "show_shipping_policy": true,
+            "show_shipping_policy": false,
             "size_text": 140,
             "size_text_mobile": 140
           }
@@ -292,17 +291,17 @@
         "judge_me_reviews_preview_badge_Vm7YzR",
         "price",
         "image_Lab96Badge",
+        "variant_picker_WQEbez",
+        "seal_subscriptions_subscription_widget_bjDiHx",
+        "buy_buttons",
+        "separator_reBrRK",
         "image_69jm6j",
         "image_h3yBAq",
         "image_3Fyjeq",
         "image_DrLabTest",
-        "separator_reBrRK",
         "feature_tags_ktxUht",
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
-        "variant_picker_WQEbez",
         "separator_xgqTJM",
-        "seal_subscriptions_subscription_widget_bjDiHx",
-        "buy_buttons",
         "text_kYzwWP",
         "text_CrwGyb",
         "promo_wBVFy3",
