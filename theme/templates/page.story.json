@@ -9,278 +9,134 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "compact-size-enabled": true,
-        "size_heading": 140,
-        "size_heading_mobile": 100,
-        "color-body-text": "#ffffff",
-        "color-bg-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "image_banner_78NHff": {
-      "type": "image-banner",
+    "ug_page": {
+      "type": "ug-pg1-page",
       "blocks": {
-        "heading_Yx8Ge4": {
-          "type": "heading",
-          "disabled": true,
+        "b1_hero": {
+          "type": "hero",
           "settings": {
-            "heading": "Behind the Science",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100
+            "eyebrow": "Behind the science",
+            "heading": "A thin barrier between your skin",
+            "heading_accent": "and your brief.",
+            "text": "<p>UraGuard® is a thin hygiene shield that goes inside the incontinence brief you already wear. It keeps your skin separated from the moist core where bacteria thrive.</p>",
+            "image": "shopify://shop_images/uraguard-shield-inside-incontinence-underwear.jpg",
+            "image_alt": "A UraGuard shield inside incontinence underwear",
+            "button_label": "Shop UraGuard®",
+            "button_link": "shopify://products/athena-uraguard-liner",
+            "button2_label": "See the lab result",
+            "button2_link": "/pages/behind-the-science#ug-lab",
+            "ratio": "square"
           }
         },
-        "subheading_dVLTjk": {
-          "type": "subheading",
+        "b2_text_image": {
+          "type": "text_image",
           "settings": {
-            "subheading": "Behind the Science",
-            "subheading_disable_on_mobile": false
+            "bg": "paper",
+            "eyebrow": "How it works",
+            "heading": "A physical barrier, not another absorbent layer",
+            "text": "<p>Our patent-pending design places a physical barrier between your skin and the moist core of your brief, helping reduce your exposure to the bacteria and moisture held there.</p><p>Absorbent briefs are built to hold moisture, and that warm, damp core is where bacteria thrive. UraGuard® doesn’t absorb anything. <strong>Your brief still does that job; UraGuard® keeps your skin separated from it.</strong></p>",
+            "image": "shopify://shop_images/Scientist_square.png",
+            "image_alt": "A scientist in the laboratory",
+            "image_right": false,
+            "ratio": "square"
           }
         },
-        "text_hYNHjy": {
-          "type": "text",
+        "b3_cards": {
+          "type": "cards",
           "settings": {
-            "text": "<p>A thin barrier between your skin and your brief<br/><br/></p>",
-            "disable_on_mobile": false
+            "bg": "white",
+            "eyebrow": "What makes it different",
+            "heading": "Simple by design",
+            "card_1_title": "It doesn’t absorb",
+            "card_1_text": "Your brief keeps doing its job. UraGuard® simply keeps your skin apart from the wet core.",
+            "card_2_title": "Patent-pending barrier",
+            "card_2_text": "A thin physical layer between your skin and the moisture and bacteria your brief holds.",
+            "card_3_title": "Independently lab-tested",
+            "card_3_text": "Tested with the AATCC 100 method by an independent laboratory."
+          }
+        },
+        "b4_stat96": {
+          "type": "stat96",
+          "settings": {
+            "bg": "blush",
+            "eyebrow": "Independent lab result",
+            "heading": "less surface bacteria in laboratory testing†",
+            "text": "In laboratory testing, UraGuard® technology reduced surface bacteria by 96%.† Independently tested over 8 hours using the AATCC 100 method, compared with a standard diaper.",
+            "button_label": "Shop UraGuard®",
+            "button_link": "shopify://products/athena-uraguard-liner"
+          }
+        },
+        "b5_uti": {
+          "type": "uti",
+          "settings": {
+            "bg": "paper",
+            "eyebrow": "Why it matters",
+            "heading": "A wet brief can lead to a UTI.",
+            "text": "<p>A brief stops leaks, but it holds the urine right against you. Hours of warmth and moisture next to the urethra is how many urinary tract infections begin.</p>",
+            "stat_note": "The problem isn’t you. It’s what sits against your skin all day."
+          }
+        },
+        "b6_video": {
+          "type": "video",
+          "settings": {
+            "bg": "white",
+            "eyebrow": "See it in action",
+            "heading": "How UraGuard® works",
+            "video": "shopify://files/videos/UraGuard Comparison Video Updated.mp4"
+          }
+        },
+        "b7_product": {
+          "type": "product",
+          "settings": {
+            "eyebrow": "Shop",
+            "heading": "Try UraGuard® today",
+            "text": "One shield per change. Fits inside any brief, pull-on or adult diaper.",
+            "ticks": "Works inside Depend®, TENA®, Always® and every other brand\nThin and soft. No one will know it’s there\nDesigned by an ER physician, made in the USA",
+            "button_label": "Shop UraGuard®"
+          }
+        },
+        "b8_news": {
+          "type": "news",
+          "settings": {
+            "heading": "UraGuard® in the news",
+            "logo_1": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link_1": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/",
+            "logo_2": "shopify://shop_images/Untitled_design_68.png",
+            "link_2": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
+          }
+        },
+        "b9_blog": {
+          "type": "blog",
+          "settings": {
+            "bg": "paper",
+            "eyebrow": "Keep reading",
+            "heading": "Learn more on our blog",
+            "blog": "news"
+          }
+        },
+        "b10_notes": {
+          "type": "notes",
+          "settings": {
+            "text": "<p>UraGuard® is a physical barrier. It is not a treatment for, and is not intended to prevent, any medical condition.</p><p>†Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p><p>¹Omli R, Skotnes LH, Romild U, Kuhry E. “The use of absorbent pads increases the risk for lower urinary tract infections in nursing homes residents.” International Continence Society, 2008, Abstract 233. Prospective 1-year study of 160 Norwegian nursing-home residents aged 65+; shows an association, not cause and effect.</p>"
           }
         }
       },
       "block_order": [
-        "heading_Yx8Ge4",
-        "subheading_dVLTjk",
-        "text_hYNHjy"
+        "b1_hero",
+        "b2_text_image",
+        "b5_uti",
+        "b3_cards",
+        "b6_video",
+        "b4_stat96",
+        "b7_product",
+        "b8_news",
+        "b9_blog",
+        "b10_notes"
       ],
-      "custom_css": [
-        "[data-block-id=\"subheading_dVLTjk\"] {font-size: 28px !important; /* adjust to your preferred size */ line-height: 1.3 !important;}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "slide_height": "fixed_height",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 460,
-        "desktop_image": "shopify://shop_images/Asset_15_2x_d7f466b9-973f-443f-bd36-8fa66e2c7813.png",
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_image": "shopify://shop_images/Asset_1_315f9054-fc3e-42c3-8d4a-a48d51ebef30.jpg",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "color-heading": "#193445",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "#ffffff",
-        "text-container-color": "#193445",
-        "color-overlay-opacity": 60,
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
-    "image_with_text_QYNCJ4": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_TEkcDB": {
-          "type": "heading",
-          "settings": {
-            "heading": "UraGuard®",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100
-          }
-        },
-        "text_iMnQkC": {
-          "type": "text",
-          "settings": {
-            "text": "<p>UraGuard® is a thin hygiene shield that goes inside the incontinence brief you already wear. Our patent-pending design places a physical barrier between your skin and the moist core of your brief, helping reduce your exposure to the bacteria and moisture held there.</p><p>Absorbent briefs are built to hold moisture, and that warm, damp core is where bacteria thrive. UraGuard® doesn’t absorb anything. Your brief still does that job; UraGuard® keeps your skin separated from it.</p><p>In independent lab testing (AATCC 100), UraGuard® technology showed 96% less surface bacteria after 8 hours than a standard incontinence product.</p>",
-            "text_style": "body",
-            "disable_on_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TEkcDB",
-        "text_iMnQkC"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "title": "",
-        "layout": "text_first",
-        "desktop-percentage-image-width": 50,
-        "full-width-enabled": false,
-        "slide_height": "fixed_height",
-        "desktop_fixed_height": 600,
-        "mobile_fixed_height": 320,
-        "section-color-body-text": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "desktop_image": "shopify://shop_images/Scientist_square.png",
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
-    "background_video_dRVVim": {
-      "type": "background-video",
-      "custom_css": [
-        "@media screen and (min-width: 768px) {[data-section-id=\"template--20099179872483__background_video_dRVVim\"] .wt-video__movie {max-width: 1200px; margin-left: auto; margin-right: auto; }}"
-      ],
-      "name": "t:sections.background-video.presets.name",
-      "settings": {
-        "heading": "How UraGuard® Works",
-        "full-width-enabled": false,
-        "video_hosted": "shopify://files/videos/UraGuard Comparison Video Updated.mp4",
-        "autoplay": true,
-        "video_controls": false,
-        "video_custom_play_controls": true,
-        "video_custom_mute_controls": true,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "original_ratio": "original_ratio",
-        "desktop_fixed_height": 540,
-        "mobile_fixed_height": 460,
-        "color-body-heading": "rgba(0,0,0,0)",
-        "color-overlay": "#fff9f9",
-        "color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_vertical_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
-    "blocks_eQYEbE": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_0d1c2d5_PeLr6a": {
-          "type": "ai_gen_block_0d1c2d5",
-          "settings": {
-            "section_padding": 40,
-            "column_gap": 40,
-            "image": "shopify://shop_images/Athena_Banner.webp",
-            "image_border_radius": 14,
-            "button_text": "",
-            "button_link": "shopify://collections/uraguard-incontinence-products",
-            "button_offset": 20,
-            "button_padding_vertical": 12,
-            "button_padding_horizontal": 30,
-            "button_font_size": 12,
-            "button_border_radius": 10,
-            "button_background": "rgba(0,0,0,0)",
-            "button_text_color": "#ffffff",
-            "button_background_hover": "rgba(0,0,0,0)",
-            "button_text_color_hover": "#005c7c",
-            "featured_product": "athena-uraguard-liner",
-            "show_vendor": false,
-            "show_rating": true,
-            "show_price": true,
-            "show_description": false,
-            "product_cta_text": "View Product",
-            "product_border_radius": 14,
-            "product_image_width": 45,
-            "product_image_width_mobile": 100,
-            "product_image_alignment": "left",
-            "product_image_radius": 10,
-            "product_button_radius": 10,
-            "product_background": "#ffffff",
-            "vendor_color": "#717171",
-            "title_color": "#193445",
-            "star_color": "#fcc97e",
-            "star_empty_color": "#fcc97e",
-            "rating_count_color": "#717171",
-            "price_color": "#151515",
-            "description_color": "#717171",
-            "product_button_bg": "#003649",
-            "product_button_color": "#ffffff",
-            "product_button_bg_hover": "#005c7c",
-            "product_button_color_hover": "#ffffff"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_0d1c2d5_PeLr6a"
-      ],
-      "settings": {
-        "section-margin": 0
-      }
-    },
-    "blog_posts_yPFhk6": {
-      "type": "blog-posts",
-      "name": "t:sections.blog-posts.presets.name",
-      "settings": {
-        "heading": "Learn More on Our Blog",
-        "swipe_on_mobile": false,
-        "full-width-enabled": false,
-        "blog": "news",
-        "post_limit": 3,
-        "show_date": false,
-        "show_author": false,
-        "show_view_all": true,
-        "view_all_button_select": "secondary",
-        "show_image": true,
-        "image_ratio": "square",
-        "column_alignment": "left",
-        "button_select": "link",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
-    "brands_LdqaGb": {
-      "type": "brands",
-      "blocks": {
-        "image_GQiHjE": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Logo_Wellness_Magazine.png",
-            "link": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/"
-          }
-        },
-        "image_naVDrL": {
-          "type": "image",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Untitled_design_68.png",
-            "link": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/"
-          }
-        }
-      },
-      "block_order": [
-        "image_GQiHjE",
-        "image_naVDrL"
-      ],
-      "name": "t:sections.brands.settings.presets.name",
-      "settings": {
-        "heading": "UraGuard® In The News",
-        "animation": "swipe",
-        "animation_speed": "100",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#fbfaf6",
-        "margin-top": 20,
-        "margin-bottom": 0
-      }
+      "settings": {}
     }
   },
   "order": [
-    "main",
-    "image_banner_78NHff",
-    "image_with_text_QYNCJ4",
-    "background_video_dRVVim",
-    "blocks_eQYEbE",
-    "blog_posts_yPFhk6",
-    "brands_LdqaGb"
+    "ug_page"
   ]
 }

@@ -1,0 +1,501 @@
+{%- comment -%}
+  UraGuard homepage — new-category structure:
+  product + problem in the hero, define the category, show it, explain why, prove it,
+  two doors (her / caregiver), real faces, answer worries, buy.
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+
+{%- assign product = section.settings.product | default: all_products['athena-uraguard-liner'] -%}
+{%- assign from_price = product.price_min | money_without_trailing_zeros | default: '$29' -%}
+
+<style>
+  .ugh{--aub:#3d1f35;--aub2:#53294a;--rose:#a64a63;--rose-d:#8a3a51;--ink:#2f1c2a;--soft:#5b4155;--muted:#7a6274;
+    --blush:#f8ebe7;--blush2:#f3e2e3;--paper:#fffbf9;--teal:#2a7a83;--teal-l:#e5f1f1;--line:#ead7d5;
+    font-family:'Nunito Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden}
+  .ugh *{box-sizing:border-box}
+  .ugh h1,.ugh h2,.ugh h3{font-family:'Fraunces',Georgia,serif;font-weight:500;color:var(--aub);letter-spacing:-.018em;margin:0;text-transform:none}
+  .ugh p{margin:0}
+  .ugh img,.ugh video{display:block;max-width:100%}
+  .ugh a{color:inherit}
+  .ugh .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .ugh .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  .ugh .sec{padding:104px 0}
+  .ugh .intro{max-width:720px}
+  .ugh .intro.c{margin:0 auto;text-align:center}
+  .ugh .intro h2{font-size:clamp(32px,3.7vw,50px);line-height:1.1}
+  .ugh .intro p{margin-top:18px;font-size:20px;color:var(--soft)}
+  .ugh .kicker{display:block;font-weight:700;font-size:17px;color:var(--rose);margin-bottom:12px}
+  .ugh .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:16px 32px;border-radius:999px;font-weight:800;font-size:18px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2;transition:background-color .2s,border-color .2s,color .2s}
+  .ugh .btn:focus-visible,.ugh summary:focus-visible,.ugh a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .ugh .btn-main{background:var(--rose);color:#fff}
+  .ugh .btn-main:hover{background:var(--aub);color:#fff}
+  .ugh .btn-line{background:transparent;color:var(--aub);border-color:var(--aub)}
+  .ugh .btn-line:hover{background:var(--aub);color:#fff}
+  .ugh .btn-light{background:#fff;color:var(--aub)}
+  .ugh .btn-light:hover{background:var(--blush);color:var(--aub)}
+
+  /* 1 HERO */
+  .ugh .hero{position:relative;background:var(--blush);padding:56px 0 0}
+  .ugh .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:var(--paper)}
+  .ugh .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center}
+  .ugh .hero h1{font-size:clamp(40px,4.7vw,66px);line-height:1.04}
+  .ugh .hero h1 span{display:block;color:var(--rose);margin-top:.18em}
+  .ugh .hero-def{margin-top:26px;font-size:21px;line-height:1.55;color:var(--soft);max-width:540px}
+  .ugh .hero-def strong{color:var(--aub)}
+  .ugh .hero-ctas{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .ugh .hero-proof{margin-top:36px;padding-top:26px;border-top:1px solid #e3c9c7;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:560px;padding-bottom:150px}
+  .ugh .hero-proof b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:30px;line-height:1.1;color:var(--aub)}
+  .ugh .hero-proof span{display:block;margin-top:6px;font-size:14.5px;line-height:1.4;color:var(--soft)}
+  .ugh .hero-visual{position:relative;padding-bottom:40px}
+  .ugh .photo{position:relative;aspect-ratio:2/3;border-radius:300px 300px 32px 32px;overflow:hidden;background:#eef3f6;box-shadow:0 40px 80px -30px rgba(61,31,53,.45)}
+  .ugh .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ugh .photo.crop img{inset:auto;right:0;bottom:0;width:196%;height:auto;max-width:none;object-fit:initial}
+  .ugh .tag{position:absolute;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 18px 40px -12px rgba(61,31,53,.3);font-size:15px;line-height:1.35;color:var(--aub);font-weight:700;max-width:220px}
+  .ugh .tag small{display:block;font-weight:600;color:var(--muted);font-size:13.5px;margin-top:3px}
+  .ugh .tag-a{left:-34px;top:22%}
+  .ugh .tag-b{right:-22px;bottom:110px}
+  .ugh .dot{display:inline-block;width:10px;height:10px;border-radius:999px;background:var(--teal);margin-right:8px;vertical-align:1px}
+
+  /* 2 WHAT IT IS */
+  .ugh .define{padding-top:40px}
+  .ugh .cmp-wrap{margin-top:52px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .ugh table.cmp{width:100%;min-width:760px;border-collapse:separate;border-spacing:0;font-size:17px}
+  .ugh .cmp th,.ugh .cmp td{padding:20px 22px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .ugh .cmp thead th{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:23px;color:var(--aub);border-bottom:2px solid var(--aub)}
+  .ugh .cmp tbody th{font-weight:800;color:var(--aub);width:22%;font-size:16px}
+  .ugh .cmp td{color:var(--soft)}
+  .ugh .cmp .us{background:var(--aub);color:#fff;border-bottom-color:#5d3654}
+  .ugh .cmp thead .us{color:#fff;border-radius:22px 22px 0 0;border-bottom-color:var(--aub)}
+  .ugh .cmp tbody tr:last-child .us{border-radius:0 0 22px 22px;border-bottom:0}
+  .ugh .cmp tbody tr:last-child th,.ugh .cmp tbody tr:last-child td{border-bottom:0}
+  .ugh .cmp .us strong{color:#fff}
+  .ugh .yes{color:#9fe0d8;font-weight:800}
+  .ugh .no{color:var(--rose-d);font-weight:800}
+
+  /* 3 SEE IT */
+  .ugh .see{background:var(--teal-l)}
+  .ugh .see-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+  .ugh .vid{border-radius:28px;overflow:hidden;background:#d8e8e8;box-shadow:0 30px 60px -28px rgba(20,60,65,.45)}
+  .ugh .vid video{width:100%;height:auto}
+  .ugh ol.steps{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-direction:column;gap:22px;counter-reset:s}
+  .ugh ol.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start}
+  .ugh ol.steps li::before{content:counter(s);width:48px;height:48px;border-radius:999px;background:#fff;color:var(--teal);font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .ugh ol.steps b{display:block;color:var(--aub);font-size:19px}
+  .ugh ol.steps span{color:var(--soft);font-size:17px}
+  .ugh .brands{margin-top:34px;padding-top:24px;border-top:1px solid #c9dfdf;font-size:15.5px;color:var(--soft)}
+  .ugh .brands strong{display:block;color:var(--aub);margin-bottom:6px;font-size:16px}
+
+  /* 4 WHY */
+  .ugh .why{background:var(--aub);color:#fff}
+  .ugh .why h2,.ugh .why h3{color:#fff}
+  .ugh .why .intro p{color:#ead6e2}
+  .ugh .why .kicker{color:#f0b2c3}
+  .ugh .why-grid{margin-top:56px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+  .ugh .why .vid{background:#53294a;box-shadow:none}
+  .ugh .facts{display:flex;flex-direction:column}
+  .ugh .fact{padding:26px 0;border-bottom:1px solid #5d3654}
+  .ugh .fact:first-child{padding-top:0}
+  .ugh .fact h3{font-size:24px;line-height:1.25}
+  .ugh .fact p{margin-top:8px;color:#ead6e2;font-size:17px}
+  .ugh .study{margin-top:28px;background:#fff;color:var(--ink);border-radius:24px;padding:28px 30px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+  .ugh .study .n{font-family:'Fraunces',Georgia,serif;font-size:54px;line-height:1;color:var(--rose)}
+  .ugh .study p{font-size:16.5px;color:var(--soft)}
+  .ugh .study strong{color:var(--aub)}
+  .ugh .why-close{margin-top:56px;font-family:'Fraunces',Georgia,serif;font-size:clamp(24px,2.4vw,32px);line-height:1.35;max-width:820px;color:#fff}
+
+  /* 5 PROOF */
+  .ugh .proof-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:center}
+  .ugh .result{background:var(--blush);border-radius:32px;padding:44px}
+  .ugh .result .big{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(88px,10vw,140px);line-height:.9;letter-spacing:-.04em;color:var(--rose)}
+  .ugh .result h3{margin-top:14px;font-size:28px;line-height:1.2}
+  .ugh .result > p{margin-top:12px;color:var(--soft);font-size:17px}
+  .ugh .bars{margin-top:30px;display:flex;flex-direction:column;gap:16px}
+  .ugh .bars div > span{display:flex;justify-content:space-between;font-size:15.5px;color:var(--aub);margin-bottom:6px}
+  .ugh .bar{height:20px;border-radius:999px;background:#ecd2cf;position:relative;overflow:hidden}
+  .ugh .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px}
+  .ugh .survey{margin-top:30px;padding-top:24px;border-top:1px solid #e3c9c7;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .ugh .survey b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:40px;line-height:1;color:var(--aub)}
+  .ugh .survey span{display:block;margin-top:6px;font-size:15px;color:var(--soft)}
+  .ugh .doc{display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center}
+  .ugh .doc-img{width:150px;height:190px;border-radius:90px 90px 20px 20px;overflow:hidden;background:var(--blush2)}
+  .ugh .doc-img img{width:100%;height:100%;object-fit:cover}
+  .ugh .doc h3{font-size:clamp(26px,2.6vw,34px);line-height:1.15}
+  .ugh .doc p{margin-top:12px;color:var(--soft)}
+
+  /* 6 TWO DOORS */
+  .ugh .doors{background:var(--blush)}
+  .ugh .door-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .ugh .door{position:relative;display:block;border-radius:32px;overflow:hidden;min-height:520px;text-decoration:none;color:#fff;background:var(--aub)}
+  .ugh .door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .ugh .door:hover img{transform:scale(1.03)}
+  .ugh .door::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(61,31,53,0) 35%,rgba(61,31,53,.88) 100%)}
+  .ugh .door-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:36px}
+  .ugh .door h3{color:#fff;font-size:clamp(28px,2.8vw,38px);line-height:1.12}
+  .ugh .door p{margin-top:10px;color:#f6e7ee;font-size:17.5px;max-width:420px}
+  .ugh .door .btn{margin-top:22px;min-height:52px;padding:13px 26px;font-size:17px}
+
+  /* 7 PEOPLE */
+  .ugh .people-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;align-items:start}
+  .ugh .person{border-radius:26px;overflow:hidden;background:var(--blush)}
+  .ugh .person video{width:100%;aspect-ratio:9/14;object-fit:cover;background:#e7d3d6}
+  .ugh .person figcaption,.ugh .person .cap{padding:18px 22px 22px}
+  .ugh .person b{display:block;color:var(--aub)}
+  .ugh .person small{color:var(--muted);font-size:14.5px}
+  .ugh .person.quote{padding:30px 26px;display:flex;flex-direction:column;gap:18px;min-height:100%}
+  .ugh .person.quote blockquote{margin:0;padding:0;border:0;font-family:'Fraunces',Georgia,serif;font-size:23px;line-height:1.35;color:var(--aub);font-style:normal}
+  .ugh .stars{color:#c4842d;letter-spacing:2px;font-size:18px}
+
+  /* 8 WORRIES */
+  .ugh .worry-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+  .ugh details{border-bottom:1px solid var(--line)}
+  .ugh details:first-child{border-top:1px solid var(--line)}
+  .ugh summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;font-weight:800;font-size:19px;color:var(--aub)}
+  .ugh summary::-webkit-details-marker{display:none}
+  .ugh summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-10px;border-right:2.5px solid var(--rose);border-bottom:2.5px solid var(--rose);transform:rotate(45deg);transition:transform .2s}
+  .ugh details[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+  .ugh details p{padding:0 0 24px;color:var(--soft);max-width:640px}
+  .ugh .guarantee{margin-top:30px;background:var(--teal-l);border-radius:24px;padding:28px}
+  .ugh .guarantee b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:24px;color:var(--aub)}
+  .ugh .guarantee p{margin-top:8px;color:var(--soft);font-size:17px}
+
+  /* 9 SHOP */
+  .ugh .shop{background:var(--blush2)}
+  .ugh .shop-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+  .ugh .shop-img{aspect-ratio:1/1;border-radius:32px;overflow:hidden;background:#fff}
+  .ugh .shop-img img{width:100%;height:100%;object-fit:cover}
+  .ugh .shop h2{font-size:clamp(30px,3vw,42px);line-height:1.1}
+  .ugh .shop .lede{margin-top:12px;color:var(--soft)}
+  .ugh fieldset{margin:26px 0 0;padding:0;border:0;display:flex;flex-direction:column;gap:12px}
+  .ugh legend{font-weight:800;margin-bottom:12px;color:var(--aub);padding:0}
+  .ugh .pack{display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:20px;background:#fff;border:2px solid #ecd6dd;cursor:pointer}
+  .ugh .pack:has(input:checked){border-color:var(--rose)}
+  .ugh .pack input{width:20px;height:20px;accent-color:var(--rose);margin:0}
+  .ugh .pack .t{flex:1;line-height:1.4}
+  .ugh .pack .t small{display:block;font-size:15px;color:var(--muted)}
+  .ugh .pack .price{font-weight:800;font-size:21px}
+  .ugh .shop button.btn{width:100%;margin-top:20px}
+  .ugh .fine{margin-top:12px;font-size:15px;color:var(--muted);text-align:center}
+
+  .ugh .notes{font-size:13.5px;line-height:1.6;color:var(--muted);padding:36px 0 44px}
+  .ugh .notes p + p{margin-top:8px}
+
+  @media (prefers-reduced-motion:reduce){.ugh *{transition:none!important}}
+  @media (max-width:989px){
+    .ugh .hero-grid,.ugh .see-grid,.ugh .why-grid,.ugh .proof-grid,.ugh .worry-grid,.ugh .shop-grid{grid-template-columns:minmax(0,1fr);gap:44px}
+    .ugh .hero-proof{padding-bottom:0}
+    .ugh .hero::after{display:none}
+    .ugh .hero{padding-bottom:64px}
+    .ugh .hero-visual{max-width:440px;margin:0 auto;width:100%}
+    .ugh .people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:749px){
+    .ugh{font-size:18px}
+    .ugh .wrap{padding:0 18px}
+    .ugh .sec{padding:72px 0}
+    .ugh .hero{padding-top:36px}
+    .ugh .hero-proof{grid-template-columns:minmax(0,1fr);gap:14px}
+    .ugh .tag-a{left:-6px}
+    .ugh .tag-b{right:-6px}
+    .ugh .btn{width:100%}
+    .ugh .door-grid,.ugh .people-grid{grid-template-columns:minmax(0,1fr)}
+    .ugh .door{min-height:440px}
+    .ugh .doc{grid-template-columns:110px 1fr;gap:18px}
+    .ugh .doc-img{width:110px;height:140px}
+    .ugh .study{grid-template-columns:minmax(0,1fr)}
+    .ugh .result{padding:30px}
+  }
+</style>
+
+<div class="ugh">
+
+  {%- comment -%} 1. HERO — problem and product in one breath {%- endcomment -%}
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Your brief holds bacteria against your skin. <span>UraGuard® goes inside it.</span></h1>
+        <p class="hero-def"><strong>UraGuard® is a thin, soft hygiene shield</strong> you place inside any brief, pull-on or adult diaper. It sits between your body and the wet core, so moisture and bacteria stay in the brief instead of on you.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-main" href="#ugh-shop">Shop UraGuard® from {{ from_price }}</a>
+          <a class="btn btn-line" href="#ugh-see"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>See how it works</a>
+        </div>
+        <div class="hero-proof">
+          <div><b>96%</b><span>less surface bacteria in lab testing†</span></div>
+          <div><b>Any brand</b><span>Depend, TENA, Always and more</span></div>
+          <div><b>ER doctor</b><span>designed by Dr. Jacqueline Krieger</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo{% if section.settings.hero_crop %} crop{% endif %}">
+          {%- if section.settings.hero_image != blank -%}
+            {{ section.settings.hero_image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 60vw, 100vw', alt: 'A hand placing a UraGuard shield inside an adult brief' }}
+          {%- endif -%}
+        </div>
+        <div class="tag tag-a"><span class="dot"></span>Goes inside the brief<small>You don’t switch what you wear</small></div>
+        <div class="tag tag-b">Thin, soft, invisible<small>No one will know it’s there</small></div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 2. WHAT IT IS — define the category {%- endcomment -%}
+  <section class="sec define" id="ugh-what">
+    <div class="wrap">
+      <div class="intro">
+        <span class="kicker">What is a hygiene shield?</span>
+        <h2>It’s not a pad. It’s not a new brief. It’s a layer between you and the brief.</h2>
+        <p>Briefs and pads are built to absorb. UraGuard® is built to separate — your skin on one side, the wet core on the other.</p>
+      </div>
+      <div class="cmp-wrap" role="region" aria-label="Comparison of a brief, a pad and UraGuard" tabindex="0">
+        <table class="cmp">
+          <thead>
+            <tr><th scope="col"><span class="visually-hidden">Question</span></th><th scope="col">Your brief</th><th scope="col">A pad or liner</th><th scope="col" class="us">UraGuard®</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">What it does</th><td>Absorbs and holds leaks</td><td>Absorbs more</td><td class="us"><strong>Separates your skin from what the brief absorbs</strong></td></tr>
+            <tr><th scope="row">Where it goes</th><td>You wear it</td><td>Stuck in your underwear</td><td class="us">Inside your brief, right where urine exits</td></tr>
+            <tr><th scope="row">Keeps moisture off your skin?</th><td><span class="no">No</span> — the wet core rests against you</td><td><span class="no">No</span> — it’s another wet layer</td><td class="us"><span class="yes">Yes</span> — a breathable barrier</td></tr>
+            <tr><th scope="row">Lab-tested against bacteria?</th><td>—</td><td>—</td><td class="us"><span class="yes">Yes</span> — 96% less surface bacteria†</td></tr>
+            <tr><th scope="row">Do you change brands?</th><td>—</td><td>Sometimes</td><td class="us">Never. It works with what you use.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:26px;font-size:17px;color:var(--soft)"><a href="/pages/what-is-a-hygiene-shield" style="color:var(--rose);font-weight:800">More about hygiene shields</a></p>
+    </div>
+  </section>
+
+  {%- comment -%} 3. SEE IT — placement video {%- endcomment -%}
+  <section class="sec see" id="ugh-see">
+    <div class="wrap see-grid">
+      <div class="vid">
+        {%- if section.settings.placement_video != blank -%}
+          {{ section.settings.placement_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1200x' }}
+        {%- endif -%}
+      </div>
+      <div>
+        <div class="intro">
+          <h2>Ten seconds, every change</h2>
+          <p>Keep the brief you already trust. Add a fresh shield each time you change it.</p>
+        </div>
+        <ol class="steps">
+          <li><div><b>Peel</b><span>Remove the strip from the back of the shield.</span></div></li>
+          <li><div><b>Place</b><span>Blue side up, right where urine leaves the body.</span></div></li>
+          <li><div><b>Press and wear</b><span>Press gently so it stays put. That’s it.</span></div></li>
+        </ol>
+        <p class="brands"><strong>Works inside tab-style briefs, pull-ons and adult diapers</strong>Depend® · TENA® · Always Discreet® · Prevail® · Tranquility® · Abena® · NorthShore® and store brands</p>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 4. WHY IT MATTERS {%- endcomment -%}
+  <section class="sec why" id="ugh-why">
+    <div class="wrap">
+      <div class="intro">
+        <span class="kicker">Why it matters</span>
+        <h2>Briefs are great at stopping leaks. They were never designed to keep bacteria off you.</h2>
+        <p>It isn’t your fault, and it isn’t about being careful enough. It’s simply how absorbent products work.</p>
+      </div>
+      <div class="why-grid">
+        <div class="vid">
+          {%- if section.settings.science_video != blank -%}
+            {{ section.settings.science_video | video_tag: controls: true, playsinline: true, image_size: '1400x' }}
+          {%- endif -%}
+        </div>
+        <div>
+          <div class="facts">
+            <div class="fact"><h3>The moisture stays with you</h3><p>A brief locks urine into its core, and that core rests against your most sensitive skin until the next change.</p></div>
+            <div class="fact"><h3>Warm and wet is where bacteria grow</h3><p>Body heat plus trapped moisture is exactly what bacteria thrive in, right next to the urethra.</p></div>
+          </div>
+          <div class="study">
+            <div class="n">41%</div>
+            <p><strong>of nursing-home residents who wore absorbent pads had a UTI in a year-long study</strong>, compared with 13% of those who didn’t.¹</p>
+          </div>
+        </div>
+      </div>
+      <p class="why-close">UraGuard® was created so the protection you rely on can protect you a little better.</p>
+    </div>
+  </section>
+
+  {%- comment -%} 5. PROOF {%- endcomment -%}
+  <section class="sec proof" id="ugh-proof">
+    <div class="wrap proof-grid">
+      <div class="result">
+        <div class="big">96%</div>
+        <h3>less surface bacteria after 8 hours†</h3>
+        <p>Independent laboratory testing compared UraGuard® technology with a standard incontinence product.</p>
+        <div class="bars" aria-hidden="true">
+          <div><span><span>Standard product</span><span>100%</span></span><div class="bar"><i style="width:100%;background:#d58b82"></i></div></div>
+          <div><span><span>With UraGuard®</span><span>4%</span></span><div class="bar"><i style="width:4%;min-width:20px;background:var(--aub)"></i></div></div>
+        </div>
+        <div class="survey">
+          <div><b>98%</b><span>had no skin irritation*</span></div>
+          <div><b>84%</b><span>said they felt drier*</span></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="doc-img">
+          {%- if section.settings.doctor_image != blank -%}
+            {{ section.settings.doctor_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'Dr. Jacqueline Krieger, MD' }}
+          {%- endif -%}
+        </div>
+        <div>
+          <h3>Designed by an emergency physician</h3>
+          <p>Dr. Jacqueline Krieger spent years treating women in the ER. She created UraGuard® as one simple hygiene step to add to the products women, and the families who care for them, already use.</p>
+          <p style="margin-top:18px"><a href="/pages/jacqueline-krieger-md" style="color:var(--rose);font-weight:800">Read her story</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 6. TWO DOORS {%- endcomment -%}
+  <section class="sec doors" id="ugh-doors">
+    <div class="wrap">
+      <div class="intro c"><h2>Who are you shopping for?</h2></div>
+      <div class="door-grid">
+        <a class="door" href="#ugh-shop">
+          {%- if section.settings.her_image != blank -%}{{ section.settings.her_image | image_url: width: 1100 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}
+          <div class="door-body">
+            <h3>For me</h3>
+            <p>Feel fresh and protected in the brief you already wear, from morning through overnight.</p>
+            <span class="btn btn-light">Find my pack</span>
+          </div>
+        </a>
+        <a class="door" href="{{ section.settings.caregiver_link | default: '/pages/caregivers-family' }}">
+          {%- if section.settings.caregiver_image != blank -%}{{ section.settings.caregiver_image | image_url: width: 1100 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}
+          <div class="door-body">
+            <h3>For someone I care for</h3>
+            <p>Helping Mom or your wife with changes? UraGuard® adds no extra steps — it goes in the brief she already wears.</p>
+            <span class="btn btn-light">Read the caregiver guide</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 7. REAL PEOPLE {%- endcomment -%}
+  <section class="sec people" id="ugh-people">
+    <div class="wrap">
+      <div class="intro c"><h2>Hear it from the women who wear it</h2></div>
+      <div class="people-grid">
+        {%- if section.settings.video_1 != blank -%}
+        <figure class="person" style="margin:0">
+          {{ section.settings.video_1 | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '600x' }}
+          <figcaption><b>{{ section.settings.video_1_name }}</b><small>{{ section.settings.video_1_note }}</small></figcaption>
+        </figure>
+        {%- endif -%}
+        <figure class="person quote" style="margin:0">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>“I tried it both with pull-ups and also with briefs… it’s so thin and it does an excellent job.”</blockquote>
+          <figcaption style="padding:0"><b>Ami Jo</b></figcaption>
+        </figure>
+        {%- if section.settings.video_2 != blank -%}
+        <figure class="person" style="margin:0">
+          {{ section.settings.video_2 | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '600x' }}
+          <figcaption><b>{{ section.settings.video_2_name }}</b><small>{{ section.settings.video_2_note }}</small></figcaption>
+        </figure>
+        {%- endif -%}
+        <figure class="person quote" style="margin:0">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>“You don’t feel it, which is the best.”</blockquote>
+          <figcaption style="padding:0"><b>Krystal</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 8. WORRIES {%- endcomment -%}
+  <section class="sec worries" id="ugh-faq" style="padding-top:24px">
+    <div class="wrap worry-grid">
+      <div>
+        <div class="intro"><h2>Questions women ask before trying it</h2></div>
+        <div class="guarantee">
+          <b>Try it for 30 days</b>
+          <p>If it isn’t right for you, send it back. Returns and shipping are free.</p>
+        </div>
+      </div>
+      <div>
+        <details open><summary>Is this a pad or a liner?</summary><p>Neither. Pads and liners absorb. UraGuard® separates your skin from the wet core of the brief you already wear.</p></details>
+        <details><summary>Will it reduce how much my brief absorbs?</summary><p>No. UraGuard® is a thin barrier, not an extra absorbent layer. Moisture passes through into your brief as normal; the difference is what stays against your skin.</p></details>
+        <details><summary>Will anyone be able to see it?</summary><p>No. It sits inside the brief and adds no bulk. Customers tell us they can’t feel it.</p></details>
+        <details><summary>Will it shift or bunch up?</summary><p>It’s thin, flexible and contoured, with an adhesive back that keeps it in place through the day or night.</p></details>
+        <details><summary>How many do I need?</summary><p>One per change. Most people choose the 60-pack, which works out to less than a dollar a shield.</p></details>
+        <details><summary>Can I use my HSA or FSA card?</summary><p>Yes. UraGuard® is HSA/FSA eligible. <a href="/pages/how-to-use-your-fsa-hsa-card" style="color:var(--rose);font-weight:800">Here’s how</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 9. SHOP {%- endcomment -%}
+  <section class="sec shop" id="ugh-shop">
+    <div class="wrap shop-grid">
+      <div class="shop-img">
+        {%- assign shop_img = section.settings.shop_image | default: product.featured_image -%}
+        {%- if shop_img != blank -%}
+          {{ shop_img | image_url: width: 1100 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', alt: 'UraGuard® Hygiene Shield' }}
+        {%- endif -%}
+      </div>
+      <div>
+        <h2>Add UraGuard® to your routine</h2>
+        <p class="lede">Free shipping on every order. Free 30-day returns. HSA/FSA eligible.</p>
+        {%- if product != blank -%}
+          {%- form 'product', product -%}
+            <fieldset>
+              <legend>Choose your pack</legend>
+              {%- for variant in product.variants -%}
+                {%- assign parts = variant.title | split: ' · ' -%}
+                <label class="pack">
+                  <input type="radio" name="id" value="{{ variant.id }}" {% if forloop.index == 2 or product.variants.size == 1 %}checked{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                  <span class="t"><strong>{{ parts[0] }}</strong>{%- if parts[1] -%}<small>{{ parts[1] }}</small>{%- endif -%}</span>
+                  <span class="price">{{ variant.price | money_without_trailing_zeros }}</span>
+                </label>
+              {%- endfor -%}
+            </fieldset>
+            <button type="submit" class="btn btn-main">Add to cart</button>
+          {%- endform -%}
+        {%- endif -%}
+        <p class="fine">Prefer the details? <a href="{{ product.url | default: '/products/athena-uraguard-liner' }}" style="color:var(--rose);font-weight:800">See the full product page</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="notes">
+    <div class="wrap">
+      <p>UraGuard® is a physical barrier. It is not a treatment for, and is not intended to prevent, any medical condition.</p>
+      <p>†Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p>
+      <p>*Self-reported survey of 108 participants who received free product.</p>
+      <p>¹Omli R, Skotnes LH, Romild U, Kuhry E. “The use of absorbent pads increases the risk for lower urinary tract infections in nursing homes residents.” International Continence Society, 2008, Abstract 233. Prospective 1-year study of 160 Norwegian nursing-home residents aged 65+; shows an association, not cause and effect.</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard homepage",
+  "tag": "section",
+  "class": "section-uraguard-home",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero photo (shield going into a brief)" },
+    { "type": "checkbox", "id": "hero_crop", "label": "Crop to the right-hand side of the photo", "info": "Turn on for the 'Briefs hold bacteria…' graphic so its built-in text is hidden. Turn off for a clean photo.", "default": true },
+    { "type": "header", "content": "Videos" },
+    { "type": "video", "id": "placement_video", "label": "Placement video" },
+    { "type": "video", "id": "science_video", "label": "Science video" },
+    { "type": "header", "content": "Proof" },
+    { "type": "image_picker", "id": "doctor_image", "label": "Doctor photo" },
+    { "type": "header", "content": "Who it's for" },
+    { "type": "image_picker", "id": "her_image", "label": "'For me' photo" },
+    { "type": "image_picker", "id": "caregiver_image", "label": "'For someone I care for' photo" },
+    { "type": "url", "id": "caregiver_link", "label": "Caregiver guide link" },
+    { "type": "header", "content": "Testimonial videos" },
+    { "type": "video", "id": "video_1", "label": "Testimonial video 1" },
+    { "type": "text", "id": "video_1_name", "label": "Name", "default": "Rebekah" },
+    { "type": "text", "id": "video_1_note", "label": "Note", "default": "UraGuard customer" },
+    { "type": "video", "id": "video_2", "label": "Testimonial video 2" },
+    { "type": "text", "id": "video_2_name", "label": "Name", "default": "Karen" },
+    { "type": "text", "id": "video_2_note", "label": "Note", "default": "Cares for her mom" },
+    { "type": "header", "content": "Shop" },
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "image_picker", "id": "shop_image", "label": "Shop image (optional)" }
+  ],
+  "presets": [{ "name": "UraGuard homepage" }]
+}
+{% endschema %}

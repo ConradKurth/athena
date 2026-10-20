@@ -10,20 +10,120 @@
 {
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "ug-pg2-article",
       "settings": {
-        "compact-size-enabled": true,
-        "size_heading": 140,
-        "size_heading_mobile": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-bg-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "margin-top": 40,
-        "margin-bottom": 40
+        "eyebrow": "UraGuard® guide",
+        "reviewer": "Jacqueline Krieger, MD",
+        "reviewer_link": "/pages/jacqueline-krieger-md",
+        "card_label": "Meet UraGuard®",
+        "card_heading": "The first hygiene shield for incontinence briefs",
+        "card_text": "A thin shield that goes inside the brief you already wear and helps keep moisture and bacteria away from sensitive skin.",
+        "dr_handle": "jacqueline-krieger-md",
+        "dr_eyebrow": "Founder & medical reviewer",
+        "dr_text": "<p>Board-certified emergency medicine physician and the creator of UraGuard®.</p>",
+        "dr_image": "shopify://shop_images/jacqueline-krieger-md.jpg",
+        "reviewed_handles": "what-is-a-hygiene-shield"
+      }
+    },
+    "science": {
+      "type": "ug-pg1-page",
+      "blocks": {
+        "s1_barrier": {
+          "type": "text_image",
+          "settings": {
+            "bg": "paper",
+            "eyebrow": "The science",
+            "heading": "A physical barrier, not another absorbent layer",
+            "text": "<p>Our patent-pending design places a physical barrier between your skin and the moist core of your brief, helping reduce your exposure to the bacteria and moisture held there.</p><p>Absorbent briefs are built to hold moisture, and that warm, damp core is where bacteria thrive. UraGuard® doesn’t absorb anything. <strong>Your brief still does that job; UraGuard® keeps your skin separated from it.</strong></p>",
+            "image": "shopify://shop_images/uraguard-shield-inside-incontinence-underwear.jpg",
+            "image_alt": "A UraGuard shield inside incontinence underwear",
+            "image_right": false,
+            "ratio": "square",
+            "fit": "cover",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        },
+        "s2_cards": {
+          "type": "cards",
+          "settings": {
+            "bg": "white",
+            "eyebrow": "What makes it different",
+            "heading": "Simple by design",
+            "card_1_title": "It doesn’t absorb",
+            "card_1_text": "Your brief keeps doing its job. UraGuard® simply keeps your skin apart from the wet core.",
+            "card_2_title": "Patent-pending barrier",
+            "card_2_text": "A thin physical layer between your skin and the moisture and bacteria your brief holds.",
+            "card_3_title": "Independently lab-tested",
+            "card_3_text": "Tested with the AATCC 100 method by an independent laboratory.",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        },
+        "s3_video": {
+          "type": "video",
+          "settings": {
+            "bg": "paper",
+            "eyebrow": "See it in action",
+            "heading": "How UraGuard® works",
+            "video": "shopify://files/videos/UraGuard Comparison Video Updated.mp4",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        },
+        "s4_stat96": {
+          "type": "stat96",
+          "settings": {
+            "bg": "blush",
+            "eyebrow": "Independent lab result",
+            "heading": "less surface bacteria in laboratory testing†",
+            "text": "In laboratory testing, UraGuard® technology reduced surface bacteria by 96%.† Independently tested over 8 hours using the AATCC 100 method, compared with a standard diaper.",
+            "button_label": "Shop UraGuard®",
+            "button_link": "shopify://products/athena-uraguard-liner",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        },
+        "s5_news": {
+          "type": "news",
+          "settings": {
+            "heading": "UraGuard® in the news",
+            "logo_1": "shopify://shop_images/Logo_Wellness_Magazine.png",
+            "link_1": "https://wellnessmasterclub.ewellnessmag.com/a-shield-for-women-who-refuse-to-let-utis-steal-the-spotlight-ffs-a-1175-2025-athena-with-uraguard/",
+            "logo_2": "shopify://shop_images/Untitled_design_68.png",
+            "link_2": "https://womensinsider.com/uraguard-a-doctors-mission-to-prevent-utis-before-they-start/",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        },
+        "s6_notes": {
+          "type": "notes",
+          "settings": {
+            "text": "<p>UraGuard® is a physical barrier. It is not a treatment for, and is not intended to prevent, any medical condition.</p><p>†Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p>",
+            "only_handles": "what-is-a-hygiene-shield"
+          }
+        }
+      },
+      "block_order": [
+        "s1_barrier",
+        "s2_cards",
+        "s3_video",
+        "s4_stat96",
+        "s5_news",
+        "s6_notes"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "ug-pg2-cta",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Feel clean all day, not just dry.",
+        "text": "UraGuard® is a thin hygiene shield that goes inside the brief you already wear and helps keep moisture and bacteria away from sensitive areas.",
+        "button": "Shop UraGuard®",
+        "link": "/products/athena-uraguard-liner",
+        "image": "shopify://shop_images/uraguard-hero-bedroom.jpg"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "science",
+    "cta"
   ]
 }

@@ -52,8 +52,8 @@
       "type": "main-breadcrumbs",
       "settings": {
         "full-width-enabled": true,
-        "text_color": "#193445",
-        "background_color": "#ffffff",
+        "text_color": "#7a6274",
+        "background_color": "#fffbf9",
         "margin-top": 12,
         "margin-bottom": 12
       }
@@ -67,7 +67,7 @@
             "brand": "",
             "enable_vendor_link": false,
             "size_text": 300,
-            "size_text_mobile": 110
+            "size_text_mobile": 160
           }
         },
         "text_CDKQpM": {
@@ -85,9 +85,10 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_tax_included": true,
-            "show_shipping_policy": false,
+            "show_shipping_policy": true,
             "size_text": 140,
             "size_text_mobile": 140
           }
@@ -161,7 +162,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#193445",
+            "color-background": "#ecdcd9",
             "margin-top": 8,
             "margin-bottom": 8
           }
@@ -180,7 +181,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": false,
-            "color-background": "#ffffff",
+            "color-background": "#fffbf9",
             "margin-top": 8,
             "margin-bottom": 0
           }
@@ -209,7 +210,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#193445",
+            "color-background": "#ecdcd9",
             "margin-top": 8,
             "margin-bottom": 4
           }
@@ -227,7 +228,7 @@
             "show_gift_card_recipient": false,
             "show_qty_selector": true,
             "text_color": "#ffffff",
-            "background_color": "#003649"
+            "background_color": "#a64a63"
           }
         },
         "text_kYzwWP": {
@@ -291,17 +292,17 @@
         "judge_me_reviews_preview_badge_Vm7YzR",
         "price",
         "image_Lab96Badge",
-        "variant_picker_WQEbez",
-        "seal_subscriptions_subscription_widget_bjDiHx",
-        "buy_buttons",
-        "separator_reBrRK",
         "image_69jm6j",
         "image_h3yBAq",
         "image_3Fyjeq",
         "image_DrLabTest",
+        "separator_reBrRK",
         "feature_tags_ktxUht",
         "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
+        "variant_picker_WQEbez",
         "separator_xgqTJM",
+        "seal_subscriptions_subscription_widget_bjDiHx",
+        "buy_buttons",
         "text_kYzwWP",
         "text_CrwGyb",
         "promo_wBVFy3",
@@ -310,8 +311,8 @@
       ],
       "custom_css": [
         ".rte :is(p, ul, li, ol):first-child {margin-block-start: 0;}",
-        "fieldset label {display: block; border: 2px solid #c9d3da !important; border-radius: 12px !important; background: #fff !important; padding: 12px 16px !important; margin: 0 0 8px;}",
-        "fieldset input:checked + label,fieldset input:checked ~ label {border-color: #193445 !important; background: #ddeced !important; font-weight: 700;}"
+        "fieldset label {display: block; border: 2px solid #ecdcd9 !important; border-radius: 16px !important; background: #fff !important; padding: 12px 16px !important; margin: 0 0 8px; color: #3d1f35;}",
+        "fieldset input:checked + label,fieldset input:checked ~ label {border-color: #a64a63 !important; background: #f8ebe7 !important; font-weight: 700;}"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
@@ -327,19 +328,19 @@
         "enable-image-zoom": true,
         "mobile-image": "normal",
         "show-thumbnails-mobile": false,
-        "text_color": "#193445",
-        "background_color": "#ffffff",
+        "text_color": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 0,
         "margin-bottom": 8
       }
     },
-    "lab_results_96_pdp": {
-      "type": "lab-results-96",
+    "ug_story": {
+      "type": "ug-product-story",
       "settings": {
-        "bg_color": "#eef4f6",
-        "show_button": false,
-        "button_label": "Shop UraGuard® Shield",
-        "button_link": ""
+        "step_1": "shopify://shop_images/new.png",
+        "step_2": "shopify://shop_images/instructions1_1.png",
+        "step_3": "shopify://shop_images/Instructions2_2.png",
+        "step_4": "shopify://shop_images/Instructions2_1.png"
       }
     },
     "177127772471f25f5e": {
@@ -380,23 +381,6 @@
         "section-margin": 0
       }
     },
-    "separator_a938wj": {
-      "type": "separator",
-      "settings": {
-        "advanced_heading": false,
-        "heading": "",
-        "heading_richtext": "<h2>Separator</h2>",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-section-background": "#ffffff",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "1763104546b1e38527": {
       "type": "apps",
       "blocks": {
@@ -415,102 +399,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "1764586754e105e23e": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_0f3b494_UcmGyn": {
-          "type": "ai_gen_block_0f3b494",
-          "settings": {
-            "heading": "Reasons to Choose UraGuard®",
-            "heading_color": "#193445",
-            "heading_size": 20,
-            "heading_size_desktop": 32,
-            "background_color": "#ddeced",
-            "icon_color": "#ffffff",
-            "icon_size": 65,
-            "icon_size_desktop": 80,
-            "text_color": "#005c7c",
-            "text_size": 15,
-            "text_size_desktop": 14,
-            "subtext_color": "#717171",
-            "subtext_size": 10,
-            "subtext_size_desktop": 13,
-            "autoplay_delay": 3,
-            "dot_color": "#193445",
-            "feature_1_enabled": true,
-            "feature_1_icon_type": "custom",
-            "feature_1_shopify_icon": "shield",
-            "feature_1_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_4_2025_10_19_21_AM.png",
-            "feature_1_text": "<p><strong>Targeted Protection</strong></p>",
-            "feature_1_subtext": "<p>Covers the urethral area, keeping skin separated from the moisture and bacteria held in your brief.</p>",
-            "feature_2_enabled": true,
-            "feature_2_icon_type": "custom",
-            "feature_2_shopify_icon": "shield",
-            "feature_2_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_05_07_PM.png",
-            "feature_2_text": "<p><strong>Backed by Lab Tests</strong></p>",
-            "feature_2_subtext": "<p>Shown to maintain a barrier to bacteria — even after 8 hours of use.</p>",
-            "feature_3_enabled": true,
-            "feature_3_icon_type": "custom",
-            "feature_3_shopify_icon": "star",
-            "feature_3_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_39_51_AM.png",
-            "feature_3_text": "<p><strong>A New Kind of Protection</strong></p>",
-            "feature_3_subtext": "<p>A thin hygiene shield that goes inside the brief you already wear.</p>",
-            "feature_4_enabled": true,
-            "feature_4_icon_type": "custom",
-            "feature_4_shopify_icon": "award",
-            "feature_4_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_09_35_PM.png",
-            "feature_4_text": "<p><strong>Fits All Disposable Briefs & Diapers</strong></p>",
-            "feature_4_subtext": "<p>Designed for use with all incontinence products.</p>",
-            "feature_5_enabled": true,
-            "feature_5_icon_type": "custom",
-            "feature_5_shopify_icon": "heart",
-            "feature_5_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_14_35_PM.png",
-            "feature_5_text": "<p><strong>Flexible & Skin-Friendly</strong></p>",
-            "feature_5_subtext": "<p>Moves with your body for discreet, all-day comfort without adding bulk.</p>",
-            "feature_6_enabled": true,
-            "feature_6_icon_type": "custom",
-            "feature_6_shopify_icon": "clock",
-            "feature_6_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_48_51_AM.png",
-            "feature_6_text": "<p><strong>Ideal for Daily Use</strong></p>",
-            "feature_6_subtext": "<p>Wherever you go, UraGuard<strong>®</strong> helps you stay fresh, confident, and protected.</p>"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_0f3b494_UcmGyn"
-      ],
-      "custom_css": [],
-      "settings": {
-        "section-margin": 0
-      }
-    },
-    "rich_text_7fgMCc": {
-      "type": "rich-text",
-      "blocks": {
-        "button_UjFYfQ": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "Learn How to Use UraGuard® Shield",
-            "button_link": "https://www.athenauraguard.com/pages/instructions-for-use",
-            "disable_on_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "button_UjFYfQ"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "section_width": "regular",
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 0
       }
     },
     "testimonial_video_reels_qnieGX": {
@@ -584,29 +472,10 @@
         "video_button": true,
         "text_alignment": "center",
         "text_style": "body",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 20,
         "margin-bottom": 40
-      }
-    },
-    "separator_4cdWwM": {
-      "type": "separator",
-      "disabled": true,
-      "name": "t:sections.separator.presets.name",
-      "settings": {
-        "advanced_heading": false,
-        "heading": "",
-        "heading_richtext": "<h2>Separator</h2>",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "show-separator-line": false,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-section-background": "#ffffff",
-        "margin-top": 20,
-        "margin-bottom": 20
       }
     },
     "1764573998c95b5002": {
@@ -623,10 +492,10 @@
           "settings": {
             "heading": "FAQs",
             "text_alignment": "center",
-            "font_size_mobile": 24,
+            "font_size_mobile": 28,
             "font_size_desktop": 40,
-            "text_color": "#193445",
-            "background_color": "#ffffff",
+            "text_color": "#3d1f35",
+            "background_color": "#fffbf9",
             "padding_top": 0,
             "padding_bottom": 0
           },
@@ -738,8 +607,8 @@
       ],
       "name": "t:sections.collapsible_menu.presets.name",
       "settings": {
-        "color-body-text": "#003649",
-        "background_color": "#ffffff",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "compact-size-enabled": true,
         "margin-top": 20,
         "margin-bottom": 20
@@ -783,8 +652,8 @@
       "settings": {
         "section_width": "regular",
         "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 0,
         "margin-bottom": 0
       }
@@ -816,8 +685,8 @@
         "heading": "UraGuard® in the News",
         "animation": "swipe",
         "animation_speed": "100",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#fbfaf6",
+        "color-body-text": "#3d1f35",
+        "background_color": "#f8ebe7",
         "margin-top": 44,
         "margin-bottom": 0
       }
@@ -827,18 +696,14 @@
     "1769810516bd65a39f",
     "breadcrumbs",
     "main",
-    "lab_results_96_pdp",
-    "177127772471f25f5e",
-    "separator_a938wj",
+    "ug_story",
     "1763104546b1e38527",
-    "1764586754e105e23e",
-    "rich_text_7fgMCc",
     "testimonial_video_reels_qnieGX",
-    "separator_4cdWwM",
-    "1764573998c95b5002",
     "1764739654c7744b3a",
     "collapsible_menu_V8LbeE",
     "blog_link_seo",
-    "brands_htWiGw"
+    "brands_htWiGw",
+    "177127772471f25f5e",
+    "1764573998c95b5002"
   ]
 }

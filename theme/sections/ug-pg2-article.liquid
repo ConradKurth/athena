@@ -1,0 +1,165 @@
+{%- render 'ug-pg2-head' -%}
+{%- liquid
+  assign is_dr = false
+  assign reviewed = false
+  assign rh = section.settings.reviewed_handles | split: ','
+  for h in rh
+    assign hs = h | strip
+    if hs == page.handle
+      assign reviewed = true
+    endif
+  endfor
+  if section.settings.dr_handle != blank and page.handle == section.settings.dr_handle
+    assign is_dr = true
+  endif
+  assign is_explain = false
+  if section.settings.explain_handle != blank and page.handle == section.settings.explain_handle
+    assign is_explain = true
+  endif
+  assign words = page.content | strip_html | split: ' ' | size
+  assign mins = words | divided_by: 220 | at_least: 1
+  assign product = all_products['athena-uraguard-liner']
+  assign shield_photo = section.settings.shield_photo | default: images['uraguard-shield-photo.png']
+  assign card_img = section.settings.card_image | default: images['uraguard-hero-bedroom.jpg']
+-%}
+<div class="ug ugp ugp-art{% if is_dr %} is-dr{% endif %}{% if is_explain %} is-explain{% endif %}">
+  <section class="ugp-hero{% unless is_dr and section.settings.dr_image != blank %} noimg{% endunless %}">
+    <div class="w ugp-hero-g">
+      <div>
+        <nav class="ugp-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>{{ page.title }}</span></nav>
+        {%- if is_dr -%}
+          {%- if section.settings.dr_eyebrow != blank -%}<span class="lbl">{{ section.settings.dr_eyebrow }}</span>{%- endif -%}
+        {%- elsif section.settings.eyebrow != blank -%}
+          <span class="lbl">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h1>{{ page.title }}</h1>
+        {%- if is_dr and section.settings.dr_text != blank -%}<div class="sub">{{ section.settings.dr_text }}</div>{%- endif -%}
+        {%- if is_explain and section.settings.explain_def != blank -%}
+          <div class="ugx-def">{{ section.settings.explain_def }}</div>
+          <div class="ugx-chips"><span class="pp">Patent-pending technology</span><span>Works inside any brief</span><span>Single use, one per change</span></div>
+        {%- endif -%}
+        {%- if reviewed -%}
+          <div class="ugp-meta">
+            {%- if section.settings.reviewer != blank -%}<span>{% render 'ug-pg2-icon', i: 'doc' %}Medically reviewed by&nbsp;<a href="{{ section.settings.reviewer_link }}">{{ section.settings.reviewer }}</a></span>{%- endif -%}
+            <span>{% render 'ug-pg2-icon', i: 'clock' %}{{ mins }} min read</span>
+          </div>
+        {%- endif -%}
+      </div>
+      {%- if is_dr and section.settings.dr_image != blank -%}
+        <div class="pic">{{ section.settings.dr_image | image_url: width: 1000 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 34vw, 100vw', alt: page.title }}</div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- if is_explain -%}
+  <section class="ugx" aria-labelledby="ugx-h">
+    <div class="w">
+      <div class="ugx-g">
+        <figure class="ugx-fig">
+          <div class="ugx-shield{% if shield_photo != blank %} has-photo{% endif %}">
+            {%- if shield_photo != blank -%}
+            <div class="ugx-ph">
+              <svg class="ugx-adh" viewBox="0 0 1205 2062" aria-hidden="true" preserveAspectRatio="none"><path d="M662,5 L548,9 L426,32 L333,57 L199,110 L119,164 L48,243 L17,313 L5,385 L13,480 L124,745 L174,915 L217,1098 L240,1267 L239,1517 L244,1533 L241,1560 L248,1565 L242,1617 L244,1704 L259,1824 L309,1911 L354,1959 L402,1994 L463,2026 L517,2044 L581,2056 L698,2044 L765,2017 L840,1967 L887,1916 L928,1836 L945,1784 L965,1219 L977,1166 L971,1156 L980,1135 L1007,998 L1016,984 L1020,951 L1070,793 L1192,498 L1199,424 L1187,337 L1154,266 L1107,200 L1023,128 L922,71 L817,32Z" fill="#efdde1" stroke="#a64a63" stroke-width="12" stroke-dasharray="18 22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ shield_photo | image_url: width: 800 | image_tag: loading: 'lazy', class: 'ugx-photo', sizes: '260px', alt: 'The UraGuard hygiene shield: a wide rounded end that narrows to a light blue panel' }}
+              <span class="pin" style="left:50%;top:11%">1</span>
+              <span class="pin" style="left:58%;top:32%">2</span>
+              <span class="pin b" style="left:49%;top:70%">3</span>
+              <span class="pin" style="left:9%;top:78%">4</span>
+            </div>
+            {%- else -%}
+            <svg viewBox="0 0 362 564" role="img" aria-label="The UraGuard hygiene shield: a wide rounded end that tapers to a narrower end with a light blue panel"><defs><filter id="ugxfab" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.52  0 0 0 0 0.54  0 0 0 .18 0" result="g"/><feComposite in="g" in2="SourceGraphic" operator="in" result="t"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge></filter><filter id="ugxsh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#3d1f35" flood-opacity=".18"/></filter></defs><g filter="url(#ugxsh)"><path d="M186 27C203 27 221 28 237 33C253 38 272 48 284 55C296 62 302 70 309 77C316 84 320 92 324 99C328 106 329 114 330 121C331 128 331 136 330 143C329 150 325 158 322 165C319 172 316 180 313 187C310 194 306 202 303 209C300 216 298 224 296 231C294 238 291 246 289 253C287 260 284 268 282 275C280 282 279 290 278 297C277 304 275 312 274 319C273 326 272 334 271 341C270 348 271 356 271 363C271 370 270 378 270 385C270 392 269 400 269 407C269 414 269 422 269 429C269 436 268 444 268 451C268 458 268 466 266 473C264 480 262 488 257 495C252 502 245 511 239 517C233 523 225 526 220 529C215 532 213 533 207 534C201 535 190 537 182 537C174 537 164 535 157 534C150 533 148 532 143 529C138 526 132 523 125 517C118 511 109 502 104 495C99 488 97 480 95 473C93 466 93 458 92 451C91 444 91 436 91 429C91 422 92 414 92 407C92 400 92 392 92 385C92 378 91 370 91 363C91 356 91 348 91 341C91 334 90 326 89 319C88 312 86 304 85 297C84 290 82 282 80 275C78 268 77 260 75 253C73 246 70 238 68 231C66 224 64 216 61 209C58 202 55 194 52 187C49 180 45 172 42 165C39 158 36 150 34 143C32 136 32 128 32 121C32 114 34 106 37 99C40 92 44 84 50 77C56 70 62 62 76 55C90 48 116 38 134 33C152 28 169 27 186 27Z" fill="#fdfdfc" filter="url(#ugxfab)"/></g><path d="M180 37C211 37 254 48 274 55C294 62 292 70 299 77C306 84 310 92 314 99C318 106 319 114 320 121C321 128 321 136 320 143C319 150 315 158 312 165C309 172 306 180 303 187C300 194 296 202 293 209C290 216 288 224 286 231C284 238 281 246 279 253C277 260 274 268 272 275C270 282 269 290 268 297C267 304 265 312 264 319C263 326 262 334 261 341C260 348 261 356 261 363C261 370 260 378 260 385C260 392 259 400 259 407C259 414 259 422 259 429C259 436 258 444 258 451C258 458 258 466 256 473C254 480 252 488 247 495C242 502 235 511 229 517C223 523 218 527 210 529C202 531 192 527 182 527C172 527 161 531 153 529C145 527 142 523 135 517C128 511 119 502 114 495C109 488 107 480 105 473C103 466 103 458 102 451C101 444 101 436 101 429C101 422 102 414 102 407C102 400 102 392 102 385C102 378 101 370 101 363C101 356 101 348 101 341C101 334 100 326 99 319C98 312 96 304 95 297C94 290 92 282 90 275C88 268 87 260 85 253C83 246 80 238 78 231C76 224 74 216 71 209C68 202 65 194 62 187C59 180 55 172 52 165C49 158 46 150 44 143C42 136 42 128 42 121C42 114 44 106 47 99C50 92 54 84 60 77C66 70 66 62 86 55C106 48 149 37 180 37Z" fill="none" stroke="#e4e1e1" stroke-width="2"/><rect x="126" y="277" width="106" height="207" rx="3" fill="#bcd8ef" opacity=".92"/></svg>
+            {%- endif -%}
+            <span class="ugx-call l c1"><span class="dot"></span><b><span class="n">1</span>Wide end to the front</b>Helps protect a wider surface area of skin.</span>
+            <span class="ugx-call r c2"><span class="dot"></span><b><span class="n">2</span>Soft top layer</b>Thin, soft and breathable. This is the side that rests against your skin.</span>
+            <span class="ugx-call r c3"><span class="dot"></span><b><span class="n b">3</span>Blue panel faces up</b>Faces up toward you, right under where urine leaves the body. This is the part that stops bacteria and moisture from reaching your urethra.</span>
+            <span class="ugx-call l c4"><span class="dot"></span><b><span class="n">4</span>Adhesive back</b>Keeps the shield in place inside your brief.</span>
+          </div>
+          <figcaption>The UraGuard® hygiene shield{% if shield_photo != blank %}, actual photo{% endif %}.</figcaption>
+        </figure>
+        <div class="ugx-copy">
+          <span class="lbl">The short answer</span>
+          <h2 class="h2" id="ugx-h">A thin layer between you and your brief.</h2>
+          <ul class="ugx-facts">
+            <li><span class="ic">{% render 'ug-pg2-icon', i: 'tick' %}</span><div><b>It doesn’t absorb</b><p>Your brief still catches the leak, exactly as it does today.</p></div></li>
+            <li><span class="ic">{% render 'ug-pg2-icon', i: 'tick' %}</span><div><b>It separates</b><p>Moisture and bacteria stay in the brief’s core instead of resting against your skin.</p></div></li>
+            <li><span class="ic">{% render 'ug-pg2-icon', i: 'tick' %}</span><div><b>It’s one per change</b><p>Add a fresh shield each time you change your brief, day or night.</p></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ugx-cmp">
+        <div class="c us"><span class="k">Hygiene shield</span><h3>Separates</h3><p>Sits inside the brief, between your skin and the wet core. Your brief keeps absorbing.</p></div>
+        <div class="c"><span class="k">Pad or liner</span><h3>Absorbs</h3><p>Soaks up light leaks. Worn inside regular underwear.</p></div>
+        <div class="c"><span class="k">Brief or pull-up</span><h3>Absorbs</h3><p>Holds the leak in its core. Worn as the underwear itself.</p></div>
+      </div>
+
+      <div class="ugx-where">
+        <div>
+          <span class="lbl">Where it goes</span>
+          <h2>Inside the brief you already wear.</h2>
+          <p>No new brand to learn. Keep the protection you trust and add a shield at each change.</p>
+        </div>
+        <ul>
+          <li><b>Tab-style briefs</b><span>Adult diapers with side tabs</span></li>
+          <li><b>Pull-up underwear</b><span>Pull-ons, day or overnight</span></li>
+          <li><b>Any size or brand</b><span>Including store brands</span></li>
+        </ul>
+        <div class="brands-l"><b>Works inside</b><span>DEPEND®</span><span>TENA®</span><span>ALWAYS DISCREET®</span><span>PREVAIL®</span><span>TRANQUILITY®</span><span>STORE BRANDS</span></div>
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  <section class="ugp-body">
+    <div class="w ugp-art-g">
+      <article class="ugp-rte">{%- if is_explain -%}<div class="ugx-more"><span class="lbl">The full guide</span></div>{%- endif -%}{{ page.content }}</article>
+      <aside class="ugp-aside">
+        <div class="ugp-buy">
+          {%- if card_img != blank -%}<div class="im is-photo">{{ card_img | image_url: width: 700 | image_tag: loading: 'lazy', alt: 'A woman placing a UraGuard hygiene shield inside her brief' }}</div>{%- elsif product.featured_image -%}<div class="im">{{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}</div>{%- endif -%}
+          <span class="k">{{ section.settings.card_label }}</span>
+          <h3>{{ section.settings.card_heading }}</h3>
+          <p>{{ section.settings.card_text }}</p>
+          <ul>
+            <li>{% render 'ug-pg2-icon', i: 'tick' %}Works inside any brief or pull-on</li>
+            <li>{% render 'ug-pg2-icon', i: 'tick' %}Free shipping · 30-day returns</li>
+            <li>{% render 'ug-pg2-icon', i: 'tick' %}HSA/FSA eligible</li>
+          </ul>
+          <a class="btn btn-main" href="{{ product.url | default: '/products/athena-uraguard-liner' }}">Shop UraGuard®</a>
+        </div>
+        <div class="card ugp-help sm">
+          <h3>Have a question?</h3>
+          <p><a class="tlink" href="/pages/faq">Read the FAQ</a> or <a class="tlink" href="/pages/contact">contact us</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard article page",
+  "tag": "section",
+  "class": "section-ug-pg2-article",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "UraGuard® guide" },
+    { "type": "text", "id": "reviewer", "label": "Medical reviewer", "default": "Jacqueline Krieger, MD" },
+    { "type": "url", "id": "reviewer_link", "label": "Reviewer link" },
+    { "type": "text", "id": "reviewed_handles", "label": "Pages showing the reviewer line", "info": "Page handles, comma separated.", "default": "what-is-a-hygiene-shield" },
+    { "type": "header", "content": "What is a hygiene shield explainer" },
+    { "type": "text", "id": "explain_handle", "label": "Page handle", "default": "what-is-a-hygiene-shield" },
+    { "type": "richtext", "id": "explain_def", "label": "One-sentence definition", "default": "<p><strong>A hygiene shield is a thin, soft barrier you place inside your disposable brief or pull-up.</strong> It sits between your skin and the wet core, so moisture and bacteria stay in the brief, not against you.</p>" },
+    { "type": "image_picker", "id": "shield_photo", "label": "Shield photo", "info": "If empty, uses the file named uraguard-shield-photo.png from Content > Files." },
+    { "type": "header", "content": "Shop card" },
+    { "type": "image_picker", "id": "card_image", "label": "Shop card photo", "info": "If empty, uses uraguard-hero-bedroom.jpg." },
+    { "type": "text", "id": "card_label", "label": "Small label", "default": "Meet UraGuard®" },
+    { "type": "text", "id": "card_heading", "label": "Heading", "default": "The first hygiene shield for incontinence briefs" },
+    { "type": "textarea", "id": "card_text", "label": "Text", "default": "A thin shield that goes inside the brief you already wear and helps keep moisture and bacteria away from sensitive skin." },
+    { "type": "header", "content": "Author profile page" },
+    { "type": "text", "id": "dr_handle", "label": "Page handle", "default": "jacqueline-krieger-md" },
+    { "type": "text", "id": "dr_eyebrow", "label": "Small label", "default": "Founder & medical reviewer" },
+    { "type": "richtext", "id": "dr_text", "label": "Intro" },
+    { "type": "image_picker", "id": "dr_image", "label": "Photo" }
+  ],
+  "presets": [{ "name": "UraGuard article page" }]
+}
+{% endschema %}

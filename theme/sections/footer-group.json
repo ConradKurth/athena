@@ -17,18 +17,18 @@
         "ai_gen_block_e1c833c_GxRQax": {
           "type": "ai_gen_block_e1c833c",
           "settings": {
-            "background_color": "#11293f",
-            "text_color": "#ffffff",
+            "background_color": "#3d1f35",
+            "text_color": "#ecdce4",
             "heading_color": "#ffffff",
-            "link_color": "#ffffff",
-            "link_hover_color": "#005c7c",
-            "padding_top": 60,
+            "link_color": "#f5e9ef",
+            "link_hover_color": "#f6b7c5",
+            "padding_top": 70,
             "padding_bottom": 60,
-            "heading_size": 16,
-            "text_size": 14,
-            "heading_uppercase": "uppercase",
+            "heading_size": 20,
+            "text_size": 15,
+            "heading_uppercase": "none",
             "column_1_heading": "UraGuard®",
-            "column_1_text": "<p>Premium protection for your peace of mind.</p>",
+            "column_1_text": "<p>The first hygiene shield for incontinence briefs. Designed and made in the USA.</p>",
             "column_2_heading": "",
             "column_2_html": "",
             "column_3_heading": "Quick links",
@@ -40,7 +40,7 @@
             "facebook_url": "https://www.facebook.com/profile.php?id=61570559160581",
             "icon_size": 24,
             "icon_color": "#ffffff",
-            "icon_hover_color": "#005c7c"
+            "icon_hover_color": "#f6b7c5"
           },
           "blocks": {}
         }
@@ -49,7 +49,7 @@
         "ai_gen_block_e1c833c_GxRQax"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.ai-footer-at1jindhis3znk0dtcaigenblocke1c833cgxrqax {padding-left: 100px !important; /* adjust */ }}"
+        "@media (min-width: 750px) {.ai-footer-at1jindhis3znk0dtcaigenblocke1c833cgxrqax {padding-left: 32px !important; padding-right: 32px !important;}}"
       ],
       "settings": {
         "section-margin": 0
@@ -143,7 +143,7 @@
       "type": "custom-liquid",
       "custom_css": [
         "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {display: block;}",
-        "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {background-color: #003649;}",
+        "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {background-color: #4a2741;}",
         "#omnisend-embedded-v2-693bfc7a8e43194d754e72af {width: 100%;}"
       ],
       "name": "t:sections.custom-liquid.presets.name",
@@ -159,7 +159,7 @@
           "settings": {
             "padding_vertical": 20,
             "padding_horizontal": 40,
-            "background_color": "#151515",
+            "background_color": "#2a1525",
             "mobile_stack": true,
             "show_currency_selector": false,
             "selector_background": "#ffffff",
@@ -170,14 +170,14 @@
             "copyright_text": "<p>© 2026 UraGuard®. All rights reserved.</p>",
             "powered_by_text": "<p>Powered by <a href=\"https://www.shopify.com\" target=\"_blank\">Shopify</a></p>",
             "text_spacing": 15,
-            "text_color": "#ffffff",
+            "text_color": "#d9c6d1",
             "text_font_size": 13,
             "text_font_weight": "400",
             "text_uppercase": false,
             "text_italic": false,
             "text_letter_spacing": 0,
-            "link_color": "#ffffff",
-            "link_hover_color": "#cccccc",
+            "link_color": "#f5e9ef",
+            "link_hover_color": "#f6b7c5",
             "link_underline": true
           },
           "blocks": {}

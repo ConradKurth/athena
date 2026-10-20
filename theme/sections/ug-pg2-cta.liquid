@@ -1,0 +1,38 @@
+{%- render 'ug-pg2-head' -%}
+{%- assign product = all_products['athena-uraguard-liner'] -%}
+{%- assign from_price = product.price_min | money_without_trailing_zeros | default: '$29' -%}
+<div class="ug ugp">
+  <section class="ugp-ctasec">
+    <div class="w">
+      <div class="ugp-cta{% if section.settings.image == blank %} noimg{% endif %}">
+        <div class="tx">
+          {%- if section.settings.eyebrow != blank -%}<span class="lbl">{{ section.settings.eyebrow }}</span>{%- endif -%}
+          <h2>{{ section.settings.heading }}</h2>
+          {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+          <a class="btn btn-main" href="{{ section.settings.link | default: '/products/athena-uraguard-liner' }}">{{ section.settings.button | replace: ' from [price]', '' | replace: '[price]', from_price }}</a>
+          <div class="ugp-meta"><span>{% render 'ug-pg2-icon', i: 'ship' %}Free shipping</span><span>{% render 'ug-pg2-icon', i: 'return' %}Free 30-day returns</span><span>{% render 'ug-pg2-icon', i: 'card' %}HSA/FSA eligible</span></div>
+        </div>
+        {%- if section.settings.image != blank -%}
+          <div class="pic">{{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 420px, 100vw', alt: section.settings.image.alt | default: '' }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard shop banner",
+  "tag": "section",
+  "class": "section-ug-pg2-cta",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Feel clean all day, not just dry." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "UraGuard® is a thin hygiene shield that goes inside the brief you already wear and helps keep moisture and bacteria away from sensitive areas." },
+    { "type": "text", "id": "button", "label": "Button label", "info": "[price] shows the starting price.", "default": "Shop UraGuard®" },
+    { "type": "url", "id": "link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "presets": [{ "name": "UraGuard shop banner" }]
+}
+{% endschema %}

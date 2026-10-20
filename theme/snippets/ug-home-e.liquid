@@ -1,0 +1,50 @@
+{%- capture cta -%}<div class="cta-row"><a class="btn btn-main" href="{{ product.url | default: '/products/athena-uraguard-liner' }}">Shop UraGuard®</a><span>{{ i_return }}Free 30-day returns · Free shipping</span></div>{%- endcapture -%}
+<section class="sec" id="ug-who">
+  <div class="w">
+    <div class="head"><div><span class="lbl">Who it’s for</span><h2 class="h2">For her, and for the people who care for her</h2></div></div>
+    <div class="doors-g">
+      <a class="door" href="{{ product.url | default: '/products/athena-uraguard-liner' }}">
+        {%- if section.settings.her_image != blank -%}{{ section.settings.her_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}
+        <div class="bd">
+          <span class="who">I wear briefs</span>
+          <h3>Feel fresh and protected again</h3>
+          <span class="go">Find my pack</span>
+        </div>
+      </a>
+      <a class="door" href="{{ section.settings.caregiver_link | default: '/pages/caregivers-family' }}">
+        {%- if section.settings.caregiver_image != blank -%}{{ section.settings.caregiver_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}
+        <div class="bd">
+          <span class="who">I care for someone</span>
+          <h3>One small step that helps you care for her</h3>
+          <span class="go">Read the caregiver guide</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" id="ug-faq" style="padding-top:0">
+  <div class="w faq-g">
+    <div>
+      <span class="lbl">Before you try it</span>
+      <h2 class="h2">Questions women ask us</h2>
+    </div>
+    <div>
+      <details open><summary>Is this a pad or a liner?</summary><p>Neither. Pads and liners absorb. UraGuard® separates your skin from the wet core of the brief you already wear.</p></details>
+      <details><summary>Will it reduce how much my brief absorbs?</summary><p>No. Moisture passes through into your brief as normal; the difference is what stays against your skin.</p></details>
+      <details><summary>Will it shift or bunch up?</summary><p>No. It’s thin and shaped to fit, with an adhesive back that keeps it in place day or night.</p></details>
+      <details><summary>How often do I change it?</summary><p>Use a fresh shield every time you change your brief.</p></details>
+      <details><summary>Which brands does it work with?</summary><p>All of them, including Depend®, TENA®, Always Discreet®, Prevail® and store brands, in briefs, pull-ons and adult diapers.</p></details>
+    </div>
+  </div>
+  <div class="w">{{ cta }}</div>
+</section>
+
+<div class="notes">
+  <div class="w">
+    <p>UraGuard® is a physical barrier. It is not a treatment for, and is not intended to prevent, any medical condition.</p>
+    <p>†Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p>
+    <p>*Self-reported survey of 108 participants who received free product.</p>
+    <p>¹Omli R, Skotnes LH, Romild U, Kuhry E. “The use of absorbent pads increases the risk for lower urinary tract infections in nursing homes residents.” International Continence Society, 2008, Abstract 233. Prospective 1-year study of 160 Norwegian nursing-home residents aged 65+; shows an association, not cause and effect.</p>
+  </div>
+</div>

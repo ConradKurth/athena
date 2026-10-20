@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap");
+/* UraGuard homepage */
+/* Large edge-to-edge hero photo. Turns on automatically when the hero photo is not the cropped graphic. */
+#ug-hero:has(.photo:not(.crop)) .photo{border-radius:0;box-shadow:none;background:#f3e7e2}
+#ug-hero:has(.photo:not(.crop)) .photo img{object-position:58% 42%}
+@media (min-width:990px){
+  #ug-hero:has(.photo:not(.crop)){padding:0;min-height:min(86vh,820px);display:flex;align-items:center;overflow:hidden}
+  #ug-hero:has(.photo:not(.crop))::before{right:auto;left:-220px;top:auto;bottom:-260px}
+  #ug-hero:has(.photo:not(.crop)) .hero-g{width:100%;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"top ." "bot .";padding-top:72px;padding-bottom:72px;row-gap:0}
+  #ug-hero:has(.photo:not(.crop)) .h-top,#ug-hero:has(.photo:not(.crop)) .h-bot{padding-right:8px}
+  #ug-hero:has(.photo:not(.crop)) .h-media{position:absolute;top:0;right:0;bottom:0;width:50%;z-index:0}
+  #ug-hero:has(.photo:not(.crop)) .h-media .photo{position:absolute;inset:0;aspect-ratio:auto;height:100%;max-width:none}
+  #ug-hero:has(.photo:not(.crop)) .h-media::after{content:"";position:absolute;top:0;bottom:0;left:0;width:90px;background:linear-gradient(90deg,#f8ebe7,rgba(248,235,231,0));z-index:1}
+}
+@media (max-width:989px){
+  #ug-hero:has(.photo:not(.crop)) .h-media{width:100vw;max-width:none;margin-left:calc(50% - 50vw)}
+  #ug-hero:has(.photo:not(.crop)) .h-media .photo{max-width:none;margin:0;aspect-ratio:4/5}
+}
+@media (max-width:749px){
+  #ug-hero:has(.photo:not(.crop)) .h-media .photo{aspect-ratio:1/1}
+  #ug-hero:has(.photo:not(.crop)) .photo img{object-position:52% 48%}
+}
+
+/* ============ Site-wide UraGuard look (every page) ============ */
+/* Theme variables. Set on html body so they beat :root (settings.css) and the layout's body font overrides. */
+html body{
+  --ug-aub:#3d1f35;--ug-rose:#a64a63;--ug-rose-d:#8a3a51;--ug-ink:#2f1c2a;--ug-soft:#5b4155;--ug-muted:#7a6274;
+  --ug-blush:#f8ebe7;--ug-paper:#fffbf9;--ug-teal:#2a7a83;--ug-teal-l:#e6f1f1;--ug-line:#ecdcd9;--ug-gold:#c4842d;
+  --font-base:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--font-base-weight:400;--font-base-line-height:1.6;
+  --font-headline:'Lora',Georgia,'Times New Roman',serif;--font-headline-weight:500;--font-headline-transform:none;--font-headline-letter-spacing:-0.01em;--font-headline-line-height:1.15;
+  --font-navigation:'Nunito Sans',system-ui,sans-serif;--font-navigation-weight:700;--font-navigation-transform:none;--font-navigation-letter-spacing:0;
+  --font-button:'Nunito Sans',system-ui,sans-serif;--font-button-weight:800;--font-button-transform:none;--font-button-letter-spacing:0;--font-button-size:15px;
+  --font-price:'Nunito Sans',system-ui,sans-serif;--font-price-weight:700;
+  --font-breadcrumbs:'Nunito Sans',system-ui,sans-serif;
+  --color-background:#fffbf9;--color-background-rgb:255,251,249;
+  --color-headings-text:#3d1f35;--color-text:#2f1c2a;--color-text-rgb:47,28,42;--color-body-text:#2f1c2a;--color-body-text-light:#7a6274;
+  --color-foreground:rgba(61,31,53,.04);
+  --color-links:#a64a63;--color-links-active:#3d1f35;--color-border:#ecdcd9;--color-hr:#ecdcd9;
+  --color-action-text:#fff;--color-action-background:#a64a63;--color-action-background-rgb:166,74,99;
+  --color-placeholder-bg:#f8ebe7;--color-teaser-background:#f8ebe7;--color-bullet:#a64a63;
+  --color-header-text:#3d1f35;--color-header-background:#fffbf9;--color-header-background-rgb:255,251,249;--color-header-border:#ecdcd9;--color-header-search-border:#ecdcd9;
+  --color-menu-text:#3d1f35;--color-menu-background:#fffbf9;--color-transparent-header:#3d1f35;--color-navbar-bg:#3d1f35;--color-navbar-text:#fff;
+  --color-button-primary-background:#a64a63;--color-button-primary-text:#fff;--color-button-primary-text-hover:#fff;--color-button-primary-background-hover:#3d1f35;
+  --color-button-secondary-background:#fff;--color-button-secondary-border:#cfb3bd;--color-button-secondary-text:#3d1f35;--color-button-secondary-text-hover:#fff;--color-button-secondary-background-hover:#3d1f35;
+  --color-button-main-bg:#a64a63;--color-button-main-text:#fff;--color-button-cta-bg:#a64a63;--color-button-cta-text:#fff;--color-button-border:#cfb3bd;--color-button-text:#3d1f35;
+  --color-price:#3d1f35;--color-sale-price:#a64a63;--color-brand:#7a6274;--color-star-rating:#c4842d;
+  --color-sale-badge-text:#fff;--color-sale-badge-background:#a64a63;--color-sold-out-text:#3d1f35;--color-sold-out-background:#f8ebe7;
+  --color-promo-price:#a64a63;--color-promo-badge:#a64a63;
+  --color-input-text:#2f1c2a;--color-input-background:#fff;--color-input-border:#d9c4cb;--color-input-placeholder:#9a8493;--color-input-border-active:#a64a63;
+  --color-footer-background:#3d1f35;--color-footer-text:#fff;--color-footer-text-rgb:255,255,255;--color-footer-bg:#3d1f35;
+  --border-radius:20px;--border-radius-button:999px;--border-radius-button-video:999px;
+  --swiper-theme-color:#a64a63;
+  background-color:#fffbf9;color:#2f1c2a;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+html body .wt-slider,html body .wt-slider__container,html body .wt-cart{--swiper-theme-color:#a64a63}
+::selection{background:#f3dcdc;color:#3d1f35}
+
+/* Type. :where() keeps these at zero specificity so section styles (including the homepage) still win. */
+:where(body){font-family:var(--font-base)}
+:where(h1,h2,h3,h4,h5,.headline,.h1,.h2,.h3){font-family:var(--font-headline);font-weight:500;color:var(--color-headings-text);letter-spacing:-0.01em;text-transform:none}
+:where(.rte,.wt-page__content,.main-page) :where(p,li){line-height:1.7}
+:where(.rte) a{color:var(--color-links);text-underline-offset:3px}
+:where(.rte) a:hover{color:var(--color-links-active)}
+:where(.rte) :where(h2,h3){margin-top:1.6em;margin-bottom:.5em}
+:where(.rte) blockquote{border-left:3px solid var(--ug-rose);background:var(--ug-blush);padding:16px 20px;border-radius:0 14px 14px 0;color:var(--ug-aub);font-style:normal}
+:where(.rte) table{border-collapse:collapse;width:100%}
+:where(.rte) :where(th,td){border-bottom:1px solid var(--ug-line);padding:10px 12px;text-align:left}
+
+/* Buttons: rose pills everywhere */
+html body :is(.hero__button--primary,.wt-cart__cta,.shopify-payment-button__button--unbranded,.product-form__submit){
+  border-radius:999px;font-family:var(--font-button);font-weight:800;letter-spacing:0;text-transform:none;
+}
+html body .hero__button--primary:not(.hero__button--secondary):not(.hero__button--link){background-color:var(--ug-rose);border-color:var(--ug-rose);color:#fff}
+html body .hero__button--primary:not(.hero__button--secondary):not(.hero__button--link):hover{background-color:var(--ug-aub);border-color:var(--ug-aub);color:#fff}
+html body .hero__button--secondary:not(.hero__button--link){border-radius:999px;border-color:#cfb3bd;color:var(--ug-aub);text-transform:none;letter-spacing:0;font-weight:800}
+html body .hero__button--secondary:not(.hero__button--link):hover{background-color:var(--ug-aub);border-color:var(--ug-aub);color:#fff}
+html body .hero__button--link{color:var(--ug-rose);text-transform:none;letter-spacing:0;font-weight:800}
+html body :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid var(--ug-teal);outline-offset:3px}
+
+/* Forms */
+html body :is(input[type="text"],input[type="email"],input[type="tel"],input[type="password"],input[type="search"],input[type="number"],textarea,select):not(.ug *){border-radius:14px;border-color:#d9c4cb}
+html body :is(input,textarea,select):not(.ug *):focus{border-color:var(--ug-rose)}
+
+/* Announcement bar */
+html body .wt-announcement-bar{--color-background:#3d1f35;--color-text:#fff;background:#3d1f35;color:#fff}
+html body .wt-announcement__text{font-family:var(--font-base);font-weight:700;font-size:13.5px;letter-spacing:.02em;text-transform:none}
+html body .wt-announcement__text a{color:#fff}
+html body .wt-announcement__text svg{color:#f6b7c5}
+
+/* Header: warm paper, thin blush line, rose accents */
+html body :is(.wt-header,.page-header,header.header){border-bottom-color:var(--ug-line)}
+html body :is(.wt-header,.page-header) :is(a,button){color:var(--ug-aub)}
+html body :is(.wt-header,.page-header) a:hover{color:var(--ug-rose)}
+html body :is(.wt-header__menu,.wt-header__nav,.wt-header__teaser) a{font-weight:700;text-transform:none;letter-spacing:0}
+html body :is(.wt-header,.page-header) :is(.wt-header__cart-count,.wt-header__icon__count,[class*="cart-count"],[class*="counter"]){background:var(--ug-rose);color:#fff}
+
+/* Mobile menu drawer */
+html body :is(.wt-drawer,.drawer-navigation,.wt-drawer__content){background-color:var(--ug-paper);color:var(--ug-aub)}
+html body :is(.wt-drawer,.drawer-navigation) a{color:var(--ug-aub)}
+
+/* Cart drawer */
+html body .wt-cart__drawer{background:var(--ug-paper);color:var(--ug-ink)}
+html body .wt-cart__drawer__header{border-bottom:1px solid var(--ug-line)}
+html body .wt-drawer__title__text{font-family:var(--font-headline);font-weight:500;font-size:24px;color:var(--ug-aub);text-transform:none;letter-spacing:-.01em}
+html body .wt-cart__drawer__footer{background:#fff;border-top:1px solid var(--ug-line)}
+html body .wt-cart__item__link{color:var(--ug-aub);font-weight:700}
+html body .wt-cart__cta{background:var(--ug-rose);color:#fff;min-height:54px}
+html body .wt-cart__cta:hover{background:var(--ug-aub);color:#fff}
+html body [class*="free-shipping"]{color:var(--ug-teal)}
+
+/* Product cards (collections, search, recommendations) */
+html body :is(.card-wrapper,.wt-product__card,.product-card) :is(img){border-radius:20px}
+html body :is(.card__heading,.card-information__text,.wt-product__name,.product-card__title){font-family:var(--font-headline);font-weight:500;color:var(--ug-aub);text-transform:none;letter-spacing:-.005em}
+html body :is(.price,.wt-product__price,.price-item){color:var(--ug-aub);font-weight:700}
+html body :is(.price-item--sale,.price--on-sale .price-item--regular+*){color:var(--ug-rose)}
+html body :is(.badge,.card__badge>*,.wt-product__badge){border-radius:999px;font-weight:700;text-transform:none;letter-spacing:0}
+
+/* Collection, search, blog, article, 404 */
+html body :is(.wt-collection__title,.collection-hero__title,.wt-page__title,.main-page-title,.wt-blog__title,.article-template__title,.wt-article__title){font-family:var(--font-headline);font-weight:500;color:var(--ug-aub);text-transform:none;letter-spacing:-.015em}
+html body .wt-main-404__container{background:var(--ug-blush);border-radius:28px;padding:64px 24px;text-align:center;max-width:860px;margin:40px auto}
+html body .wt-main-404__container .headline{font-family:var(--font-headline);color:var(--ug-aub)}
+html body :is(.wt-breadcrumbs,.breadcrumbs) a{color:var(--ug-muted)}
+html body :is(.wt-pagination,.pagination) :is(a,span)[aria-current="page"]{background:var(--ug-rose);color:#fff;border-radius:999px}
+
+/* Judge.me stars and widgets in brand colors */
+html body :is(.jdgm-star,.jdgm-prev-badge__stars,.jdgm-rev__rating){color:#c4842d !important}
+html body .jdgm-write-rev-link,html body .jdgm-btn{border-radius:999px !important;background:var(--ug-rose) !important;border-color:var(--ug-rose) !important;color:#fff !important}
+
+/* Footer (Footer columns block): warm aubergine with tidy columns */
+html body [class^="ai-footer-container-"]{max-width:1240px;padding:0 12px}
+html body [class^="ai-footer-heading-"]{font-family:var(--font-headline);font-weight:500;font-size:20px;letter-spacing:-.005em;text-transform:none;color:#fff}
+html body [class^="ai-footer-text-"]{color:#ecdce4;font-size:15px;max-width:320px}
+html body [class^="ai-footer-link-"],html body [class^="ai-footer-email-link-"]{color:#f5e9ef;font-size:15px;text-decoration:none;border-bottom:1px solid transparent}
+html body [class^="ai-footer-link-"]:hover,html body [class^="ai-footer-email-link-"]:hover{color:#fff;border-bottom-color:#f6b7c5}
+html body [class^="ai-footer-social-icon-"]{width:42px;height:42px;padding:10px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff}
+html body [class^="ai-footer-social-icon-"]:hover{background:#a64a63;color:#fff;transform:none}
+/* Newsletter band and bottom bar */
+html body #omnisend-embedded-v2-693bfc7a8e43194d754e72af{background-color:#4a2741 !important}
+/* Hide Judge.me floating side 'Reviews' tab */
+.jdgm-revs-tab-btn,.jdgm-revs-tab,#jdgm-revs-tab,.jdgm-revs-tab__wrapper,[class*="jdgm-revs-tab"],.jdgm-floating-tab{display:none!important}
+/* Headings in Lora on all UraGuard sections (replaces Fraunces) */
+html body .ug :is(h1,h2,h3,h4),html body .ug .seal b,html body .ug .glance .big,html body .ug .fact.study b,html body .ug .score .n,html body .ug .pc .mid,html body .ug .sv b,html body .ug .step .im::before{font-family:'Lora',Georgia,serif}
+/* Omnisend newsletter (footer band) and pop-up in brand colors */
+html body [class*="omnisend-form-693bfc7a8e43194d754e72af-section-"][class*="opacity-layer"]{background:#4a2741!important}
+html body #omnisend-embedded-v2-693bfc7a8e43194d754e72af :is(strong,p,span,div){font-family:'Nunito Sans',system-ui,sans-serif!important}
+html body #omnisend-embedded-v2-693bfc7a8e43194d754e72af strong{font-family:'Lora',Georgia,serif!important;font-weight:500!important}
+html body button[class*="omnisend-form-"][class*="-action-"]{background:#a64a63!important;border-color:#a64a63!important;color:#fff!important;border-radius:999px!important;font-family:'Nunito Sans',system-ui,sans-serif!important;font-weight:800!important;letter-spacing:0!important;text-transform:none!important}
+html body button[class*="omnisend-form-"][class*="-action-"]:hover{background:#8a3a51!important;border-color:#8a3a51!important}
+html body input[class*="omnisend-form-"]{border-color:#d9c4cb!important;color:#2f1c2a!important;border-radius:14px!important}
+html body input[class*="omnisend-form-"]:focus{border-color:#a64a63!important;outline:none!important}
+html body input[class*="omnisend-form-"]::placeholder{color:#9a8493!important}
+/* Draft only: hide the old "The Science" menu link (merged into What Is a Hygiene Shield). On publish day, remove it from the menu in Shopify instead. */
+html body li:has(> a[href*="/pages/behind-the-science"]),html body li:has(> * > a[href*="/pages/behind-the-science"]),html body :is(header,nav,.wt-header,.wt-drawer,.drawer-navigation) a[href*="/pages/behind-the-science"]{display:none!important}
+/* About Us: headshot shown whole in an upright frame (shoulders included) */
+html body .pg-q-im{width:200px!important;height:auto!important;aspect-ratio:1024/1357!important;border-radius:20px!important;background:none!important;overflow:hidden!important;align-self:center}
+html body .pg-q-im img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 50%!important;border-radius:0!important;transform:none!important}
+@media (max-width:749px){html body .pg-q-im{width:170px!important;margin:0 auto}}

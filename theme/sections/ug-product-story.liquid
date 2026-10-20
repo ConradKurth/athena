@@ -1,0 +1,94 @@
+{%- comment -%} UraGuard product page story: UTI risk, how to use (shared snippet ug-home-h), 96% result. Copy matches the homepage. {%- endcomment -%}
+{%- capture tick -%}<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>{%- endcapture -%}
+{%- capture i_return -%}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 3 3 9 9 9"/></svg>{%- endcapture -%}
+{%- capture cta -%}<div class="cta-row"><a class="btn btn-main" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Choose your pack</a><span>{{ i_return }}Free 30-day returns · Free shipping</span></div>{%- endcapture -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+{{ 'uraguard-home.css' | asset_url | stylesheet_tag }}
+{{ 'ug-product.css' | asset_url | stylesheet_tag }}
+<style>
+{%- include 'ug-home-style' -%}
+</style>
+{%- render 'ug-product-packs', product: product -%}
+{%- render 'ab-pack-default', product: product -%}
+<div class="ug ugp">
+  <section class="uti" id="ug-uti">
+    <div class="w">
+      <span class="lbl">What most people don’t know</span>
+      <h2 class="h2">A wet brief can lead to a UTI.</h2>
+      <p class="sub">A brief stops leaks, but it holds the urine right against you. Hours of warmth and moisture next to the urethra is how many urinary tract infections begin.</p>
+      <div class="uti-g">
+        <ol class="chain">
+          <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/></svg></span><b>The brief gets wet</b><p>Urine is locked into the core, which rests against your skin until the next change.</p></li>
+          <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="8" cy="17" r="2"/><circle cx="17" cy="6" r="1.5"/></svg></span><b>Bacteria multiply</b><p>Body heat and trapped moisture let bacteria grow on the surface touching you.</p></li>
+          <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5"/><polyline points="6 11 12 5 18 11"/></svg></span><b>They reach the urethra</b><p>It is only a short distance for bacteria to travel up into the bladder.</p></li>
+          <li class="end"><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><b>A UTI starts</b><p>Burning, urgency, sudden confusion in older adults, and sometimes a hospital stay.</p></li>
+        </ol>
+        <div class="uti-stat">
+          <p class="cap">A year-long nursing-home study¹</p>
+          <div class="x3"><b>3×</b><p>Residents who wore absorbent pads got UTIs about <strong>3 times as often</strong> as residents who didn’t.</p></div>
+          <p class="key">Out of every 100 residents, how many got a UTI that year:</p>
+          <div class="hbar"><div class="l">Wore absorbent pads<strong>41 of 100</strong></div><div class="track"><div class="fill" style="width:41%"></div></div></div>
+          <div class="hbar lo"><div class="l">Didn’t wear pads<strong>13 of 100</strong></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+          <p class="so">The problem isn’t you. It’s what sits against your skin all day.</p>
+        </div>
+        <style>
+          .ug .uti-stat .x3{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;margin:4px 0 22px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.16)}
+          .ug .uti-stat .x3 b{font-family:'Lora',Georgia,serif;font-weight:500;font-size:72px;line-height:.9;color:#f6b7c5}
+          .ug .uti-stat .x3 p{margin:0;font-size:18px;line-height:1.45;color:#fff}
+          .ug .uti-stat .x3 p strong{color:#f6b7c5}
+          .ug .uti-stat .key{margin:0 0 14px;font-size:14.5px;color:#e3cfdb}
+          .ug .uti-stat .hbar .l strong{font-size:22px}
+          .ug .uti-stat .so{margin-top:8px}
+          @media (max-width:749px){.ug .uti-stat .x3 b{font-size:58px}.ug .uti-stat .x3 p{font-size:16.5px}}
+        </style>
+      </div>
+    </div>
+  </section>
+
+{%- include 'ug-home-h' -%}
+
+  <section class="glance" id="ug-result">
+    <div class="w glance-g">
+      <div>
+        <span class="lbl">Independent lab result · Patent-pending technology</span>
+        <div class="big">96%</div>
+        <h2>In laboratory testing, UraGuard® technology reduced surface bacteria by 96%.†</h2>
+        <p class="sub">Tested over 8 hours against a standard diaper using the AATCC 100 method.</p>
+      </div>
+      <div>
+        <div class="r96" role="img" aria-label="Surface bacteria after 8 hours in lab testing: standard diaper 100%, UraGuard technology 4%">
+          <h3>Surface bacteria after 8 hours, lab testing</h3>
+          <div class="row"><div class="l">Standard diaper<span>100%</span></div><div class="track"><div class="fill"></div></div></div>
+          <div class="row us"><div class="l">UraGuard® technology<span>4%</span></div><div class="track"><div class="fill"></div></div></div>
+          <p class="pay"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-3.6 7.5-9.6V5.3L12 2.5 4.5 5.3v6.6c0 6 7.5 9.6 7.5 9.6z"/><polyline points="9 12 11 14 15 10"/></svg>96% less surface bacteria in lab testing†</p>
+        </div>
+        {{ cta }}
+      </div>
+    </div>
+  </section>
+
+  <div class="notes">
+    <div class="w">
+      <p>UraGuard® is a physical barrier. It is not a treatment for, and is not intended to prevent, any medical condition.</p>
+      <p>†Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p>
+      <p>¹Omli R, Skotnes LH, Romild U, Kuhry E. “The use of absorbent pads increases the risk for lower urinary tract infections in nursing homes residents.” International Continence Society, 2008, Abstract 233. Prospective 1-year study of 160 Norwegian nursing-home residents aged 65+; shows an association, not cause and effect.</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard product story",
+  "tag": "section",
+  "class": "section-ug-product-story",
+  "settings": [
+    { "type": "image_picker", "id": "step_1", "label": "Step 1 image" },
+    { "type": "image_picker", "id": "step_2", "label": "Step 2 image" },
+    { "type": "image_picker", "id": "step_3", "label": "Step 3 image" },
+    { "type": "image_picker", "id": "step_4", "label": "Step 4 image" }
+  ],
+  "presets": [{ "name": "UraGuard product story" }]
+}
+{% endschema %}

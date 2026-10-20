@@ -1,0 +1,69 @@
+{%- capture cta -%}<div class="cta-row"><a class="btn btn-main" href="{{ product.url | default: '/products/athena-uraguard-liner' }}">Shop UraGuard®</a><span>{{ i_return }}Free 30-day returns · Free shipping</span></div>{%- endcapture -%}
+<section class="hero" id="ug-hero">
+  <div class="w hero-g">
+    <div class="h-top">
+      <h1>Feel clean all day, <span>not just dry.</span></h1>
+      <p class="def">Disposable briefs hold bacteria and moisture against your skin for hours. <strong>UraGuard® is a thin hygiene shield for women</strong> that goes inside the brief you already wear and helps keep them away from sensitive areas.</p>
+    </div>
+    <div class="h-media">
+      <div class="photo{% if section.settings.hero_crop %} crop{% endif %}">
+        {%- if section.settings.hero_image != blank -%}
+          {{ section.settings.hero_image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', alt: 'A woman placing a UraGuard hygiene shield inside a pink pull-up brief on her bed' }}
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="h-bot">
+      <div class="ctas">
+        <a class="btn btn-main" href="{{ product.url | default: '/products/athena-uraguard-liner' }}">Shop UraGuard®</a>
+        <a class="btn btn-ghost" href="#ug-what">What is a hygiene shield?</a>
+      </div>
+      <ul class="bul" style="margin-top:22px">
+        <li><span class="ic">{{ tick }}</span>Works inside Depend®, TENA®, Always® and every other brand</li>
+        <li><span class="ic">{{ tick }}</span>Thin and soft. No one will know it’s there</li>
+        <li><span class="ic">{{ tick }}</span>Designed and made in the USA</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{%- capture trust_items -%}<ul><li>{{ i_shield }}Patent-pending hygiene shield</li><li>{{ tick }}Fits inside any brief or pull-up</li><li>{{ tick }}Thin, soft and discreet</li><li>{{ i_flag }}Designed and made in the USA</li><li>{{ i_card }}HSA/FSA eligible</li><li>{{ i_ship }}Free shipping · 30-day returns</li></ul>{%- endcapture -%}
+<div class="trust" role="region" aria-label="Why women trust UraGuard">
+  <div class="trust-track">{{ trust_items }}<div aria-hidden="true">{{ trust_items }}</div></div>
+</div>
+
+<section class="uti" id="ug-uti">
+  <div class="w">
+    <span class="lbl">What most people don’t know</span>
+    <h2 class="h2">A wet brief can lead to a UTI.</h2>
+    <p class="sub">A brief stops leaks, but it holds the urine right against you. Hours of warmth and moisture next to the urethra is how many urinary tract infections begin.</p>
+    <div class="uti-g">
+      <ol class="chain">
+        <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/></svg></span><b>The brief gets wet and stays against your skin</b></li>
+        <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="8" cy="17" r="2"/><circle cx="17" cy="6" r="1.5"/></svg></span><b>Warmth and moisture let bacteria multiply</b></li>
+        <li><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5"/><polyline points="6 11 12 5 18 11"/></svg></span><b>Bacteria reach the urethra</b></li>
+        <li class="end"><span class="ci"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><b>A UTI starts</b></li>
+      </ol>
+      <div class="uti-stat">
+        <p class="cap">A year-long nursing-home study¹</p>
+        <div class="x3"><b>3×</b><p>Residents who wore absorbent pads got UTIs about <strong>3 times as often</strong> as residents who didn’t.</p></div>
+        <p class="key">Out of every 100 residents, how many got a UTI that year:</p>
+        <div class="hbar"><div class="l">Wore absorbent pads<strong>41 of 100</strong></div><div class="track"><div class="fill" style="width:41%"></div></div></div>
+        <div class="hbar lo"><div class="l">Didn’t wear pads<strong>13 of 100</strong></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+        <p class="so">The problem isn’t you. It’s what sits against your skin all day.</p>
+      </div>
+    </div>
+    <style>
+      .ug .uti-stat .x3{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;margin:4px 0 22px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.16)}
+      .ug .uti-stat .x3 b{font-family:'Lora',Georgia,serif;font-weight:500;font-size:72px;line-height:.9;color:#f6b7c5}
+      .ug .uti-stat .x3 p{margin:0;font-size:18px;line-height:1.45;color:#fff}
+      .ug .uti-stat .x3 p strong{color:#f6b7c5}
+      .ug .uti-stat .key{margin:0 0 14px;font-size:14.5px;color:#e3cfdb}
+      .ug .uti-stat .hbar .l strong{font-size:22px}
+      .ug .uti-stat .so{margin-top:8px}
+      #ug-uti .chain li{padding:14px 18px}
+      #ug-uti .chain .ci{grid-row:auto}
+      #ug-uti .chain b{font-size:17.5px}
+      @media (max-width:749px){.ug .uti-stat .x3 b{font-size:58px}.ug .uti-stat .x3 p{font-size:16.5px}#ug-uti .chain b{font-size:16px}}
+    </style>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+  <section class="sec rev" id="ug-reviews">
+  <div class="w rev-g">
+    <div class="card score">
+      <span class="lbl">Reviews</span>
+      <div class="n">{{ rating }}</div>
+      <div style="margin-top:8px">{{ stars }}</div>
+      <p>Average from {{ rating_count }} verified reviews</p>
+      <ul>
+        <li>{{ tick }}<span>“You don’t feel it, which is the best.” <em style="color:var(--muted);font-style:normal">Krystal</em></span></li>
+        <li>{{ tick }}<span>“I tried it both with pull-ups and also with briefs… it’s so thin and it does an excellent job.” <em style="color:var(--muted);font-style:normal">Ami Jo</em></span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="vids swipe">
+        {%- if section.settings.video_1 != blank -%}
+        <figure class="card vt">
+          {{ section.settings.video_1 | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '700x' }}
+          <figcaption><div><b>{{ section.settings.video_1_name }}</b><small>{{ section.settings.video_1_note }}</small></div><span class="ver">Video review</span></figcaption>
+        </figure>
+        {%- endif -%}
+        {%- if section.settings.video_2 != blank -%}
+        <figure class="card vt">
+          {{ section.settings.video_2 | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '700x' }}
+          <figcaption><div><b>{{ section.settings.video_2_name }}</b><small>{{ section.settings.video_2_note }}</small></div><span class="ver">Video review</span></figcaption>
+        </figure>
+        {%- endif -%}
+      </div>
+      <p class="swipe-hint">Swipe for more</p>
+    </div>
+  </div>
+</section>
+
+<div class="ug-sticky" id="ug-sticky" aria-hidden="true">
+  {%- if product.featured_image -%}{{ product.featured_image | image_url: width: 120 | image_tag: alt: '' }}{%- endif -%}
+  <div class="tx"><b>UraGuard® Hygiene Shield</b><small>{{ stars }} {{ rating }} · Free shipping</small></div>
+  <a href="{{ product.url | default: '/products/athena-uraguard-liner' }}" tabindex="-1">Shop now</a>
+</div>
+<script>
+  (function(){
+    var bar=document.getElementById('ug-sticky');if(!bar||!('IntersectionObserver' in window))return;
+    var heroOut=false,shopIn=false;
+    function upd(){var on=heroOut&&!shopIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');var a=bar.querySelector('a');if(a)a.tabIndex=on?0:-1;}
+    var hero=document.getElementById('ug-hero');
+    if(hero)new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd();}).observe(hero);
+    var s=document.getElementById('ug-shop');
+    if(s)new IntersectionObserver(function(e){shopIn=e[0].isIntersecting;upd();}).observe(s);
+  })();
+</script>
