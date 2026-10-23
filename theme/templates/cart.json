@@ -16,8 +16,8 @@
           "type": "ai_gen_block_cd1e55b",
           "settings": {
             "banner_text_before": "Free shipping on",
-            "banner_text_highlight": "60 and 90 Packs",
-            "banner_text_after": "— Stock Up and Save!",
+            "banner_text_highlight": "every order",
+            "banner_text_after": "— no minimum, ever.",
             "text_alignment": "center",
             "desktop_width_percent": 100,
             "padding_vertical": 15,
@@ -39,46 +39,23 @@
           "blocks": {}
         }
       },
-      "block_order": [
-        "ai_gen_block_cd1e55b_79R69Y"
-      ],
-      "settings": {
-        "section-margin": 0
-      }
+      "block_order": ["ai_gen_block_cd1e55b_79R69Y"],
+      "settings": { "section-margin": 0 }
     },
     "cart-items": {
       "type": "main-cart-items",
-      "settings": {
-        "show_vendor": false,
-        "margin-top": 40,
-        "margin-bottom": 0
-      }
+      "settings": { "show_vendor": false, "margin-top": 40, "margin-bottom": 0 }
     },
     "cart-footer": {
       "type": "main-cart-footer",
       "blocks": {
-        "subtotal": {
-          "type": "subtotal",
-          "settings": {}
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {}
-        }
+        "subtotal": { "type": "subtotal", "settings": {} },
+        "buttons": { "type": "buttons", "settings": {} },
+        "ug_assure": { "type": "custom_liquid", "settings": { "custom_liquid": "{% render 'ug-cart-assure' %}" } }
       },
-      "block_order": [
-        "subtotal",
-        "buttons"
-      ],
-      "settings": {
-        "margin-top": 40,
-        "margin-bottom": 40
-      }
+      "block_order": ["subtotal", "buttons", "ug_assure"],
+      "settings": { "margin-top": 40, "margin-bottom": 40 }
     }
   },
-  "order": [
-    "17698103269755d5d1",
-    "cart-items",
-    "cart-footer"
-  ]
+  "order": ["17698103269755d5d1", "cart-items", "cart-footer"]
 }

@@ -1,0 +1,257 @@
+{%- liquid
+  assign s = block.settings
+  assign show = true
+  if s.only_handles != blank
+    assign hs = s.only_handles | remove: ' ' | split: ','
+    unless hs contains page.handle
+      assign show = false
+    endunless
+  endif
+-%}
+{%- if show -%}
+{%- capture tick -%}<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>{%- endcapture -%}
+{%- capture btns -%}
+  {%- if s.button_label != blank -%}<div class="ctas"><a class="btn btn-main" href="{{ s.button_link | default: '/products/athena-uraguard-liner' }}">{{ s.button_label }}</a>{%- if s.button2_label != blank -%}<a class="btn btn-ghost" href="{{ s.button2_link | default: '#' }}">{{ s.button2_label }}</a>{%- endif -%}</div>{%- endif -%}
+{%- endcapture -%}
+{%- case block.type -%}
+
+{%- when 'hero' -%}
+<section class="pg-hero{% if s.image == blank %} pg-hero--c{% endif %}" {{ block.shopify_attributes }}>
+  <div class="w pg-hero-g">
+    <div class="pg-hero-t">
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      <h1>{{ s.heading | default: page.title }}{% if s.heading_accent != blank %} <span>{{ s.heading_accent }}</span>{% endif %}</h1>
+      {%- if s.text != blank -%}<div class="pg-lede">{{ s.text }}</div>{%- endif -%}
+      {{ btns }}
+    </div>
+    {%- if s.image != blank -%}
+    <div class="pg-hero-m"><div class="pg-ph pg-ph--{{ s.ratio | default: 'portrait' }}"{% if s.ratio == 'natural' %} style="aspect-ratio:{{ s.image.aspect_ratio }}"{% endif %}>{{ s.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 46vw, 100vw', alt: s.image_alt }}</div></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- when 'intro' -%}
+<section class="sec pg-intro{% if s.avatar != blank or s.signature != blank %} pg-intro--sig{% endif %} pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w center pg-narrow">
+    {%- if s.avatar != blank -%}<div class="pg-avatar">{{ s.avatar | image_url: width: 240 | image_tag: loading: 'lazy', alt: s.signature }}</div>{%- endif -%}
+    {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+    <div class="pg-rte">{{ s.text }}</div>
+    {%- if s.signature != blank -%}<p class="pg-sig">{{ s.signature }}</p>{%- endif -%}
+    {{ btns }}
+  </div>
+</section>
+
+{%- when 'text_image' -%}
+<section class="sec pg-ti pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w pg-ti-g{% if s.image_right %} pg-rev{% endif %}">
+    <div class="pg-ti-m">{%- if s.image != blank -%}<div class="pg-ph pg-ph--{{ s.ratio }}{% if s.fit == 'contain' %} pg-ph--contain{% endif %}"{% if s.ratio == 'natural' %} style="aspect-ratio:{{ s.image.aspect_ratio }}"{% endif %}>{{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 46vw, 100vw', alt: s.image_alt }}</div>{%- endif -%}</div>
+    <div class="pg-ti-t">
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+      <div class="pg-rte">{{ s.text }}</div>
+      {{ btns }}
+    </div>
+  </div>
+</section>
+
+{%- when 'checklist' -%}
+<section class="sec pg-check pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w pg-ti-g">
+    <div class="pg-ti-t">
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+      {%- if s.intro != blank -%}<div class="pg-rte">{{ s.intro }}</div>{%- endif -%}
+      {%- assign items = s.items | newline_to_br | split: '<br />' -%}
+      <ul class="card pg-list">{%- for it in items -%}{%- assign t = it | strip -%}{%- if t != blank -%}<li><span>{{ tick }}</span>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul>
+      {%- if s.outro != blank -%}<p class="pg-outro">{{ s.outro }}</p>{%- endif -%}
+      {{ btns }}
+    </div>
+    <div class="pg-ti-m">{%- if s.image != blank -%}<div class="pg-ph pg-ph--natural" style="aspect-ratio:{{ s.image.aspect_ratio | default: 0.8 }}">{{ s.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 46vw, 100vw', alt: s.image_alt }}</div>{%- endif -%}</div>
+  </div>
+</section>
+
+{%- when 'cards' -%}
+<section class="sec pg-cards pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w">
+    <div class="head"><div>
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+    </div></div>
+    <div class="pg-cards-g">
+      {%- for i in (1..4) -%}
+        {%- capture kt -%}card_{{ i }}_title{%- endcapture -%}
+        {%- capture kx -%}card_{{ i }}_text{%- endcapture -%}
+        {%- capture ki -%}card_{{ i }}_image{%- endcapture -%}
+        {%- if s[kt] != blank -%}
+        <div class="card pg-card">
+          {%- if s[ki] != blank -%}<div class="pg-card-im">{{ s[ki] | image_url: width: 600 | image_tag: loading: 'lazy', alt: '' }}</div>{%- else -%}<span class="pg-card-n">{{ i }}</span>{%- endif -%}
+          <h3>{{ s[kt] }}</h3>
+          <p>{{ s[kx] }}</p>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {{ btns }}
+  </div>
+</section>
+
+{%- when 'steps' -%}
+<section class="sec pg-steps pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w">
+    <div class="head"><div>
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+    </div></div>
+    <ol class="pg-steps-g">
+      {%- for i in (1..4) -%}
+        {%- capture kt -%}step_{{ i }}_title{%- endcapture -%}
+        {%- capture kx -%}step_{{ i }}_text{%- endcapture -%}
+        {%- if s[kt] != blank -%}<li class="card"><span class="pg-card-n">{{ i }}</span><h3>{{ s[kt] }}</h3><p>{{ s[kx] }}</p></li>{%- endif -%}
+      {%- endfor -%}
+    </ol>
+    {{ btns }}
+  </div>
+</section>
+
+{%- when 'page_content' -%}
+{%- if page.content != blank -%}
+<section class="sec pg-content" {{ block.shopify_attributes }}>
+  <div class="w pg-narrow">
+    <div class="card pg-doc">
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+      <div class="pg-rte">{{ page.content }}</div>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- when 'stat96' -%}
+<section class="glance pg-bg-{{ s.bg }}" id="ug-lab" {{ block.shopify_attributes }}>
+  <div class="w glance-g">
+    <div>
+      <span class="lbl">{{ s.eyebrow }}</span>
+      <div class="big">96%</div>
+      <h2>{{ s.heading }}</h2>
+      {%- if s.text != blank -%}<p class="sub">{{ s.text }}</p>{%- endif -%}
+    </div>
+    <div>
+      <div class="r96" role="img" aria-label="Surface bacteria after 8 hours in laboratory testing: standard diaper 100%, UraGuard technology 4%">
+        <h3>Surface bacteria after 8 hours, in lab testing</h3>
+        <div class="row"><div class="l">Standard diaper<span>100%</span></div><div class="track"><div class="fill"></div></div></div>
+        <div class="row us"><div class="l">UraGuard® technology<span>4%</span></div><div class="track"><div class="fill"></div></div></div>
+        <p class="pay">{{ tick }}96% less surface bacteria in lab testing†</p>
+      </div>
+      {{ btns }}
+    </div>
+  </div>
+</section>
+
+{%- when 'uti' -%}
+<section class="sec pg-uti pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w pg-ti-g">
+    <div class="pg-ti-t">
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      <h2 class="h2">{{ s.heading }}</h2>
+      <div class="pg-rte">{{ s.text }}</div>
+      {{ btns }}
+    </div>
+    <div class="uti-stat">
+      <h3>Absorbent products and UTIs</h3>
+      <p class="cap">Residents with a UTI over one year, nursing-home study¹</p>
+      <div class="hbar"><div class="l">Wore absorbent pads<strong>41%</strong></div><div class="track"><div class="fill" style="width:41%"></div></div></div>
+      <div class="hbar lo"><div class="l">Did not<strong>13%</strong></div><div class="track"><div class="fill" style="width:13%"></div></div></div>
+      <p class="so">That’s about <b>3 times as many UTIs</b>. {{ s.stat_note }}</p>
+    </div>
+  </div>
+</section>
+
+{%- when 'video' -%}
+<section class="sec pg-vid pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w">
+    <div class="head center"><div>
+      {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="h2">{{ s.heading }}</h2>{%- endif -%}
+      {%- if s.text != blank -%}<p class="sub">{{ s.text }}</p>{%- endif -%}
+    </div></div>
+    {%- if s.video != blank -%}<div class="pg-vbox">{{ s.video | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '1400x' }}</div>{%- endif -%}
+  </div>
+</section>
+
+{%- when 'quote' -%}
+<section class="sec pg-quote pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w">
+    <figure class="pg-q">
+      {%- if s.image != blank -%}<div class="pg-q-im">{{ s.image | image_url: width: 500 | image_tag: loading: 'lazy', alt: s.name }}</div>{%- endif -%}
+      <div>
+        <blockquote>“{{ s.quote }}”</blockquote>
+        <figcaption><b>{{ s.name }}</b><span>{{ s.role }}</span></figcaption>
+        {{ btns }}
+      </div>
+    </figure>
+  </div>
+</section>
+
+{%- when 'product' -%}
+<section class="sec pg-prod" {{ block.shopify_attributes }}>
+  <div class="w">
+    <div class="pg-prod-c">
+      <div class="pg-prod-im">{%- if s.image != blank -%}{{ s.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}{%- elsif product.featured_image -%}{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}{%- endif -%}</div>
+      <div class="pg-prod-t">
+        {%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}
+        <h2 class="h2">{{ s.heading }}</h2>
+        {%- assign rating = product.metafields.reviews.rating.value.rating | default: 4.67 | round: 1 -%}
+        {%- assign rc = product.metafields.reviews.rating_count.value | default: 89 -%}
+        <p class="pg-rr"><span class="ug-stars" aria-hidden="true">★★★★★</span> <strong>{{ rating }}</strong> · {{ rc }} reviews</p>
+        {%- if s.text != blank -%}<p class="sub">{{ s.text }}</p>{%- endif -%}
+        {%- assign items = s.ticks | newline_to_br | split: '<br />' -%}
+        <ul class="bul">{%- for it in items -%}{%- assign t = it | strip -%}{%- if t != blank -%}<li><span class="ic">{{ tick }}</span>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul>
+        <div class="ctas"><a class="btn btn-main" href="{{ s.button_link | default: product.url | default: '/products/athena-uraguard-liner' }}">{{ s.button_label | default: 'Shop UraGuard®' }}</a></div>
+        <p class="pg-micro">Patent-pending technology · Free shipping · Free 30-day returns · HSA/FSA eligible</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- when 'news' -%}
+<section class="pg-news" {{ block.shopify_attributes }}>
+  <div class="w">
+    <p class="pg-news-h">{{ s.heading }}</p>
+    <div class="pg-news-g">
+      {%- for i in (1..4) -%}
+        {%- capture kl -%}logo_{{ i }}{%- endcapture -%}{%- capture ku -%}link_{{ i }}{%- endcapture -%}
+        {%- if s[kl] != blank -%}<a href="{{ s[ku] | default: '#' }}" target="_blank" rel="noopener">{{ s[kl] | image_url: width: 400 | image_tag: loading: 'lazy', alt: 'As featured in the press' }}</a>{%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- when 'blog' -%}
+{%- liquid
+  assign b = s.blog
+  if b == blank
+    assign b = blogs.news
+  endif
+-%}
+{%- if b.articles_count > 0 -%}
+<section class="sec pg-blog pg-bg-{{ s.bg }}" {{ block.shopify_attributes }}>
+  <div class="w">
+    <div class="head"><div>{%- if s.eyebrow != blank -%}<span class="lbl">{{ s.eyebrow }}</span>{%- endif -%}<h2 class="h2">{{ s.heading }}</h2></div><a class="tlink" href="{{ b.url }}">See all articles</a></div>
+    <div class="pg-cards-g">
+      {%- for a in b.articles limit: 3 -%}
+      <a class="card pg-art" href="{{ a.url }}">
+        <div class="pg-art-im">{%- if a.image -%}{{ a.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: a.title }}{%- endif -%}</div>
+        <h3>{{ a.title }}</h3>
+        <span class="tlink">Read article</span>
+      </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- when 'notes' -%}
+<div class="notes" {{ block.shopify_attributes }}><div class="w">{{ s.text }}</div></div>
+
+{%- endcase -%}
+{%- endif -%}

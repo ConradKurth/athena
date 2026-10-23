@@ -1,0 +1,36 @@
+{%- render 'ug-pg2-head' -%}
+<div class="ug ugp">
+  <section class="ugp-press">
+    <div class="w">
+      {%- if section.settings.heading != blank -%}<p class="k">{{ section.settings.heading }}</p>{%- endif -%}
+      <ul>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" target="_blank" rel="noopener">{%- endif -%}
+            {%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.name | default: 'Press logo' }}{%- endif -%}
+            {%- if block.settings.link != blank -%}<span class="vh"> (opens in a new tab)</span></a>{%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard in the news",
+  "tag": "section",
+  "class": "section-ug-pg2-press",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "UraGuard® in the news" }
+  ],
+  "blocks": [
+    { "type": "logo", "name": "Logo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Logo" },
+      { "type": "text", "id": "name", "label": "Publication name" },
+      { "type": "url", "id": "link", "label": "Article link" }
+    ] }
+  ],
+  "presets": [{ "name": "UraGuard in the news" }]
+}
+{% endschema %}

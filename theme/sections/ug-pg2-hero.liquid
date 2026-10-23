@@ -1,0 +1,48 @@
+{%- render 'ug-pg2-head' -%}
+{%- assign h = section.settings.heading | default: page.title -%}
+{%- assign img = section.settings.image -%}
+<div class="ug ugp">
+  <section class="ugp-hero {{ section.settings.align }}{% if img == blank %} noimg{% endif %}{% if section.settings.compact %} compact{% endif %}">
+    <div class="w ugp-hero-g">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<span class="lbl">{{ section.settings.eyebrow }}</span>{%- endif -%}
+        <h1>{{ h }}</h1>
+        {%- if section.settings.text != blank -%}<div class="sub">{{ section.settings.text }}</div>{%- endif -%}
+        {%- if section.settings.b1_label != blank or section.settings.b2_label != blank -%}
+          <div class="ctas">
+            {%- if section.settings.b1_label != blank -%}<a class="btn btn-main" href="{{ section.settings.b1_link | default: '/products/athena-uraguard-liner' }}">{{ section.settings.b1_label }}</a>{%- endif -%}
+            {%- if section.settings.b2_label != blank -%}<a class="btn btn-ghost" href="{{ section.settings.b2_link | default: '#' }}">{{ section.settings.b2_label }}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+        {%- if section.settings.show_meta -%}
+          <div class="ugp-meta"><span>{% render 'ug-pg2-icon', i: 'ship' %}Free shipping</span><span>{% render 'ug-pg2-icon', i: 'return' %}Free 30-day returns</span><span>{% render 'ug-pg2-icon', i: 'card' %}HSA/FSA eligible</span></div>
+        {%- endif -%}
+      </div>
+      {%- if img != blank -%}
+        <div class="pic">{{ img | image_url: width: 1100 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 40vw, 100vw', alt: img.alt | default: h }}</div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard page hero",
+  "tag": "section",
+  "class": "section-ug-pg2-hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label above the heading" },
+    { "type": "text", "id": "heading", "label": "Heading", "info": "Leave blank to use the page title." },
+    { "type": "richtext", "id": "text", "label": "Intro text" },
+    { "type": "image_picker", "id": "image", "label": "Image (optional)" },
+    { "type": "select", "id": "align", "label": "Alignment", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }], "default": "left" },
+    { "type": "checkbox", "id": "compact", "label": "Compact height", "default": false },
+    { "type": "text", "id": "b1_label", "label": "Main button label" },
+    { "type": "url", "id": "b1_link", "label": "Main button link" },
+    { "type": "text", "id": "b2_label", "label": "Second button label" },
+    { "type": "url", "id": "b2_link", "label": "Second button link" },
+    { "type": "checkbox", "id": "show_meta", "label": "Show shipping / returns / HSA row", "default": false }
+  ],
+  "presets": [{ "name": "UraGuard page hero" }]
+}
+{% endschema %}

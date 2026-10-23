@@ -1,0 +1,37 @@
+/* UraGuard product page: warm homepage look on the Wonder product sections */
+body.template-product{
+  --font-base:'Nunito Sans',system-ui,sans-serif;--font-base-weight:400;
+  --font-headline:'Lora',Georgia,serif;--font-headline-weight:500;--font-headline-transform:none;--font-headline-letter-spacing:-.01em;
+  --font-button:'Nunito Sans',system-ui,sans-serif;--font-button-weight:800;--font-button-transform:none;--font-button-letter-spacing:0;--font-button-size:16px;
+  --font-price:'Lora',Georgia,serif;--font-price-weight:500;
+  --font-navigation-transform:none;
+  --color-background:#fffbf9;--color-background-rgb:255,251,249;
+  --color-headings-text:#3d1f35;--color-text:#2f1c2a;--color-text-rgb:47,28,42;--color-body-text-light:#7a6274;
+  --color-links:#a64a63;--color-links-active:#3d1f35;--color-bullet:#a64a63;--color-hr:#ecdcd9;
+  --color-button-primary-background:#a64a63;--color-button-primary-background-hover:#3d1f35;--color-button-primary-text:#fff;--color-button-primary-text-hover:#fff;
+  --color-button-secondary-background:#fff;--color-button-secondary-border:#cfb3bd;--color-button-secondary-text:#3d1f35;--color-button-secondary-text-hover:#3d1f35;--color-button-secondary-background-hover:#f8ebe7;
+  --color-price:#3d1f35;--color-star-rating:#c4842d;--color-input-border:#cfb3bd;--color-input-border-active:#3d1f35;
+  --border-radius:18px;--border-radius-button:999px;
+  --swiper-theme-color:#a64a63;
+  background:#fffbf9;font-family:'Nunito Sans',system-ui,sans-serif;color:#2f1c2a
+}
+body.template-product main h1,body.template-product main h2,body.template-product main h3,body.template-product main .h1,body.template-product main .h2{font-family:'Lora',Georgia,serif;font-weight:500;color:#3d1f35;letter-spacing:-.015em;text-transform:none}
+body.template-product main h1{line-height:1.08}
+body.template-product [id$="__main"] h5{font-family:'Nunito Sans',system-ui,sans-serif;font-size:15.5px;font-weight:700;color:#3d1f35;letter-spacing:0;text-transform:none;margin:0}
+body.template-product [id$="__main"] svg[class*="icon"]{color:#2a7a83}
+body.template-product main button[type="submit"],body.template-product main .button,body.template-product .shopify-payment-button__button--unbranded{border-radius:999px!important;font-family:'Nunito Sans',system-ui,sans-serif!important;font-weight:800!important;text-transform:none!important;letter-spacing:0!important;font-size:16.5px!important;min-height:54px}
+body.template-product main button[name="add"],body.template-product main button[type="submit"][name="add"]{background:#a64a63!important;border-color:#a64a63!important;color:#fff!important}
+body.template-product main button[name="add"]:hover{background:#3d1f35!important;border-color:#3d1f35!important}
+body.template-product .shopify-payment-button__button--unbranded{background:#3d1f35!important}
+body.template-product main fieldset legend{font-family:'Nunito Sans',system-ui,sans-serif;font-weight:800;color:#3d1f35;text-transform:none;letter-spacing:0}
+body.template-product main details summary{font-family:'Lora',Georgia,serif;font-weight:500;color:#3d1f35;font-size:19px;text-transform:none;letter-spacing:0}
+body.template-product main details{border-color:#ecdcd9!important}
+body.template-product main details .rte,body.template-product main details p,body.template-product main details li{color:#5b4155}
+body.template-product main .rte a{color:#a64a63}
+body.template-product main input[type="number"]{border-radius:999px}
+body.template-product .ugp{background:#fffbf9}
+body.template-product .ugp .uti{padding-top:64px}
+body.template-product .ugp .glance{background:#f8ebe7}
+body.template-product .ugp .ugp-how{padding:72px 0 48px}
+@media (max-width:749px){body.template-product .ugp .ugp-how{padding:48px 0 32px}}
+.ugp .chip-pp{display:inline-flex;align-items:center;gap:6px;background:#e6f1f1;color:#2a7a83;font-weight:800;font-size:13px;border-radius:999px;padding:6px 12px;margin-left:6px}

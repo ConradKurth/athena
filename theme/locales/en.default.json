@@ -639,5 +639,15 @@
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "pay_now_button_label": "Complete my order"
+      },
+      "payment": {
+        "card_security_notice": "Secure, encrypted checkout. Not right for her? Email us within 30 days for a full refund — no return needed."
+      }
+    }
   }
 }

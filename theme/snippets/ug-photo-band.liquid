@@ -1,0 +1,21 @@
+{%- comment -%} Lifestyle photo band that breaks up the homepage text. Params: file (Shopify Files name), alt, line, pos (object-position), top (true = show only the upper ~75% of the photo). {%- endcomment -%}
+{%- assign ph = images[file] -%}
+{%- if ph != blank -%}
+<div class="ug-band">
+  <div class="w">
+    <figure class="ug-band-f{% if top %} top{% endif %}">
+      {{ ph | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '(min-width: 1240px) 1180px, 100vw', alt: alt, style: pos }}
+      {%- if line != blank -%}<figcaption>{{ line }}</figcaption>{%- endif -%}
+    </figure>
+  </div>
+</div>
+{%- endif -%}
+<style>
+  .ug .ug-band{background:var(--paper);padding:8px 0}
+  .ug .ug-band-f{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:16/8;max-height:560px;width:100%;background:var(--blush)}
+  .ug .ug-band-f.top{aspect-ratio:2752/1150;max-height:none}
+  .ug .ug-band-f img{width:100%;height:100%;object-fit:cover}
+  .ug .ug-band-f::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(61,31,53,.62) 0%,rgba(61,31,53,.25) 42%,rgba(61,31,53,0) 65%)}
+  .ug .ug-band-f figcaption{position:absolute;z-index:1;left:44px;bottom:40px;max-width:430px;font-family:'Lora',Georgia,serif;font-weight:500;font-size:clamp(26px,2.7vw,38px);line-height:1.15;color:#fff;letter-spacing:-.01em}
+  @media (max-width:749px){.ug .ug-band{padding:4px 0}.ug .ug-band-f,.ug .ug-band-f.top{aspect-ratio:auto;height:260px;border-radius:20px}.ug .ug-band-f.top img{height:134%}.ug .ug-band-f::after{background:linear-gradient(0deg,rgba(61,31,53,.7) 0%,rgba(61,31,53,.15) 55%,rgba(61,31,53,0) 75%)}.ug .ug-band-f figcaption{left:20px;right:20px;bottom:18px;font-size:22px}}
+</style>

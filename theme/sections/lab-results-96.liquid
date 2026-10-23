@@ -1,0 +1,44 @@
+{%- comment -%} 96% lab results highlight. Wording approved by counsel: keep 'laboratory testing' attached to the number. {%- endcomment -%}
+<section class="ug-lab96" style="--ug-bg: {{ section.settings.bg_color }};">
+  <div class="ug-lab96__card">
+    <p class="ug-lab96__eyebrow">Independent lab results</p>
+    <p class="ug-lab96__num">96%</p>
+    <h2 class="ug-lab96__label">less surface bacteria in independent laboratory testing*</h2>
+    <p class="ug-lab96__body">After 8 hours, laboratory testing showed UraGuard technology reduced surface bacterial presence by 96% compared to a standard incontinence product.</p>
+    {%- if section.settings.show_button -%}
+    <a class="ug-lab96__btn" href="{{ section.settings.button_link | default: '/products/athena-uraguard-liner' }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+    <p class="ug-lab96__note">*Independent laboratory testing (AATCC 100) of UraGuard technology in a diaper format, compared to a standard diaper after 8 hours.</p>
+  </div>
+</section>
+
+<style>
+  .ug-lab96 { background: var(--ug-bg, #eef4f6); padding: 40px 16px; box-sizing: border-box; }
+  .ug-lab96 *, .ug-lab96 *::before, .ug-lab96 *::after { box-sizing: border-box; }
+  .ug-lab96__card { max-width: 640px; margin: 0 auto; background: #ffffff; border: 2px solid #2c949d; border-radius: 16px; padding: 28px 20px 22px; text-align: center; color: #193445; }
+  .ug-lab96__eyebrow { margin: 0 0 6px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: #2c949d; }
+  .ug-lab96__num { margin: 0; font-size: clamp(64px, 20vw, 104px); line-height: 1; font-weight: 800; color: #193445; }
+  .ug-lab96__label { margin: 8px 0 0; font-size: clamp(19px, 5vw, 24px); line-height: 1.3; font-weight: 700; color: #193445; }
+  .ug-lab96__body { margin: 14px auto 0; max-width: 480px; font-size: 16px; line-height: 1.55; color: #3d5a63; }
+  .ug-lab96__btn { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; margin: 22px auto 0; padding: 14px 20px; border-radius: 10px; background: #193445; color: #ffffff !important; font-size: 17px; font-weight: 700; text-decoration: none; }
+  .ug-lab96__btn:hover, .ug-lab96__btn:focus { background: #005c7c; }
+  .ug-lab96__note { margin: 16px 0 0; font-size: 12px; line-height: 1.5; color: #6b7f86; }
+  @media (min-width: 750px) {
+    .ug-lab96 { padding: 64px 24px; }
+    .ug-lab96__card { padding: 40px 48px 32px; }
+    .ug-lab96__btn { width: auto; min-width: 280px; display: inline-flex; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "96% lab results",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#eef4f6" },
+    { "type": "checkbox", "id": "show_button", "label": "Show button", "default": true },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop UraGuard® Shield" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [ { "name": "96% lab results" } ]
+}
+{% endschema %}

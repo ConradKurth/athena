@@ -1,0 +1,73 @@
+{%- render 'ug-pg2-head' -%}
+<div class="ug ugp">
+  <section class="sec ugp-faqs{% unless section.settings.show_aside %} solo{% endunless %}{% if section.settings.tint %} tint{% endif %}">
+    <div class="w">
+      {%- if section.settings.heading != blank -%}
+        <div class="head{% unless section.settings.show_aside %} center{% endunless %}"><div>
+          {%- if section.settings.eyebrow != blank -%}<span class="lbl">{{ section.settings.eyebrow }}</span>{%- endif -%}
+          <h2 class="h2">{{ section.settings.heading }}</h2>
+        </div></div>
+      {%- endif -%}
+      <div class="ugp-faq-g">
+        <div class="faq ugp-faq">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'group' -%}
+                <h2 class="grp" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
+              {%- when 'qa' -%}
+                <details {{ block.shopify_attributes }}{% if block.settings.open %} open{% endif %}><summary>{{ block.settings.q }}</summary><div class="ans">{{ block.settings.a }}</div></details>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        {%- if section.settings.show_aside -%}
+          <aside class="ugp-aside">
+            <div class="card ugp-help">
+              <span class="ic">{% render 'ug-pg2-icon', i: 'help' %}</span>
+              <h3>{{ section.settings.side_heading }}</h3>
+              {%- if section.settings.side_text != blank -%}<p>{{ section.settings.side_text }}</p>{%- endif -%}
+              <a class="btn btn-main" href="{{ section.settings.side_link | default: '/pages/contact' }}">{{ section.settings.side_button }}</a>
+              {%- if section.settings.email != blank -%}<a class="tlink" href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>{%- endif -%}
+            </div>
+            <div class="card promise">
+              <div>{% render 'ug-pg2-icon', i: 'return' %}<p><b>30-day returns</b><span>Not right for you? Send it back free.</span></p></div>
+              <div>{% render 'ug-pg2-icon', i: 'ship' %}<p><b>Free shipping</b><span>On every order.</span></p></div>
+              <div>{% render 'ug-pg2-icon', i: 'card' %}<p><b>HSA/FSA eligible</b><span><a class="tlink" href="/pages/how-to-use-your-fsa-hsa-card">How to use your card</a></span></p></div>
+            </div>
+          </aside>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+{%- if section.settings.schema_markup -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{%- assign first = true -%}{%- for block in section.blocks -%}{%- if block.type == 'qa' -%}{%- unless first -%},{%- endunless -%}{"@type":"Question","name":{{ block.settings.q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ block.settings.a | strip_html | json }}}}{%- assign first = false -%}{%- endif -%}{%- endfor -%}]}</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "UraGuard questions",
+  "tag": "section",
+  "class": "section-ug-pg2-faq",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label" },
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
+    { "type": "checkbox", "id": "show_aside", "label": "Show help card beside the questions", "default": true },
+    { "type": "checkbox", "id": "tint", "label": "Blush background", "default": false },
+    { "type": "checkbox", "id": "schema_markup", "label": "Add FAQ markup for Google", "default": true },
+    { "type": "text", "id": "side_heading", "label": "Help card heading", "default": "Still have a question?" },
+    { "type": "text", "id": "side_text", "label": "Help card text", "default": "We’re here to help." },
+    { "type": "text", "id": "side_button", "label": "Help card button", "default": "Contact us" },
+    { "type": "url", "id": "side_link", "label": "Help card link" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@athenauraguard.com" }
+  ],
+  "blocks": [
+    { "type": "group", "name": "Group heading", "settings": [{ "type": "text", "id": "title", "label": "Title" }] },
+    { "type": "qa", "name": "Question", "settings": [
+      { "type": "text", "id": "q", "label": "Question" },
+      { "type": "richtext", "id": "a", "label": "Answer" },
+      { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "UraGuard questions" }]
+}
+{% endschema %}

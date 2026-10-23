@@ -1,0 +1,279 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1763448806ad1df6f4": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_71d1cc3_9yDFkP": {
+          "type": "ai_gen_block_71d1cc3",
+          "settings": {
+            "heading": "How it works",
+            "background_color": "#ffffff",
+            "heading_color": "#193445",
+            "heading_size": 32,
+            "container_width": 1200,
+            "section_padding_top": 50,
+            "section_padding_bottom": 50,
+            "step_gap": 40,
+            "image_border_radius": 14,
+            "step_title_color": "#193445",
+            "step_title_size": 18,
+            "step_text_color": "#717171",
+            "step_text_size": 14,
+            "number_size": 50,
+            "number_font_size": 20,
+            "number_bg_color": "#003649",
+            "number_text_color": "#ffffff",
+            "show_arrows": true,
+            "arrow_color": "#003649",
+            "step_1_enabled": true,
+            "step_1_title": "Step one",
+            "step_1_text": "<p>Describe the first step in your process</p>",
+            "step_2_enabled": true,
+            "step_2_title": "Step two",
+            "step_2_text": "<p>Describe the second step in your process</p>",
+            "step_3_enabled": true,
+            "step_3_title": "Step three",
+            "step_3_text": "<p>Describe the third step in your process</p>",
+            "step_4_enabled": true,
+            "step_4_title": "Step four",
+            "step_4_text": "<p>Describe the fourth step in your process</p>",
+            "step_5_enabled": false,
+            "step_5_title": "Step five",
+            "step_5_text": "<p>Describe the fifth step in your process</p>",
+            "step_6_enabled": false,
+            "step_6_title": "Step six",
+            "step_6_text": "<p>Describe the sixth step in your process</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_71d1cc3_9yDFkP"
+      ],
+      "settings": {
+        "section-margin": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "compact-size-enabled": true,
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-bg-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "image_banner_78NHff": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Yx8Ge4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Behind the Science",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_hYNHjy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Advanced Protection for Women's Health<br/><br/></p>",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Yx8Ge4",
+        "text_hYNHjy"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "desktop_image": "shopify://shop_images/Asset_15_2x_d7f466b9-973f-443f-bd36-8fa66e2c7813.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_image": "shopify://shop_images/Asset_1_315f9054-fc3e-42c3-8d4a-a48d51ebef30.jpg",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "#193445",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "text-container-color": "#193445",
+        "color-overlay-opacity": 60,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "image_with_text_QYNCJ4": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TEkcDB": {
+          "type": "heading",
+          "settings": {
+            "heading": "UraGuard®",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_iMnQkC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our patent-pending UraGuard® technology is designed to support urinary health by helping shield you from harmful bacteria held inside your incontinence Item.</p><p>Unlike traditional incontinence products that trap moisture and create a breeding ground for bacteria, UraGuard® features advanced technology to help keep you protected, dry and comfortable.</p><p>UraGuard® Is a smarter, science-backed solution for women seeking both reliable leak protection and greater peace of mind—so you can feel confident and worry-free every day.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEkcDB",
+        "text_iMnQkC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": false,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/1_10.png",
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "shoppable_video_Ydy8n7": {
+      "type": "shoppable-video",
+      "blocks": {
+        "product_aYiqWR": {
+          "type": "product",
+          "settings": {
+            "start_second": 7.5,
+            "featured_product": "athena-uraguard-liner"
+          }
+        }
+      },
+      "block_order": [
+        "product_aYiqWR"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.shoppable-video__products, .shoppable-video__product, .shoppable-video__container .hero__content, .shoppable-video__container .hero__text-content {display: none !important; }}"
+      ],
+      "name": "t:sections.shoppable-video.name",
+      "settings": {
+        "heading": "How UraGuard® Works:\nCheck out our video explaining how UraGuard® works to protect you!",
+        "full-width-enabled": false,
+        "quick-add-enabled": true,
+        "rewind-enabled": false,
+        "hide-brand-name": true,
+        "video_hosted": "shopify://files/videos/NEW VO_ATHENA withUraGuard™ ANIMATION 4096 x 1900 pixels.mp4",
+        "video_custom_mute_controls": true,
+        "desktop_fixed_height": 600,
+        "mobile_fixed_height": 200,
+        "enable_full_screen_mode": false,
+        "color-body-heading": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "blog_posts_yPFhk6": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.presets.name",
+      "settings": {
+        "heading": "Learn more on our blog",
+        "swipe_on_mobile": false,
+        "full-width-enabled": false,
+        "blog": "news",
+        "post_limit": 3,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": true,
+        "view_all_button_select": "secondary",
+        "show_image": true,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "button_select": "link",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "featured_collection_PNRiD4": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Try Athena with UraGuard®",
+        "disable_on_mobile": false,
+        "hide_empty_section": false,
+        "collection": "uraguard-incontinence-products",
+        "product_list": [],
+        "products_to_show": 3,
+        "enable_stack_products": false,
+        "show_view_all": true,
+        "button_select": "primary",
+        "number_of_column_desktop": 4,
+        "spacing_desktop": "16",
+        "make_products_full_width": true,
+        "number_of_column_mobile": 1.1,
+        "spacing_mobile": "16",
+        "text_alignment": "left",
+        "image_ratio": "square",
+        "show_video": false,
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "enable_vendor_link": false,
+        "show_product_rating": true,
+        "enable_quick_add_button": false,
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    }
+  },
+  "order": [
+    "1763448806ad1df6f4",
+    "main",
+    "image_banner_78NHff",
+    "image_with_text_QYNCJ4",
+    "shoppable_video_Ydy8n7",
+    "blog_posts_yPFhk6",
+    "featured_collection_PNRiD4"
+  ]
+}

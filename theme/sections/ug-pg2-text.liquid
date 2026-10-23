@@ -1,0 +1,24 @@
+{%- render 'ug-pg2-head' -%}
+<div class="ug ugp">
+  <section class="sec ugp-textsec">
+    <div class="w">
+      <div class="card ugp-legal">
+        {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+        <div class="ugp-rte">{{ section.settings.text }}</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "UraGuard text card",
+  "tag": "section",
+  "class": "section-ug-pg2-text",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
+    { "type": "richtext", "id": "text", "label": "Text" }
+  ],
+  "presets": [{ "name": "UraGuard text card" }]
+}
+{% endschema %}

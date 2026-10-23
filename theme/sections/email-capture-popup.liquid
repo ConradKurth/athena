@@ -24,7 +24,22 @@
     assign subtext = 'Get the free guide — what actually lowers UTI risk when you manage incontinence, plus which protection helps.'
     assign sticky_text = 'Free guide: lower your UTI risk with incontinence — sent to your inbox.'
   endif
+
+  assign ecap_handles_raw = section.settings.suppress_handles
+  if ecap_handles_raw == blank
+    assign ecap_handles_raw = 'for-all-caregivers,caregivers-lp,incontinence-bacteria-skin-protection'
+  endif
+  assign ecap_suppressed = false
+  assign ecap_handles = ecap_handles_raw | split: ','
+  for ecap_h in ecap_handles
+    assign ecap_hh = ecap_h | strip | downcase
+    if ecap_hh != blank and page.handle == ecap_hh
+      assign ecap_suppressed = true
+    endif
+  endfor
 -%}
+
+{%- unless ecap_suppressed -%}
 
 {% style %}
   .ecap-{{ section.id }} { --ecap-bg: {{ section.settings.bg_color }}; --ecap-text: {{ section.settings.text_color }}; --ecap-btn: {{ section.settings.button_bg }}; --ecap-btn-hover: {{ section.settings.button_bg_hover }}; --ecap-btn-text: {{ section.settings.button_text_color }}; }
@@ -190,6 +205,8 @@
 })();
 </script>
 
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "Email capture popup",
@@ -199,6 +216,7 @@
     { "type": "header", "content": "Surfaces" },
     { "type": "checkbox", "id": "enable_popup", "label": "Enable modal popup", "default": true },
     { "type": "checkbox", "id": "enable_sticky", "label": "Enable sticky bar", "default": true },
+    { "type": "textarea", "id": "suppress_handles", "label": "Hide on these page handles", "info": "Comma-separated page handles where BOTH the popup and the sticky bar are skipped. Use this for paid-traffic landing pages so the capture does not compete with the buy button. A handle is the last part of the URL, e.g. for-all-caregivers.", "default": "for-all-caregivers, caregivers-lp, incontinence-bacteria-skin-protection" },
     { "type": "header", "content": "Triggers & frequency" },
     { "type": "range", "id": "trigger_scroll_percent", "min": 10, "max": 90, "step": 5, "unit": "%", "label": "Show popup after scroll depth", "default": 50 },
     { "type": "range", "id": "trigger_time_seconds", "min": 0, "max": 60, "step": 5, "unit": "s", "label": "Time fallback (0 = off)", "default": 25 },

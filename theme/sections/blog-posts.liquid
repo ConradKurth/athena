@@ -60,7 +60,7 @@
     endif
 
     if section.settings.heading != blank
-      render 'headline', title: section.settings.heading | escape
+      render 'headline', title: section.settings.heading
     endif
   %}
 
@@ -469,3 +469,13 @@
   }
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "      render 'headline', title: section.settings.heading | escape"
+  to: "      render 'headline', title: section.settings.heading"
+  position: 2010..2066
+{% endcomment %}

@@ -13,7 +13,7 @@
     assign show_lang_selector = true
   endif
 
-  assign show_tabs = show_country_selector and show_lang_selector
+  assign show_tabs = show_country_selector
 %}
 
 <!-- Overlay behind drawer -->
@@ -195,3 +195,13 @@
     </div>
   </div>
 </localization-drawer>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "  assign show_tabs = show_country_selector and show_lang_selector"
+  to: "  assign show_tabs = show_country_selector"
+  position: 418..460
+{% endcomment %}

@@ -14,6 +14,7 @@
       "blocks": {
         "ai_gen_block_30f64be_DcCRji": {
           "type": "ai_gen_block_30f64be",
+          "disabled": true,
           "settings": {
             "text_before": "Free Shipping on order",
             "highlight_text": "over $55!",
@@ -51,8 +52,8 @@
       "type": "main-breadcrumbs",
       "settings": {
         "full-width-enabled": true,
-        "text_color": "#193445",
-        "background_color": "#ffffff",
+        "text_color": "#7a6274",
+        "background_color": "#fffbf9",
         "margin-top": 12,
         "margin-bottom": 12
       }
@@ -92,6 +93,19 @@
             "size_text_mobile": 140
           }
         },
+        "image_Lab96Badge": {
+          "type": "image",
+          "settings": {
+            "select_icon": "check",
+            "heading": "",
+            "size_heading": 20,
+            "size_heading_mobile": 50,
+            "text": "<h5>96% less surface bacteria in independent laboratory testing*</h5>",
+            "link": "",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
         "image_69jm6j": {
           "type": "image",
           "settings": {
@@ -125,7 +139,7 @@
             "heading": "",
             "size_heading": 20,
             "size_heading_mobile": 50,
-            "text": "<h5>Free Shipping on 60 & 90 Packs</h5>",
+            "text": "<h5>Free Shipping</h5>",
             "link": "",
             "margin-top": 0,
             "margin-bottom": 0
@@ -134,7 +148,7 @@
         "image_DrLabTest": {
           "type": "image",
           "settings": {
-            "select_icon": "check_mark",
+            "select_icon": "user",
             "heading": "",
             "size_heading": 20,
             "size_heading_mobile": 50,
@@ -148,7 +162,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#193445",
+            "color-background": "#ecdcd9",
             "margin-top": 8,
             "margin-bottom": 8
           }
@@ -167,7 +181,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": false,
-            "color-background": "#ffffff",
+            "color-background": "#fffbf9",
             "margin-top": 8,
             "margin-bottom": 0
           }
@@ -196,7 +210,7 @@
           "type": "separator",
           "settings": {
             "show-separator-line": true,
-            "color-background": "#193445",
+            "color-background": "#ecdcd9",
             "margin-top": 8,
             "margin-bottom": 4
           }
@@ -214,7 +228,7 @@
             "show_gift_card_recipient": false,
             "show_qty_selector": true,
             "text_color": "#ffffff",
-            "background_color": "#003649"
+            "background_color": "#a64a63"
           }
         },
         "text_kYzwWP": {
@@ -228,7 +242,7 @@
         "text_CrwGyb": {
           "type": "text",
           "settings": {
-            "heading": "Our Guarantee ",
+            "heading": "Our Guarantee",
             "content": "<ul><li>Proudly made in the USA</li><li>Free 30-day returns</li><li>Backed by lab tests</li></ul>",
             "page": ""
           }
@@ -277,6 +291,7 @@
         "text_CDKQpM",
         "judge_me_reviews_preview_badge_Vm7YzR",
         "price",
+        "image_Lab96Badge",
         "image_69jm6j",
         "image_h3yBAq",
         "image_3Fyjeq",
@@ -295,9 +310,9 @@
         "image_tt8FC3"
       ],
       "custom_css": [
-        ".rte :is(p,ul,li,ol):first-child{margin-block-start:0}",
-        "fieldset label{display:block;border:2px solid #c9d3da!important;border-radius:12px!important;background:#fff!important;padding:12px 16px!important;margin:0 0 8px}",
-        "fieldset input:checked+label,fieldset input:checked~label{border-color:#193445!important;background:#ddeced!important;font-weight:700}"
+        ".rte :is(p, ul, li, ol):first-child {margin-block-start: 0;}",
+        "fieldset label {display: block; border: 2px solid #ecdcd9 !important; border-radius: 16px !important; background: #fff !important; padding: 12px 16px !important; margin: 0 0 8px; color: #3d1f35;}",
+        "fieldset input:checked + label,fieldset input:checked ~ label {border-color: #a64a63 !important; background: #f8ebe7 !important; font-weight: 700;}"
       ],
       "settings": {
         "enable_sticky_buy_button": true,
@@ -312,11 +327,20 @@
         "enable-preselected-variant": true,
         "enable-image-zoom": true,
         "mobile-image": "normal",
-        "show-thumbnails-mobile": true,
-        "text_color": "#193445",
-        "background_color": "#ffffff",
+        "show-thumbnails-mobile": false,
+        "text_color": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 0,
         "margin-bottom": 8
+      }
+    },
+    "ug_story": {
+      "type": "ug-product-story",
+      "settings": {
+        "step_1": "shopify://shop_images/new.png",
+        "step_2": "shopify://shop_images/instructions1_1.png",
+        "step_3": "shopify://shop_images/Instructions2_2.png",
+        "step_4": "shopify://shop_images/Instructions2_1.png"
       }
     },
     "177127772471f25f5e": {
@@ -357,23 +381,6 @@
         "section-margin": 0
       }
     },
-    "separator_a938wj": {
-      "type": "separator",
-      "settings": {
-        "advanced_heading": false,
-        "heading": "",
-        "heading_richtext": "<h2>Separator</h2>",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-section-background": "#ffffff",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "1763104546b1e38527": {
       "type": "apps",
       "blocks": {
@@ -392,102 +399,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "1764586754e105e23e": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_0f3b494_UcmGyn": {
-          "type": "ai_gen_block_0f3b494",
-          "settings": {
-            "heading": "Reasons to Choose UraGuard®",
-            "heading_color": "#193445",
-            "heading_size": 20,
-            "heading_size_desktop": 32,
-            "background_color": "#ddeced",
-            "icon_color": "#ffffff",
-            "icon_size": 65,
-            "icon_size_desktop": 80,
-            "text_color": "#005c7c",
-            "text_size": 15,
-            "text_size_desktop": 14,
-            "subtext_color": "#717171",
-            "subtext_size": 10,
-            "subtext_size_desktop": 13,
-            "autoplay_delay": 3,
-            "dot_color": "#193445",
-            "feature_1_enabled": true,
-            "feature_1_icon_type": "custom",
-            "feature_1_shopify_icon": "shield",
-            "feature_1_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_4_2025_10_19_21_AM.png",
-            "feature_1_text": "<p><strong>Targeted Protection</strong></p>",
-            "feature_1_subtext": "<p>Shields the urethral area, where bacteria are most likely to enter your bladder and cause UTIs.</p>",
-            "feature_2_enabled": true,
-            "feature_2_icon_type": "custom",
-            "feature_2_shopify_icon": "shield",
-            "feature_2_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_05_07_PM.png",
-            "feature_2_text": "<p><strong>Backed by Lab Tests</strong></p>",
-            "feature_2_subtext": "<p>Shown to maintain a barrier to bacteria — even after 8 hours of use.</p>",
-            "feature_3_enabled": true,
-            "feature_3_icon_type": "custom",
-            "feature_3_shopify_icon": "star",
-            "feature_3_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_39_51_AM.png",
-            "feature_3_text": "<p><strong>The Only Bacterial Shield Available</strong></p>",
-            "feature_3_subtext": "<p>UraGuard® is the only bacteria-blocking liner on the market.</p>",
-            "feature_4_enabled": true,
-            "feature_4_icon_type": "custom",
-            "feature_4_shopify_icon": "award",
-            "feature_4_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_09_35_PM.png",
-            "feature_4_text": "<p><strong>Fits All Disposable Briefs & Diapers</strong></p>",
-            "feature_4_subtext": "<p>Designed for use with all incontinence products.</p>",
-            "feature_5_enabled": true,
-            "feature_5_icon_type": "custom",
-            "feature_5_shopify_icon": "heart",
-            "feature_5_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_12_14_35_PM.png",
-            "feature_5_text": "<p><strong>Flexible & Skin-Friendly</strong></p>",
-            "feature_5_subtext": "<p>Moves with your body for discreet, all-day comfort without adding bulk.</p>",
-            "feature_6_enabled": true,
-            "feature_6_icon_type": "custom",
-            "feature_6_shopify_icon": "clock",
-            "feature_6_custom_icon": "shopify://shop_images/ChatGPT_Image_Dec_3_2025_10_48_51_AM.png",
-            "feature_6_text": "<p><strong>Ideal for Daily Use</strong></p>",
-            "feature_6_subtext": "<p>Wherever you go, UraGuard<strong>®</strong> helps you stay fresh, confident, and protected.</p>"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_0f3b494_UcmGyn"
-      ],
-      "custom_css": [],
-      "settings": {
-        "section-margin": 0
-      }
-    },
-    "rich_text_7fgMCc": {
-      "type": "rich-text",
-      "blocks": {
-        "button_UjFYfQ": {
-          "type": "button",
-          "settings": {
-            "button_select": "secondary",
-            "button_label": "Learn How to Use UraGuard® Shield",
-            "button_link": "https://www.athenauraguard.com/pages/instructions-for-use",
-            "disable_on_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "button_UjFYfQ"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "section_width": "regular",
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 0
       }
     },
     "testimonial_video_reels_qnieGX": {
@@ -561,29 +472,10 @@
         "video_button": true,
         "text_alignment": "center",
         "text_style": "body",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 20,
         "margin-bottom": 40
-      }
-    },
-    "separator_4cdWwM": {
-      "type": "separator",
-      "disabled": true,
-      "name": "t:sections.separator.presets.name",
-      "settings": {
-        "advanced_heading": false,
-        "heading": "",
-        "heading_richtext": "<h2>Separator</h2>",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "show-separator-line": false,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-section-background": "#ffffff",
-        "margin-top": 20,
-        "margin-bottom": 20
       }
     },
     "1764573998c95b5002": {
@@ -600,10 +492,10 @@
           "settings": {
             "heading": "FAQs",
             "text_alignment": "center",
-            "font_size_mobile": 24,
+            "font_size_mobile": 28,
             "font_size_desktop": 40,
-            "text_color": "#193445",
-            "background_color": "#ffffff",
+            "text_color": "#3d1f35",
+            "background_color": "#fffbf9",
             "padding_top": 0,
             "padding_bottom": 0
           },
@@ -624,7 +516,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "1. How does UraGuard® Shield work?",
-            "content": "<p>Here’s what happens when you use the shield:</p><ul><li>The shield liner is placed inside your incontinence brief or diaper, positioned directly under the urethra.</li><li>During the day, urine and stool are absorbed into the incontinence product, creating a warm, moist environment that allows bacteria to multiply and thrive. </li><li>When bacteria build up in this damp space, they may enter the urethra, increasing the risk of urinary discomfort and UTIs.</li><li>UraGuard<strong>®</strong> creates a targeted physical barrier over the urethral area, separating it from the moist parts of the incontinence product where bacteria are present.</li><li>As the urethra is covered, bacteria held in the pad or brief don’t reach the urethral opening, reducing the chances of infection.</li></ul>",
+            "content": "<p>Here’s what happens when you use the shield:</p><ul><li>The shield liner is placed inside your incontinence brief or diaper, positioned directly under the urethra.</li><li>During the day, urine and stool are absorbed into the incontinence product, creating a warm, moist environment that allows bacteria to multiply and thrive. </li><li>When bacteria build up in this damp space, they sit right against your skin.</li><li>UraGuard<strong>®</strong> creates a targeted physical barrier over the urethral area, separating it from the moist parts of the incontinence product where bacteria are present.</li><li>With the urethral area covered, it stays separated from the moisture and bacteria held in the pad or brief.</li></ul>",
             "page": "",
             "icon": "none"
           }
@@ -633,7 +525,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "2. How is UraGuard® Shield Different From a Pad?",
-            "content": "<p>Unlike full-length pads, UraGuard<strong>® </strong>is a small, targeted shield designed specifically to cover the urethral area — not absorb fluid. It works alongside your existing incontinence brief or disposable underwear.</p>",
+            "content": "<p>Unlike full-length pads, UraGuard<strong>® </strong>is a small, targeted shield designed specifically to cover the urethral area — not absorb fluid. It works alongside your existing incontinence brief or disposable underwear. <a href=\"/pages/what-is-a-hygiene-shield\">Learn what a hygiene shield is.</a></p>",
             "page": "",
             "icon": "none"
           }
@@ -696,7 +588,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "9. Where is UraGuard® made?",
-            "content": "<p>UraGuard® is proudly manufactured in the USA. We’re committed to high-quality manufacturing standards to ensure our products meet the needs of women seeking comfort, protection, and urinary health support.</p>",
+            "content": "<p>UraGuard® is proudly manufactured in the USA. We’re committed to high-quality manufacturing standards to ensure our products meet the needs of women seeking comfort, dryness, and peace of mind.</p>",
             "page": "",
             "icon": "none"
           }
@@ -715,8 +607,8 @@
       ],
       "name": "t:sections.collapsible_menu.presets.name",
       "settings": {
-        "color-body-text": "#003649",
-        "background_color": "#ffffff",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "compact-size-enabled": true,
         "margin-top": 20,
         "margin-bottom": 20
@@ -728,20 +620,24 @@
         "heading_blogseo": {
           "type": "heading",
           "settings": {
-            "heading": "Learn more about UTIs & bladder leaks"
+            "heading": "Learn more about bladder leaks & skin comfort",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
           }
         },
         "text_blogseo": {
           "type": "text",
           "settings": {
-            "text": "<p>Straightforward, doctor-reviewed guides on preventing UTIs and managing light bladder leaks — including whether pads and briefs can raise your risk, and how to stay comfortable day and night.</p>"
+            "text": "<p>Straightforward, doctor-reviewed guides on managing bladder leaks, including how pads and briefs affect your skin and how to stay comfortable day and night.</p>",
+            "disable_on_mobile": false
           }
         },
         "button_blogseo": {
           "type": "button",
           "settings": {
             "button_select": "secondary",
-            "button_label": "Read our UTI & bladder-leak guides",
+            "button_label": "Read our bladder-leak guides",
             "button_link": "https://www.athenauraguard.com/blogs/news",
             "disable_on_mobile": false
           }
@@ -756,8 +652,8 @@
       "settings": {
         "section_width": "regular",
         "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
+        "color-body-text": "#3d1f35",
+        "background_color": "#fffbf9",
         "margin-top": 0,
         "margin-bottom": 0
       }
@@ -789,8 +685,8 @@
         "heading": "UraGuard® in the News",
         "animation": "swipe",
         "animation_speed": "100",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "#fbfaf6",
+        "color-body-text": "#3d1f35",
+        "background_color": "#f8ebe7",
         "margin-top": 44,
         "margin-bottom": 0
       }
@@ -800,17 +696,14 @@
     "1769810516bd65a39f",
     "breadcrumbs",
     "main",
-    "177127772471f25f5e",
-    "separator_a938wj",
+    "ug_story",
     "1763104546b1e38527",
-    "1764586754e105e23e",
-    "rich_text_7fgMCc",
     "testimonial_video_reels_qnieGX",
-    "separator_4cdWwM",
-    "1764573998c95b5002",
     "1764739654c7744b3a",
     "collapsible_menu_V8LbeE",
     "blog_link_seo",
-    "brands_htWiGw"
+    "brands_htWiGw",
+    "177127772471f25f5e",
+    "1764573998c95b5002"
   ]
 }
