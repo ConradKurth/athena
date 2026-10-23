@@ -1,7 +1,7 @@
 {%- comment -%}
   A/B test (started 2026-10): which pack the PDP preselects. Cell a = 30-pack (theme default), b = 60-pack.
   The cell persists per browser (localStorage), is written to the cart as `_ab_pack_default` (lands on the
-  order as a hidden attribute) and sent to GA4 as event `ab_pack_default_a` / `ab_pack_default_b` so users
+  order as a hidden attribute) and to each product form as a hidden line-item property (survives Buy-it-now) and sent to GA4 as event `ab_pack_default_a` / `ab_pack_default_b` so users
   per cell can be counted. Visitors whose URL already picks a variant are left alone.
   Cell b is served by redirecting to ?variant=<60-pack> (one fast reload, same as a pack-card click).
   Readout: .context/data/ab_pack_report.py. Remove this snippet and its render after the test.
@@ -36,6 +36,17 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ attributes: { _ab_pack_default: cell } })
       });
+      // Buy-it-now / express checkout skips the cart attribute; a line-item property survives it.
+      function tagForms() {
+        document.querySelectorAll('form[action*="/cart/add"]').forEach(function (f) {
+          if (f.querySelector('input[name="properties[_ab_pack_default]"]')) return;
+          var i = document.createElement('input');
+          i.type = 'hidden'; i.name = 'properties[_ab_pack_default]'; i.value = cell;
+          f.appendChild(i);
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tagForms);
+      else tagForms();
     })();
   </script>
 {%- endif -%}
