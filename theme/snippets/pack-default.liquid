@@ -1,0 +1,20 @@
+{%- comment -%}
+  PDP preselects the 60-pack. The theme's default is the first variant (30-pack); a 30-pack order with
+  FIRST20 nets ~$0.70 after shipping + pick/pack, a 60-pack ~$12.67 (2026-10 cost sheet).
+  Replaces the 2026-10 default-pack A/B test (ab-pack-default.liquid), ended 2026-10-27 in favor of cell b.
+  Served by redirecting to ?variant=<60-pack>, the same reload a pack-card click does in this theme.
+  Visitors whose URL already picks a variant are left alone.
+{%- endcomment -%}
+{%- if product.handle == 'athena-uraguard-liner' -%}
+  {%- assign sixty_id = '' -%}
+  {%- for v in product.variants -%}{%- if v.option1 contains '60 ' -%}{%- assign sixty_id = v.id -%}{%- endif -%}{%- endfor -%}
+  {%- if sixty_id != '' -%}
+    <script>
+      if (!/[?&]variant=/.test(location.search)) {
+        var u = new URL(location.href);
+        u.searchParams.set('variant', '{{ sixty_id }}');
+        location.replace(u.toString());
+      }
+    </script>
+  {%- endif -%}
+{%- endif -%}
